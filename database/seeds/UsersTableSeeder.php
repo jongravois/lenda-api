@@ -14,26 +14,31 @@ class UserTableSeeder extends Seeder {
             [
                 'name' => 'LENDA',
                 'email' => 'lenda@arm-lenda.com',
+                'app_id' => 1,
                 'password' => Hash::make('secret')
             ],
             [
                 'name' => 'ACCOUNTING',
                 'email' => 'acct@arm-lenda.com',
+                'app_id' => 1,
                 'password' => Hash::make('secret')
             ],
             [
                 'name' => 'Jonathan Gravois',
                 'email' => 'jongravois@gmail.com',
+                'app_id' => 1,
                 'password' => Hash::make('password')
             ],
             [
                 'name' => 'Kenn Thompson',
                 'email' => 'kennthompson@gmail.com',
+                'app_id' => 1,
                 'password' => Hash::make('secret')
             ],
             [
                 'name' => 'Brad Terral',
                 'email' => 'bterral@armlend.com',
+                'app_id' => 1,
                 'password' => Hash::make('secret')
             ]
         ];
