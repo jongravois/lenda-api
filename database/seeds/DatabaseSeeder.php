@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $seeders = [
-            'UserTableSeeder'
+            'LocationsTableSeeder',
+            'RegionsTableSeeder',
+            'UsersTableSeeder'
         ];
 
         foreach($seeders as $seeder){

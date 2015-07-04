@@ -1,6 +1,4 @@
-<?php
-
-namespace App;
+<?php namespace App;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -12,24 +10,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 {
     use Authenticatable, CanResetPassword;
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
     protected $table = 'users';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = ['name', 'email', 'outlook', 'password', 'app', 'nick', 'phone', 'loc_id', 'manager_id', 'closer_id', 'role_id', 'is_active', 'is_admin', 'is_manager', 'is_approver', 'full_sidebar', 'comms_email', 'comms_sms', 'comms_outlook', 'comms_online'];
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
     protected $hidden = ['password', 'remember_token'];
+
+    public function locations()
+    {
+        return $this->hasOne('App\Location', 'id', 'loc_id');
+    }
 }

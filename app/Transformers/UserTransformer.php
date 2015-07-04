@@ -6,6 +6,8 @@ use League\Fractal\TransformerAbstract;
 class UserTransformer extends TransformerAbstract {
     public function transform(User $user)
     {
+        //return $user;
+
         return [
             'id' => $user->id,
             'name' => $user->name,
@@ -16,6 +18,7 @@ class UserTransformer extends TransformerAbstract {
             'is_manager' => (boolean)$user->is_manager,
             'is_approver' => (boolean)$user->is_approver,
             'loc_id' => (integer) $user->loc_id,
+            'loc_abr' => $user->locations->loc_abr,
             'manager_id' => (integer) $user->manager_id,
             'closer_id' => (integer) $user->closer_id,
             'role_id' => (integer) $user->role_id,

@@ -1,27 +1,27 @@
 <?php namespace App\Http\Controllers;
 
-use App\User;
+use App\Region;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Transformers\UserTransformer;
+use App\Transformers\RegionTransformer;
+use App\Http\Requests;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
-class UsersController extends ApiController
+class RegionsController extends ApiController
 {
-    protected $users;
+    protected $regions;
 
-    public function __construct(User $users)
+    public function __construct(Region $regions)
     {
-        $this->users = $users;
+        $this->regions = $regions;
     }
 
-
-    public function index(Manager $fractal, UserTransformer $userTransformer)
+    public function index(Manager $fractal, RegionTransformer $regionTransformer)
     {
-        $users = User::with('locations')->get();
-        $collection = new Collection($users, $userTransformer);
+        $regions = Region::with('manager')->get();
+        $collection = new Collection($regions, $regionTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
     }
@@ -36,10 +36,10 @@ class UsersController extends ApiController
         //
     }
 
-    public function show($id, Manager $fractal, UserTransformer $userTransformer)
+    public function show($id, Manager $fractal, RegionTransformer $regionTransformer)
     {
-        $user = $this->users->findOrFail($id);
-        $item = new Item($user, $userTransformer);
+        $region = $this->regions->findOrFail($id);
+        $item = new Item($region, $regionTransformer);
         $data = $fractal->createData($item)->toArray();
         return $this->respond($data);
     }
