@@ -18,11 +18,6 @@ class AuthenticateController extends Controller
         $this->middleware('jwt.auth', ['except' => ['authenticate']]);
     }
 
-    /**
-     * Return the user
-     *
-     * @return Response
-     */
     public function index()
     {
 
@@ -31,11 +26,6 @@ class AuthenticateController extends Controller
         return $users;
     }
 
-    /**
-     * Return a JWT
-     *
-     * @return Response
-     */
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -54,11 +44,6 @@ class AuthenticateController extends Controller
         return response()->json(compact('token'));
     }
 
-    /**
-     * Return the authenticated user
-     *
-     * @return Response
-     */
     public function getAuthenticatedUser()
     {
         try {
