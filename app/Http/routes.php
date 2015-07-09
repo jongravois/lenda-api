@@ -17,7 +17,15 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'api'], function()
 {
+	Route::resource('agencies', 'AgenciesController');
+	Route::resource('agents', 'AgentsController');
 	Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+	Route::resource('counties', 'CountiesController');
+	Route::resource('crops', 'CropsController');
+	Route::resource('insopts', 'InsoptsController');
+	Route::resource('inspols', 'InspolsController');
+	Route::resource('insunits', 'InsunitsController');
+	Route::resource('instypes', 'InstypesController');
 	Route::resource('locations', 'LocationsController');
 	Route::resource('regions', 'RegionsController');
 	Route::resource('users', 'UsersController');
