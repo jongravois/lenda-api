@@ -5,11 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         Model::unguard();
@@ -17,14 +12,20 @@ class DatabaseSeeder extends Seeder
         $seeders = [
             'AgenciesTableSeeder',
             'AgentsTableSeeder',
-            'CountiesTableSeeder',
             'CropsTableSeeder',
+            'EntitytypesTableSeeder',
             'InsoptsTableSeeder',
             'InspolsTableSeeder',
             'InstypesTableSeeder',
             'InsunitsTableSeeder',
+            'LoanstatusTableSeeder',
+            'LoantypesTableSeeder',
             'LocationsTableSeeder',
+            'MeasuresTableSeeder',
             'RegionsTableSeeder',
+            'RolesTableSeeder',
+            'SpendcatsTableSeeder',
+            'StatesTableSeeder',
             'UsersTableSeeder'
         ];
 

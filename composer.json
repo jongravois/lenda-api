@@ -10,7 +10,7 @@
         "tymon/jwt-auth": "0.5.*",
         "barryvdh/laravel-cors": "0.7.x",
         "league/fractal": "^0.12.0",
-        "flynsarmy/csv-seeder": "1.0.*"
+        "league/csv": "^7.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
