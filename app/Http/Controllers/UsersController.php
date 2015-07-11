@@ -1,61 +1,69 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use App\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+namespace App\Http\Controllers;
+
 use App\Transformers\UserTransformer;
+use App\User;
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
 class UsersController extends ApiController
 {
-    protected $users;
+    protected $records;
 
-    public function __construct(User $users)
+    public function __construct(User $records)
     {
-        $this->users = $users;
+        $this->records = $records;
     }
-
 
     public function index(Manager $fractal, UserTransformer $userTransformer)
     {
-        $users = User::with('locations')->get();
-        $collection = new Collection($users, $userTransformer);
+        // show all
+        $records = User::all();
+        $collection = new Collection($records, $userTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respond($data);
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store()
-    {
-        //
-    }
-
-    public function show($id, Manager $fractal, UserTransformer $userTransformer)
-    {
-        $user = $this->users->findOrFail($id);
-        $item = new Item($user, $userTransformer);
-        $data = $fractal->createData($item)->toArray();
-        return $this->respond($data);
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update($id)
-    {
-        //
+        return $this->respondWithCORS($data);
     }
 
     public function destroy($id)
     {
-        //
+        // delete single
+        $record = $this->records->findOrFail($id);
+        $record->delete();
+        return $this->respondOK('User was deleted');
+    }
+
+    public function show($id, Manager $fractal, UserTransformer $userTransformer)
+    {
+        //show single
+        $record = $this->records->findOrFail($id);
+        $item = new Item($record, $userTransformer);
+        $data = $fractal->createData($item)->toArray();
+        return $this->respond($data);
+    }
+
+    public function store()
+    {
+        // insert new
+        $record = User::create(Input::all());
+        return $this->respondCreated('User was created');
+    }
+
+    public function update($id)
+    {
+        // save updated
+        $record = $this->records->findOrFail($id);
+
+        if(! $record){
+            User::create(Input::all());
+            return $this->respondCreated('User was created');
+        }
+
+        $record->fill(Input::all())->save();
+        return $this->respondCreated('User was created');
     }
 }

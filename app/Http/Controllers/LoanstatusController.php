@@ -22,29 +22,24 @@ class LoanstatusController extends ApiController
 
     public function index(Manager $fractal, LoanstatusTransformer $loanstatusTransformer)
     {
+        // show all
         $records = Loanstatus::all();
         $collection = new Collection($records, $loanstatusTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respond($data);
-    }
-
-    public function create()
-    {
-        //
+        return $this->respondWithCORS($data);
     }
 
     public function destroy($id)
     {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
+        // delete single
+        $record = $this->records->findOrFail($id);
+        $record->delete();
+        return $this->respondOK('Loanstatus was deleted');
     }
 
     public function show($id, Manager $fractal, LoanstatusTransformer $loanstatusTransformer)
     {
+        //show single
         $record = $this->records->findOrFail($id);
         $item = new Item($record, $loanstatusTransformer);
         $data = $fractal->createData($item)->toArray();
@@ -53,11 +48,22 @@ class LoanstatusController extends ApiController
 
     public function store()
     {
-        //
+        // insert new
+        $record = Loanstatus::create(Input::all());
+        return $this->respondCreated('Loanstatus was created');
     }
 
     public function update($id)
     {
-        //
+        // save updated
+        $record = $this->records->findOrFail($id);
+
+        if(! $record){
+            Loanstatus::create(Input::all());
+            return $this->respondCreated('Loanstatus was created');
+        }
+
+        $record->fill(Input::all())->save();
+        return $this->respondCreated('Loanstatus was created');
     }
 }

@@ -22,29 +22,24 @@ class LoantypesController extends ApiController
 
     public function index(Manager $fractal, LoantypeTransformer $loantypeTransformer)
     {
+        // show all
         $records = Loantype::all();
         $collection = new Collection($records, $loantypeTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respond($data);
-    }
-
-    public function create()
-    {
-        //
+        return $this->respondWithCORS($data);
     }
 
     public function destroy($id)
     {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
+        // delete single
+        $record = $this->records->findOrFail($id);
+        $record->delete();
+        return $this->respondOK('Loantype was deleted');
     }
 
     public function show($id, Manager $fractal, LoantypeTransformer $loantypeTransformer)
     {
+        //show single
         $record = $this->records->findOrFail($id);
         $item = new Item($record, $loantypeTransformer);
         $data = $fractal->createData($item)->toArray();
@@ -53,11 +48,22 @@ class LoantypesController extends ApiController
 
     public function store()
     {
-        //
+        // insert new
+        $record = Loantype::create(Input::all());
+        return $this->respondCreated('Loantype was created');
     }
 
     public function update($id)
     {
-        //
+        // save updated
+        $record = $this->records->findOrFail($id);
+
+        if(! $record){
+            Loantype::create(Input::all());
+            return $this->respondCreated('Loantype was created');
+        }
+
+        $record->fill(Input::all())->save();
+        return $this->respondCreated('Loantype was created');
     }
 }

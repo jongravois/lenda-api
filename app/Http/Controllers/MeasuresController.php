@@ -22,29 +22,24 @@ class MeasuresController extends ApiController
 
     public function index(Manager $fractal, MeasureTransformer $measureTransformer)
     {
+        // show all
         $records = Measure::all();
         $collection = new Collection($records, $measureTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respond($data);
-    }
-
-    public function create()
-    {
-        //
+        return $this->respondWithCORS($data);
     }
 
     public function destroy($id)
     {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
+        // delete single
+        $record = $this->records->findOrFail($id);
+        $record->delete();
+        return $this->respondOK('Measure was deleted');
     }
 
     public function show($id, Manager $fractal, MeasureTransformer $measureTransformer)
     {
+        //show single
         $record = $this->records->findOrFail($id);
         $item = new Item($record, $measureTransformer);
         $data = $fractal->createData($item)->toArray();
@@ -53,11 +48,22 @@ class MeasuresController extends ApiController
 
     public function store()
     {
-        //
+        // insert new
+        $record = Measure::create(Input::all());
+        return $this->respondCreated('Measure was created');
     }
 
     public function update($id)
     {
-        //
+        // save updated
+        $record = $this->records->findOrFail($id);
+
+        if(! $record){
+            Measure::create(Input::all());
+            return $this->respondCreated('Measure was created');
+        }
+
+        $record->fill(Input::all())->save();
+        return $this->respondCreated('Measure was created');
     }
 }

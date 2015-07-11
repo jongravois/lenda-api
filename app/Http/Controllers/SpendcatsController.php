@@ -22,29 +22,24 @@ class SpendcatsController extends ApiController
 
     public function index(Manager $fractal, SpendcatTransformer $spendcatTransformer)
     {
+        // show all
         $records = Spendcat::all();
         $collection = new Collection($records, $spendcatTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respond($data);
-    }
-
-    public function create()
-    {
-        //
+        return $this->respondWithCORS($data);
     }
 
     public function destroy($id)
     {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
+        // delete single
+        $record = $this->records->findOrFail($id);
+        $record->delete();
+        return $this->respondOK('Spendcat was deleted');
     }
 
     public function show($id, Manager $fractal, SpendcatTransformer $spendcatTransformer)
     {
+        //show single
         $record = $this->records->findOrFail($id);
         $item = new Item($record, $spendcatTransformer);
         $data = $fractal->createData($item)->toArray();
@@ -53,11 +48,22 @@ class SpendcatsController extends ApiController
 
     public function store()
     {
-        //
+        // insert new
+        $record = Spendcat::create(Input::all());
+        return $this->respondCreated('Spendcat was created');
     }
 
     public function update($id)
     {
-        //
+        // save updated
+        $record = $this->records->findOrFail($id);
+
+        if(! $record){
+            Spendcat::create(Input::all());
+            return $this->respondCreated('Spendcat was created');
+        }
+
+        $record->fill(Input::all())->save();
+        return $this->respondCreated('Spendcat was created');
     }
 }

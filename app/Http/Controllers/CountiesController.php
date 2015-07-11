@@ -22,29 +22,24 @@ class CountiesController extends ApiController
 
     public function index(Manager $fractal, CountyTransformer $countyTransformer)
     {
+        // show all
         $records = County::all();
         $collection = new Collection($records, $countyTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respond($data);
-    }
-
-    public function create()
-    {
-        //
+        return $this->respondWithCORS($data);
     }
 
     public function destroy($id)
     {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
+        // delete single
+        $record = $this->records->findOrFail($id);
+        $record->delete();
+        return $this->respondOK('county was deleted');
     }
 
     public function show($id, Manager $fractal, CountyTransformer $countyTransformer)
     {
+        //show single
         $record = $this->records->findOrFail($id);
         $item = new Item($record, $countyTransformer);
         $data = $fractal->createData($item)->toArray();
@@ -53,11 +48,22 @@ class CountiesController extends ApiController
 
     public function store()
     {
-        //
+        // insert new
+        $record = County::create(Input::all());
+        return $this->respondCreated('County was created');
     }
 
     public function update($id)
     {
-        //
+        // save updated
+        $record = $this->records->findOrFail($id);
+
+        if(! $record){
+            County::create(Input::all());
+            return $this->respondCreated('County was created');
+        }
+
+        $record->fill(Input::all())->save();
+        return $this->respondCreated('County was created');
     }
 }

@@ -1,61 +1,69 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use App\Region;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Transformers\RegionTransformer;
+use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Http\Controllers\Controller;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
 class RegionsController extends ApiController
 {
-    protected $regions;
+    protected $records;
 
-    public function __construct(Region $regions)
+    public function __construct(Region $records)
     {
-        $this->regions = $regions;
+        $this->records = $records;
     }
 
     public function index(Manager $fractal, RegionTransformer $regionTransformer)
     {
-        $regions = Region::with('manager')->get();
-        $collection = new Collection($regions, $regionTransformer);
+        // show all
+        $records = Region::all();
+        $collection = new Collection($records, $regionTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respond($data);
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store()
-    {
-        //
-    }
-
-    public function show($id, Manager $fractal, RegionTransformer $regionTransformer)
-    {
-        $region = $this->regions->findOrFail($id);
-        $item = new Item($region, $regionTransformer);
-        $data = $fractal->createData($item)->toArray();
-        return $this->respond($data);
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update($id)
-    {
-        //
+        return $this->respondWithCORS($data);
     }
 
     public function destroy($id)
     {
-        //
+        // delete single
+        $record = $this->records->findOrFail($id);
+        $record->delete();
+        return $this->respondOK('Region was deleted');
+    }
+
+    public function show($id, Manager $fractal, RegionTransformer $regionTransformer)
+    {
+        //show single
+        $record = $this->records->findOrFail($id);
+        $item = new Item($record, $regionTransformer);
+        $data = $fractal->createData($item)->toArray();
+        return $this->respond($data);
+    }
+
+    public function store()
+    {
+        // insert new
+        $record = Region::create(Input::all());
+        return $this->respondCreated('Region was created');
+    }
+
+    public function update($id)
+    {
+        // save updated
+        $record = $this->records->findOrFail($id);
+
+        if(! $record){
+            Region::create(Input::all());
+            return $this->respondCreated('Region was created');
+        }
+
+        $record->fill(Input::all())->save();
+        return $this->respondCreated('Region was created');
     }
 }

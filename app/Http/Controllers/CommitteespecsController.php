@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Agency;
-use App\Transformers\AgencyTransformer;
+use App\Committeespec;
+use App\Transformers\CommitteespecTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -11,20 +11,20 @@ use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
-class AgenciesController extends ApiController
+class CommitteespecsController extends ApiController
 {
     protected $records;
 
-    public function __construct(Agency $records)
+    public function __construct(Committeespec $records)
     {
         $this->records = $records;
     }
 
-    public function index(Manager $fractal, AgencyTransformer $agencyTransformer)
+    public function index(Manager $fractal, CommitteespecTransformer $committeespecTransformer)
     {
         // show all
-        $records = Agency::all();
-        $collection = new Collection($records, $agencyTransformer);
+        $records = Committeespec::all();
+        $collection = new Collection($records, $committeespecTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respondWithCORS($data);
     }
@@ -34,14 +34,14 @@ class AgenciesController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('agency was deleted');
+        return $this->respondOK('committeespec was deleted');
     }
 
-    public function show($id, Manager $fractal, AgencyTransformer $agencyTransformer)
+    public function show($id, Manager $fractal, CommitteespecTransformer $committeespecTransformer)
     {
         //show single
         $record = $this->records->findOrFail($id);
-        $item = new Item($record, $agencyTransformer);
+        $item = new Item($record, $committeespecTransformer);
         $data = $fractal->createData($item)->toArray();
         return $this->respond($data);
     }
@@ -49,8 +49,8 @@ class AgenciesController extends ApiController
     public function store()
     {
         // insert new
-        $record = Agency::create(Input::all());
-        return $this->respondCreated('Agency was created');
+        $record = Committeespec::create(Input::all());
+        return $this->respondCreated('Committeespec was created');
     }
 
     public function update($id)
@@ -59,11 +59,11 @@ class AgenciesController extends ApiController
         $record = $this->records->findOrFail($id);
 
         if(! $record){
-            Agency::create(Input::all());
-            return $this->respondCreated('Agency was created');
+            Committeespec::create(Input::all());
+            return $this->respondCreated('Committeespec was created');
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Agency was created');
+        return $this->respondCreated('Committeespec was created');
     }
 }

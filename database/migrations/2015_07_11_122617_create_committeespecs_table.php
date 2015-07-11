@@ -14,6 +14,10 @@ class CreateCommitteespecsTable extends Migration
     {
         Schema::create('committeespecs', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('loantype_id');
+            $table->double('min_amount')->default(0);
+            $table->double('max_amount')->default(0);
+            $table->integer('member_count')->default(0);
             $table->timestamps();
         });
     }

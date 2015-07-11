@@ -20,6 +20,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('agencies', 'AgenciesController');
 	Route::resource('agents', 'AgentsController');
 	Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+	Route::resource('committeespecs', 'CommitteespecsController');
 	Route::resource('counties', 'CountiesController');
 	Route::resource('crops', 'CropsController');
 	Route::resource('entitytypes', 'EntitytypesController');

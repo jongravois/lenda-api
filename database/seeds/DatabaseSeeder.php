@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
         $seeders = [
             'AgenciesTableSeeder',
             'AgentsTableSeeder',
+            'CommitteespecsTableSeeder',
             'CropsTableSeeder',
             'EntitytypesTableSeeder',
             'InsoptsTableSeeder',
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
             'RolesTableSeeder',
             'SpendcatsTableSeeder',
             'StatesTableSeeder',
+            'UploadsTableSeeder',
             'UsersTableSeeder'
         ];
 

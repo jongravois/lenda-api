@@ -22,29 +22,24 @@ class UploadsController extends ApiController
 
     public function index(Manager $fractal, UploadTransformer $uploadTransformer)
     {
+        // show all
         $records = Upload::all();
         $collection = new Collection($records, $uploadTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respond($data);
-    }
-
-    public function create()
-    {
-        //
+        return $this->respondWithCORS($data);
     }
 
     public function destroy($id)
     {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
+        // delete single
+        $record = $this->records->findOrFail($id);
+        $record->delete();
+        return $this->respondOK('Upload was deleted');
     }
 
     public function show($id, Manager $fractal, UploadTransformer $uploadTransformer)
     {
+        //show single
         $record = $this->records->findOrFail($id);
         $item = new Item($record, $uploadTransformer);
         $data = $fractal->createData($item)->toArray();
@@ -53,11 +48,22 @@ class UploadsController extends ApiController
 
     public function store()
     {
-        //
+        // insert new
+        $record = Upload::create(Input::all());
+        return $this->respondCreated('Upload was created');
     }
 
     public function update($id)
     {
-        //
+        // save updated
+        $record = $this->records->findOrFail($id);
+
+        if(! $record){
+            Upload::create(Input::all());
+            return $this->respondCreated('Upload was created');
+        }
+
+        $record->fill(Input::all())->save();
+        return $this->respondCreated('Upload was created');
     }
 }

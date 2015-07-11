@@ -22,29 +22,24 @@ class InsoptsController extends ApiController
 
     public function index(Manager $fractal, InsoptTransformer $insoptTransformer)
     {
+        // show all
         $records = Insopt::all();
         $collection = new Collection($records, $insoptTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respond($data);
-    }
-
-    public function create()
-    {
-        //
+        return $this->respondWithCORS($data);
     }
 
     public function destroy($id)
     {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
+        // delete single
+        $record = $this->records->findOrFail($id);
+        $record->delete();
+        return $this->respondOK('Insopt was deleted');
     }
 
     public function show($id, Manager $fractal, InsoptTransformer $insoptTransformer)
     {
+        //show single
         $record = $this->records->findOrFail($id);
         $item = new Item($record, $insoptTransformer);
         $data = $fractal->createData($item)->toArray();
@@ -53,11 +48,22 @@ class InsoptsController extends ApiController
 
     public function store()
     {
-        //
+        // insert new
+        $record = Insopt::create(Input::all());
+        return $this->respondCreated('Insopt was created');
     }
 
     public function update($id)
     {
-        //
+        // save updated
+        $record = $this->records->findOrFail($id);
+
+        if(! $record){
+            Insopt::create(Input::all());
+            return $this->respondCreated('Insopt was created');
+        }
+
+        $record->fill(Input::all())->save();
+        return $this->respondCreated('Insopt was created');
     }
 }

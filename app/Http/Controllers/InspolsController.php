@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Inspol;
 use App\Transformers\InspolTransformer;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use League\Fractal\Manager;
@@ -14,51 +13,57 @@ use League\Fractal\Resource\Item;
 
 class InspolsController extends ApiController
 {
-    protected $policies;
+    protected $records;
 
-    public function __construct(Inspol $policies)
+    public function __construct(Inspol $records)
     {
-        $this->policies = $policies;
+        $this->records = $records;
     }
 
     public function index(Manager $fractal, InspolTransformer $inspolTransformer)
     {
-        $policies = Inspol::all();
-        $collection = new Collection($policies, $inspolTransformer);
+        // show all
+        $records = Inspol::all();
+        $collection = new Collection($records, $inspolTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respond($data);
-    }
-
-    public function create()
-    {
-        //
+        return $this->respondWithCORS($data);
     }
 
     public function destroy($id)
     {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
+        // delete single
+        $record = $this->records->findOrFail($id);
+        $record->delete();
+        return $this->respondOK('Inspol was deleted');
     }
 
     public function show($id, Manager $fractal, InspolTransformer $inspolTransformer)
     {
-        $policy = $this->policies->findOrFail($id);
-        $item = new Item($policy, $inspolTransformer);
+        //show single
+        $record = $this->records->findOrFail($id);
+        $item = new Item($record, $inspolTransformer);
         $data = $fractal->createData($item)->toArray();
         return $this->respond($data);
     }
 
     public function store()
     {
-        //
+        // insert new
+        $record = Inspol::create(Input::all());
+        return $this->respondCreated('Inspol was created');
     }
 
     public function update($id)
     {
-        //
+        // save updated
+        $record = $this->records->findOrFail($id);
+
+        if(! $record){
+            Inspol::create(Input::all());
+            return $this->respondCreated('Inspol was created');
+        }
+
+        $record->fill(Input::all())->save();
+        return $this->respondCreated('Inspol was created');
     }
 }
