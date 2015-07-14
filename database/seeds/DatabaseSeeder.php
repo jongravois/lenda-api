@@ -19,16 +19,32 @@ class DatabaseSeeder extends Seeder
             'InspolsTableSeeder',
             'InstypesTableSeeder',
             'InsunitsTableSeeder',
+            'JointventuresTableSeeder',
+            'LoanconditionsTableSeeder',
             'LoanstatusTableSeeder',
             'LoantypesTableSeeder',
             'LocationsTableSeeder',
             'MeasuresTableSeeder',
+            'NotificationsTableSeeder',
+            'OthercollateralsTableSeeder',
+            'PartnersTableSeeder',
+            'PdfappsTableSeeder',
+            'PrerequisitesTableSeeder',
+            'PriorliensTableSeeder',
+            'RatioconstraintsTableSeeder',
+            'RecommentsTableSeeder',
+            'ReferencesTableSeeder',
             'RegionsTableSeeder',
+            'ReportsTableSeeder',
+            'RequireddocumentsTableSeeder',
             'RolesTableSeeder',
             'SpendcatsTableSeeder',
             'StatesTableSeeder',
+            'SystemicsTableSeeder',
             'UploadsTableSeeder',
-            'UsersTableSeeder'
+            'UsersTableSeeder',
+            'ViewfiltersTableSeeder',
+            'ViewoptionsTableSeeder'
         ];
 
         foreach($seeders as $seeder){
