@@ -18,12 +18,23 @@ Route::get('/', function () {
 Route::group(['prefix' => 'api'], function()
 {
 	Route::resource('agencies', 'AgenciesController');
+	Route::resource('attachments', 'AttachmentsController');
 	Route::resource('agents', 'AgentsController');
 	Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+	Route::resource('comments', 'CommentsController');
+	Route::resource('committees', 'CommitteesController');
 	Route::resource('committeespecs', 'CommitteespecsController');
+	Route::resource('corps', 'CorporationsController');
 	Route::resource('counties', 'CountiesController');
 	Route::resource('crops', 'CropsController');
+	Route::resource('distributors', 'DistributorsController');
 	Route::resource('entitytypes', 'EntitytypesController');
+	Route::resource('farmers', 'FarmersController');
+	Route::resource('exceptions', 'ExceptionsController');
+	Route::resource('farmexpenses', 'FarmexpensesController');
+	Route::resource('farmpractices', 'FarmpracticesController');
+	Route::resource('globals', 'GlobvarsController');
+	Route::resource('guarantors', 'GuarantorsController');
 	Route::resource('insopts', 'InsoptsController');
 	Route::resource('inspols', 'InspolsController');
 	Route::resource('insunits', 'InsunitsController');
@@ -49,6 +60,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('roles', 'RolesController');
 	Route::resource('spendcats', 'SpendcatsController');
 	Route::resource('states', 'StatesController');
+	Route::resource('storages', 'StoragecontractsController');
 	Route::resource('systemics', 'SystemicsController');
 	Route::resource('uploads', 'UploadsController');
 	Route::resource('users', 'UsersController');
