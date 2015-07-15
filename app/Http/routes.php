@@ -26,7 +26,12 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('committeespecs', 'CommitteespecsController');
 	Route::resource('corps', 'CorporationsController');
 	Route::resource('counties', 'CountiesController');
+	Route::resource('cropexpenses', 'CropexpensesController');
 	Route::resource('crops', 'CropsController');
+	Route::resource('xcols', 'CrosscollateralsController');
+	Route::resource('defaultcountycrops', 'DefaultcountycropsController');
+	Route::resource('defaultexpenses', 'DefaultexpensesController');
+	Route::resource('disbursements', 'DisbursementsController');
 	Route::resource('distributors', 'DistributorsController');
 	Route::resource('entitytypes', 'EntitytypesController');
 	Route::resource('farmers', 'FarmersController');
