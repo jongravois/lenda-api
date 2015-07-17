@@ -17,11 +17,17 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'api'], function()
 {
+	Route::resource('addfins', 'AddendumfinancialsController');
+	Route::resource('addloans', 'AddendumloansController');
+	Route::resource('admingraders', 'AdmingradersController');
 	Route::resource('agencies', 'AgenciesController');
 	Route::resource('attachments', 'AttachmentsController');
 	Route::resource('agents', 'AgentsController');
+	Route::resource('applicantfins', 'ApplicantfinancialsController');
+	Route::resource('applicants', 'ApplicantsController');
 	Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
 	Route::resource('comments', 'CommentsController');
+	Route::resource('commentstatuses', 'CommentstatusesController');
 	Route::resource('committees', 'CommitteesController');
 	Route::resource('committeespecs', 'CommitteespecsController');
 	Route::resource('corps', 'CorporationsController');
@@ -46,11 +52,19 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('instypes', 'InstypesController');
 	Route::resource('joints', 'JointventuresController');
 	Route::resource('loanconditions', 'LoanconditionsController');
+	Route::resource('loandistributors', 'LoandistributorsController');
+	Route::resource('loanexceptions', 'LoanexceptionsController');
+	Route::resource('loanfins', 'LoanfinancialsController');
+	Route::resource('loans', 'LoansController');
+	Route::resource('loanpractices', 'LoanpracticesController');
+	Route::resource('loanquestions', 'LoanquestionsController');
 	Route::resource('loanstatus', 'LoanstatusController');
 	Route::resource('loantypes', 'LoantypesController');
 	Route::resource('locations', 'LocationsController');
+	Route::resource('matrix', 'MatrixController');
 	Route::resource('measures', 'MeasuresController');
 	Route::resource('notifications', 'NotificationsController');
+	Route::resource('optimizervos', 'OptimizerviewoptionsController');
 	Route::resource('othercollaterals', 'OthercollateralsController');
 	Route::resource('partners', 'PartnersController');
 	Route::resource('pdfapps', 'PdfappsController');
@@ -60,6 +74,8 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('recomments', 'RecommentsController');
 	Route::resource('references', 'ReferencesController');
 	Route::resource('regions', 'RegionsController');
+	Route::resource('reportfilters', 'ReportfiltersController');
+	Route::resource('reportoptions', 'ReportoptionsController');
 	Route::resource('reports', 'ReportsController');
 	Route::resource('requireddocuments', 'RequireddocumentsController');
 	Route::resource('roles', 'RolesController');
