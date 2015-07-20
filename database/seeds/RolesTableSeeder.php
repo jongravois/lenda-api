@@ -20,8 +20,18 @@ class RolesTableSeeder extends Seeder
             'matrix' => 1
         ]);
         Role::create([
+            'abr'	=>	'CFO',
+            'role'	=>	'Chief Financial Officer',
+            'matrix' => 1
+        ]);
+        Role::create([
             'abr'	=>	'ABM',
-            'role'	=>	'Area Business Manager',
+            'role'	=>	'Area Manager',
+            'matrix' => 1
+        ]);
+        Role::create([
+            'abr'	=>	'COM',
+            'role'	=>	'Corporate Office Manager',
             'matrix' => 1
         ]);
         Role::create([
@@ -31,7 +41,7 @@ class RolesTableSeeder extends Seeder
         ]);
         Role::create([
             'abr'	=>	'OAS',
-            'role'	=>	'Office Assitant',
+            'role'	=>	'Office Assistant',
             'matrix' => 1
         ]);
         Role::create([
@@ -50,8 +60,8 @@ class RolesTableSeeder extends Seeder
             'matrix' => 1
         ]);
         Role::create([
-            'abr'	=>	'CON',
-            'role'	=>	'Controller/Compliance',
+            'abr'	=>	'LCA',
+            'role'	=>	'Loan Compliance Auditor',
             'matrix' => 1
         ]);
         Role::create([
@@ -65,19 +75,24 @@ class RolesTableSeeder extends Seeder
             'matrix' => 1
         ]);
         Role::create([
-            'abr'	=>	'IAS',
-            'role'	=>	'Insurance Assistant',
+            'abr'	=>	'IAN',
+            'role'	=>	'Insurance Analyst',
             'matrix' => 1
         ]);
         Role::create([
-            'abr'	=>	'COM',
-            'role'	=>	'Commissioned Agent',
+            'abr'	=>	'CIM',
+            'role'	=>	'Corporate Insurance Manager',
+            'matrix' => 1
+        ]);
+        Role::create([
+            'abr'	=>	'CIA',
+            'role'	=>	'Crop Insurance Agents',
             'employment_status' => 0,
             'matrix' => 1
         ]);
         Role::create([
-            'abr'	=>	'IT',
-            'role'	=>	'IT',
+            'abr'	=>	'ITT',
+            'role'	=>	'IT Technician',
             'employment_status' => 0
         ]);
         Role::create([

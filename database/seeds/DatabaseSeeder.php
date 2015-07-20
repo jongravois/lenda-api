@@ -10,6 +10,7 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $seeders = [
+            'UsersTableSeeder',
             'AddendumfinancialsTableSeeder',
             'AddendumloansTableSeeder',
             'AdmingradersTableSeeder',
@@ -75,7 +76,6 @@ class DatabaseSeeder extends Seeder
             'StoragecontractsTableSeeder',
             'SystemicsTableSeeder',
             'UploadsTableSeeder',
-            'UsersTableSeeder',
             'ViewfiltersTableSeeder',
             'ViewoptionsTableSeeder'
         ];

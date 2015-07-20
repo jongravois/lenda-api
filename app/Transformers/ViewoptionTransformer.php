@@ -1,6 +1,7 @@
 <?php namespace App\Transformers;
 
 use App\Viewoption;
+use League\Fractal\Resource\Collection;
 use League\Fractal\TransformerAbstract;
 
 class ViewoptionTransformer extends TransformerAbstract {
@@ -24,7 +25,6 @@ class ViewoptionTransformer extends TransformerAbstract {
             'voAcresWheat' => (boolean)$item->voAcresWheat,
             'voAgency' => (boolean)$item->voAgency,
             'voBalanceDue' => (boolean)$item->voBalanceDue,
-            'voCloseDate' => (boolean)$item->voCloseDate,
             'voCloseDate' => (boolean)$item->voCloseDate,
             'voCommitArm' => (boolean)$item->voCommitArm,
             'voCommitDistributor' => (boolean)$item->voCommitDistributor,

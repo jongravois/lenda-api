@@ -23,7 +23,7 @@ class RegionsController extends ApiController
     public function index(Manager $fractal, RegionTransformer $regionTransformer)
     {
         // show all
-        $records = Region::all();
+        $records = Region::with('locations')->get();
         $collection = new Collection($records, $regionTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respondWithCORS($data);

@@ -34,16 +34,11 @@ class ViewoptionsTableSeeder extends Seeder
             'voBalanceDue' => 1
         ]);
 
-        Viewoption::create([
-            'user_id' => 5
-        ]);
-
-        Viewoption::create([
-            'user_id' => 6
-        ]);
-
-        Viewoption::create([
-            'user_id' => 7
-        ]);
+        $users = DB::table('users')->count();
+        for($c=5; $c<$users; $c++) {
+            Viewoption::create([
+                'user_id' => $c
+            ]);
+        }
     }
 }

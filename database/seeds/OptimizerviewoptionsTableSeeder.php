@@ -1,6 +1,7 @@
 <?php
 
 use App\Optimizerviewoption;
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -9,6 +10,10 @@ class OptimizerviewoptionsTableSeeder extends Seeder
     public function run()
     {
         DB::table('optimizerviewoptions')->delete();
+
+        Optimizerviewoption::create([
+            'user_id' => 1
+        ]);
 
         Optimizerviewoption::create([
             'user_id' => 2,
@@ -25,28 +30,12 @@ class OptimizerviewoptionsTableSeeder extends Seeder
             'user_id' => 4
         ]);
 
-        Optimizerviewoption::create([
-            'user_id' => 5
-        ]);
+        $users = DB::table('users')->count();
+        for($c=5; $c<$users; $c++) {
+            Optimizerviewoption::create([
+                'user_id' => $c
+            ]);
+        }
 
-        Optimizerviewoption::create([
-            'user_id' => 6
-        ]);
-
-        Optimizerviewoption::create([
-            'user_id' => 7
-        ]);
-
-        Optimizerviewoption::create([
-            'user_id' => 8
-        ]);
-
-        Optimizerviewoption::create([
-            'user_id' => 9
-        ]);
-
-        Optimizerviewoption::create([
-            'user_id' => 10
-        ]);
     }
 }

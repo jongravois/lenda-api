@@ -17,15 +17,15 @@ class RegionsTableSeeder extends Seeder
             ],
             [
                 'region' => 'East',
-                'manager_id' => 5
+                'manager_id' => 6
             ],
             [
                 'region' => 'West',
-                'manager_id' => 5
+                'manager_id' => 7
             ],
             [
                 'region' => 'Mid-West',
-                'manager_id' => 5
+                'manager_id' => 4
             ]
         ];
 

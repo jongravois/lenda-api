@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Location;
 use App\Transformers\LocationTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -22,7 +23,7 @@ class LocationsController extends ApiController
     public function index(Manager $fractal, LocationTransformer $locationTransformer)
     {
         // show all
-        $records = Location::all();
+        $records = Location::with('regions')->get();
         $collection = new Collection($records, $locationTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respondWithCORS($data);
