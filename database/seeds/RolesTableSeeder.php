@@ -87,23 +87,19 @@ class RolesTableSeeder extends Seeder
         Role::create([
             'abr'	=>	'CIA',
             'role'	=>	'Crop Insurance Agents',
-            'employment_status' => 0,
             'matrix' => 1
         ]);
         Role::create([
             'abr'	=>	'ITT',
-            'role'	=>	'IT Technician',
-            'employment_status' => 0
+            'role'	=>	'IT Technician'
         ]);
         Role::create([
             'abr'	=>	'SUP',
-            'role'	=>	'Other Support',
-            'employment_status' => 0
+            'role'	=>	'Other Support'
         ]);
         Role::create([
             'abr'	=>	'SYS',
-            'role'	=>	'System',
-            'employment_status' => 0
+            'role'	=>	'System'
         ]);
     }
 }

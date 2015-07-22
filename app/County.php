@@ -11,6 +11,10 @@ class County extends Model
     protected $fillable = ['state_id','location_id','county','label','locale'];
 
     /* RELATIONSHIPS */
+    public function state()
+    {
+        return $this->belongsTo('App\State', 'state_id');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */

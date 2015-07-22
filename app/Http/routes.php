@@ -11,12 +11,16 @@
 |
 */
 
+use App\Events\UserWasCreated;
+
 Route::get('/', function () {
     return view('index');
 });
 
 Route::group(['prefix' => 'api'], function()
 {
+	Route::post('authenticate', 'AuthenticateController@authenticate');
+	Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
 	Route::resource('addfins', 'AddendumfinancialsController');
 	Route::resource('addloans', 'AddendumloansController');
 	Route::resource('admingraders', 'AdmingradersController');
@@ -44,6 +48,8 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('exceptions', 'ExceptionsController');
 	Route::resource('farmexpenses', 'FarmexpensesController');
 	Route::resource('farmpractices', 'FarmpracticesController');
+	Route::resource('farms', 'FarmsController');
+	Route::resource('farmunits', 'FarmunitsController');
 	Route::resource('globals', 'GlobvarsController');
 	Route::resource('guarantors', 'GuarantorsController');
 	Route::resource('insopts', 'InsoptsController');
@@ -87,6 +93,4 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('users', 'UsersController');
 	Route::resource('viewfilters', 'ViewfiltersController');
 	Route::resource('viewoptions', 'ViewoptionsController');
-	Route::post('authenticate', 'AuthenticateController@authenticate');
-	Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
 });

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Transformers\UserTransformer;
-use App\User;
+use App\Farmunit;
+use App\Transformers\FarmunitTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -11,23 +11,22 @@ use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
-class UsersController extends ApiController
+class FarmunitsController extends ApiController
 {
     protected $records;
 
-    public function __construct(User $records)
+    public function __construct(Farmunit $records)
     {
         $this->records = $records;
     }
 
-    public function index(Manager $fractal, UserTransformer $userTransformer)
+    public function index(Manager $fractal, FarmunitTransformer $farmunitTransformer)
     {
         // show all
-        $records = User::with(['locations', 'optimizerviewoptions', 'viewfilters', 'viewoptions'])->get();
-        //dd($records);
-        $collection = new Collection($records, $userTransformer);
+        $records = Farmunit::all();
+        $collection = new Collection($records, $farmunitTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respondWithCORS($data);
+        return $this->respond($data);
     }
 
     public function destroy($id)
@@ -35,14 +34,14 @@ class UsersController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('User was deleted');
+        return $this->respondOK('Farmunit was deleted');
     }
 
-    public function show($id, Manager $fractal, UserTransformer $userTransformer)
+    public function show($id, Manager $fractal, FarmunitTransformer $farmunitTransformer)
     {
         //show single
         $record = $this->records->findOrFail($id);
-        $item = new Item($record, $userTransformer);
+        $item = new Item($record, $farmunitTransformer);
         $data = $fractal->createData($item)->toArray();
         return $this->respond($data);
     }
@@ -50,9 +49,8 @@ class UsersController extends ApiController
     public function store()
     {
         // insert new
-        $record = User::create(Input::all());
-        event(new UserWasCreated);
-        return $this->respondCreated('User was created');
+        $record = Farmunit::create(Input::all());
+        return $this->respondCreated('Farmunit was created');
     }
 
     public function update($id)
@@ -61,11 +59,11 @@ class UsersController extends ApiController
         $record = $this->records->findOrFail($id);
 
         if(! $record){
-            User::create(Input::all());
-            return $this->respondCreated('User was created');
+            Farmunit::create(Input::all());
+            return $this->respondCreated('Farmunit was created');
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('User was created');
+        return $this->respondCreated('Farmunit was created');
     }
 }

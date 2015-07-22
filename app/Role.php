@@ -8,7 +8,13 @@ class Role extends Model
 {
     public $timestamps = false;
     protected $table = 'roles';
-    protected $fillable = ['abr', 'role', 'employment_status', 'matrix'];
+    protected $fillable = ['abr', 'role', 'matrix'];
+
+    /* CASTING */
+    protected $casts = [
+        'matrix' => 'boolean'
+    ];
+    /* CASTING */
 
     /* RELATIONSHIPS */
     /* RELATIONSHIPS */

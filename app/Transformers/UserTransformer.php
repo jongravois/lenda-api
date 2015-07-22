@@ -4,8 +4,6 @@ use App\User;
 use League\Fractal\TransformerAbstract;
 
 class UserTransformer extends TransformerAbstract {
-    //protected $defaultIncludes = ['viewoptions'];
-
     public function transform(User $user)
     {
         //return $user;
@@ -37,10 +35,4 @@ class UserTransformer extends TransformerAbstract {
             'viewopts' => $user->viewoptions
         ];
     }
-
-    /*public function includeViewoptions(User $user)
-    {
-        $viewoptions = $user->viewoptions;
-        return $this->collection($viewoptions, new ViewoptionTransformer);
-    }*/
 }

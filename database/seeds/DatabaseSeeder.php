@@ -36,6 +36,8 @@ class DatabaseSeeder extends Seeder
             'FarmersTableSeeder',
             'FarmexpensesTableSeeder',
             'FarmpracticesTableSeeder',
+            'FarmsTableSeeder',
+            'FarmunitsTableSeeder',
             'GlobvarsTableSeeder',
             'GuarantorsTableSeeder',
             'InsoptsTableSeeder',
