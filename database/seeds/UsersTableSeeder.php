@@ -56,7 +56,7 @@ class UsersTableSeeder extends Seeder {
                 'nick' => 'KET',
                 'email' => 'kennthompson@gmail.com',
                 'app' => 'staff',
-                'password' => Hash::make('secret'),
+                'password' => Hash::make('chessmaster'),
                 'phone' => '9991235648',
                 'manager_id' => 5,
                 'closer_id' => 5,
