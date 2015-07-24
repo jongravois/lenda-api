@@ -8,11 +8,6 @@ This is an Laravel 5.1 application
 * From root, run ```composer install```
 * Run ```touch .env```
 * Open site in favorite text editor (```pstorm .```)
-  
-```
-<?php return 'local';
-```
-
 * Edit .env (match your own setting, if necessary)
 
 ```
