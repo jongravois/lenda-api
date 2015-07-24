@@ -23,7 +23,7 @@ class NotificationsController extends ApiController
     public function index(Manager $fractal, NotificationTransformer $notificationTransformer)
     {
         // show all
-        $records = Notification::all();
+        $records = Notification::with('user')->get();
         $collection = new Collection($records, $notificationTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respondWithCORS($data);

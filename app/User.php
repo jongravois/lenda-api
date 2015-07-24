@@ -21,6 +21,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasOne('App\Location', 'id', 'loc_id');
     }
 
+    public function notifications()
+    {
+        return $this->hasMany('App\Notification');
+    }
+
     public function optimizerviewoptions()
     {
         return $this->hasOne('App\Optimizerviewoption');

@@ -11,8 +11,8 @@ class NotificationTransformer extends TransformerAbstract {
         return [
             'id' => $item->id,
             'user_id' => $item->user_id,
-            //'user' => $item->user['username'],
-            //'user_email' => $item->user['email'],
+            'user' => $item->user['name'],
+            'user_email' => $item->user['email'],
             'loan_id' => $item->loan_id,
             'report_id' => $item->report_id,
             'notification_type' => $item->notification_type,

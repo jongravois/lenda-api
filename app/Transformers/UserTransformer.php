@@ -8,6 +8,37 @@ class UserTransformer extends TransformerAbstract {
     {
         //return $user;
 
+        if( ! $user->notifications ) {
+            $notificator = [];
+        } else {
+            $pending_actions = 0;
+            $management_required = 0;
+            $review_reports = 0;
+
+            foreach($user->notifications as $notif) {
+                switch($notif['notification_type']) {
+                    case 'comment':
+                        $pending_actions++;
+                        break;
+                    case 'office':
+                        $management_required++;
+                        break;
+                    case 'report':
+                        $review_reports++;
+                        break;
+                    case 'vote':
+                        $pending_actions++;
+                        break;
+                }
+                $notificator = [
+                    'count' => count($user->notifications),
+                    'pending_actions' => $pending_actions,
+                    'management_required' => $management_required,
+                    'review_reports' => $review_reports
+                ];
+            }
+        } // end if
+
         return [
             'id' => $user->id,
             'name' => $user->name,
@@ -30,6 +61,8 @@ class UserTransformer extends TransformerAbstract {
             'comms_sms' => (boolean)$user->comms_sms,
             'comms_outlook' => (boolean)$user->comms_outlook,
             'comms_online' => (boolean)$user->comms_online,
+            'notifications' => $user->notifications,
+            'notificator' => $notificator,
             'optimopts' => $user->optimizerviewoptions,
             'viewfilters' => $user->viewfilters,
             'viewopts' => $user->viewoptions

@@ -1,19 +1,33 @@
-## Jot-Bot - Token-Based Authentication for AngularJS and Laravel Tutorial
+## LENDA
 
-This is the code for the AngularJS and Laravel token-based authentication tutorial on [Scotch.io](https://scotch.io/) and [RyanChenkie.com](http://ryanchenkie.com/)
+This is an Laravel 5.1 application
 
-### Installation
+## Installation
 
-Clone the repository and install the Laravel vendor files
+* Clone repo to local environment
+* From root, run ```composer install```
+* Run ```touch .env```
+* Open site in favorite text editor (```pstorm .```)
+  
+```
+<?php return 'local';
+```
 
-	composer install
+* Edit .env (match your own setting, if necessary)
 
-Once your .env file is setup with your database connection parameters, run the migrations and seed the database
+```
+APP_ENV=local
+APP_DEBUG=true
+APP_KEY=lk7IqejFTEqaIep8guBE16Mg5JWpZtHj
+    
+DB_HOST=localhost
+DB_DATABASE=jotbot
+DB_USERNAME=root
+DB_PASSWORD=secret
+```
 
-	php artisan migrate
-	php artisan db:seed
+* Create an empty database named ```jotbot```
+* Run ```php artisan migrate```
+* Run ```php artisan migrate:refresh --seed```
 
 
-### Branches
-
-The Scotch branch has all the code that is covered in the first part of the tutorial on [Scotch.io](https://scotch.io/tutorials/token-based-authentication-for-angularjs-and-laravel-apps). The master branch is the complete code that includes extra material covered in the second part of the tutorial at [RyanChenkie.com](http://ryanchenkie.com/token-based-authentication-for-angularjs-and-laravel-apps).

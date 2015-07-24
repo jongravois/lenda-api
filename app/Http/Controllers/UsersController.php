@@ -23,7 +23,7 @@ class UsersController extends ApiController
     public function index(Manager $fractal, UserTransformer $userTransformer)
     {
         // show all
-        $records = User::with(['locations', 'optimizerviewoptions', 'viewfilters', 'viewoptions'])->get();
+        $records = User::with(['locations', 'notifications', 'optimizerviewoptions', 'viewfilters', 'viewoptions'])->get();
         //dd($records);
         $collection = new Collection($records, $userTransformer);
         $data = $fractal->createData($collection)->toArray();

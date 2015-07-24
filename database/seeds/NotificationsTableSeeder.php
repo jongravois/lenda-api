@@ -11,14 +11,14 @@ class NotificationsTableSeeder extends Seeder
         DB::table('notifications')->delete();
 
         Notification::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'loan_id' => 1,
             'notification_type' => 'comment',
             'task' => 'You have a message'
         ]);
 
         Notification::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'loan_id' => 1,
             'notification_type' => 'report',
             'report_id' => 1,
@@ -26,7 +26,7 @@ class NotificationsTableSeeder extends Seeder
         ]);
 
         Notification::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'loan_id' => 1,
             'report_id' => 2,
             'notification_type' => 'report',
@@ -34,7 +34,7 @@ class NotificationsTableSeeder extends Seeder
         ]);
 
         Notification::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'loan_id' => 1,
             'report_id' => 3,
             'notification_type' => 'report',
@@ -42,7 +42,7 @@ class NotificationsTableSeeder extends Seeder
         ]);
 
         Notification::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'loan_id' => 1,
             'report_id' => 9,
             'notification_type' => 'report',
@@ -82,14 +82,14 @@ class NotificationsTableSeeder extends Seeder
         ]);
 
         Notification::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'loan_id' => 1,
             'notification_type' => 'vote',
             'task' => 'Review Loan: Tony Stark - Glass Towers'
         ]);
 
         Notification::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'loan_id' => 5,
             'notification_type' => 'vote',
             'task' => 'Review Loan: Clint Barton - Nested Row',
@@ -97,7 +97,7 @@ class NotificationsTableSeeder extends Seeder
         ]);
 
         Notification::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'notification_type' => 'office',
             'task' => 'Staff Meeting on Wednesday, Dec. 10, 2014',
             'status' => 'acknowledged'
