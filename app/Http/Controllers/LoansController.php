@@ -7,6 +7,7 @@ use App\Transformers\LoanTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -23,10 +24,10 @@ class LoansController extends ApiController
     public function index(Manager $fractal, LoanTransformer $loanTransformer)
     {
         // show all
-        $records = Loan::all();
+        $records = Loan::with('analyst', 'applicants', 'attachments', 'distributor', 'farmers', 'loantypes', 'location.regions', 'status')->get();
         $collection = new Collection($records, $loanTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respondWithCORS($data);
+        return $this->respond($data);
     }
 
     public function destroy($id)
@@ -56,7 +57,7 @@ class LoansController extends ApiController
     public function update($id)
     {
         // save updated
-        $record = $this->records->findOrFail($id);
+        $record = $this->records->find($id);
 
         if(! $record){
             Loan::create(Input::all());

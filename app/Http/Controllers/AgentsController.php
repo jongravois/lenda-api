@@ -7,6 +7,7 @@ use App\Transformers\AgentTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -26,7 +27,7 @@ class AgentsController extends ApiController
         $records = Agent::all();
         $collection = new Collection($records, $agentTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respondWithCORS($data);
+        return $this->respond($data);
     }
 
     public function destroy($id)
@@ -34,7 +35,7 @@ class AgentsController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('agent was deleted');
+        return $this->respondOK('Agent was deleted');
     }
 
     public function show($id, Manager $fractal, AgentTransformer $agentTransformer)
@@ -56,7 +57,7 @@ class AgentsController extends ApiController
     public function update($id)
     {
         // save updated
-        $record = $this->records->findOrFail($id);
+        $record = $this->records->find($id);
 
         if(! $record){
             Agent::create(Input::all());

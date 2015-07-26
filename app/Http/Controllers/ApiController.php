@@ -72,7 +72,7 @@ class ApiController extends Controller {
     private function setCORSHeaders()
     {
         $header['Access-Control-Allow-Origin'] = '*';
-        $header['Allow'] = 'GET, POST, OPTIONS';
+        $header['Allow'] = 'DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT';
         $header['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, X-Request-With';
         $header['Access-Control-Allow-Credentials'] = 'true';
 

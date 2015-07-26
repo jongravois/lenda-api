@@ -7,6 +7,7 @@ use App\Transformers\FarmTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -56,7 +57,7 @@ class FarmsController extends ApiController
     public function update($id)
     {
         // save updated
-        $record = $this->records->findOrFail($id);
+        $record = $this->records->find($id);
 
         if(! $record){
             Farm::create(Input::all());

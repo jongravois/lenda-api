@@ -7,6 +7,7 @@ use App\Transformers\RecommentTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -26,7 +27,7 @@ class RecommentsController extends ApiController
         $records = Recomment::all();
         $collection = new Collection($records, $recommentTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respondWithCORS($data);
+        return $this->respond($data);
     }
 
     public function destroy($id)
@@ -56,7 +57,7 @@ class RecommentsController extends ApiController
     public function update($id)
     {
         // save updated
-        $record = $this->records->findOrFail($id);
+        $record = $this->records->find($id);
 
         if(! $record){
             Recomment::create(Input::all());

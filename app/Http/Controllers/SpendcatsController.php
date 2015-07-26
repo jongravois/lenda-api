@@ -7,6 +7,7 @@ use App\Transformers\SpendcatTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -26,7 +27,7 @@ class SpendcatsController extends ApiController
         $records = Spendcat::all();
         $collection = new Collection($records, $spendcatTransformer);
         $data = $fractal->createData($collection)->toArray();
-        return $this->respondWithCORS($data);
+        return $this->respond($data);
     }
 
     public function destroy($id)
@@ -56,7 +57,7 @@ class SpendcatsController extends ApiController
     public function update($id)
     {
         // save updated
-        $record = $this->records->findOrFail($id);
+        $record = $this->records->find($id);
 
         if(! $record){
             Spendcat::create(Input::all());
