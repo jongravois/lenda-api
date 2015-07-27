@@ -11,14 +11,14 @@ class DistributorsTableSeeder extends Seeder
         DB::table('distributors')->delete();
 
         Distributor::create([
-            'distributor' => 'Other',
-            'name' => 'Other',
-            'address' => ' ',
-            'city' => 'Anywhere',
-            'state_id' => 52,
-            'zip' => 00000,
-            'email' => ' ',
-            'phone' => ' '
+            'distributor' => 'AGR',
+            'name' => 'Agro Distribution',
+            'address' => '427 Hwy 860',
+            'city' => 'Delhi',
+            'state_id' => 'LA',
+            'zip' => 71232,
+            'email' => 'n/a',
+            'phone' => '3187223490'
         ]);
 
         Distributor::create([
