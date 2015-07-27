@@ -14,8 +14,8 @@ class CreateDistributorsTable extends Migration
     {
         Schema::create('distributors', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('distributor')->unique();
-            $table->string('name');
+            $table->string('distributor')->nullable();
+            $table->string('name')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
             $table->string('state_id')->nullable();

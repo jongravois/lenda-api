@@ -24,7 +24,7 @@ class DistributorsController extends ApiController
     public function index(Manager $fractal, DistributorTransformer $distributorTransformer)
     {
         // show all
-        $records = Distributor::all();
+        $records = Distributor::with('state')->get();
         $collection = new Collection($records, $distributorTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
@@ -51,7 +51,8 @@ class DistributorsController extends ApiController
     {
         // insert new
         $record = Distributor::create(Input::all());
-        return $this->respondCreated('Distributor was created');
+        $id = $record->id;
+        return $this->respond($id);
     }
 
     public function update($id)

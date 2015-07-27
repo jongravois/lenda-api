@@ -15,7 +15,7 @@ class DistributorsTableSeeder extends Seeder
             'name' => 'Agro Distribution',
             'address' => '427 Hwy 860',
             'city' => 'Delhi',
-            'state_id' => 'LA',
+            'state_id' => '19',
             'zip' => 71232,
             'email' => 'n/a',
             'phone' => '3187223490'
