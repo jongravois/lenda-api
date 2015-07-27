@@ -11,8 +11,8 @@ class DistributorsTableSeeder extends Seeder
         DB::table('distributors')->delete();
 
         Distributor::create([
-            'distributor' => "Don't Know",
-            'name' => "Unsure / Don't Know",
+            'distributor' => 'Other',
+            'name' => 'Other',
             'address' => ' ',
             'city' => 'Anywhere',
             'state_id' => 52,
@@ -22,14 +22,14 @@ class DistributorsTableSeeder extends Seeder
         ]);
 
         Distributor::create([
-            'distributor' => 'Other',
-            'name' => 'Other',
-            'address' => ' ',
-            'city' => 'Anywhere',
-            'state_id' => 52,
-            'zip' => 00000,
-            'email' => ' ',
-            'phone' => ' '
+            'distributor' => "JWG",
+            'name' => "Jones Wines & Grains",
+            'address' => '17 Plantin Row',
+            'city' => 'Marksville',
+            'state_id' => 19,
+            'zip' => 71351,
+            'email' => 'jwg@distributor.org',
+            'phone' => '3182908839'
         ]);
 
         Distributor::create([
