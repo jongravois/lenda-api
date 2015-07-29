@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Transformers\UserTransformer;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use JWTAuth;
+use League\Fractal\Manager;
+use League\Fractal\Resource\Collection;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\User;
 
-class AuthenticateController extends Controller
+class AuthenticateController extends ApiController
 {
 
     public function __construct()
@@ -44,7 +47,7 @@ class AuthenticateController extends Controller
         return response()->json(compact('token'));
     }
 
-    public function getAuthenticatedUser()
+    public function getAuthenticatedUser(Manager $fractal, UserTransformer $userTransformer)
     {
         try {
             if (! $user = JWTAuth::parseToken()->authenticate()) {
@@ -58,7 +61,10 @@ class AuthenticateController extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
         }
 
-        // the token is valid and we have found the user via the sub claim
-        return response()->json(compact('user'));
+        // the token is valid and we have found the user via the sub claim ... now we get related user data and return full user object
+        $fullUser = User::with(['locations', 'notifications', 'optimizerviewoptions', 'viewfilters', 'viewoptions'])->where('id', $user->id)->get();
+        $collection = new Collection($fullUser, $userTransformer);
+        $data = $fractal->createData($collection)->toArray();
+        return $this->respond($data);
     }
 }
