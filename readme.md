@@ -13,7 +13,7 @@ This is an Laravel 5.1 application
 ```
 APP_ENV=local
 APP_DEBUG=true
-APP_KEY=lk7IqejFTEqaIep8guBE16Mg5JWpZtHj
+APP_KEY=secret-key
     
 DB_HOST=localhost
 DB_DATABASE=jotbot
@@ -22,6 +22,7 @@ DB_PASSWORD=secret
 ```
 
 * Create an empty database named ```jotbot```
+* Run ```php artisan key:generate```
 * Run ```php artisan migrate```
 * Run ```php artisan migrate:refresh --seed```
 
