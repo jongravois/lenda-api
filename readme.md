@@ -17,8 +17,8 @@ APP_KEY=secret-key
     
 DB_HOST=localhost
 DB_DATABASE=jotbot
-DB_USERNAME=root
-DB_PASSWORD=secret
+DB_USERNAME=your-mysql-username
+DB_PASSWORD=your-mysql-password
 ```
 
 * Create an empty database named ```jotbot```
