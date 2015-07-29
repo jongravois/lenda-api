@@ -14,9 +14,7 @@ class CreateCommentstatusesTable extends Migration
     {
         Schema::create('commentstatuses', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('loan_id');
             $table->integer('comment_id');
-            $table->integer('user_id');
             $table->integer('recipient_id');
             $table->string('status');
             $table->timestamps();

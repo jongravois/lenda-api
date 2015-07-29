@@ -8,6 +8,28 @@ class LoanTransformer extends TransformerAbstract {
     public function transform(Loan $item)
     {
         //return $item;
+        $dtToday = Carbon::now();
+        $appDate = Carbon::createFromFormat('Y-m-d', $item->app_date);
+        $defaultDueDate = $item->default_due_date;
+        $dueDate = Carbon::createFromFormat('Y-m-d', $item->due_date);
+        $diff = $dueDate->diffInDays($appDate);
+        $staleDiff = $appDate->diffInDays($dtToday);
+        //dd($staleDiff);
+
+        //is_stale
+        if (!$item->decision_date) {
+            $decision = null;
+
+            if ($staleDiff > 3 && $item->status_id == 1) {
+                $isStale = true;
+            } else {
+                $isStale = false;
+            } // end if
+        } else {
+            $isStale = false;
+            $staleDiff = 0;
+        } // end if
+
         return [
             'id' => $item->id,
             'account_classification' => $item->account_classification,
@@ -28,6 +50,8 @@ class LoanTransformer extends TransformerAbstract {
             'bankruptcy_history' => (boolean)$item->bankruptcy_history,
             'bankruptcy_order_received' => (boolean)$item->bankruptcy_order_received,
             'ccc_received' => (boolean)$item->ccc_received,
+            'committee' => $item->committee,
+            'comments' => $item->comments,
             'conditions_aci' => (boolean)$item->conditions_aci,
             'conditions_adis' => (boolean)$item->conditions_adis,
             'conditions_afsa' => (boolean)$item->conditions_afsa,
@@ -44,7 +68,9 @@ class LoanTransformer extends TransformerAbstract {
             'default_due_date' => ($item->default_due_date ? Carbon::createFromFormat('Y-m-d', $item->default_due_date)->format('m/d/Y') : ''),
             'dist_approved' => (boolean)$item->dist_approved,
             'disbursement_issue' => (boolean)$item->disbursement_issue,
-            'distributor' => ($item->distributor ? $item->distributor : []),
+            'distributor_id' => $item->distributor_id,
+            'distributor' => ($item->distributor ? $item->distributor->distributor : ''),
+//            'distributor' => ($item->distributor ? $item->distributor : []),
             'dist_ucc_verified' => (boolean)$item->dist_ucc_verified,
             'due_date' => ($item->due_date ? Carbon::createFromFormat('Y-m-d', $item->due_date)->format('m/d/Y') : ''),
             'equipment_collateral' => (boolean)$item->equipment_collateral,
@@ -83,7 +109,7 @@ class LoanTransformer extends TransformerAbstract {
             'is_active' => (boolean)$item->is_active,
             'is_cross_collateralized' => (boolean)$item->is_cross_collateralized,
             'is_fast_tracked' => (boolean)$item->is_fast_tracked,
-            'is_stale' => (boolean)$item->is_stale,
+            'is_stale' => (boolean)$isStale,
             'is_watched' => (boolean)$item->is_watched,
             'its_list' => (boolean)$item->its_list,
             'leases_valid' => (boolean)$item->leases_valid,
@@ -95,6 +121,7 @@ class LoanTransformer extends TransformerAbstract {
             'loan_type_id' => $item->loan_type_id,
             'loantype_abr' => $item->loantypes->abr,
             'location' => $item->location,
+            'loc_abr' => $item->location->loc_abr,
             'other_collateral' => (boolean)$item->other_collateral,
             'permission_to_insure_verified' => (boolean)$item->permission_to_insure_verified,
             'prev_lien_verified' => (boolean)$item->prev_lien_verified,

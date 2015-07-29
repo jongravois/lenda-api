@@ -13,7 +13,7 @@ class CommitteesTableSeeder extends Seeder
         Committee::create([
             'loan_id'	=>	1,
             'role_id'	=>	1,
-            'user_id'	=>	3,
+            'user_id'	=>	4,
             'vote_status' => 'pending',
             'vote_request_date' => '2014-09-11',
             'committee_role' => 'Optional'
@@ -21,7 +21,7 @@ class CommitteesTableSeeder extends Seeder
         Committee::create([
             'loan_id'	=>	1,
             'role_id'	=>	2,
-            'user_id'	=>	4,
+            'user_id'	=>	5,
             'vote_status' => 'voted',
             'vote' => 1,
             'vote_request_date' => '2014-09-11',
@@ -31,7 +31,7 @@ class CommitteesTableSeeder extends Seeder
         Committee::create([
             'loan_id' => 1,
             'role_id' => 4,
-            'user_id' => 5,
+            'user_id' => 6,
             'vote_status' => 'voted',
             'vote' => 1,
             'vote_request_date' => '2014-09-11',
@@ -42,7 +42,7 @@ class CommitteesTableSeeder extends Seeder
         Committee::create([
             'loan_id' => 1,
             'role_id' => 3,
-            'user_id' => 2,
+            'user_id' => 3,
             'vote_status' => 'pending',
             'vote_request_date' => '2014-09-11',
             'committee_role' => 'Tester'

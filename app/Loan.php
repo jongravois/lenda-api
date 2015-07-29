@@ -19,7 +19,13 @@ class Loan extends Model
         return $this->belongsTo('App\Applicant', 'applicant_id');
     }
     public function attachments() {
-        return $this->hasMany('App\Attachment', 'id', 'loan_id');
+        return $this->hasMany('App\Attachment', 'loan_id', 'id');
+    }
+    public function committee() {
+        return $this->hasMany('App\Committee', 'loan_id', 'id');
+    }
+    public function comments() {
+        return $this->hasMany('App\Comment');
     }
     public function distributor() {
         return $this->hasOne('App\Distributor', 'id', 'distributor_id');

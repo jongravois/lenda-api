@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Commentstatus extends Model
 {
     protected $table = 'commentstatuses';
-    protected $fillable = ['loan_id', 'comment_id', 'user_id', 'recipient_id', 'status'];
+    protected $fillable = ['comment_id', 'recipient_id', 'status'];
+    protected $hidden = ['created_at', 'updated_at'];
 
     /* RELATIONSHIPS */
     /* RELATIONSHIPS */

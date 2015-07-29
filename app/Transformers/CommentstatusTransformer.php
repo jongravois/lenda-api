@@ -10,7 +10,8 @@ class CommentstatusTransformer extends TransformerAbstract {
 
         return [
             'id' => $item->id,
-            'loan_id' => $item->loan_id,
+            'comment_id' => $item->comment_id,
+            'recipient_id' => $item->recipient_id,
             'status' => $item->status
 
         ];

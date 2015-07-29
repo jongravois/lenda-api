@@ -14,7 +14,7 @@ class CommentTransformer extends TransformerAbstract {
             'type' => $item->type,
             'user_id' => $item->user_id,
             'user' => $item->user_id,
-            'dtCom' => $item->created_at,
+            'dtCom' => $item->created_at->format('m/d/Y'),
             'comment' => $item->comment,
             'responses' => $item->responses,
             'status' => $item->status

@@ -51,8 +51,7 @@ class DistributorsController extends ApiController
     {
         // insert new
         $record = Distributor::create(Input::all());
-        $id = $record->id;
-        return $this->respond($id);
+        return $this->respond('Distributor was created');
     }
 
     public function update($id)

@@ -13,7 +13,7 @@ class CommentsTableSeeder extends Seeder
         Comment::create([
             "loan_id" =>	1,
             "type" =>	"Committee",
-            'user_id' => 4,
+            'user_id' => 6,
             "comment" =>	"There are concerns about the ability to manage the reception of a large cash sum as evidenced by last year's performance of this applicant."
         ]);
 
