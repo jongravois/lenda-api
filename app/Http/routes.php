@@ -75,7 +75,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('matrix', 'MatrixController');
 	Route::resource('measures', 'MeasuresController');
 	Route::resource('notifications', 'NotificationsController');
-	Route::resource('optimizervos', 'OptimizerviewoptionsController');
+	Route::resource('optimizerviewoptions', 'OptimizerviewoptionsController');
 	Route::resource('othercollaterals', 'OthercollateralsController');
 	Route::resource('partners', 'PartnersController');
 	Route::resource('pdfapps', 'PdfappsController');
