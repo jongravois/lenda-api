@@ -40,6 +40,7 @@ class LoanTransformer extends TransformerAbstract {
             'added_land' => (boolean)$item->added_land,
             'added_land_verified' => (boolean)$item->added_land_verified,
             'addendum_type' => (integer)$item->addendum_type,
+            'agencies' => getLoanAgencies($item->id),
             'analyst' => $item->analyst->name,
             'analyst_can_approve' => (boolean)$item->analyst_can_approve,
             'analyst_email' => $item->analyst->email,

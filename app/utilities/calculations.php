@@ -36,6 +36,26 @@ function getFeeTotal($loan)
         return $arm_commit * $total_fee_percent;
     }
 }
+function getLoanAgencies($loanID) {
+    $agencies = DB::select(DB::raw("SELECT y.agency FROM agencies y LEFT JOIN agents t ON t.agency_id = y.id WHERE t.id IN (SELECT DISTINCT(i.agent_id) FROM inspols i WHERE loan_id = {$loanID})"));
+    $cnt = count($agencies);
+
+    switch($cnt) {
+        case 0:
+            $aggies = '';
+            break;
+        case 1:
+            $aggies = $agencies[0]->agency;
+            break;
+        default:
+            $aggies = implode(', ', array_map(function($c) {
+                return $c->agency;
+            }, $agencies));
+            break;
+    }
+
+    return $aggies;
+}
 function getTotalCropCommit($party, $loanID, $cropID)
 {
     $PACommit = getCropPerAcreCommit($party, $loanID, $cropID);

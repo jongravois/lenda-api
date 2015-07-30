@@ -10,6 +10,10 @@ class Agent extends Model
     protected $fillable = ['agency_id', 'agent', 'agent_phone', 'agent_email'];
 
     /* RELATIONSHIPS */
+    public function agency()
+    {
+        return $this->belongsTo('App\Agency');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */
