@@ -33,6 +33,9 @@ class Loan extends Model
     public function farmers() {
         return $this->belongsTo('App\Farmer', 'farmer_id');
     }
+    public function financials() {
+        return $this->hasOne('App\Loanfinancial', 'loan_id', 'id');
+    }
     public function loantypes() {
         return $this->hasOne('App\Loantype', 'id', 'loan_type_id');
     }

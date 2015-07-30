@@ -62,7 +62,7 @@ class AuthenticateController extends ApiController
         }
 
         // the token is valid and we have found the user via the sub claim ... now we get related user data and return full user object
-        $fullUser = User::with(['locations', 'notifications', 'optimizerviewoptions', 'viewfilters', 'viewoptions'])->where('id', $user->id)->get();
+        $fullUser = $user->load('locations', 'notifications', 'optimizerviewoptions', 'viewfilters', 'viewoptions')->where('id', $user->id)->get();
         $collection = new Collection($fullUser, $userTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);

@@ -2,12 +2,13 @@
 
 use App\Loan;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use League\Fractal\TransformerAbstract;
 
 class LoanTransformer extends TransformerAbstract {
     public function transform(Loan $item)
     {
-        //return $item;
+        //return $item->toArray();
         $dtToday = Carbon::now();
         $appDate = Carbon::createFromFormat('Y-m-d', $item->app_date);
         $defaultDueDate = $item->default_due_date;
@@ -29,6 +30,9 @@ class LoanTransformer extends TransformerAbstract {
             $isStale = false;
             $staleDiff = 0;
         } // end if
+
+        // Calculations for fins object
+        $total_acres = DB::select(DB::raw("SELECT SUM(IR) + SUM(NI) AS Total FROM farmunits WHERE farm_id IN (SELECT id FROM farms WHERE loan_id = {$item->id})"));
 
         return [
             'id' => $item->id,
@@ -74,28 +78,43 @@ class LoanTransformer extends TransformerAbstract {
             'equipment_collateral' => (boolean)$item->equipment_collateral,
             'farmer' => $item->farmers->farmer,
             'farmer_id' => $item->farmer_id,
+            'financials' => $item->financials,
             'fins' => [
-                'commit_total' => 999999,
-                'commit_arm' => 333333,
-                'commit_dist' => 333333,
-                'commit_other' => 333333,
-                'total_fee_percent' => 2.5,
-                'fee_total' => 1000,
-                'int_percent_arm' => 9,
-                'int_percent_dist' => 9,
-                'balance_remaining' => 123.95,
-                'total_acres' => 4000,
+                'discounts' => [
+                    'percent_crop' => (double)$item->financials->disc_percent_crop,
+                    'percent_fsa' => (double)$item->financials->disc_percent_fsa,
+                    'percent_ins' => (double)$item->financials->disc_percent_ins,
+                    'percent_insoyield' => (double)$item->financials->disc_percent_insoyield,
+                    'percent_nonrp' => (double)$item->financials->disc_percent_nonrp,
+                    'percent_rphpe' => (double)$item->financials->disc_percent_rphpe,
+                    'percent_suppins' => (double)$item->financials->disc_percent_suppins,
+                    'percent_prod' => (double)$item->financials->disc_percent_prod,
+                    'percent_equipment' => (double)$item->financials->disc_percent_equipment,
+                    'percent_realestate' => (double)$item->financials->disc_percent_realestate,
+                    'percent_other' => (double)$item->financials->disc_percent_other
+                ],
+                'commit_arm' => getTotalPartyCommit('arm', $item->id),
+                'commit_dist' => getTotalPartyCommit('dist', $item->id),
+                'commit_other' => getTotalPartyCommit('other', $item->id),
+                'commit_total' => (double)getTotalPartyCommit('arm', $item->id) + (double)getTotalPartyCommit('dist', $item->id),
+                'total_fee_percent' => (double)$item->financials->fee_processing + (double)$item->financials->fee_service,
+                'fee_total' => getFeeTotal($item),
+                'int_percent_arm' => (double)$item->financials->int_percent_arm,
+                'int_percent_dist' => (double)$item->financials->int_percent_dist,
+                'estimated_interest_arm' => getEstimatedInterestARM($item),
+                'balance_remaining' => 123.95, //disbursements table?
+                'total_acres' => (double)$total_acres[0]->Total,
                 'crop_acres' => [
-                    'corn' => 40,
-                    'soybeans' => 40,
-                    'beansFAC' => 40,
-                    'sorghum' => 40,
-                    'wheat' => 40,
-                    'cotton' => 40,
-                    'rice' => 40,
-                    'peanuts' => 40,
-                    'sugarcane' => 40,
-                    'sunflowers' => 40
+                    'corn' => (double)getCropAcres($item->id, 1),
+                    'soybeans' => (double)getCropAcres($item->id, 2),
+                    'beansFAC' => (double)getCropAcres($item->id, 3),
+                    'sorghum' => (double)getCropAcres($item->id, 4),
+                    'wheat' => (double)getCropAcres($item->id, 5),
+                    'cotton' => (double)getCropAcres($item->id, 6),
+                    'rice' => (double)getCropAcres($item->id, 7),
+                    'peanuts' => (double)getCropAcres($item->id, 8),
+                    'sugarcane' => (double)getCropAcres($item->id, 9),
+                    'sunflowers' => (double)getCropAcres($item->id, 10)
                 ]
             ],
             'fsa_compliant' => (boolean)$item->fsa_compliant,
