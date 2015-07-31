@@ -103,7 +103,7 @@ class LoanTransformer extends TransformerAbstract {
                 'int_percent_arm' => (double)$item->financials->int_percent_arm,
                 'int_percent_dist' => (double)$item->financials->int_percent_dist,
                 'estimated_interest_arm' => getEstimatedInterestARM($item),
-                'balance_remaining' => 123.95, //disbursements table?
+                'balance_remaining' => 123.95, //TODO: disbursements table?
                 'total_acres' => (double)$total_acres[0]->Total,
                 'crop_acres' => [
                     'corn' => (double)getCropAcres($item->id, 1),
@@ -117,9 +117,9 @@ class LoanTransformer extends TransformerAbstract {
                     'sugarcane' => (double)getCropAcres($item->id, 9),
                     'sunflowers' => (double)getCropAcres($item->id, 10)
                 ],
-                'cash_flow' => 99999999,
-                'exposure' => 8282,
-                'adjExposure' => 6000
+                'cash_flow' => 99999999, //TODO: Hard coded
+                'exposure' => 8282, //TODO: Hard coded
+                'adjExposure' => 6000 //TODO: Hard coded
             ],
             'fsa_compliant' => (integer)$item->fsa_compliant,
             'full_season' => ($item->season == 'F' ? 'Fall' : 'Spring'),
