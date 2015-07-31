@@ -116,7 +116,10 @@ class LoanTransformer extends TransformerAbstract {
                     'peanuts' => (double)getCropAcres($item->id, 8),
                     'sugarcane' => (double)getCropAcres($item->id, 9),
                     'sunflowers' => (double)getCropAcres($item->id, 10)
-                ]
+                ],
+                'cash_flow' => 99999999,
+                'exposure' => 8282,
+                'adjExposure' => 6000
             ],
             'fsa_compliant' => (integer)$item->fsa_compliant,
             'full_season' => ($item->season == 'F' ? 'Fall' : 'Spring'),
@@ -136,7 +139,7 @@ class LoanTransformer extends TransformerAbstract {
             'loan_closed' => (integer)$item->loan_closed,
             'loan_closed_date' => ($item->loan_closed_date ? Carbon::createFromFormat('Y-m-d', $item->loan_closed_date)->format('m/d/Y') : ''),
             'loan_type' => $item->loantypes->loantype,
-            'loan_type_id' => $item->loan_type_id,
+            'loan_type_id' => (integer)$item->loan_type_id,
             'loantype_abr' => $item->loantypes->abr,
             'location' => $item->location,
             'loc_abr' => $item->location->loc_abr,
