@@ -37,6 +37,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
 	Route::resource('comments', 'CommentsController');
 	Route::resource('commentstatuses', 'CommentstatusesController');
+	Route::resource('commentusers', 'CommentusersController');
 	Route::resource('committees', 'CommitteesController');
 	Route::resource('committeespecs', 'CommitteespecsController');
 	Route::resource('corps', 'CorporationsController');

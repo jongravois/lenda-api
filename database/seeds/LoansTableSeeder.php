@@ -303,7 +303,6 @@ class LoansTableSeeder extends Seeder
             'prev_lien_verified' => 0,
             'leases_valid' => 0,
             'bankruptcy_order_received' => 0,
-            'received_3party' => 0,
             'recommended' => 0,
             'arm_approved' => 0,
             'dist_approved' => 0,
