@@ -9,7 +9,7 @@ class LoanstatusTransformer extends TransformerAbstract {
         //return $item;
 
         return [
-            'id' => $item->id,
+            'id' => (integer)$item->id,
             'status' => $item->status,
             'iconClass' => $item->iconClass,
             'iconColor' => $item->iconColor

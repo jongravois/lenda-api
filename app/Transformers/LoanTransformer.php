@@ -119,7 +119,8 @@ class LoanTransformer extends TransformerAbstract {
                 ],
                 'cash_flow' => 99999999, //TODO: Hard coded
                 'exposure' => 8282, //TODO: Hard coded
-                'adjExposure' => 6000 //TODO: Hard coded
+                'adjExposure' => 6000, //TODO: Hard coded
+                'qb_amount' => 5000000
             ],
             'fsa_compliant' => (integer)$item->fsa_compliant,
             'full_season' => ($item->season == 'F' ? 'Fall' : 'Spring'),

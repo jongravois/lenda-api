@@ -10,6 +10,12 @@ class Loanstatus extends Model
     protected $table = 'loanstatus';
     protected $fillable = ['status', 'iconClass', 'iconColor'];
 
+    /* CASTING */
+    protected $casts = [
+        'id' => 'integer'
+    ];
+    /* CASTING */
+
     /* RELATIONSHIPS */
     /* RELATIONSHIPS */
 

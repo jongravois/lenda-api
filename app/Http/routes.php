@@ -14,7 +14,8 @@
 use App\Events\UserWasCreated;
 
 Route::get('/', function () {
-    dd(getLoanAgencies(1));
+    return sayHi();
+    //dd(getLoanAgencies(1));
     //return getTotalPartyCommit('arm', 1);
     //return getTotalLoanFarmExpenses(1);
     //print_r(getCropsInLoan(1));
