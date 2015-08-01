@@ -1,5 +1,6 @@
 <?php namespace App\Transformers;
 
+use App\Instype;
 use League\Fractal\TransformerAbstract;
 
 class InstypeTransformer extends TransformerAbstract {

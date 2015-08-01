@@ -24,7 +24,7 @@ class AgentsController extends ApiController
     public function index(Manager $fractal, AgentTransformer $agentTransformer)
     {
         // show all
-        $records = Agent::all();
+        $records = Agent::with('agency')->get();
         $collection = new Collection($records, $agentTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);

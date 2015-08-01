@@ -16,7 +16,8 @@ class AgencyTransformer extends TransformerAbstract {
             'state_id' => $item->state_id,
             'zip' => $item->zip,
             'phone' => $item->phone,
-            'email' => $item->email
+            'email' => $item->email,
+            'agents' => $item->agents
         ];
     }
 }
