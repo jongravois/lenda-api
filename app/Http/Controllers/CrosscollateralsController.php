@@ -51,7 +51,7 @@ class CrosscollateralsController extends ApiController
     {
         // insert new
         $record = Crosscollateral::create(Input::all());
-        return $this->respondCreated('Crosscollateral was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class CrosscollateralsController extends ApiController
 
         if(! $record){
             Crosscollateral::create(Input::all());
-            return $this->respondCreated('Crosscollateral was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Crosscollateral was created');
+        return $this->respond($record);
     }
 }

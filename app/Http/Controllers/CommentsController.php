@@ -51,7 +51,7 @@ class CommentsController extends ApiController
     {
         // insert new
         $record = Comment::create(Input::all());
-        return $this->respondCreated('Comment was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class CommentsController extends ApiController
 
         if(! $record){
             Comment::create(Input::all());
-            return $this->respondCreated('Comment was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Comment was created');
+        return $this->respond($record);
     }
 }

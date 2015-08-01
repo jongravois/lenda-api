@@ -24,7 +24,7 @@ class NotificationsController extends ApiController
     public function index(Manager $fractal, NotificationTransformer $notificationTransformer)
     {
         // show all
-        $records = Notification::with('user')->get();
+        $records = Notification::all();
         $collection = new Collection($records, $notificationTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
@@ -51,7 +51,7 @@ class NotificationsController extends ApiController
     {
         // insert new
         $record = Notification::create(Input::all());
-        return $this->respondCreated('Notification was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class NotificationsController extends ApiController
 
         if(! $record){
             Notification::create(Input::all());
-            return $this->respondCreated('Notification was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Notification was created');
+        return $this->respond($record);
     }
 }

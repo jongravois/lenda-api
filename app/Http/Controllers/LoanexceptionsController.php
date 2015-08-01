@@ -51,7 +51,7 @@ class LoanexceptionsController extends ApiController
     {
         // insert new
         $record = Loanexception::create(Input::all());
-        return $this->respondCreated('Loanexception was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class LoanexceptionsController extends ApiController
 
         if(! $record){
             Loanexception::create(Input::all());
-            return $this->respondCreated('Loanexception was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Loanexception was created');
+        return $this->respond($record);
     }
 }

@@ -51,7 +51,7 @@ class RolesController extends ApiController
     {
         // insert new
         $record = Role::create(Input::all());
-        return $this->respondCreated('Role was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class RolesController extends ApiController
 
         if(! $record){
             Role::create(Input::all());
-            return $this->respondCreated('Role was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Role was created');
+        return $this->respond($record);
     }
 }

@@ -35,7 +35,7 @@ class CountiesController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('county was deleted');
+        return $this->respondOK('County was deleted');
     }
 
     public function show($id, Manager $fractal, CountyTransformer $countyTransformer)
@@ -51,7 +51,7 @@ class CountiesController extends ApiController
     {
         // insert new
         $record = County::create(Input::all());
-        return $this->respondCreated('County was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class CountiesController extends ApiController
 
         if(! $record){
             County::create(Input::all());
-            return $this->respondCreated('County was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('County was created');
+        return $this->respond($record);
     }
 }

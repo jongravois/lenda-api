@@ -51,7 +51,7 @@ class DefaultcountycropsController extends ApiController
     {
         // insert new
         $record = Defaultcountycrop::create(Input::all());
-        return $this->respondCreated('Defaultcountycrop was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class DefaultcountycropsController extends ApiController
 
         if(! $record){
             Defaultcountycrop::create(Input::all());
-            return $this->respondCreated('Defaultcountycrop was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Defaultcountycrop was created');
+        return $this->respond($record);
     }
 }

@@ -51,7 +51,7 @@ class CommentstatusesController extends ApiController
     {
         // insert new
         $record = Commentstatus::create(Input::all());
-        return $this->respondCreated('Commentstatus was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class CommentstatusesController extends ApiController
 
         if(! $record){
             Commentstatus::create(Input::all());
-            return $this->respondCreated('Commentstatus was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Commentstatus was created');
+        return $this->respond($record);
     }
 }

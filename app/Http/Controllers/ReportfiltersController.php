@@ -51,7 +51,7 @@ class ReportfiltersController extends ApiController
     {
         // insert new
         $record = Reportfilter::create(Input::all());
-        return $this->respondCreated('Reportfilter was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class ReportfiltersController extends ApiController
 
         if(! $record){
             Reportfilter::create(Input::all());
-            return $this->respondCreated('Reportfilter was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Reportfilter was created');
+        return $this->respond($record);
     }
 }

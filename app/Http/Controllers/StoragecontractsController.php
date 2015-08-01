@@ -51,7 +51,7 @@ class StoragecontractsController extends ApiController
     {
         // insert new
         $record = Storagecontract::create(Input::all());
-        return $this->respondCreated('Storagecontract was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class StoragecontractsController extends ApiController
 
         if(! $record){
             Storagecontract::create(Input::all());
-            return $this->respondCreated('Storagecontract was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Storagecontract was created');
+        return $this->respond($record);
     }
 }

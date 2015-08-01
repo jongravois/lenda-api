@@ -51,7 +51,7 @@ class ViewfiltersController extends ApiController
     {
         // insert new
         $record = Viewfilter::create(Input::all());
-        return $this->respondCreated('Viewfilter was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class ViewfiltersController extends ApiController
 
         if(! $record){
             Viewfilter::create(Input::all());
-            return $this->respondCreated('Viewfilter was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Viewfilter was created');
+        return $this->respond($record);
     }
 }

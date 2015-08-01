@@ -50,8 +50,8 @@ class AddendumfinancialsController extends ApiController
     public function store()
     {
         // insert new
-        $record = Addendumfinancial::create(Input::all());
-        return $this->respondCreated('Addendumfinancial was created');
+        $record = Distributor::create(Input::all());
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -60,11 +60,11 @@ class AddendumfinancialsController extends ApiController
         $record = $this->records->find($id);
 
         if(! $record){
-            Addendumfinancial::create(Input::all());
-            return $this->respondCreated('Addendumfinancial was created');
+            Distributor::create(Input::all());
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Addendumfinancial was created');
+        return $this->respond($record);
     }
 }

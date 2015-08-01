@@ -24,8 +24,7 @@ class UsersController extends ApiController
     public function index(Manager $fractal, UserTransformer $userTransformer)
     {
         // show all
-        $records = User::with(['locations', 'notifications', 'optimizerviewoptions', 'viewfilters', 'viewoptions'])->get();
-        //dd($records);
+        $records = User::all();
         $collection = new Collection($records, $userTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
@@ -52,8 +51,7 @@ class UsersController extends ApiController
     {
         // insert new
         $record = User::create(Input::all());
-        event(new UserWasCreated);
-        return $this->respondCreated('User was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -63,10 +61,10 @@ class UsersController extends ApiController
 
         if(! $record){
             User::create(Input::all());
-            return $this->respondCreated('User was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('User was updated');
+        return $this->respond($record);
     }
 }

@@ -51,7 +51,7 @@ class AttachmentsController extends ApiController
     {
         // insert new
         $record = Attachment::create(Input::all());
-        return $this->respondCreated('Attachment was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class AttachmentsController extends ApiController
 
         if(! $record){
             Attachment::create(Input::all());
-            return $this->respondCreated('Attachment was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Attachment was created');
+        return $this->respond($record);
     }
 }

@@ -51,7 +51,7 @@ class PriorliensController extends ApiController
     {
         // insert new
         $record = Priorlien::create(Input::all());
-        return $this->respondCreated('Priorlien was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class PriorliensController extends ApiController
 
         if(! $record){
             Priorlien::create(Input::all());
-            return $this->respondCreated('Priorlien was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Priorlien was created');
+        return $this->respond($record);
     }
 }

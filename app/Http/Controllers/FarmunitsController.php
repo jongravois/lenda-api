@@ -51,7 +51,7 @@ class FarmunitsController extends ApiController
     {
         // insert new
         $record = Farmunit::create(Input::all());
-        return $this->respondCreated('Farmunit was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class FarmunitsController extends ApiController
 
         if(! $record){
             Farmunit::create(Input::all());
-            return $this->respondCreated('Farmunit was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Farmunit was created');
+        return $this->respond($record);
     }
 }

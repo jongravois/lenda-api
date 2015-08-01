@@ -51,7 +51,7 @@ class ReferencesController extends ApiController
     {
         // insert new
         $record = Reference::create(Input::all());
-        return $this->respondCreated('Reference was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class ReferencesController extends ApiController
 
         if(! $record){
             Reference::create(Input::all());
-            return $this->respondCreated('Reference was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Reference was created');
+        return $this->respond($record);
     }
 }

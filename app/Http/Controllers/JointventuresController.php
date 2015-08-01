@@ -51,7 +51,7 @@ class JointventuresController extends ApiController
     {
         // insert new
         $record = Jointventure::create(Input::all());
-        return $this->respondCreated('Jointventure was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class JointventuresController extends ApiController
 
         if(! $record){
             Jointventure::create(Input::all());
-            return $this->respondCreated('Jointventure was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Jointventure was created');
+        return $this->respond($record);
     }
 }

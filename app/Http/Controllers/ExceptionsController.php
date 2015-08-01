@@ -51,7 +51,7 @@ class ExceptionsController extends ApiController
     {
         // insert new
         $record = Exception::create(Input::all());
-        return $this->respondCreated('Exception was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class ExceptionsController extends ApiController
 
         if(! $record){
             Exception::create(Input::all());
-            return $this->respondCreated('Exception was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Exception was created');
+        return $this->respond($record);
     }
 }

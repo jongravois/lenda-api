@@ -51,7 +51,7 @@ class SpendcatsController extends ApiController
     {
         // insert new
         $record = Spendcat::create(Input::all());
-        return $this->respondCreated('Spendcat was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class SpendcatsController extends ApiController
 
         if(! $record){
             Spendcat::create(Input::all());
-            return $this->respondCreated('Spendcat was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Spendcat was created');
+        return $this->respond($record);
     }
 }

@@ -24,7 +24,7 @@ class LoansController extends ApiController
     public function index(Manager $fractal, LoanTransformer $loanTransformer)
     {
         // show all
-        $records = Loan::with('analyst', 'applicants', 'attachments', 'comments.responses', 'comments.status', 'committee', 'distributor', 'farmers', 'financials', 'loantypes', 'location.regions', 'status')->get();
+        $records = Loan::all();
         $collection = new Collection($records, $loanTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
@@ -51,7 +51,7 @@ class LoansController extends ApiController
     {
         // insert new
         $record = Loan::create(Input::all());
-        return $this->respondCreated('Loan was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class LoansController extends ApiController
 
         if(! $record){
             Loan::create(Input::all());
-            return $this->respondCreated('Loan was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Loan was created');
+        return $this->respond($record);
     }
 }

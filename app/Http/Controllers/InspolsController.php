@@ -51,7 +51,7 @@ class InspolsController extends ApiController
     {
         // insert new
         $record = Inspol::create(Input::all());
-        return $this->respondCreated('Inspol was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class InspolsController extends ApiController
 
         if(! $record){
             Inspol::create(Input::all());
-            return $this->respondCreated('Inspol was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Inspol was created');
+        return $this->respond($record);
     }
 }

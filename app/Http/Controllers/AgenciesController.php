@@ -35,7 +35,7 @@ class AgenciesController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('agency was deleted');
+        return $this->respondOK('Agency was deleted');
     }
 
     public function show($id, Manager $fractal, AgencyTransformer $agencyTransformer)
@@ -51,7 +51,7 @@ class AgenciesController extends ApiController
     {
         // insert new
         $record = Agency::create(Input::all());
-        return $this->respondCreated('Agency was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class AgenciesController extends ApiController
 
         if(! $record){
             Agency::create(Input::all());
-            return $this->respondCreated('Agency was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Agency was created');
+        return $this->respond($record);
     }
 }

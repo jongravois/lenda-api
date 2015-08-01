@@ -51,7 +51,7 @@ class SystemicsController extends ApiController
     {
         // insert new
         $record = Systemic::create(Input::all());
-        return $this->respondCreated('Systemic was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class SystemicsController extends ApiController
 
         if(! $record){
             Systemic::create(Input::all());
-            return $this->respondCreated('Systemic was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Systemic was created');
+        return $this->respond($record);
     }
 }

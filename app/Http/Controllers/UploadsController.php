@@ -51,7 +51,7 @@ class UploadsController extends ApiController
     {
         // insert new
         $record = Upload::create(Input::all());
-        return $this->respondCreated('Upload was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class UploadsController extends ApiController
 
         if(! $record){
             Upload::create(Input::all());
-            return $this->respondCreated('Upload was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Upload was created');
+        return $this->respond($record);
     }
 }

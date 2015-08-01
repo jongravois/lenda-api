@@ -24,7 +24,7 @@ class FarmsController extends ApiController
     public function index(Manager $fractal, FarmTransformer $farmTransformer)
     {
         // show all
-        $records = Farm::with('units.county.state')->get();
+        $records = Farm::all();
         $collection = new Collection($records, $farmTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
@@ -51,7 +51,7 @@ class FarmsController extends ApiController
     {
         // insert new
         $record = Farm::create(Input::all());
-        return $this->respondCreated('Farm was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class FarmsController extends ApiController
 
         if(! $record){
             Farm::create(Input::all());
-            return $this->respondCreated('Farm was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Farm was created');
+        return $this->respond($record);
     }
 }

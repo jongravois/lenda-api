@@ -51,7 +51,7 @@ class LoanfinancialsController extends ApiController
     {
         // insert new
         $record = Loanfinancial::create(Input::all());
-        return $this->respondCreated('Loanfinancial was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class LoanfinancialsController extends ApiController
 
         if(! $record){
             Loanfinancial::create(Input::all());
-            return $this->respondCreated('Loanfinancial was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Loanfinancial was created');
+        return $this->respond($record);
     }
 }

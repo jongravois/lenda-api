@@ -51,7 +51,7 @@ class EntitytypesController extends ApiController
     {
         // insert new
         $record = Entitytype::create(Input::all());
-        return $this->respondCreated('Entitytype was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class EntitytypesController extends ApiController
 
         if(! $record){
             Entitytype::create(Input::all());
-            return $this->respondCreated('Entitytype was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Entitytype was created');
+        return $this->respond($record);
     }
 }

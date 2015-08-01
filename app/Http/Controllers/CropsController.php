@@ -35,7 +35,7 @@ class CropsController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('crop was deleted');
+        return $this->respondOK('Crop was deleted');
     }
 
     public function show($id, Manager $fractal, CropTransformer $cropTransformer)
@@ -51,7 +51,7 @@ class CropsController extends ApiController
     {
         // insert new
         $record = Crop::create(Input::all());
-        return $this->respondCreated('Crop was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class CropsController extends ApiController
 
         if(! $record){
             Crop::create(Input::all());
-            return $this->respondCreated('Crop was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Crop was created');
+        return $this->respond($record);
     }
 }

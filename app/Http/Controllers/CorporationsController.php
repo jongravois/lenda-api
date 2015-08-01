@@ -51,7 +51,7 @@ class CorporationsController extends ApiController
     {
         // insert new
         $record = Corporation::create(Input::all());
-        return $this->respondCreated('Corporation was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class CorporationsController extends ApiController
 
         if(! $record){
             Corporation::create(Input::all());
-            return $this->respondCreated('Corporation was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Corporation was created');
+        return $this->respond($record);
     }
 }

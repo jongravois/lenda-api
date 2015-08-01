@@ -51,7 +51,7 @@ class LoanpracticesController extends ApiController
     {
         // insert new
         $record = Loanpractice::create(Input::all());
-        return $this->respondCreated('Loanpractice was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class LoanpracticesController extends ApiController
 
         if(! $record){
             Loanpractice::create(Input::all());
-            return $this->respondCreated('Loanpractice was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Loanpractice was created');
+        return $this->respond($record);
     }
 }

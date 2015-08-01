@@ -51,7 +51,7 @@ class OptimizerviewoptionsController extends ApiController
     {
         // insert new
         $record = Optimizerviewoption::create(Input::all());
-        return $this->respondCreated('Optimizerviewoption was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class OptimizerviewoptionsController extends ApiController
 
         if(! $record){
             Optimizerviewoption::create(Input::all());
-            return $this->respondCreated('Optimizerviewoption was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Optimizerviewoption was created');
+        return $this->respond($record);
     }
 }

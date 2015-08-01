@@ -51,7 +51,7 @@ class ApplicantsController extends ApiController
     {
         // insert new
         $record = Applicant::create(Input::all());
-        return $this->respondCreated('Applicant was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class ApplicantsController extends ApiController
 
         if(! $record){
             Applicant::create(Input::all());
-            return $this->respondCreated('Applicant was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Applicant was created');
+        return $this->respond($record);
     }
 }

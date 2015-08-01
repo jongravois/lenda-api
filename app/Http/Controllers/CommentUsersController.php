@@ -51,7 +51,7 @@ class CommentUsersController extends ApiController
     {
         // insert new
         $record = CommentUser::create(Input::all());
-        return $this->respondCreated('CommentUser was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class CommentUsersController extends ApiController
 
         if(! $record){
             CommentUser::create(Input::all());
-            return $this->respondCreated('CommentUser was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('CommentUser was created');
+        return $this->respond($record);
     }
 }

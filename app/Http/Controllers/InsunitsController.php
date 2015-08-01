@@ -51,7 +51,7 @@ class InsunitsController extends ApiController
     {
         // insert new
         $record = Insunit::create(Input::all());
-        return $this->respondCreated('Insunit was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class InsunitsController extends ApiController
 
         if(! $record){
             Insunit::create(Input::all());
-            return $this->respondCreated('Insunit was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Insunit was created');
+        return $this->respond($record);
     }
 }

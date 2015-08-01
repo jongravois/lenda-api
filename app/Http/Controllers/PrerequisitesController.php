@@ -51,7 +51,7 @@ class PrerequisitesController extends ApiController
     {
         // insert new
         $record = Prerequisite::create(Input::all());
-        return $this->respondCreated('Prerequisite was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class PrerequisitesController extends ApiController
 
         if(! $record){
             Prerequisite::create(Input::all());
-            return $this->respondCreated('Prerequisite was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Prerequisite was created');
+        return $this->respond($record);
     }
 }

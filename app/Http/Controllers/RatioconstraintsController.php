@@ -51,7 +51,7 @@ class RatioconstraintsController extends ApiController
     {
         // insert new
         $record = Ratioconstraint::create(Input::all());
-        return $this->respondCreated('Ratioconstraint was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class RatioconstraintsController extends ApiController
 
         if(! $record){
             Ratioconstraint::create(Input::all());
-            return $this->respondCreated('Ratioconstraint was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Ratioconstraint was created');
+        return $this->respond($record);
     }
 }

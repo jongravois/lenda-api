@@ -24,7 +24,7 @@ class RegionsController extends ApiController
     public function index(Manager $fractal, RegionTransformer $regionTransformer)
     {
         // show all
-        $records = Region::with('locations')->get();
+        $records = Region::all();
         $collection = new Collection($records, $regionTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
@@ -51,7 +51,7 @@ class RegionsController extends ApiController
     {
         // insert new
         $record = Region::create(Input::all());
-        return $this->respondCreated('Region was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class RegionsController extends ApiController
 
         if(! $record){
             Region::create(Input::all());
-            return $this->respondCreated('Region was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Region was created');
+        return $this->respond($record);
     }
 }

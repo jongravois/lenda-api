@@ -51,7 +51,7 @@ class PartnersController extends ApiController
     {
         // insert new
         $record = Partner::create(Input::all());
-        return $this->respondCreated('Partner was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class PartnersController extends ApiController
 
         if(! $record){
             Partner::create(Input::all());
-            return $this->respondCreated('Partner was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Partner was created');
+        return $this->respond($record);
     }
 }

@@ -51,7 +51,7 @@ class RequireddocumentsController extends ApiController
     {
         // insert new
         $record = Requireddocument::create(Input::all());
-        return $this->respondCreated('Requireddocument was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class RequireddocumentsController extends ApiController
 
         if(! $record){
             Requireddocument::create(Input::all());
-            return $this->respondCreated('Requireddocument was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Requireddocument was created');
+        return $this->respond($record);
     }
 }

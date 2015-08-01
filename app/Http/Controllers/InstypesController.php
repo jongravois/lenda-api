@@ -51,7 +51,7 @@ class InstypesController extends ApiController
     {
         // insert new
         $record = Instype::create(Input::all());
-        return $this->respondCreated('Instype was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class InstypesController extends ApiController
 
         if(! $record){
             Instype::create(Input::all());
-            return $this->respondCreated('Instype was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Instype was created');
+        return $this->respond($record);
     }
 }

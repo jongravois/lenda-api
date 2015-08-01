@@ -51,7 +51,7 @@ class CommitteesController extends ApiController
     {
         // insert new
         $record = Committee::create(Input::all());
-        return $this->respondCreated('Committee was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class CommitteesController extends ApiController
 
         if(! $record){
             Committee::create(Input::all());
-            return $this->respondCreated('Committee was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Committee was created');
+        return $this->respond($record);
     }
 }

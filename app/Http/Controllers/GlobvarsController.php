@@ -51,7 +51,7 @@ class GlobvarsController extends ApiController
     {
         // insert new
         $record = Globvar::create(Input::all());
-        return $this->respondCreated('Globvar was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class GlobvarsController extends ApiController
 
         if(! $record){
             Globvar::create(Input::all());
-            return $this->respondCreated('Globvar was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Globvar was created');
+        return $this->respond($record);
     }
 }

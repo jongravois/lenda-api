@@ -51,7 +51,7 @@ class MatrixController extends ApiController
     {
         // insert new
         $record = Matrix::create(Input::all());
-        return $this->respondCreated('Matrix was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class MatrixController extends ApiController
 
         if(! $record){
             Matrix::create(Input::all());
-            return $this->respondCreated('Matrix was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Matrix was created');
+        return $this->respond($record);
     }
 }

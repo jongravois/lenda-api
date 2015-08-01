@@ -51,7 +51,7 @@ class AgentsController extends ApiController
     {
         // insert new
         $record = Agent::create(Input::all());
-        return $this->respondCreated('Agent was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class AgentsController extends ApiController
 
         if(! $record){
             Agent::create(Input::all());
-            return $this->respondCreated('Agent was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Agent was created');
+        return $this->respond($record);
     }
 }

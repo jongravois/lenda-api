@@ -51,7 +51,7 @@ class ReportsController extends ApiController
     {
         // insert new
         $record = Report::create(Input::all());
-        return $this->respondCreated('Report was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class ReportsController extends ApiController
 
         if(! $record){
             Report::create(Input::all());
-            return $this->respondCreated('Report was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Report was created');
+        return $this->respond($record);
     }
 }

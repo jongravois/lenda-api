@@ -51,7 +51,7 @@ class MeasuresController extends ApiController
     {
         // insert new
         $record = Measure::create(Input::all());
-        return $this->respondCreated('Measure was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class MeasuresController extends ApiController
 
         if(! $record){
             Measure::create(Input::all());
-            return $this->respondCreated('Measure was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Measure was created');
+        return $this->respond($record);
     }
 }

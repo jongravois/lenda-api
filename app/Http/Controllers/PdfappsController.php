@@ -51,7 +51,7 @@ class PdfappsController extends ApiController
     {
         // insert new
         $record = Pdfapp::create(Input::all());
-        return $this->respondCreated('Pdfapp was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class PdfappsController extends ApiController
 
         if(! $record){
             Pdfapp::create(Input::all());
-            return $this->respondCreated('Pdfapp was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Pdfapp was created');
+        return $this->respond($record);
     }
 }

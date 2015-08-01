@@ -35,7 +35,7 @@ class CommitteespecsController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('committeespec was deleted');
+        return $this->respondOK('Committeespec was deleted');
     }
 
     public function show($id, Manager $fractal, CommitteespecTransformer $committeespecTransformer)
@@ -51,7 +51,7 @@ class CommitteespecsController extends ApiController
     {
         // insert new
         $record = Committeespec::create(Input::all());
-        return $this->respondCreated('Committeespec was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class CommitteespecsController extends ApiController
 
         if(! $record){
             Committeespec::create(Input::all());
-            return $this->respondCreated('Committeespec was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Committeespec was created');
+        return $this->respond($record);
     }
 }

@@ -51,7 +51,7 @@ class FarmersController extends ApiController
     {
         // insert new
         $record = Farmer::create(Input::all());
-        return $this->respondCreated('Farmer was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class FarmersController extends ApiController
 
         if(! $record){
             Farmer::create(Input::all());
-            return $this->respondCreated('Farmer was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Farmer was created');
+        return $this->respond($record);
     }
 }

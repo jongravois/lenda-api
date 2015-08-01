@@ -51,7 +51,7 @@ class FarmpracticesController extends ApiController
     {
         // insert new
         $record = Farmpractice::create(Input::all());
-        return $this->respondCreated('Farmpractice was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class FarmpracticesController extends ApiController
 
         if(! $record){
             Farmpractice::create(Input::all());
-            return $this->respondCreated('Farmpractice was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Farmpractice was created');
+        return $this->respond($record);
     }
 }

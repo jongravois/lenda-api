@@ -51,7 +51,7 @@ class FarmexpensesController extends ApiController
     {
         // insert new
         $record = Farmexpense::create(Input::all());
-        return $this->respondCreated('Farmexpense was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class FarmexpensesController extends ApiController
 
         if(! $record){
             Farmexpense::create(Input::all());
-            return $this->respondCreated('Farmexpense was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Farmexpense was created');
+        return $this->respond($record);
     }
 }

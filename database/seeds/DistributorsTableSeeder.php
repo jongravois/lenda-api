@@ -17,7 +17,7 @@ class DistributorsTableSeeder extends Seeder
             'city' => 'Delhi',
             'state_id' => '19',
             'zip' => 71232,
-            'email' => 'n/a',
+            'email' => '--',
             'phone' => '3187223490'
         ]);
 

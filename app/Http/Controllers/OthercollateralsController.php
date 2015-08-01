@@ -51,7 +51,7 @@ class OthercollateralsController extends ApiController
     {
         // insert new
         $record = Othercollateral::create(Input::all());
-        return $this->respondCreated('Othercollateral was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class OthercollateralsController extends ApiController
 
         if(! $record){
             Othercollateral::create(Input::all());
-            return $this->respondCreated('Othercollateral was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Othercollateral was created');
+        return $this->respond($record);
     }
 }

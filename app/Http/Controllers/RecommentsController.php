@@ -51,7 +51,7 @@ class RecommentsController extends ApiController
     {
         // insert new
         $record = Recomment::create(Input::all());
-        return $this->respondCreated('Recomment was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class RecommentsController extends ApiController
 
         if(! $record){
             Recomment::create(Input::all());
-            return $this->respondCreated('Recomment was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Recomment was created');
+        return $this->respond($record);
     }
 }

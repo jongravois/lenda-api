@@ -51,7 +51,7 @@ class ReportoptionsController extends ApiController
     {
         // insert new
         $record = Reportoption::create(Input::all());
-        return $this->respondCreated('Reportoption was created');
+        return $this->respond($record->id);
     }
 
     public function update($id)
@@ -61,10 +61,10 @@ class ReportoptionsController extends ApiController
 
         if(! $record){
             Reportoption::create(Input::all());
-            return $this->respondCreated('Reportoption was created');
+            return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
-        return $this->respondCreated('Reportoption was created');
+        return $this->respond($record);
     }
 }
