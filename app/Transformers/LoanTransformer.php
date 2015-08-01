@@ -154,7 +154,7 @@ class LoanTransformer extends TransformerAbstract {
             'recommended' => (integer)$item->recommended,
             'reconciliation' => (integer)$item->reconcoliation,
             'region' => $item->location->regions->region,
-            'required_3party' => (integer)$item->required_3party,
+            'required_3party' => (boolean)$item->required_3party,
             'season' => $item->season,
             'status' => $item->status,
         ];
