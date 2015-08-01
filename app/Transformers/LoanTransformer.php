@@ -43,6 +43,7 @@ class LoanTransformer extends TransformerAbstract {
             'agencies' => getLoanAgencies($item->id),
             'analyst' => $item->analyst->name,
             'analyst_can_approve' => (boolean)$item->analyst_can_approve,
+            'analyst_abr' => $item->analyst->nick,
             'analyst_email' => $item->analyst->email,
             'analyst_id' => $item->analyst->id,
             'aoi_received' => (integer)$item->aoi_received,
