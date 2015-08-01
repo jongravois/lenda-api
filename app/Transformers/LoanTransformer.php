@@ -9,6 +9,7 @@ class LoanTransformer extends TransformerAbstract {
     public function transform(Loan $item)
     {
         //return $item->toArray();
+
         $dtToday = Carbon::now();
         $appDate = Carbon::createFromFormat('Y-m-d', $item->app_date);
         $defaultDueDate = $item->default_due_date;
@@ -38,7 +39,10 @@ class LoanTransformer extends TransformerAbstract {
         }
 
         // Calculations for fins object
-        $total_acres = DB::select(DB::raw("SELECT SUM(IR) + SUM(NI) AS Total FROM farmunits WHERE farm_id IN (SELECT id FROM farms WHERE loan_id = {$item->id})"));
+        $total_acres = getTotalAcres($item->id);
+        $commitArm = getTotalPartyCommit('arm', $item->id);
+        $commitDist = getTotalPartyCommit('dist', $item->id);
+        $interestArm = getEstimatedInterestARM($item);
 
         return [
             'id' => $item->id,
@@ -87,6 +91,7 @@ class LoanTransformer extends TransformerAbstract {
             'farmer' => $item->farmers->farmer,
             'farmer_id' => $item->farmer_id,
             'financials' => $item->financials,
+
             'fins' => [
                 'discounts' => [
                     'percent_crop' => (double)$item->financials->disc_percent_crop,
@@ -101,17 +106,13 @@ class LoanTransformer extends TransformerAbstract {
                     'percent_realestate' => (double)$item->financials->disc_percent_realestate,
                     'percent_other' => (double)$item->financials->disc_percent_other
                 ],
-                'commit_arm' => getTotalPartyCommit('arm', $item->id),
-                'commit_dist' => getTotalPartyCommit('dist', $item->id),
-                'commit_other' => getTotalPartyCommit('other', $item->id),
-                'commit_total' => (double)getTotalPartyCommit('arm', $item->id) + (double)getTotalPartyCommit('dist', $item->id),
-                'total_fee_percent' => (double)$item->financials->fee_processing + (double)$item->financials->fee_service,
-                'fee_total' => getFeeTotal($item),
-                'int_percent_arm' => (double)$item->financials->int_percent_arm,
-                'int_percent_dist' => (double)$item->financials->int_percent_dist,
-                'estimated_interest_arm' => getEstimatedInterestARM($item),
+                'adjExposure' => 6000, //TODO: Hard coded
                 'balance_remaining' => 123.95, //TODO: disbursements table?
-                'total_acres' => (double)$total_acres[0]->Total,
+                'cash_flow' => 99999999, //TODO: Hard coded
+                'commit_arm' => $commitArm,
+                'commit_dist' => $commitDist,
+                'commit_other' => getTotalPartyCommit('other', $item->id),
+                'commit_total' => (double)$commitArm+(double)$commitDist,
                 'crop_acres' => [
                     'corn' => (double)getCropAcres($item->id, 1),
                     'soybeans' => (double)getCropAcres($item->id, 2),
@@ -124,11 +125,25 @@ class LoanTransformer extends TransformerAbstract {
                     'sugarcane' => (double)getCropAcres($item->id, 9),
                     'sunflowers' => (double)getCropAcres($item->id, 10)
                 ],
-                'cash_flow' => 99999999, //TODO: Hard coded
                 'exposure' => 8282, //TODO: Hard coded
-                'adjExposure' => 6000, //TODO: Hard coded
-                'qb_amount' => 5000000
+                'fee_processing' => (double)$item->financials->fee_processing,
+                'fee_processing_onTotal' => (boolean)$item->financials->fee_processing_onTotal,
+                'fee_service' =>(double)$item->financials->fee_service,
+                'fee_service_onTotal' => (boolean)$item->financials->fee_service_onTotal,
+                'fee_total' => getFeeTotal($item),
+                'int_arm' => $commitArm * ($interestArm/100),
+                'int_dist' => $commitDist *($item->financials->int_percent_dist/100),
+                'int_percent_arm' => (double)$item->financials->int_percent_arm,
+                'int_percent_dist' => (double)$item->financials->int_percent_dist,
+                'proc_fee' => getFeeProc_armAndDist($item),
+                'proc_fee_arm_only' => getFeeProc_armOnly($item),
+                'qb_amount' => 5000000,
+                'srvc_fee' => getFeeService_armAndDist($item),
+                'srvc_fee_arm_only' => getFeeService_armOnly($item),
+                'total_fee_percent' => (double)$item->financials->fee_processing + (double)$item->financials->fee_service,
+                'total_acres' => (double)$total_acres[0]->Total
             ],
+
             'fsa_compliant' => (integer)$item->fsa_compliant,
             'full_season' => ($item->season == 'F' ? 'Fall' : 'Spring'),
             'grade' => $item->grade,
