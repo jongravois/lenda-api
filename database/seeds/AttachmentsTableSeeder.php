@@ -23,5 +23,19 @@ class AttachmentsTableSeeder extends Seeder
             'filename' => 'equipmentList.pdf',
             'filetype' => 'pdf'
         ]);
+
+        Attachment::create([
+            'loan_id' => 2,
+            'title' => 'Drivers License',
+            'filename' => 'driversLicense.pdf',
+            'filetype' => 'pdf'
+        ]);
+
+        Attachment::create([
+            'loan_id' => 2,
+            'title' => 'Equipment List',
+            'filename' => 'equipmentList.pdf',
+            'filetype' => 'pdf'
+        ]);
     }
 }

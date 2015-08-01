@@ -33,5 +33,11 @@ class CommentstatusesTableSeeder extends Seeder
             'recipient_id' => 3,
             'status' =>	'pending'
         ]);
+
+        Commentstatus::create([
+            'comment_id' => 10,
+            'recipient_id' => 3,
+            'status' =>	'pending'
+        ]);
     }
 }

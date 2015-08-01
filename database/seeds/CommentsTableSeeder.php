@@ -72,5 +72,19 @@ class CommentsTableSeeder extends Seeder
             'user_id' => 3,
             'comment' => 'Just like Santa Claus, ARM has its own version of "the naughty list." But this one does not record boys and girls who fibbed or acted mean to schoolmates on the playground. Instead, the Watch List keeps track of loans who are suspected or projected to become problematic during the life of the loan.'
         ]);
+
+        Comment::create([
+            'loan_id' =>	2,
+            'type' =>	'Committee',
+            'user_id' => 4,
+            'comment' => 'Did Donald not want to include the two new farms he purchased into the loan?'
+        ]);
+
+        Comment::create([
+            'loan_id'	=>	2,
+            'type'		=>	'Loan',
+            'user_id' => 3,
+            'comment'	=>	'The requested loan is the same as last year and Donald use the funds last year as indicated and repaid the loan on time.'
+        ]);
     }
 }

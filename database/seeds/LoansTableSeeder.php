@@ -64,7 +64,7 @@ class LoansTableSeeder extends Seeder
         // Blake Donald(10) @ Rainbow Bridge(6) | Individual--Capital Bridge 2015
         Loan::create([
             'applicant_id' => 6,
-            'app_date' => Carbon::yesterday(),
+            'app_date' => Carbon::now()->subWeek(),
             'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-06-15'),
             'due_date' => Carbon::createFromFormat('Y-m-d','2015-06-15'),
             'loc_id' => 5,
@@ -105,7 +105,7 @@ class LoansTableSeeder extends Seeder
             'ccc_received' => 1,
             'crop_certified' => 1,
             'rebate_assignment' => 1,
-            'crop_inspection' => 0,
+            'crop_inspection' => 2,
             'limit_warning' => 2,
             'reconciliation' => 3,
             'account_classification' => '-',

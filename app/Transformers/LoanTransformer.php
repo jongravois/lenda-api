@@ -31,6 +31,12 @@ class LoanTransformer extends TransformerAbstract {
             $staleDiff = 0;
         } // end if
 
+        if( count($item->attachments()) > 0) {
+            $hasAttachments = true;
+        } else {
+            $hasAttachments = false;
+        }
+
         // Calculations for fins object
         $total_acres = DB::select(DB::raw("SELECT SUM(IR) + SUM(NI) AS Total FROM farmunits WHERE farm_id IN (SELECT id FROM farms WHERE loan_id = {$item->id})"));
 
@@ -75,7 +81,7 @@ class LoanTransformer extends TransformerAbstract {
             'dist_approved' => (integer)$item->dist_approved,
             'disbursement_issue' => (boolean)$item->disbursement_issue,
             'distributor' => ($item->distributor ? $item->distributor : []),
-            'dist_ucc_verified' => (integer)$item->dist_ucc_verified,
+            'dist_ucc_received' => (integer)$item->dist_ucc_received,
             'due_date' => ($item->due_date ? Carbon::createFromFormat('Y-m-d', $item->due_date)->format('m/d/Y') : ''),
             'equipment_collateral' => (boolean)$item->equipment_collateral,
             'farmer' => $item->farmers->farmer,
@@ -127,7 +133,7 @@ class LoanTransformer extends TransformerAbstract {
             'full_season' => ($item->season == 'F' ? 'Fall' : 'Spring'),
             'grade' => $item->grade,
             'has_addendum' => (boolean)$item->has_addendum,
-            'has_attachments' => (boolean)$item->has_attachments,
+            'has_attachments' => $hasAttachments,
             'has_distributor' => (boolean)$item->has_distributor,
             'is_active' => (boolean)$item->is_active,
             'is_cross_collateralized' => (boolean)$item->is_cross_collateralized,
@@ -152,7 +158,7 @@ class LoanTransformer extends TransformerAbstract {
             'rebate_assignment' => (integer)$item->rebate_assignment,
             'received_3party' => (integer)$item->received_3party,
             'recommended' => (integer)$item->recommended,
-            'reconciliation' => (integer)$item->reconcoliation,
+            'reconciliation' => (integer)$item->reconciliation,
             'region' => $item->location->regions->region,
             'required_3party' => (boolean)$item->required_3party,
             'season' => $item->season,
