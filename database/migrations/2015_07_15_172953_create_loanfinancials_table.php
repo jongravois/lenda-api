@@ -29,7 +29,7 @@ class CreateLoanfinancialsTable extends Migration
             $table->double('amount_requested')->default(0);
             $table->double('collateral_equipment')->default(0);
             $table->double('collateral_realestate')->default(0);
-            $table->boolean('fee__onTotal')->default(1);
+            $table->boolean('fee_onTotal')->default(1);
             $table->double('int_percent_arm')->default(0);
             $table->double('int_percent_dist')->default(0);
             $table->double('int_percent_other')->default(0);
