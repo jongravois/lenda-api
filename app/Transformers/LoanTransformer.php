@@ -42,7 +42,7 @@ class LoanTransformer extends TransformerAbstract {
         $total_acres = getTotalAcres($item->id);
         $commitArm = getTotalPartyCommit('arm', $item->id);
         $commitDist = getTotalPartyCommit('dist', $item->id);
-        $interestArm = getEstimatedInterestARM($item);
+        $commitOther = getTotalPartyCommit('other', $item->id);
 
         return [
             'id' => $item->id,
@@ -111,7 +111,7 @@ class LoanTransformer extends TransformerAbstract {
                 'cash_flow' => 99999999, //TODO: Hard coded
                 'commit_arm' => $commitArm,
                 'commit_dist' => $commitDist,
-                'commit_other' => getTotalPartyCommit('other', $item->id),
+                'commit_other' => $commitOther,
                 'commit_total' => (double)$commitArm+(double)$commitDist,
                 'crop_acres' => [
                     'corn' => (double)getCropAcres($item->id, 1),
@@ -131,15 +131,17 @@ class LoanTransformer extends TransformerAbstract {
                 'fee_service' =>(double)$item->financials->fee_service,
                 'fee_service_onTotal' => (boolean)$item->financials->fee_service_onTotal,
                 'fee_total' => getFeeTotal($item),
-                'int_arm' => $commitArm * ($interestArm/100),
-                'int_dist' => $commitDist *($item->financials->int_percent_dist/100),
+                'fee_onTotal' => (boolean)$item->fee_onTotal,
+                'int_arm' => getARMInterest($item),
+                'int_dist' => getDistInterest($item),
                 'int_percent_arm' => (double)$item->financials->int_percent_arm,
                 'int_percent_dist' => (double)$item->financials->int_percent_dist,
                 'proc_fee' => getFeeProc_armAndDist($item),
                 'proc_fee_arm_only' => getFeeProc_armOnly($item),
-                'qb_amount' => 5000000,
+                'qb_amount' => 5000000, //TODO: Hard coded
                 'srvc_fee' => getFeeService_armAndDist($item),
                 'srvc_fee_arm_only' => getFeeService_armOnly($item),
+                'total_farm_expenses' => (double)getTotalLoanFarmExpenses($item->id),
                 'total_fee_percent' => (double)$item->financials->fee_processing + (double)$item->financials->fee_service,
                 'total_acres' => (double)$total_acres[0]->Total
             ],
