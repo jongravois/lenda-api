@@ -1,9 +1,5 @@
 <?php
 
-header("Access-Control-Allow-Origin: *");
-header('Access-Control-Allow-Methods: DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT');
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization");
-
 require __DIR__.'/../bootstrap/autoload.php';
 $app = require_once __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
