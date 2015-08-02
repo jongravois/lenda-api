@@ -10,6 +10,7 @@ class LoanTransformer extends TransformerAbstract {
     {
         //return $item->toArray();
 
+        $hasAttachments = false;
         $dtToday = Carbon::now();
         $appDate = Carbon::createFromFormat('Y-m-d', $item->app_date);
         $defaultDueDate = $item->default_due_date;
@@ -32,10 +33,9 @@ class LoanTransformer extends TransformerAbstract {
             $staleDiff = 0;
         } // end if
 
-        if( count($item->attachments()) > 0) {
+        //has_attachments
+        if( count($item->attachments) > 0) {
             $hasAttachments = true;
-        } else {
-            $hasAttachments = false;
         }
 
         // Calculations for fins object
