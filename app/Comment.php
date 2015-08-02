@@ -18,6 +18,10 @@ class Comment extends Model
     {
         return $this->hasMany('App\Commentstatus');
     }
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */

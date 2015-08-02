@@ -24,7 +24,7 @@ class LoansController extends ApiController
     public function index(Manager $fractal, LoanTransformer $loanTransformer)
     {
         // show all
-        $records = Loan::with('agents.agency', 'analyst', 'applicants', 'attachments', 'comments.responses', 'comments.status', 'committee.user', 'distributor', 'farmers', 'financials', 'loantypes', 'location.regions', 'status')->get();
+        $records = Loan::with('agents.agency', 'analyst', 'applicants', 'attachments', 'comments.responses', 'comments.status', 'comments.user', 'committee.user', 'distributor', 'farmers', 'financials', 'loantypes', 'location.regions', 'status')->get();
         $collection = new Collection($records, $loanTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
