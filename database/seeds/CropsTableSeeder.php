@@ -115,11 +115,11 @@ class CropsTableSeeder extends Seeder
                 'name' => 'Sunflowers',
                 'sort_order' => 10,
                 'tea' => 0,
-                'measurement' => 'bu',
-                'rebate_measurement' => 'bu',
-                'arm_default_price' => 0,
-                'arm_default_ins_price' => 0,
-                'arm_default_yield' => 0
+                'measurement' => 'lb',
+                'rebate_measurement' => 'lb',
+                'arm_default_price' => 217.4,
+                'arm_default_ins_price' => 124.22,
+                'arm_default_yield' => 1600
             ]
         ];
 

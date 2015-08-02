@@ -6,104 +6,54 @@ use League\Fractal\TransformerAbstract;
 class DefaultcountycropTransformer extends TransformerAbstract {
     public function transform(Defaultcountycrop $item)
     {
-        //return $item;
+        //return $item->toArray();
 
         return [
             'id' => $item->id,
-            'county' => $item->county,
+            'county' => $item->county->county,
             'state_id' => $item->state_id,
-            'label' => $item->label,
-            'locale' => $item->locale,
-            'corn_ir'	=>	[
-                'price'	=>	(double) $item->price_corn_irr,
-                'ins_price' => (double) $item->insured_price_corn_irr,
-                'aph' => (double) $item->yield_corn_irr
-            ],
-            'corn_ni' => [
-                'price'	=>	(double) $item->price_corn_ni,
-                'ins_price' => (double) $item->insured_price_corn_ni,
-                'aph' => (double) $item->yield_corn_ni
-            ],
-            'soybeans_ir'	=>	[
-                'price'	=>	(double) $item->price_soybeans_irr,
-                'ins_price' => (double) $item->insured_price_soybeans_irr,
-                'aph' => (double) $item->yield_soybeans_irr
-            ],
-            'soybeans_ni'	=>	[
-                'price'	=>	(double) $item->price_soybeans_ni,
-                'ins_price' => (double) $item->insured_price_soybeans_ni,
-                'aph' => (double) $item->yield_soybeans_ni
-            ],
-            'beansfac_ir'	=>	[
-                'price'	=>	(double) $item->price_soybeans_facirr,
-                'ins_price' => (double) $item->insured_price_soybeans_facirr,
-                'aph' => (double) $item->yield_soybeans_facirr
-            ],
-            'beansfac_ni'	=>	[
-                'price'	=>	(double) $item->price_soybeans_facni,
-                'ins_price' => (double) $item->insured_price_soybeans_facni,
-                'aph' => (double) $item->yield_soybeans_facni
-            ],
-            'sorghum_ir'	=>	[
-                'price'	=>	(double) $item->price_sorghum_irr,
-                'ins_price' => (double) $item->insured_price_sorghum_irr,
-                'aph' => (double) $item->yield_sorghum_irr
-            ],
-            'sorghum_ni'	=>	[
-                'price'	=>	(double) $item->price_sorghum_ni,
-                'ins_price' => (double) $item->insured_price_sorghum_ni,
-                'aph' => (double) $item->yield_sorghum_ni
-            ],
-            'wheat_ir'	=>	[
-                'price'	=>	(double) $item->price_wheat_irr,
-                'ins_price' => (double) $item->insured_price_wheat_irr,
-                'aph' => (double) $item->yield_wheat_irr
-            ],
-            'wheat_ni'	=>	[
-                'price'	=>	(double) $item->price_wheat_ni,
-                'ins_price' => (double) $item->insured_price_wheat_ni,
-                'aph' => (double) $item->yield_wheat_ni
-            ],
-            'cotton_ir'	=>	[
-                'price'	=>	(double) $item->price_cotton_irr,
-                'ins_price' => (double) $item->insured_price_cotton_irr,
-                'aph' => (double) $item->yield_cotton_irr
-            ],
-            'cotton_ni'	=>	[
-                'price'	=>	(double) $item->price_cotton_ni,
-                'ins_price' => (double) $item->insured_price_cotton_ni,
-                'aph' => (double) $item->yield_cotton_ni
-            ],
-            'rice_ir'	=>	[
-                'price'	=>	(double) $item->price_rice_irr,
-                'ins_price' => (double) $item->insured_price_rice_irr,
-                'aph' => (double) $item->yield_rice_irr
-            ],
-            'rice_ni'	=>	[
-                'price'	=>	(double) $item->price_rice_ni,
-                'ins_price' => (double) $item->insured_price_rice_ni,
-                'aph' => (double) $item->yield_rice_ni
-            ],
-            'peanuts_ir'	=>	[
-                'price'	=>	(double) $item->price_peanuts_irr,
-                'ins_price' => (double) $item->insured_price_peanuts_irr,
-                'aph' => (double) $item->yield_peanuts_irr
-            ],
-            'peanuts_ni'	=>	[
-                'price'	=>	(double) $item->price_peanuts_ni,
-                'ins_price' => (double) $item->insured_price_peanuts_ni,
-                'aph' => (double) $item->yield_peanuts_ni
-            ],
-            'sugarcane_ir'	=>	[
-                'price'	=>	(double) $item->price_sugarcane_irr,
-                'ins_price' => (double) $item->insured_price_sugarcane_irr,
-                'aph' => (double) $item->yield_sugarcane_irr
-            ],
-            'sugarcane_ni'	=>	[
-                'price'	=>	(double) $item->price_sugarcane_ni,
-                'ins_price' => (double) $item->insured_price_sugarcane_ni,
-                'aph' => (double) $item->yield_sugarcane_ni
-            ]
+            'label' => $item->county->label,
+            'locale' => $item->county->locale,
+            'price_corn' => (double)$item->price_corn,
+            'price_soybeans' => (double)$item->price_soybeans,
+            'price_soybeansfac' => (double)$item->price_soybeansfac,
+            'price_sorghum' => (double)$item->price_sorghum,
+            'price_wheat' => (double)$item->price_wheat,
+            'price_cotton' => (double)$item->price_cotton,
+            'price_rice' => (double)$item->price_rice,
+            'price_peanuts' => (double)$item->price_peanuts,
+            'price_sugarcane' => (double)$item->price_sugarcane,
+            'price_sunflowers' => (double)$item->price_sunflowers,
+            'ins_price_corn' => (double)$item->ins_price_corn,
+            'ins_price_soybeans' => (double)$item->ins_price_soybeans,
+            'ins_price_soybeansfac' => (double)$item->ins_price_soybeansfac,
+            'ins_price_sorghum' => (double)$item->ins_price_sorghum,
+            'ins_price_wheat' => (double)$item->ins_price_wheat,
+            'ins_price_cotton' => (double)$item->ins_price_cotton,
+            'ins_price_rice' => (double)$item->ins_price_rice,
+            'ins_price_peanuts' => (double)$item->ins_price_peanuts,
+            'ins_price_sugarcane' => (double)$item->ins_price_sugarcane,
+            'ins_price_sunflowers' => (double)$item->ins_price_sunflowers,
+            'yield_corn_irr' => (double)$item->yield_corn_irr,
+            'yield_corn_ni' => (double)$item->yield_corn_ni,
+            'yield_soybeans_irr' => (double)$item->yield_soybeans_irr,
+            'yield_soybeans_ni' => (double)$item->yield_soybeans_ni,
+            'yield_soybeansfac_irr' => (double)$item->yield_soybeansfac_irr,
+            'yield_soybeansfac_ni' => (double)$item->yield_soybeansfac_ni,
+            'yield_sorghum_irr' => (double)$item->yield_sorghum_irr,
+            'yield_sorghum_ni' => (double)$item->yield_sorghum_ni,
+            'yield_wheat_irr' => (double)$item->yield_wheat_irr,
+            'yield_wheat_ni' => (double)$item->yield_wheat_ni,
+            'yield_cotton_irr' => (double)$item->yield_cotton_irr,
+            'yield_cotton_ni' => (double)$item->yield_cotton_ni,
+            'yield_rice_irr' => (double)$item->yield_rice_irr,
+            'yield_rice_ni' => (double)$item->yield_rice_ni,
+            'yield_peanuts_irr' => (double)$item->yield_peanuts_irr,
+            'yield_peanuts_ni' => (double)$item->yield_peanuts_ni,
+            'yield_sugarcane_irr' => (double)$item->yield_sugarcane_irr,
+            'yield_sugarcane_ni' => (double)$item->yield_sugarcane_ni,
+            'yield_sunflowers_irr' => (double)$item->yield_sunflowers_irr,
+            'yield_sunflowers_ni' => (double)$item->yield_sunflowers_ni
         ];
     }
 }

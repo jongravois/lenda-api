@@ -24,7 +24,7 @@ class DefaultcountycropsController extends ApiController
     public function index(Manager $fractal, DefaultcountycropTransformer $defaultcountycropTransformer)
     {
         // show all
-        $records = Defaultcountycrop::all();
+        $records = Defaultcountycrop::with('county')->get();
         $collection = new Collection($records, $defaultcountycropTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);

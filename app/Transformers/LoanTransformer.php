@@ -88,8 +88,7 @@ class LoanTransformer extends TransformerAbstract {
             'dist_ucc_received' => (integer)$item->dist_ucc_received,
             'due_date' => ($item->due_date ? Carbon::createFromFormat('Y-m-d', $item->due_date)->format('m/d/Y') : ''),
             'equipment_collateral' => (boolean)$item->equipment_collateral,
-            'farmer' => $item->farmers->farmer,
-            'farmer_id' => $item->farmer_id,
+            'farmer' => $item->farmers,
             'financials' => $item->financials,
 
             'fins' => [

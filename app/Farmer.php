@@ -14,6 +14,13 @@ class Farmer extends Model
     {
         $this->attributes['dob'] = Carbon::createFromFormat('d/m/Y', $value);
     }
+    public function getDobAttribute($value)
+    {
+        if (is_null($value))
+            return null;
+        else
+            return Carbon::parse($value)->format('d/m/Y');
+    }
 
     /* RELATIONSHIPS */
     /* RELATIONSHIPS */
