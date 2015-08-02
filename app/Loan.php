@@ -15,6 +15,10 @@ class Loan extends Model
     /* CASTING */
 
     /* RELATIONSHIPS */
+    public function agents()
+    {
+        return $this->hasMany('App\Agent', 'id');
+    }
     public function analyst() {
         return $this->belongsTo('App\User', 'user_id');
     }
