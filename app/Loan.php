@@ -49,6 +49,9 @@ class Loan extends Model
     public function location() {
         return $this->belongsTo('App\Location', 'loc_id');
     }
+    public function quests() {
+        return $this->hasOne('App\Loanquestion');
+    }
     public function status() {
         return $this->hasOne('App\Loanstatus', 'id', 'status_id');
     }

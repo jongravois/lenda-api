@@ -137,6 +137,7 @@ class LoanTransformer extends TransformerAbstract {
                 'proc_fee' => getFeeProc_armAndDist($item),
                 'proc_fee_arm_only' => getFeeProc_armOnly($item),
                 'qb_amount' => 5000000, //TODO: Hard coded
+                'quests' => $item->quests,
                 'srvc_fee' => getFeeService_armAndDist($item),
                 'srvc_fee_arm_only' => getFeeService_armOnly($item),
                 'total_farm_expenses' => (double)getTotalLoanFarmExpenses($item->id),
