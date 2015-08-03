@@ -35,7 +35,7 @@ class ViewoptionsTableSeeder extends Seeder
         ]);
 
         $users = DB::table('users')->count();
-        for($c=5; $c<$users; $c++) {
+        for($c=5; $c<$users+1; $c++) {
             Viewoption::create([
                 'user_id' => $c
             ]);
