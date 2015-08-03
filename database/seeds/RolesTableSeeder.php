@@ -12,7 +12,12 @@ class RolesTableSeeder extends Seeder
 
         Role::create([
             'abr'	=>	'PRE',
-            'role'	=>	'President'
+            'role'	=>	'President',
+            'matrix' => 1
+        ]);
+        Role::create([
+            'abr'	=>	'COO',
+            'role'	=>	'Chief Operating Officer'
         ]);
         Role::create([
             'abr'	=>	'CEO',

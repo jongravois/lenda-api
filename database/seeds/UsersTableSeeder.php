@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder {
                 'app' => 'staff',
                 'loc_id' => 1,
                 'password' => Hash::make('secret'),
-                'role_id' => 16
+                'role_id' => 20
             ],
             //[2]ACCOUNTING
             [
@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder {
                 'app' => 'staff',
                 'loc_id' => 1,
                 'password' => Hash::make('secret'),
-                'role_id' => 16
+                'role_id' => 20
             ],
             //[3]Gravois
             [
@@ -47,7 +47,7 @@ class UsersTableSeeder extends Seeder {
                 'full_sidebar' => false,
                 'comms_sms' => true,
                 'comms_outlook' => true,
-                'role_id' => 14
+                'role_id' => 18
             ],
             //[4]Thompson
             [
@@ -65,7 +65,9 @@ class UsersTableSeeder extends Seeder {
                 'phone' => '9991235648',
                 'manager_id' => 5,
                 'closer_id' => 5,
-                'role_id' => 14
+                'full_sidebar' => false,
+                'comms_sms' => true,
+                'role_id' => 18
             ],
             //[5]Terral
             [
@@ -74,11 +76,17 @@ class UsersTableSeeder extends Seeder {
                 'nick' => 'BET',
                 'email' => 'bterral@armlend.com',
                 'app' => 'staff',
-                'password' => Hash::make('secret'),
+                'is_admin' => true,
+                'is_manager' => true,
+                'is_approver' => true,
+                'password' => Hash::make('bterral'),
                 'phone' => '3182824037',
                 'manager_id' => 5,
                 'closer_id' => 5,
-                'role_id' => 1
+                'full_sidebar' => true,
+                'comms_sms' => true,
+                'comms_outlook' => true,
+                'role_id' => 2
             ],
             //[6]Branch
             [
@@ -86,12 +94,15 @@ class UsersTableSeeder extends Seeder {
                 'loc_id' => 1,
                 'nick' => 'MOB',
                 'email' => 'mbranch@armlend.com',
+                'is_admin' => true,
+                'is_manager' => true,
+                'is_approver' => true,
                 'app' => 'staff',
-                'password' => Hash::make('secret'),
+                'password' => Hash::make('mbranch'),
                 'phone' => '3182824037',
                 'manager_id' => 6,
                 'closer_id' => 6,
-                'role_id' => 2
+                'role_id' => 1
             ],
             //[7]K Williams
             [
@@ -100,24 +111,27 @@ class UsersTableSeeder extends Seeder {
                 'nick' => 'KAW',
                 'email' => 'kwilliams@armlend.com',
                 'app' => 'staff',
-                'password' => Hash::make('secret'),
+                'password' => Hash::make('kwilliams'),
                 'phone' => '3182824037',
                 'manager_id' => 6,
                 'closer_id' => 6,
                 'role_id' => 6
             ],
-            //[8]Miller
+            //[8]R Miller
             [
                 'name' => 'Robbie Miller',
-                'loc_id' => 1,
+                'loc_id' => 5,
                 'nick' => 'RAM',
                 'email' => 'rmiller@armlend.com',
                 'app' => 'staff',
                 'password' => Hash::make('secret'),
-                'phone' => '3182824037',
+                'phone' => '3187285770',
+                'is_admin' => true,
+                'is_manager' => true,
+                'is_approver' => true,
                 'manager_id' => 6,
                 'closer_id' => 6,
-                'role_id' => 4
+                'role_id' => 9
             ],
             //[9]Bassie
             [
@@ -200,30 +214,30 @@ class UsersTableSeeder extends Seeder {
             //[15]M Williams
             [
                 'name' => 'Mason Williams',
-                'loc_id' => 1,
+                'loc_id' => 5,
                 'nick' => 'MAW',
                 'email' => 'mwilliams@armlend.com',
                 'app' => 'staff',
-                'password' => Hash::make('secret'),
-                'phone' => '3182824037',
+                'password' => Hash::make('mwilliams'),
+                'phone' => '3187285770',
                 'manager_id' => 8,
                 'closer_id' => 8,
-                'role_id' => 9
+                'role_id' => 12
             ],
-            //[16]Tubbs
+            //[16]M Tubbs
             [
                 'name' => 'Marty Tubbs',
                 'loc_id' => 2,
                 'nick' => 'MAT',
                 'email' => 'mtubbs@armlend.com',
                 'app' => 'staff',
-                'password' => Hash::make('secret'),
-                'phone' => '3182824037',
+                'password' => Hash::make('mtubbs'),
+                'phone' => '6628430944',
                 'manager_id' => 9,
                 'closer_id' => 9,
-                'role_id' => 9
+                'role_id' => 10
             ],
-            //[]Everdeen (Agent)
+            //[17]Everdeen (Agent)
             [
                 'name' => 'Katniss Everdeen',
                 'loc_id' => 5,
@@ -232,7 +246,7 @@ class UsersTableSeeder extends Seeder {
                 'password' => Hash::make('secret'),
                 'phone' => '9995551212'
             ],
-            //[]Stark (Farmer)
+            //[18]Stark (Farmer)
             [
                 'name' => 'Tony Stark',
                 'loc_id' => 5,
@@ -240,6 +254,99 @@ class UsersTableSeeder extends Seeder {
                 'app' => 'client',
                 'password' => Hash::make('secret'),
                 'phone' => '9995559876'
+            ],
+            //[19]P Tate
+            [
+                'name' => 'Paul Tate',
+                'nick' => 'PAT',
+                'loc_id' => 1,
+                'email' => 'PTate@agrilogic.com',
+                'app' => 'staff',
+                'password' => Hash::make('ptate'),
+                'phone' => '3187285770',
+                'is_admin' => true,
+                'is_manager' => true,
+                'is_approver' => true,
+                'manager_id' => 19,
+                'closer_id' => 19,
+                'password' => Hash::make('ptate'),
+                'phone' => '3182824037',
+                'full_sidebar' => true,
+                'comms_sms' => true,
+                'role_id' => 3
+            ],
+            //[20]P Drew
+            [
+                'name' => 'Paul Drew',
+                'nick' => 'PAD',
+                'loc_id' => 1,
+                'email' => 'info@armlend.com',
+                'app' => 'staff',
+                'password' => Hash::make('pdrew'),
+                'phone' => '3187285770',
+                'app' => 'staff',
+                'is_admin' => true,
+                'is_manager' => true,
+                'is_approver' => true,
+                'manager_id' => 19,
+                'closer_id' => 19,
+                'full_sidebar' => true,
+                'comms_sms' => true,
+                'role_id' => 19
+            ],
+            //[21]D Cary
+            [
+                'name' => 'Dan Cary',
+                'nick' => 'DOC',
+                'loc_id' => 1,
+                'email' => 'dan.cary@improvingenterprises.com',
+                'app' => 'staff',
+                'password' => Hash::make('dcary'),
+                'phone' => '9795716088',
+                'is_admin' => true,
+                'is_manager' => true,
+                'is_approver' => true,
+                'manager_id' => 19,
+                'closer_id' => 19,
+                'full_sidebar' => true,
+                'comms_sms' => true,
+                'role_id' => 18
+            ],
+            //[22]A Marrical
+            [
+                'name' => 'Anthony Marrical',
+                'nick' => 'ATM',
+                'loc_id' => 1,
+                'email' => 'Anthony.Marrical@improvingenterprises.com',
+                'app' => 'staff',
+                'password' => Hash::make('amarrical'),
+                'phone' => '2482552269',
+                'is_admin' => true,
+                'is_manager' => true,
+                'is_approver' => true,
+                'manager_id' => 19,
+                'closer_id' => 19,
+                'full_sidebar' => true,
+                'comms_sms' => true,
+                'role_id' => 18
+            ],
+            //[23]M Mayer
+            [
+                'name' => 'Morgan Mayer',
+                'nick' => 'MNM',
+                'loc_id' => 1,
+                'email' => 'mmayer@armlend.com',
+                'app' => 'staff',
+                'password' => Hash::make('mmayer'),
+                'phone' => '8703362620',
+                'is_admin' => true,
+                'is_manager' => true,
+                'is_approver' => true,
+                'manager_id' => 10,
+                'closer_id' => 10,
+                'full_sidebar' => true,
+                'comms_sms' => true,
+                'role_id' => 7
             ]
         ];
 
