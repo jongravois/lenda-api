@@ -8,7 +8,7 @@ class Distributor extends Model
 {
     public $timestamps = false;
     protected $table = 'distributors';
-    protected $fillable = ['distributor', 'name', 'address', 'city', 'state_id', 'zip', 'phone', 'email'];
+    protected $fillable = ['distributor', 'name', 'address', 'city', 'state_id', 'zip', 'contact', 'phone', 'email'];
 
     /* RELATIONSHIPS */
     public function state() {

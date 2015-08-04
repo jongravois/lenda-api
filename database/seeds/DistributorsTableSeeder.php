@@ -72,6 +72,7 @@ class DistributorsTableSeeder extends Seeder
             'city' => 'Rayville',
             'state_id' => 19,
             'zip' => 71269,
+            'contact' => 'Billy Joel',
             'phone' => '3187283235',
             'email' => 'jsi@distributor.com'
         ]);

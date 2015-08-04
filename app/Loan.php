@@ -34,6 +34,9 @@ class Loan extends Model
     public function comments() {
         return $this->hasMany('App\Comment');
     }
+    public function corps() {
+        return $this->hasMany('App\Corporation', 'loan_id', 'id');
+    }
     public function distributor() {
         return $this->hasOne('App\Distributor', 'id', 'distributor_id');
     }
@@ -43,21 +46,30 @@ class Loan extends Model
     public function financials() {
         return $this->hasOne('App\Loanfinancial', 'loan_id', 'id');
     }
+    public function joints() {
+        return $this->hasMany('App\Jointventure', 'loan_id', 'id');
+    }
     public function loantypes() {
         return $this->hasOne('App\Loantype', 'id', 'loan_type_id');
     }
     public function location() {
         return $this->belongsTo('App\Location', 'loc_id');
     }
-    public function transactions()
-    {
-        return $this->hasMany('App\Qbtran');
+    public function partners() {
+        return $this->hasMany('App\Partner', 'loan_id', 'id');
     }
     public function quests() {
-        return $this->hasOne('App\Loanquestion');
+        return $this->hasOne('App\Loanquestion', 'loan_id', 'id');
+    }
+    public function references() {
+        return $this->hasMany('App\Reference', 'loan_id', 'id');
     }
     public function status() {
         return $this->hasOne('App\Loanstatus', 'id', 'status_id');
+    }
+    public function transactions()
+    {
+        return $this->hasMany('App\Qbtran');
     }
     /* RELATIONSHIPS */
 

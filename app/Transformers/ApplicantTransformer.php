@@ -30,7 +30,8 @@ class ApplicantTransformer extends TransformerAbstract {
             'spouse' =>	$item->spouse,
             'spouse_ssn' =>	$item->spouse_ssn,
             'spouse_phone' => $item->spouse_phone,
-            'spouse_email' => $item->spouse_email
+            'spouse_email' => $item->spouse_email,
+            'fins' => $item->financials
         ];
     }
 }
