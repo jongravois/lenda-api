@@ -17,6 +17,10 @@ class Role extends Model
     /* CASTING */
 
     /* RELATIONSHIPS */
+    public function responsibilities()
+    {
+        return $this->hasMany('App\Role');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */

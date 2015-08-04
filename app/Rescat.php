@@ -15,6 +15,10 @@ class Rescat extends Model
     /* CASTING */
 
     /* RELATIONSHIPS */
+    public function responsibilities()
+    {
+        return $this->hasMany('App\Responsibility', 'cat_id', 'id');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */

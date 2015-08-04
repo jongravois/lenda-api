@@ -15,6 +15,10 @@ class Responsibility extends Model
     /* CASTING */
 
     /* RELATIONSHIPS */
+    public function category()
+    {
+        return $this->belongsTo('App\Rescat', 'cat_id');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */

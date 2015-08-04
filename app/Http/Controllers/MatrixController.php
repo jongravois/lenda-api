@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Matrix;
+use App\Rescat;
+use App\Responsibility;
+use App\ResponsibilityRole;
 use App\Transformers\MatrixTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -24,7 +27,7 @@ class MatrixController extends ApiController
     public function index()
     {
         // show all
-        $data = "Build the matrix here";
+        $data = ResponsibilityRole::with('responsibilities.category','role')->get();
         return $this->respond($data);
     }
 }

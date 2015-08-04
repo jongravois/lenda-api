@@ -15,6 +15,14 @@ class ResponsibilityRole extends Model
     /* CASTING */
 
     /* RELATIONSHIPS */
+    public function responsibilities()
+    {
+        return $this->belongsTo('App\Responsibility', 'responsibility_id');
+    }
+    public function role()
+    {
+        return $this->belongsTo('App\Role', 'role_id');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */
