@@ -74,7 +74,6 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('loanstatus', 'LoanstatusController');
 	Route::resource('loantypes', 'LoantypesController');
 	Route::resource('locations', 'LocationsController');
-	Route::resource('matrix', 'MatrixController');
 	Route::resource('measures', 'MeasuresController');
 	Route::resource('notifications', 'NotificationsController');
 	Route::resource('optimizerviewoptions', 'OptimizerviewoptionsController');
@@ -83,6 +82,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('pdfapps', 'PdfappsController');
 	Route::resource('prerequisites', 'PrerequisitesController');
 	Route::resource('priorliens', 'PriorliensController');
+	Route::resource('qbtrans', 'QbtransController');
 	Route::resource('ratioconstraints', 'RatioconstraintsController');
 	Route::resource('recomments', 'RecommentsController');
 	Route::resource('references', 'ReferencesController');
@@ -91,6 +91,8 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('reportoptions', 'ReportoptionsController');
 	Route::resource('reports', 'ReportsController');
 	Route::resource('requireddocuments', 'RequireddocumentsController');
+	Route::resource('responsibilities', 'ResponsibilitiesController');
+	Route::resource('responsibilityroles', 'ResponsibilityrolesController');
 	Route::resource('roles', 'RolesController');
 	Route::resource('spendcats', 'SpendcatsController');
 	Route::resource('states', 'StatesController');
@@ -100,4 +102,6 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('users', 'UsersController');
 	Route::resource('viewfilters', 'ViewfiltersController');
 	Route::resource('viewoptions', 'ViewoptionsController');
+
+	Route::get('matrix', 'MatrixController@index');
 });

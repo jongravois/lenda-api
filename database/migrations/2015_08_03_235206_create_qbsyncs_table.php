@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRolesTable extends Migration
+class CreateQbsyncsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,9 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('qbsyncs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('abr');
-            $table->string('role');
-            $table->longText('description')->nullable();
-            $table->boolean('matrix')->default(0);
+            $table->timestamps();
         });
     }
 
@@ -28,6 +25,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('roles');
+        Schema::drop('qbsyncs');
     }
 }

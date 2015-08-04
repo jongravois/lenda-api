@@ -21,50 +21,10 @@ class MatrixController extends ApiController
         $this->records = $records;
     }
 
-    public function index(Manager $fractal, MatrixTransformer $matrixTransformer)
+    public function index()
     {
         // show all
-        $records = Matrix::all();
-        $collection = new Collection($records, $matrixTransformer);
-        $data = $fractal->createData($collection)->toArray();
+        $data = "Build the matrix here";
         return $this->respond($data);
-    }
-
-    public function destroy($id)
-    {
-        // delete single
-        $record = $this->records->findOrFail($id);
-        $record->delete();
-        return $this->respondOK('Matrix was deleted');
-    }
-
-    public function show($id, Manager $fractal, MatrixTransformer $matrixTransformer)
-    {
-        //show single
-        $record = $this->records->findOrFail($id);
-        $item = new Item($record, $matrixTransformer);
-        $data = $fractal->createData($item)->toArray();
-        return $this->respond($data);
-    }
-
-    public function store()
-    {
-        // insert new
-        $record = Matrix::create(Input::all());
-        return $this->respond($record->id);
-    }
-
-    public function update($id)
-    {
-        // save updated
-        $record = $this->records->find($id);
-
-        if(! $record){
-            Matrix::create(Input::all());
-            return $this->respond($record);
-        }
-
-        $record->fill(Input::all())->save();
-        return $this->respond($record);
     }
 }

@@ -12,6 +12,7 @@ class RoleTransformer extends TransformerAbstract {
             'id' => $item->id,
             'abr' => $item->abr,
             'role' => $item->role,
+            'description' => $item->description,
             'matrix' => $item->matrix
         ];
     }

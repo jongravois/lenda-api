@@ -179,6 +179,7 @@ class LoanTransformer extends TransformerAbstract {
             'required_3party' => (boolean)$item->required_3party,
             'season' => $item->season,
             'status' => $item->status,
+            'transactions' => $item->transactions
         ];
     }
 }

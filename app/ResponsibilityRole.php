@@ -4,16 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class ResponsibilityRole extends Model
 {
     public $timestamps = false;
-    protected $table = 'roles';
-    protected $fillable = ['abr', 'role', 'description', 'matrix'];
+    protected $table = 'responsibility_roles';
+    protected $fillable = ['responsibility_id', 'role_id', 'level'];
 
     /* CASTING */
-    protected $casts = [
-        'matrix' => 'boolean'
-    ];
+    protected $casts = [];
     /* CASTING */
 
     /* RELATIONSHIPS */

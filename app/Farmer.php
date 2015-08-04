@@ -19,7 +19,7 @@ class Farmer extends Model
         if (is_null($value))
             return null;
         else
-            return Carbon::parse($value)->format('d/m/Y');
+            return Carbon::parse($value)->format('m/d/Y');
     }
 
     /* RELATIONSHIPS */
