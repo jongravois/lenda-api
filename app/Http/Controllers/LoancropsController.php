@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Loan;
-use App\Transformers\LoanTransformer;
+use App\Loancrop;
+use App\Transformers\LoancropTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -12,20 +12,20 @@ use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
-class LoansController extends ApiController
+class LoancropsController extends ApiController
 {
     protected $records;
 
-    public function __construct(Loan $records)
+    public function __construct(Loancrop $records)
     {
         $this->records = $records;
     }
 
-    public function index(Manager $fractal, LoanTransformer $loanTransformer)
+    public function index(Manager $fractal, LoancropTransformer $loancropTransformer)
     {
         // show all
-        $records = Loan::with('agents.agency', 'analyst', 'applicants.fins', 'attachments', 'comments.responses.user', 'comments.status', 'comments.user', 'committee.user', 'corps', 'disbursements', 'distributor', 'farmers', 'financials', 'inspols', 'joints', 'loancrops.crops', 'loantypes', 'location.regions', 'partners', 'quests', 'references', 'status', 'systemics')->get();
-        $collection = new Collection($records, $loanTransformer);
+        $records = Loancrop::with('crops')->get();
+        $collection = new Collection($records, $loancropTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
     }
@@ -35,14 +35,14 @@ class LoansController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('Loan was deleted');
+        return $this->respondOK('Loancrop was deleted');
     }
 
-    public function show($id, Manager $fractal, LoanTransformer $loanTransformer)
+    public function show($id, Manager $fractal, LoancropTransformer $loancropTransformer)
     {
         //show single
         $record = $this->records->findOrFail($id);
-        $item = new Item($record, $loanTransformer);
+        $item = new Item($record, $loancropTransformer);
         $data = $fractal->createData($item)->toArray();
         return $this->respond($data);
     }
@@ -50,7 +50,7 @@ class LoansController extends ApiController
     public function store()
     {
         // insert new
-        $record = Loan::create(Input::all());
+        $record = Loancrop::create(Input::all());
         return $this->respond($record->id);
     }
 
@@ -60,7 +60,7 @@ class LoansController extends ApiController
         $record = $this->records->find($id);
 
         if(! $record){
-            Loan::create(Input::all());
+            Loancrop::create(Input::all());
             return $this->respond($record);
         }
 

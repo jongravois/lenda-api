@@ -37,6 +37,9 @@ class Loan extends Model
     public function corps() {
         return $this->hasMany('App\Corporation', 'loan_id', 'id');
     }
+    public function disbursements() {
+        return $this->hasMany('App\Disbursement', 'loan_id', 'id');
+    }
     public function distributor() {
         return $this->hasOne('App\Distributor', 'id', 'distributor_id');
     }
@@ -46,8 +49,14 @@ class Loan extends Model
     public function financials() {
         return $this->hasOne('App\Loanfinancial', 'loan_id', 'id');
     }
+    public function inspols() {
+        return $this->hasMany('App\Inspol', 'loan_id', 'id');
+    }
     public function joints() {
         return $this->hasMany('App\Jointventure', 'loan_id', 'id');
+    }
+    public function loancrops() {
+        return $this->hasMany('App\Loancrop', 'loan_id', 'id');
     }
     public function loantypes() {
         return $this->hasOne('App\Loantype', 'id', 'loan_type_id');
@@ -67,8 +76,10 @@ class Loan extends Model
     public function status() {
         return $this->hasOne('App\Loanstatus', 'id', 'status_id');
     }
-    public function transactions()
-    {
+    public function systemics() {
+        return $this->hasMany('App\Systemic');
+    }
+    public function transactions() {
         return $this->hasMany('App\Qbtran');
     }
     /* RELATIONSHIPS */

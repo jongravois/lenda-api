@@ -85,6 +85,7 @@ class LoanTransformer extends TransformerAbstract {
             'default_due_date' => ($item->default_due_date ? Carbon::createFromFormat('Y-m-d', $item->default_due_date)->format('m/d/Y') : ''),
             'dist_approved' => (integer)$item->dist_approved,
             'disbursement_issue' => (boolean)$item->disbursement_issue,
+            'disbursements' => $item->disbursements,
             'distributor' => ($item->distributor ? $item->distributor : []),
             'dist_ucc_received' => (integer)$item->dist_ucc_received,
             'due_date' => ($item->due_date ? Carbon::createFromFormat('Y-m-d', $item->due_date)->format('m/d/Y') : ''),
@@ -97,6 +98,7 @@ class LoanTransformer extends TransformerAbstract {
             'has_addendum' => (boolean)$item->has_addendum,
             'has_attachments' => $hasAttachments,
             'has_distributor' => (boolean)$item->has_distributor,
+            'inspols' => $item->inspols,
             'is_active' => (boolean)$item->is_active,
             'is_cross_collateralized' => (boolean)$item->is_cross_collateralized,
             'is_fast_tracked' => (boolean)$item->is_fast_tracked,
@@ -108,6 +110,7 @@ class LoanTransformer extends TransformerAbstract {
             'limit_warning_message' => $item->limit_warning_message,
             'loan_closed' => (integer)$item->loan_closed,
             'loan_closed_date' => ($item->loan_closed_date ? Carbon::createFromFormat('Y-m-d', $item->loan_closed_date)->format('m/d/Y') : ''),
+            'loancrops' => $item->loancrops,
             'loan_type' => $item->loantypes->loantype,
             'loan_type_id' => (integer)$item->loan_type_id,
             'loantype_abr' => $item->loantypes->abr,
@@ -129,6 +132,7 @@ class LoanTransformer extends TransformerAbstract {
             'required_3party' => (boolean)$item->required_3party,
             'season' => $item->season,
             'status' => $item->status,
+            'systemics' => $item->systemics,
             'transactions' => $item->transactions,
 
             'fins' => [
