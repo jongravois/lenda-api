@@ -17,6 +17,7 @@ class LoanTransformer extends TransformerAbstract {
         $dueDate = Carbon::createFromFormat('Y-m-d', $item->due_date);
         $diff = $dueDate->diffInDays($appDate);
         $staleDiff = $appDate->diffInDays($dtToday);
+        $pastDueDiff = $dueDate->diffInDays($dtToday);
         //dd($staleDiff);
 
         //is_stale
@@ -36,6 +37,15 @@ class LoanTransformer extends TransformerAbstract {
         //has_attachments
         if( count($item->attachments) > 0) {
             $hasAttachments = true;
+        }
+
+        //warning Past Due
+        if($pastDueDiff < 10) {
+            $pastDue = 2;
+        } elseif ($pastDueDiff < 30) {
+            $pastDue = 1;
+        } else {
+            $pastDue = 0;
         }
 
         // Calculations for fins object
@@ -122,6 +132,7 @@ class LoanTransformer extends TransformerAbstract {
             'joints' => $item->joints,
             'other_collateral' => (boolean)$item->other_collateral,
             'partners' => $item->partners,
+            'past_due' => $pastDue,
             'permission_to_insure_verified' => (integer)$item->permission_to_insure_verified,
             'prev_lien_verified' => (integer)$item->prev_lien_verified,
             'quests' => $item->quests,
