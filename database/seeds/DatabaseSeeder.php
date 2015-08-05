@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'PdfappsTableSeeder',
             'PrerequisitesTableSeeder',
             'PriorliensTableSeeder',
-//            'QbtransTableSeeder',
+            'QbtransTableSeeder',
             'RatioconstraintsTableSeeder',
             'RecommentsTableSeeder',
             'ReferencesTableSeeder',

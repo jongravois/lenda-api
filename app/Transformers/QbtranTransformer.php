@@ -1,5 +1,6 @@
 <?php namespace App\Transformers;
 
+use App\Qbtran;
 use League\Fractal\TransformerAbstract;
 
 class QbtranTransformer extends TransformerAbstract {
