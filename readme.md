@@ -1,5 +1,7 @@
 ## LENDA
 
+[![Join the chat at https://gitter.im/jongravois/jotbot](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jongravois/jotbot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is an Laravel 5.1 application
 
 ## Installation
