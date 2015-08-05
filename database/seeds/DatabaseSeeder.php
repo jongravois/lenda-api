@@ -35,7 +35,6 @@ class DatabaseSeeder extends Seeder
             'ExceptionsTableSeeder',
             'FarmersTableSeeder',
             'FarmexpensesTableSeeder',
-            'FarmpracticesTableSeeder',
             'FarmsTableSeeder',
             'FarmunitsTableSeeder',
             'GlobvarsTableSeeder',
@@ -82,6 +81,7 @@ class DatabaseSeeder extends Seeder
             'StatesTableSeeder',
             'StoragecontractsTableSeeder',
             'SystemicsTableSeeder',
+            'UnitpracticesTableSeeder',
             'UploadsTableSeeder',
             'ViewfiltersTableSeeder',
             'ViewoptionsTableSeeder'

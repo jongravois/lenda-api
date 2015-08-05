@@ -45,7 +45,7 @@ class LoanTransformer extends TransformerAbstract {
         $commitOther = getTotalPartyCommit('other', $item->id);
 
         return [
-            'corps' => $item->corps,
+            'farms' => $item->farms,
             'id' => $item->id,
             'account_classification' => $item->account_classification,
             'added_land' => (boolean)$item->added_land,
@@ -90,7 +90,9 @@ class LoanTransformer extends TransformerAbstract {
             'dist_ucc_received' => (integer)$item->dist_ucc_received,
             'due_date' => ($item->due_date ? Carbon::createFromFormat('Y-m-d', $item->due_date)->format('m/d/Y') : ''),
             'equipment_collateral' => (boolean)$item->equipment_collateral,
+            'exceptions' => $item->exceptions,
             'farmer' => $item->farmers,
+            'farms' => $item->farms,
             'financials' => $item->financials,
 'fsa_compliant' => (integer)$item->fsa_compliant,
             'full_season' => ($item->season == 'F' ? 'Fall' : 'Spring'),
@@ -110,6 +112,7 @@ class LoanTransformer extends TransformerAbstract {
             'limit_warning_message' => $item->limit_warning_message,
             'loan_closed' => (integer)$item->loan_closed,
             'loan_closed_date' => ($item->loan_closed_date ? Carbon::createFromFormat('Y-m-d', $item->loan_closed_date)->format('m/d/Y') : ''),
+            'loanconditions' => $item->conditions,
             'loancrops' => $item->loancrops,
             'loan_type' => $item->loantypes->loantype,
             'loan_type_id' => (integer)$item->loan_type_id,

@@ -67,4 +67,10 @@ class CropexpensesController extends ApiController
         $record->fill(Input::all())->save();
         return $this->respond($record);
     }
+
+    public function byCrop($loanID, $cropID)
+    {
+        $data = Cropexpense::where('loan_id', $loanID)->where('crop_id', $cropID)->get();
+        return $this->respond($data);
+    }
 }

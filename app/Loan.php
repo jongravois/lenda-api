@@ -34,6 +34,9 @@ class Loan extends Model
     public function comments() {
         return $this->hasMany('App\Comment');
     }
+    public function conditions() {
+        return $this->hasMany('App\Loancondition', 'loan_id', 'id');
+    }
     public function corps() {
         return $this->hasMany('App\Corporation', 'loan_id', 'id');
     }
@@ -43,8 +46,14 @@ class Loan extends Model
     public function distributor() {
         return $this->hasOne('App\Distributor', 'id', 'distributor_id');
     }
+    public function exceptions() {
+        return $this->hasMany('App\Loanexception', 'loan_id', 'id');
+    }
     public function farmers() {
         return $this->belongsTo('App\Farmer', 'farmer_id');
+    }
+    public function farms() {
+        return $this->hasMany('App\Farm', 'loan_id', 'id');
     }
     public function financials() {
         return $this->hasOne('App\Loanfinancial', 'loan_id', 'id');

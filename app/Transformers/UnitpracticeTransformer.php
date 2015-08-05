@@ -1,18 +1,18 @@
 <?php namespace App\Transformers;
 
-use App\Farmpractice;
+use App\Unitpractice;
 use League\Fractal\TransformerAbstract;
 
-class FarmpracticeTransformer extends TransformerAbstract {
-    public function transform(Farmpractice $item)
+class UnitpracticeTransformer extends TransformerAbstract {
+    public function transform(Unitpractice $item)
     {
-        //return $item;
+        //return $item->toArray();
 
         return [
             'id' => $item->id,
             'crop_year' => (integer) $item->crop_year,
             'loan_id' => (integer) $item->loan_id,
-            'farm_id' => (integer)$item->farm_id,
+            'unit_id' => (integer)$item->unit_id,
             'crop_id' => (integer) $item->crop_id,
             //'crop' => $item->crop'][0]['crop,
             //'name' => $item->crop'][0]['name,

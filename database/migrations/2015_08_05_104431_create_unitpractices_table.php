@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFarmpracticesTable extends Migration
+class CreateUnitpracticesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class CreateFarmpracticesTable extends Migration
      */
     public function up()
     {
-        Schema::create('farmpractices', function (Blueprint $table) {
+        Schema::create('unitpractices', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('crop_year')->default(2015);
             $table->integer('loan_id');
-            $table->integer('farm_id')->nullable();
+            $table->integer('unit_id')->nullable();
             $table->integer('crop_id');
             $table->string('towhom_market')->nullable();
             $table->string('gin_mill')->nullable();
@@ -52,6 +52,6 @@ class CreateFarmpracticesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('farmpractices');
+        Schema::drop('unitpractices');
     }
 }

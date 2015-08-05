@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Farmpractice;
-use App\Transformers\FarmpracticeTransformer;
+use App\Transformers\UnitpracticeTransformer;
+use App\Unitpractice;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -12,20 +12,20 @@ use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
-class FarmpracticesController extends ApiController
+class UnitpracticesController extends ApiController
 {
     protected $records;
 
-    public function __construct(Farmpractice $records)
+    public function __construct(Unitpractice $records)
     {
         $this->records = $records;
     }
 
-    public function index(Manager $fractal, FarmpracticeTransformer $farmpracticeTransformer)
+    public function index(Manager $fractal, UnitpracticeTransformer $unitpracticeTransformer)
     {
         // show all
-        $records = Farmpractice::all();
-        $collection = new Collection($records, $farmpracticeTransformer);
+        $records = Unitpractice::all();
+        $collection = new Collection($records, $unitpracticeTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
     }
@@ -35,14 +35,14 @@ class FarmpracticesController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('Farmpractice was deleted');
+        return $this->respondOK('Unitpractice was deleted');
     }
 
-    public function show($id, Manager $fractal, FarmpracticeTransformer $farmpracticeTransformer)
+    public function show($id, Manager $fractal, UnitpracticeTransformer $unitpracticeTransformer)
     {
         //show single
         $record = $this->records->findOrFail($id);
-        $item = new Item($record, $farmpracticeTransformer);
+        $item = new Item($record, $unitpracticeTransformer);
         $data = $fractal->createData($item)->toArray();
         return $this->respond($data);
     }
@@ -50,7 +50,7 @@ class FarmpracticesController extends ApiController
     public function store()
     {
         // insert new
-        $record = Farmpractice::create(Input::all());
+        $record = Unitpractice::create(Input::all());
         return $this->respond($record->id);
     }
 
@@ -60,7 +60,7 @@ class FarmpracticesController extends ApiController
         $record = $this->records->find($id);
 
         if(! $record){
-            Farmpractice::create(Input::all());
+            Unitpractice::create(Input::all());
             return $this->respond($record);
         }
 

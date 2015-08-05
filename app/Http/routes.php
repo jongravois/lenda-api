@@ -54,7 +54,6 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('farmers', 'FarmersController');
 	Route::resource('exceptions', 'ExceptionsController');
 	Route::resource('farmexpenses', 'FarmexpensesController');
-	Route::resource('farmpractices', 'FarmpracticesController');
 	Route::resource('farms', 'FarmsController');
 	Route::resource('farmunits', 'FarmunitsController');
 	Route::resource('globals', 'GlobvarsController');
@@ -99,10 +98,12 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('states', 'StatesController');
 	Route::resource('storages', 'StoragecontractsController');
 	Route::resource('systemics', 'SystemicsController');
+	Route::resource('unitpractices', 'UnitpracticesController');
 	Route::resource('uploads', 'UploadsController');
 	Route::resource('users', 'UsersController');
 	Route::resource('viewfilters', 'ViewfiltersController');
 	Route::resource('viewoptions', 'ViewoptionsController');
 
+	Route::get('expenses/{id}/crop/{cropID}', 'CropexpensesController@byCrop');
 	Route::get('matrix', 'MatrixController@index');
 });

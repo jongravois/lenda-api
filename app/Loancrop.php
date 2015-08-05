@@ -20,7 +20,7 @@ class Loancrop extends Model
 
     /* RELATIONSHIPS */
     public function crops() {
-        return $this->hasMany('App\Crop', 'id', 'crop_id');
+        return $this->hasOne('App\Crop', 'id', 'crop_id');
     }
     /* RELATIONSHIPS */
 

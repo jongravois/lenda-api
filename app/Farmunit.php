@@ -28,6 +28,10 @@ class Farmunit extends Model
     {
         return $this->belongsTo('App\Farm', 'farm_id');
     }
+    public function practices()
+    {
+        return $this->hasMany('App\Unitpractice', 'unit_id', 'id');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */
