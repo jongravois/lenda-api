@@ -81,7 +81,7 @@ class DatabaseSeeder extends Seeder
             'StatesTableSeeder',
             'StoragecontractsTableSeeder',
             'SystemicsTableSeeder',
-            'UnitpracticesTableSeeder',
+//            'UnitpracticesTableSeeder',
             'UploadsTableSeeder',
             'ViewfiltersTableSeeder',
             'ViewoptionsTableSeeder'

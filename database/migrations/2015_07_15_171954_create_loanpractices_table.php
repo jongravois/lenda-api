@@ -16,8 +16,9 @@ class CreateLoanpracticesTable extends Migration
             $table->increments('id');
             $table->integer('crop_year')->default(2015);
             $table->integer('loan_id');
+            $table->integer('farm_id');
             $table->integer('crop_id');
-            $table->string('crop');
+            $table->string('practice')->default('IR');
             $table->boolean('is_active')->default(0);
             $table->string('ins_type')->default('RP');
             $table->string('ins_option')->default('EU');
@@ -27,8 +28,6 @@ class CreateLoanpracticesTable extends Migration
             $table->double('ins_premium')->default(0);
             $table->double('acres')->default(0);
             $table->double('ins_share')->default(100);
-            $table->double('guaranty')->default(0);
-            $table->double('value')->default(0);
             $table->timestamps();
         });
     }

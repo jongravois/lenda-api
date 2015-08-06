@@ -16,7 +16,7 @@ class CreateUnitpracticesTable extends Migration
             $table->increments('id');
             $table->integer('crop_year')->default(2015);
             $table->integer('loan_id');
-            $table->integer('unit_id')->nullable();
+            $table->integer('farm_id')->nullable();
             $table->integer('crop_id');
             $table->string('towhom_market')->nullable();
             $table->string('gin_mill')->nullable();
