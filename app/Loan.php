@@ -49,8 +49,14 @@ class Loan extends Model
     public function exceptions() {
         return $this->hasMany('App\Loanexception', 'loan_id', 'id');
     }
+    public function expenses() {
+        return $this->hasMany('App\Cropexpense', 'loan_id', 'id');
+    }
     public function farmers() {
         return $this->belongsTo('App\Farmer', 'farmer_id');
+    }
+    public function farmexpenses() {
+        return $this->hasMany('App\Farmexpense', 'loan_id', 'id');
     }
     public function farms() {
         return $this->hasMany('App\Farm', 'loan_id', 'id');

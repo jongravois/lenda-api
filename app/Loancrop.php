@@ -19,7 +19,8 @@ class Loancrop extends Model
     /* CASTING */
 
     /* RELATIONSHIPS */
-    public function crops() {
+    public function crop()
+    {
         return $this->hasOne('App\Crop', 'id', 'crop_id');
     }
     /* RELATIONSHIPS */

@@ -24,7 +24,7 @@ class LoancropsController extends ApiController
     public function index(Manager $fractal, LoancropTransformer $loancropTransformer)
     {
         // show all
-        $records = Loancrop::with('crops')->get();
+        $records = Loancrop::with('crop')->get();
         $collection = new Collection($records, $loancropTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
