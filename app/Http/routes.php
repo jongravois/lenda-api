@@ -14,7 +14,12 @@
 use App\Events\UserWasCreated;
 
 Route::get('/', function () {
-    return sayHi();
+    $test = Dash\Collection\map(
+        array(1, 2, 3),
+        function($n) { return $n * 2; }
+    );
+    return $test;
+    //return sayHi();
     //return getArmTotalBudget(1);
     //return getTotalLoanFarmExpenses(1);
     //print_r(getCropsInLoan(1));
