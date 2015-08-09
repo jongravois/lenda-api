@@ -24,7 +24,7 @@ class LoansController extends ApiController
     public function index(Manager $fractal, LoanTransformer $loanTransformer)
     {
         // show all
-        $records = Loan::with('agents.agency', 'analyst', 'applicants.entity', 'applicants.fins', 'attachments', 'comments.responses.user', 'comments.status', 'comments.user', 'committee.user', 'conditions', 'corps', 'disbursements', 'distributor', 'exceptions', 'expenses', 'farmers', 'farmexpenses', 'farms.county.state', 'farms.practices', 'financials', 'inspols', 'joints', 'loancrops.crop', 'loantypes', 'location.regions', 'partners', 'quests', 'references', 'status', 'systemics', 'transactions')->get();
+        $records = Loan::with('agents.agency', 'analyst', 'applicants.entity', 'applicants.fins', 'attachments', 'comments.responses.user', 'comments.status', 'comments.user', 'committee.user', 'conditions', 'corps', 'disbursements', 'distributor', 'exceptions', 'expenses.crop', 'farmers', 'farms.county.state', 'farms.units', 'financials', 'inspols', 'joints', 'loancrops.crop', 'loancrops.practices', 'loantypes', 'location.regions', 'partners', 'quests', 'references', 'status', 'systemics', 'transactions')->get();
         $collection = new Collection($records, $loanTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
@@ -41,9 +41,9 @@ class LoansController extends ApiController
     public function show($id, Manager $fractal, LoanTransformer $loanTransformer)
     {
         //show single
-        $record = $this->records->findOrFail($id);
-        $item = new Item($record, $loanTransformer);
-        $data = $fractal->createData($item)->toArray();
+        $record = Loan::with('agents.agency', 'analyst', 'applicants.entity', 'applicants.fins', 'attachments', 'comments.responses.user', 'comments.status', 'comments.user', 'committee.user', 'conditions', 'corps', 'disbursements', 'distributor', 'exceptions', 'expenses.crop', 'farmers', 'farms.county.state', 'farms.units', 'financials', 'inspols', 'joints', 'loancrops.crop', 'loancrops.practices', 'loantypes', 'location.regions', 'partners', 'quests', 'references', 'status', 'systemics', 'transactions')->where('id', $id)->get();
+        $collection = new Collection($record, $loanTransformer);
+        $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
     }
 

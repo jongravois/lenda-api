@@ -21,7 +21,7 @@ class CreateDisbursementsTable extends Migration
             $table->double('arm_budget')->default(0);
             $table->double('spent')->default(0);
             $table->double('requested')->default(0);
-            $table->string('status')->default('pending');
+            $table->string('status')->default('inactive');
             $table->timestamps();
         });
     }

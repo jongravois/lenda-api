@@ -7,6 +7,7 @@ use App\Transformers\LoanpracticeTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
@@ -66,5 +67,11 @@ class LoanpracticesController extends ApiController
 
         $record->fill(Input::all())->save();
         return $this->respond($record);
+    }
+
+    public function acresOfCrop($loanID, $cropID)
+    {
+        $acres = Loanpractice::select(DB::raw('SUM(acres) AS acres'))->where('loan_id', $loanID)->where('crop_id', $cropID)->get();
+        return $this->respond($acres);
     }
 }

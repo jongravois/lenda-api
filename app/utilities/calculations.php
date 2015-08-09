@@ -151,6 +151,18 @@ function getLoanAgencies($loanID) {
 function getTotalAcres($loanID) {
     return DB::select(DB::raw("SELECT SUM(IR) + SUM(NI) AS Total FROM farmunits WHERE farm_id IN (SELECT id FROM farms WHERE loan_id = {$loanID})"));
 }
+function getArmTotalBudget($loanID) {
+    $val = DB::select(DB::raw("SELECT SUM(arm_budget) AS Total FROM disbursements WHERE loan_id = {$loanID}"));
+    return $val[0]->Total;
+}
+function getArmTotalRemaining($loanID) {
+    $val = DB::select(DB::raw("SELECT (SUM(arm_budget) - SUM(spent)) AS Total FROM disbursements WHERE loan_id = {$loanID}"));
+    return $val[0]->Total;
+}
+function getArmTotalSpent($loanID) {
+    $val = DB::select(DB::raw("SELECT SUM(spent) AS Total FROM disbursements WHERE loan_id = {$loanID}"));
+    return $val[0]->Total;
+}
 function getTotalCropCommit($party, $loanID, $cropID)
 {
     $PACommit = getCropPerAcreCommit($party, $loanID, $cropID);

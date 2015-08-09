@@ -10,21 +10,24 @@ class LoanpracticeTransformer extends TransformerAbstract {
 
         return [
             'id' => $item->id,
-            'crop_year' => (integer) $item->crop_year,
-            'loan_id' => (integer) $item->loan_id,
-            'crop_id' => (integer) $item->crop_id,
-            'crop' => $item->crop,
-            'is_active' => (boolean) $item->is_active,
+            'crop_year' => (integer)$item->crop_year,
+            'loan_id' => (integer)$item->loan_id,
+            'farm_id' => (integer)$item->farm_id,
+            'crop_id' => (integer)$item->crop_id,
+            'loancrop_id' => (integer)$item->loancrop_id,
+            'practice' => $item->practice,
+            'is_active' => (boolean)$item->is_active,
+            'plc' => (boolean)$item->plc,
+            'ins_price' => (double)$item->ins_price,
+            'ins_share' => (double)$item->ins_share,
+            'ins_premium' => (double)$item->ins_premium,
             'ins_type' => $item->ins_type,
             'ins_option' => $item->ins_option,
-            'ins_price' => (double) $item->ins_price,
-            'ins_level' => (double) $item->ins_level,
-            'aph' => (double) $item->aph,
-            'ins_premium' => (double) $item->ins_premium,
-            'acres' => (double) $item->acres,
-            'ins_share' => (double) $item->ins_share,
-            'guaranty' => (double) $item->guaranty,
-            'value' => (double) $item->value
+            'ins_level' => $item->ins_level,
+            'acres' => (double)$item->acres,
+            'prod_price' => (double)$item->prod_price,
+            'prod_share' => (double)$item->prod_share,
+            'prod_yield' => (double)$item->prod_yield
         ];
     }
 }

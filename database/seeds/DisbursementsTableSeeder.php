@@ -66,7 +66,7 @@ class DisbursementsTableSeeder extends Seeder
             'cat_id' => 6,
             'expense' => 'Custom',
             'arm_budget' => 19020,
-            'spent' => 0,
+            'spent' => 12000,
             'requested' => 0
         ]);
 

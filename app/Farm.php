@@ -31,9 +31,9 @@ class Farm extends Model
     {
         return $this->belongsTo('App\Loan', 'loan_id');
     }
-    public function practices()
+    public function units()
     {
-        return $this->hasMany('App\Loanpractice', 'id', 'id');
+        return $this->hasMany('App\Loanpractice', 'farm_id', 'id');
     }
     /* RELATIONSHIPS */
 

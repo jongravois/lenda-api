@@ -17,13 +17,13 @@ class FarmsTableSeeder extends Seeder
             'county_id' => 1317,
             'owner' => 'John Doe',
             'perm_to_insure' => 0,
-            'IR' => 1000,
-            'NI' => 2350,
             'share_rent' => 20,
             'cash_rent' => 0,
             'waived' => 0,
             'when_due' => '',
-            'fsa_paid' => 50000
+            'fsa_paid' => 50000,
+            'IR' => 1000,
+            'NI' => 2350
         ]);
 
         Farm::create([
@@ -51,7 +51,7 @@ class FarmsTableSeeder extends Seeder
             'waived' => 400000,
             'when_due' => '33% 4/1/15',
             'fsa_paid' => 30000,
-            'IR' => 400,
+            'IR' => 200,
             'NI' => 0
         ]);
 
@@ -65,7 +65,9 @@ class FarmsTableSeeder extends Seeder
             'cash_rent' => 60000,
             'waived' => 40000,
             'when_due' => '33% 4/1/15',
-            'fsa_paid' => 30000
+            'fsa_paid' => 30000,
+            'IR' => 400,
+            'NI' => 0
         ]);
     }
 }

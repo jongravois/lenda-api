@@ -11,7 +11,7 @@ class LoancropTransformer extends TransformerAbstract {
         return [
             'id' => $item->id,
             'loan_id' => $item->loan_id,
-            'crop' => $item->crops,
+            'crop' => $item->crop,
             'crop_measure' => $item->crop_measure,
             'market' => $item->market,
             'gin_mill' => $item->gin_mill,
@@ -20,7 +20,8 @@ class LoancropTransformer extends TransformerAbstract {
             'var_harvest' => $item->var_harvest,
             'harvest_measure' => $item->harvest_measure,
             'rebates' => $item->rebates,
-            'rebate_measure' => $item->rebate_measure
+            'rebate_measure' => $item->rebate_measure,
+            'practices' => $item->practices
         ];
     }
 }

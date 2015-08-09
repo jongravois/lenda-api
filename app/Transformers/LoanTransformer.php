@@ -55,6 +55,7 @@ class LoanTransformer extends TransformerAbstract {
         $commitOther = getTotalPartyCommit('other', $item->id);
 
         return [
+            'farms' => $item->farms,
             'fins' => [
                 'discounts' => [
                     'percent_crop' => (double)$item->financials->disc_percent_crop,
@@ -70,7 +71,9 @@ class LoanTransformer extends TransformerAbstract {
                     'percent_other' => (double)$item->financials->disc_percent_other
                 ],
                 'adjExposure' => 6000, //TODO: Hard coded
-                'balance_remaining' => 123.95, //TODO: disbursements table?
+                'balance_spent' => (double)getArmTotalSpent($item->id),
+                'balance_total' => (double)getArmTotalBudget($item->id),
+                'balance_remaining' => (double)getArmTotalRemaining($item->id),
                 'cash_flow' => 99999999, //TODO: Hard coded
                 'commit_arm' => $commitArm,
                 'commit_dist' => $commitDist,
@@ -90,23 +93,25 @@ class LoanTransformer extends TransformerAbstract {
                 ],
                 'exposure' => 8282, //TODO: Hard coded
                 'fee_processing' => (double)$item->financials->fee_processing,
-                'fee_processing_onTotal' => (boolean)$item->financials->fee_processing_onTotal,
                 'fee_service' =>(double)$item->financials->fee_service,
-                'fee_service_onTotal' => (boolean)$item->financials->fee_service_onTotal,
                 'fee_total' => getFeeTotal($item),
-                'fee_onTotal' => (boolean)$item->fee_onTotal,
+                'fee_onTotal' => (boolean)$item->financials->fee_onTotal,
                 'int_arm' => getARMInterest($item),
                 'int_dist' => getDistInterest($item),
                 'int_percent_arm' => (double)$item->financials->int_percent_arm,
                 'int_percent_dist' => (double)$item->financials->int_percent_dist,
+                'principal_arm' => $commitArm + getFeeTotal($item),
+                'principal_dist' => $commitDist,
+                'principal_other' => $commitOther,
                 'proc_fee' => getFeeProc_armAndDist($item),
                 'proc_fee_arm_only' => getFeeProc_armOnly($item),
+                'prod_rev' => 5000000, //TODO: Hard coded
                 'qb_amount' => 5000000, //TODO: Hard coded
                 'srvc_fee' => getFeeService_armAndDist($item),
                 'srvc_fee_arm_only' => getFeeService_armOnly($item),
                 'total_acres' => (double)$total_acres[0]->Total,
-                'total_prod' => 359237.87, //TODO: Hard coded
                 'total_prod_adj' => 0, //TODO: Hard coded
+                'total_prod_yield' => 5000000, //TODO: Hard coded
                 'total_farm_expenses' => (double)getTotalLoanFarmExpenses($item->id),
                 'total_fee_percent' => (double)$item->financials->fee_processing + (double)$item->financials->fee_service,
                 'total_fsa_pay' => (double)$item->financials->total_fsa_payment
@@ -119,6 +124,7 @@ class LoanTransformer extends TransformerAbstract {
             'added_land_verified' => (integer)$item->added_land_verified,
             'addendum_type' => (integer)$item->addendum_type,
             'agencies' => getLoanAgencies($item->id),
+            'agent' => $item->agents,
             'analyst' => $item->analyst->name,
             'analyst_can_approve' => (boolean)$item->analyst_can_approve,
             'analyst_abr' => $item->analyst->nick,
