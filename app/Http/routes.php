@@ -14,13 +14,14 @@
 use App\Events\UserWasCreated;
 
 Route::get('/', function () {
-    $test = Dash\Collection\map(
+    //return sayHi();
+    return getAllCropAcres(1);
+    //return getArmTotalBudget(1);
+    /*$test = Dash\Collection\map(
         array(1, 2, 3),
         function($n) { return $n * 2; }
     );
-    return $test;
-    //return sayHi();
-    //return getArmTotalBudget(1);
+    return $test;*/
     //return getTotalLoanFarmExpenses(1);
     //print_r(getCropsInLoan(1));
     //return getTotalCropCommit('arm', 1, 1) + getTotalCropCommit('dist', 1, 1) + getTotalCropCommit('other', 1, 1);

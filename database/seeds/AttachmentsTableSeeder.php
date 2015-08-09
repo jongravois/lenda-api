@@ -12,30 +12,71 @@ class AttachmentsTableSeeder extends Seeder
 
         Attachment::create([
             'loan_id' => 1,
-            'title' => 'Drivers License',
-            'filename' => 'driversLicense.pdf',
-            'filetype' => 'pdf'
+            'title' => "Signed Application",
+            'filetype' => 'pdf',
+            'original_filename' => '',
+            'date_requested' => '2015-06-30'
         ]);
-
         Attachment::create([
             'loan_id' => 1,
-            'title' => 'Equipment List',
-            'filename' => 'equipmentList.pdf',
-            'filetype' => 'pdf'
-        ]);
-
-        Attachment::create([
-            'loan_id' => 2,
-            'title' => 'Drivers License',
+            'user_id' => 3,
+            'status' => 'uploaded',
+            'title' => "Driver's License",
             'filename' => 'driversLicense.pdf',
-            'filetype' => 'pdf'
+            'path' => '2015_1/driversLicense.pdf',
+            'filetype' => 'pdf',
+            'original_filename' => 'Stark Drivers License',
+            'description' => '',
+            'date_requested' => '2015-06-30',
+            'date_received' => '2015-07-15'
         ]);
-
         Attachment::create([
-            'loan_id' => 2,
-            'title' => 'Equipment List',
+            'loan_id' => 1,
+            'title' => "Financials",
+            'filetype' => 'pdf',
+            'date_requested' => '2015-06-30'
+        ]);
+        Attachment::create([
+            'loan_id' => 1,
+            'user_id' => 3,
+            'status' => 'uploaded',
+            'title' => "Equipment List",
             'filename' => 'equipmentList.pdf',
-            'filetype' => 'pdf'
+            'path' => '2015_1/equipmentList.pdf',
+            'filetype' => 'pdf',
+            'original_filename' => 'Equipment List',
+            'date_requested' => '2015-06-30',
+            'date_received' => '2015-07-04'
+        ]);
+        Attachment::create([
+            'loan_id' => 1,
+            'title' => "Leases",
+            'filetype' => 'pdf',
+            'date_requested' => '2015-06-30'
+        ]);
+        Attachment::create([
+            'loan_id' => 1,
+            'title' => "FSA Information",
+            'filetype' => 'pdf',
+            'date_requested' => '2015-06-30'
+        ]);
+        Attachment::create([
+            'loan_id' => 1,
+            'title' => "Insurance Information",
+            'filetype' => 'pdf',
+            'date_requested' => '2015-06-30'
+        ]);
+        Attachment::create([
+            'loan_id' => 1,
+            'title' => "Crop Insurance APH Database",
+            'filetype' => 'pdf',
+            'date_requested' => '2015-06-30'
+        ]);
+        Attachment::create([
+            'loan_id' => 1,
+            'title' => "Grain Contracts",
+            'filetype' => 'pdf',
+            'date_requested' => '2015-06-30'
         ]);
     }
 }

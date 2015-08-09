@@ -1,7 +1,23 @@
 <?php
 
+use App\Crop;
 use Illuminate\Support\Facades\DB;
 
+function getAllCropAcres($loanID) {
+    $retro = [];
+    $crops = Crop::get(['id', 'crop']);
+
+    // loop and get acres
+    foreach($crops as $crop) {
+       $newbie = [
+            'id' => $crop->id,
+            'crop' => $crop->crop,
+            'acres' => (double)getCropAcres($loanID, $crop->id)
+       ];
+        array_push($retro, $newbie);
+    }
+    return $retro;
+}
 function getARMInterest($loan) {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $total_int_percent = $loan->financials->int_percent_arm/100;

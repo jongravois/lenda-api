@@ -79,18 +79,7 @@ class LoanTransformer extends TransformerAbstract {
                 'commit_dist' => $commitDist,
                 'commit_other' => $commitOther,
                 'commit_total' => (double)$commitArm+(double)$commitDist,
-                'crop_acres' => [
-                    'corn' => (double)getCropAcres($item->id, 1),
-                    'soybeans' => (double)getCropAcres($item->id, 2),
-                    'beansFAC' => (double)getCropAcres($item->id, 3),
-                    'sorghum' => (double)getCropAcres($item->id, 4),
-                    'wheat' => (double)getCropAcres($item->id, 5),
-                    'cotton' => (double)getCropAcres($item->id, 6),
-                    'rice' => (double)getCropAcres($item->id, 7),
-                    'peanuts' => (double)getCropAcres($item->id, 8),
-                    'sugarcane' => (double)getCropAcres($item->id, 9),
-                    'sunflowers' => (double)getCropAcres($item->id, 10)
-                ],
+                'crop_acres' => getAllCropAcres($item->id),
                 'exposure' => 8282, //TODO: Hard coded
                 'fee_processing' => (double)$item->financials->fee_processing,
                 'fee_service' =>(double)$item->financials->fee_service,
