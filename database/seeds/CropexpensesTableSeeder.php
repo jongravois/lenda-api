@@ -351,7 +351,7 @@ class CropexpensesTableSeeder extends Seeder
         Cropexpense::create([
             'loan_id' => 1,
             'crop_id' => 6,
-            'loancrop_id' => 6,
+            'loancrop_id' => 3,
             'cat_id' => 1,
             'expense' => 'Fertilizer',
             'arm' => 0,
@@ -365,7 +365,7 @@ class CropexpensesTableSeeder extends Seeder
         Cropexpense::create([
             'loan_id' => 1,
             'crop_id' => 6,
-            'loancrop_id' => 6,
+            'loancrop_id' => 3,
             'cat_id' => 2,
             'expense' => 'Seed',
             'arm' => 0,
@@ -379,7 +379,7 @@ class CropexpensesTableSeeder extends Seeder
         Cropexpense::create([
             'loan_id' => 1,
             'crop_id' => 6,
-            'loancrop_id' => 6,
+            'loancrop_id' => 3,
             'cat_id' => 3,
             'expense' => 'Fungicide',
             'arm' => 0,
@@ -393,7 +393,7 @@ class CropexpensesTableSeeder extends Seeder
         Cropexpense::create([
             'loan_id' => 1,
             'crop_id' => 6,
-            'loancrop_id' => 6,
+            'loancrop_id' => 3,
             'cat_id' => 4,
             'expense' => 'Herbicide',
             'arm' => 0,
@@ -407,7 +407,7 @@ class CropexpensesTableSeeder extends Seeder
         Cropexpense::create([
             'loan_id' => 1,
             'crop_id' => 6,
-            'loancrop_id' => 6,
+            'loancrop_id' => 3,
             'cat_id' => 5,
             'expense' => 'Insecticide',
             'arm' => 0,
@@ -421,7 +421,7 @@ class CropexpensesTableSeeder extends Seeder
         Cropexpense::create([
             'loan_id' => 1,
             'crop_id' => 6,
-            'loancrop_id' => 6,
+            'loancrop_id' => 3,
             'cat_id' => 6,
             'expense' => 'Custom',
             'arm' => 22,
@@ -435,7 +435,7 @@ class CropexpensesTableSeeder extends Seeder
         Cropexpense::create([
             'loan_id' => 1,
             'crop_id' => 6,
-            'loancrop_id' => 6,
+            'loancrop_id' => 3,
             'cat_id' => 7,
             'expense' => 'Fuel',
             'arm' => 30,
@@ -449,7 +449,7 @@ class CropexpensesTableSeeder extends Seeder
         Cropexpense::create([
             'loan_id' => 1,
             'crop_id' => 6,
-            'loancrop_id' => 6,
+            'loancrop_id' => 3,
             'cat_id' => 8,
             'expense' => 'Labor',
             'arm' => 20,
@@ -463,7 +463,7 @@ class CropexpensesTableSeeder extends Seeder
         Cropexpense::create([
             'loan_id' => 1,
             'crop_id' => 6,
-            'loancrop_id' => 6,
+            'loancrop_id' => 3,
             'cat_id' => 9,
             'expense' => 'Repairs',
             'arm' => 10,
@@ -477,7 +477,7 @@ class CropexpensesTableSeeder extends Seeder
         Cropexpense::create([
             'loan_id' => 1,
             'crop_id' => 6,
-            'loancrop_id' => 6,
+            'loancrop_id' => 3,
             'cat_id' => 10,
             'expense' => 'Insurance',
             'arm' => 0,
@@ -491,7 +491,7 @@ class CropexpensesTableSeeder extends Seeder
         Cropexpense::create([
             'loan_id' => 1,
             'crop_id' => 6,
-            'loancrop_id' => 6,
+            'loancrop_id' => 3,
             'cat_id' => 11,
             'expense' => 'Harvesting',
             'arm' => 0,
@@ -505,7 +505,7 @@ class CropexpensesTableSeeder extends Seeder
         Cropexpense::create([
             'loan_id' => 1,
             'crop_id' => 6,
-            'loancrop_id' => 6,
+            'loancrop_id' => 3,
             'cat_id' => 12,
             'expense' => 'Misc Acre',
             'arm' => 20,

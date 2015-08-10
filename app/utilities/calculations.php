@@ -190,7 +190,7 @@ function getTotalLoanFarmExpenses($loanID)
     $exp = DB::select(DB::raw("SELECT SUM(cost) AS Total FROM farmexpenses WHERE loan_id = {$loanID}"));
     return $exp[0]->Total;
 }
-function getTotalPartyCommit($party, $loanID)
+function cropgetTotalPartyCommit($party, $loanID)
 {
     $cropexp = 0;
     if($party == 'arm') {
