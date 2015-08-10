@@ -112,7 +112,7 @@ class LoansTableSeeder extends Seeder
             'grade' => '-',
             'equipment_collateral' => 1,
             'limit_warning_message' => 'Caution: 76% of budget exceeded.',
-            'account_classification' => 'B',
+            'account_classification' => '-',
             'grade' => 'B'
         ]);
 
