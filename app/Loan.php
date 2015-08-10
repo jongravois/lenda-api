@@ -79,8 +79,14 @@ class Loan extends Model
     public function location() {
         return $this->belongsTo('App\Location', 'loc_id');
     }
+    public function othercollateral() {
+        return $this->hasMany('App\Othercollateral', 'loan_id', 'id');
+    }
     public function partners() {
         return $this->hasMany('App\Partner', 'loan_id', 'id');
+    }
+    public function priorliens() {
+        return $this->hasMany('App\Priorlien', 'loan_id', 'id');
     }
     public function quests() {
         return $this->hasOne('App\Loanquestion', 'loan_id', 'id');

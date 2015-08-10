@@ -10,6 +10,10 @@ class Othercollateral extends Model
     protected $fillable = ['loan_id', 'type', 'source', 'description', 'amount'];
 
     /* RELATIONSHIPS */
+    public function loan()
+    {
+        return $this->belongsTo('App\Loan', 'loan_id');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */

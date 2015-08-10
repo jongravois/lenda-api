@@ -24,7 +24,7 @@ class AttachmentsController extends ApiController
     public function index(Manager $fractal, AttachmentTransformer $attachmentTransformer)
     {
         // show all
-        $records = Attachment::all();
+        $records = Attachment::with('user')->get();
         $collection = new Collection($records, $attachmentTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
@@ -41,9 +41,9 @@ class AttachmentsController extends ApiController
     public function show($id, Manager $fractal, AttachmentTransformer $attachmentTransformer)
     {
         //show single
-        $record = $this->records->findOrFail($id);
-        $item = new Item($record, $attachmentTransformer);
-        $data = $fractal->createData($item)->toArray();
+        $record = Attachment::with('user')->where('id', $id)->get();
+        $collection = new Collection($record, $attachmentTransformer);
+        $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
     }
 

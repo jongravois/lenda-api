@@ -20,7 +20,8 @@ class AttachmentTransformer extends TransformerAbstract {
             'original_filename' => $item->original_filename,
             'description' => $item->description,
             'date_requested' => $item->date_requested,
-            'date_received' => $item->date_received
+            'date_received' => $item->date_received,
+            'user' => $item->user
         ];
     }
 }

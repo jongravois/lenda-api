@@ -25,6 +25,7 @@ class PriorlienTransformer extends TransformerAbstract {
             'equipment' => (double)$item->equipment,
             'realestate' => (double)$item->realestate,
             'other' => (double)$item->other,
+            'total' => (double)$item->total,
         ];
     }
 }
