@@ -14,7 +14,6 @@ class Farm extends Model
         'share_rent' => 'double',
         'cash_rent' => 'double',
         'waived' => 'double',
-        'when_due' => 'double',
         'IR' => 'double',
         'NI' => 'double',
         'perm_to_insure' => 'boolean',

@@ -19,7 +19,7 @@ class FarmsTableSeeder extends Seeder
             'perm_to_insure' => 0,
             'share_rent' => 20,
             'cash_rent' => 0,
-            'waived' => 0,
+            'waived' => '',
             'when_due' => '',
             'fsa_paid' => 50000,
             'IR' => 1000,

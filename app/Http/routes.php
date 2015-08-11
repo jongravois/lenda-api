@@ -14,17 +14,13 @@
 use App\Events\UserWasCreated;
 
 Route::get('/', function () {
-    //return sayHi();
-    return getAllCropAcres(1);
-    //return getArmTotalBudget(1);
+    return sayHi();
+	//return committeeVote(1);
     /*$test = Dash\Collection\map(
         array(1, 2, 3),
         function($n) { return $n * 2; }
     );
     return $test;*/
-    //return getTotalLoanFarmExpenses(1);
-    //print_r(getCropsInLoan(1));
-    //return getTotalCropCommit('arm', 1, 1) + getTotalCropCommit('dist', 1, 1) + getTotalCropCommit('other', 1, 1);
     //return view('index');
 });
 
@@ -36,6 +32,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('addloans', 'AddendumloansController');
 	Route::resource('admingraders', 'AdmingradersController');
 	Route::resource('agencies', 'AgenciesController');
+	Route::resource('aphdbs', 'AphdbsController');
 	Route::resource('attachments', 'AttachmentsController');
 	Route::resource('agents', 'AgentsController');
 	Route::resource('applicantfins', 'ApplicantfinancialsController');

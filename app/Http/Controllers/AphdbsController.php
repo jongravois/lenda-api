@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Inspol;
-use App\Transformers\InspolTransformer;
+use App\Aphdb;
+use App\Transformers\AphdbTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -12,20 +12,20 @@ use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
-class InspolsController extends ApiController
+class AphdbsController extends ApiController
 {
     protected $records;
 
-    public function __construct(Inspol $records)
+    public function __construct(Aphdb $records)
     {
         $this->records = $records;
     }
 
-    public function index(Manager $fractal, InspolTransformer $inspolTransformer)
+    public function index(Manager $fractal, AphdbTransformer $aphdbTransformer)
     {
         // show all
-        $records = Inspol::with('agent.agency', 'county', 'databases')->get();
-        $collection = new Collection($records, $inspolTransformer);
+        $records = Aphdb::all();
+        $collection = new Collection($records, $aphdbTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
     }
@@ -35,14 +35,14 @@ class InspolsController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('Inspol was deleted');
+        return $this->respondOK('Aphdb was deleted');
     }
 
-    public function show($id, Manager $fractal, InspolTransformer $inspolTransformer)
+    public function show($id, Manager $fractal, AphdbTransformer $aphdbTransformer)
     {
         //show single
         $record = $this->records->findOrFail($id);
-        $item = new Item($record, $inspolTransformer);
+        $item = new Item($record, $aphdbTransformer);
         $data = $fractal->createData($item)->toArray();
         return $this->respond($data);
     }
@@ -50,7 +50,7 @@ class InspolsController extends ApiController
     public function store()
     {
         // insert new
-        $record = Inspol::create(Input::all());
+        $record = Aphdb::create(Input::all());
         return $this->respond($record->id);
     }
 
@@ -60,7 +60,7 @@ class InspolsController extends ApiController
         $record = $this->records->find($id);
 
         if(! $record){
-            Inspol::create(Input::all());
+            Aphdb::create(Input::all());
             return $this->respond($record);
         }
 

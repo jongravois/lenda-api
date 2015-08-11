@@ -3,6 +3,16 @@
 use App\Crop;
 use Illuminate\Support\Facades\DB;
 
+function committeeVote($loanID) {
+    $commie = DB::select(DB::raw("SELECT SUM(CASE WHEN vote = 1 THEN 1 ELSE 0 END ) AS Approved, SUM(CASE WHEN vote_status = 'voted' THEN 1 ELSE 0 END) AS Voted , SUM(CASE WHEN vote_status = 'pending' THEN 1 ELSE 0 END) AS Pending FROM committees WHERE loan_id = {$loanID}"));
+
+    $retro = [
+        'total_approvers' => (integer)$commie[0]->Approved,
+        'percent_approved' => ($commie[0]->Voted == 0 ? 0 : (integer)($commie[0]->Approved/$commie[0]->Voted * 100)),
+        'committee_count' => (integer)$commie[0]->Pending + $commie[0]->Voted
+    ];
+    return $retro;
+}
 function getAllCropAcres($loanID) {
     $retro = [];
     $crops = Crop::get(['id', 'crop']);
@@ -178,6 +188,10 @@ function getArmTotalRemaining($loanID) {
 function getArmTotalSpent($loanID) {
     $val = DB::select(DB::raw("SELECT SUM(spent) AS Total FROM disbursements WHERE loan_id = {$loanID}"));
     return $val[0]->Total;
+}
+function getTotalClaims($loanID) {
+    //TODO: Hard Coded
+    return 0;
 }
 function getTotalCropCommit($party, $loanID, $cropID)
 {

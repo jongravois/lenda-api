@@ -11,9 +11,13 @@ class InspolTransformer extends TransformerAbstract {
         return [
             'id' => $item->id,
             'loan_id' => $item->loan_id,
+            'databases' => $item->databases,
             'agent_id' => $item->agent_id,
+            'agent' => $item->agent,
             'county_id' => $item->county_id,
+            'county' => $item->county,
             'crop_id' => $item->crop_id,
+            'crop' => $item->crop,
             'practice' => $item->practice,
             'plc' => (boolean)$item->plc,
             'type' => $item->type,
@@ -25,7 +29,7 @@ class InspolTransformer extends TransformerAbstract {
             'premium' => (double)$item->premium,
             'stax_loss_trigger' => (double)$item->stax_loss_trigger,
             'stax_desired_range' => (double)$item->stax_desired_range,
-            'stax_protection_factor' => (double)$item->stax_protection_factor,
+            'stax_protection_factor' => (double)$item->stax_protection_factor
         ];
     }
 }
