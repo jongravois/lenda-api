@@ -60,6 +60,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('farmunits', 'FarmunitsController');
 	Route::resource('globals', 'GlobvarsController');
 	Route::resource('guarantors', 'GuarantorsController');
+	Route::resource('indirectcropincomes', 'IndirectcropincomesController');
 	Route::resource('insopts', 'InsoptsController');
 	Route::resource('inspols', 'InspolsController');
 	Route::resource('insunits', 'InsunitsController');
@@ -108,6 +109,7 @@ Route::group(['prefix' => 'api'], function()
 
 	Route::get('expenses/{id}/crop/{cropID}', 'CropexpensesController@byCrop');
 	Route::get('loans/{id}/crops/{cid}/acres', 'LoanpracticesController@acresOfCrop');
+	Route::get('loans/{id}/aphdb', 'AphdbsController@byLoan');
 	Route::get('loans/{id}/loancrops', 'LoancropsController@byLoan');
 	Route::get('matrix', 'MatrixController@index');
 });

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Aphdb;
-use App\Transformers\AphdbTransformer;
+use App\Indirectcropincome;
+use App\Transformers\IndirectcropincomeTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -12,20 +12,20 @@ use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
-class AphdbsController extends ApiController
+class IndirectcropincomesController extends ApiController
 {
     protected $records;
 
-    public function __construct(Aphdb $records)
+    public function __construct(Indirectcropincome $records)
     {
         $this->records = $records;
     }
 
-    public function index(Manager $fractal, AphdbTransformer $aphdbTransformer)
+    public function index(Manager $fractal, IndirectcropincomeTransformer $indirectcropincomeTransformer)
     {
         // show all
-        $records = Aphdb::all;
-        $collection = new Collection($records, $aphdbTransformer);
+        $records = Indirectcropincome::all();
+        $collection = new Collection($records, $indirectcropincomeTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
     }
@@ -35,14 +35,14 @@ class AphdbsController extends ApiController
         // delete single
         $record = $this->records->findOrFail($id);
         $record->delete();
-        return $this->respondOK('Aphdb was deleted');
+        return $this->respondOK('Indirectcropincome was deleted');
     }
 
-    public function show($id, Manager $fractal, AphdbTransformer $aphdbTransformer)
+    public function show($id, Manager $fractal, IndirectcropincomeTransformer $indirectcropincomeTransformer)
     {
         //show single
         $record = $this->records->findOrFail($id);
-        $item = new Item($record, $aphdbTransformer);
+        $item = new Item($record, $indirectcropincomeTransformer);
         $data = $fractal->createData($item)->toArray();
         return $this->respond($data);
     }
@@ -50,7 +50,7 @@ class AphdbsController extends ApiController
     public function store()
     {
         // insert new
-        $record = Aphdb::create(Input::all());
+        $record = Indirectcropincome::create(Input::all());
         return $this->respond($record->id);
     }
 
@@ -60,19 +60,11 @@ class AphdbsController extends ApiController
         $record = $this->records->find($id);
 
         if(! $record){
-            Aphdb::create(Input::all());
+            Indirectcropincome::create(Input::all());
             return $this->respond($record);
         }
 
         $record->fill(Input::all())->save();
         return $this->respond($record);
-    }
-
-    public function byLoan($id, Manager $fractal, AphdbTransformer $aphdbTransformer)
-    {
-        $records = Aphdb::with('farms', 'inspols', 'loan')->get();
-        $collection = new Collection($records, $aphdbTransformer);
-        $data = $fractal->createData($collection)->toArray();
-        return $this->respond($data);
     }
 }

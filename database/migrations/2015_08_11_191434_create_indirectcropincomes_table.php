@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAphdbsTable extends Migration
+class CreateIndirectcropincomesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,11 @@ class CreateAphdbsTable extends Migration
      */
     public function up()
     {
-        Schema::create('aphdbs', function (Blueprint $table) {
+        Schema::create('indirectcropincomes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('loan_id')->unsigned();
-            $table->integer('inspol_id')->unsigned();
-            $table->integer('farm_id')->unsigned();
-            $table->double('ins_share')->nullable();
-            $table->double('aph')->default(0);
+            $table->double('ppclaim')->default(0);
+            $table->double('other')->default(0);
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateAphdbsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('aphdbs');
+        Schema::drop('indirectcropincomes');
     }
 }

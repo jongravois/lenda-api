@@ -12,6 +12,7 @@ class AphdbsTableSeeder extends Seeder
 
         $collection = [
             [
+                'loan_id' => 1,
                 'inspol_id' =>3,
                 'farm_id' => 1,
                 'ins_share' => 80,
