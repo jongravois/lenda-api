@@ -15,10 +15,25 @@ class RptsController extends Controller
         return view('reports');
     }
 
+    public function activedetail()
+    {
+        $loans = Loan::with('location.regions')->get();
+        //return $loans;
+//        dd($loans);
+        return view('reports.activedetail', compact('loans'));
+    }
+
     public function cropmix()
     {
         $loans = Loan::with('location.regions')->get();
         //return $loans;
+//        dd($loans);
         return view('reports.cropmix', compact('loans'));
+    }
+
+    public function dump()
+    {
+        $loans = Loan::with('location.regions')->get();
+        return $loans;
     }
 }

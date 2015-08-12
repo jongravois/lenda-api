@@ -79,7 +79,7 @@ class ReportsTableSeeder extends Seeder
         ]);
 
         Report::create([
-            'report' => 'User Audit',
+            'report' => 'Audit Trail',
             'rptPath' => 'usradt',
             'is_required' => 0
         ]);
