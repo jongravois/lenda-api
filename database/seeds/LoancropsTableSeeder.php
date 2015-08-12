@@ -26,7 +26,7 @@ class LoancropsTableSeeder extends Seeder
                 'crop_id' => 6,
                 'market' => 'CropsRUs',
                 'gin_mill' => 'Millers Gin',
-                'var_harvest' => -0.0900,
+                'var_harvest' => 0.0900,
                 'rebates' => 0.1000
             ]
         ];
