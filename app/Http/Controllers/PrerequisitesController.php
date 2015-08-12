@@ -67,4 +67,13 @@ class PrerequisitesController extends ApiController
         $record->fill(Input::all())->save();
         return $this->respond($record);
     }
+
+    public function byLoan($id, Manager $fractal, PrerequisiteTransformer $prerequisiteTransformer)
+    {
+        //show single
+        $records = Prerequisite::where('loan_id', $id)->get();
+        $collection = new Collection($records, $prerequisiteTransformer);
+        $data = $fractal->createData($collection)->toArray();
+        return $this->respond($data);
+    }
 }

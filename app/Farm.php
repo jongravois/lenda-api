@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Farm extends Model
 {
     protected $table = 'farms';
-    protected $fillable = ['loan_id', 'fsn', 'county_id', 'owner', 'share_rent', 'cash_rent', 'waived', 'when_due', 'IR', 'NI', 'perm_to_insure', 'fsa_paid'];
+    protected $fillable = ['loan_id', 'fsn', 'county_id', 'owner', 'share_rent', 'cash_rent', 'dist_rent', 'waived', 'when_due', 'IR', 'NI', 'perm_to_insure', 'fsa_paid'];
 
     /* CASTS */
     protected $casts = [
         'share_rent' => 'double',
         'cash_rent' => 'double',
+        'dist_rent' => 'double',
         'waived' => 'double',
         'IR' => 'double',
         'NI' => 'double',

@@ -19,8 +19,7 @@ class CropsTableSeeder extends Seeder
                 'measurement' => 'bu',
                 'rebate_measurement' => 'bu',
                 'arm_default_price' => 5.11,
-                'arm_default_ins_price' => 4.92,
-                'arm_default_yield' => 139
+                'arm_default_ins_price' => 4.92
             ],
             [
                 'crop' => 'soybeans',
@@ -30,8 +29,7 @@ class CropsTableSeeder extends Seeder
                 'measurement' => 'bu',
                 'rebate_measurement' => 'bu',
                 'arm_default_price' => 11.00,
-                'arm_default_ins_price' => 9.70,
-                'arm_default_yield' => 28
+                'arm_default_ins_price' => 9.70
             ],
             [
                 'crop' => 'beansFAC',
@@ -41,8 +39,7 @@ class CropsTableSeeder extends Seeder
                 'measurement' => 'bu',
                 'rebate_measurement' => 'bu',
                 'arm_default_price' => 11.00,
-                'arm_default_ins_price' => 9.70,
-                'arm_default_yield' => 28
+                'arm_default_ins_price' => 9.70
             ],
             [
                 'crop' => 'sorghum',
@@ -52,8 +49,7 @@ class CropsTableSeeder extends Seeder
                 'measurement' => 'bu',
                 'rebate_measurement' => 'bu',
                 'arm_default_price' => 4.21,
-                'arm_default_ins_price' => 4.00,
-                'arm_default_yield' => 55
+                'arm_default_ins_price' => 4.00
             ],
             [
                 'crop' => 'wheat',
@@ -63,8 +59,7 @@ class CropsTableSeeder extends Seeder
                 'measurement' => 'bu',
                 'rebate_measurement' => 'bu',
                 'arm_default_price' => 6.64,
-                'arm_default_ins_price' => 5.75,
-                'arm_default_yield' => 48
+                'arm_default_ins_price' => 5.75
             ],
             [
                 'crop' => 'cotton',
@@ -74,8 +69,7 @@ class CropsTableSeeder extends Seeder
                 'measurement' => 'lb',
                 'rebate_measurement' => 'lb',
                 'arm_default_price' => 93,
-                'arm_default_ins_price' => 90,
-                'arm_default_yield' => 649
+                'arm_default_ins_price' => 90
             ],
             [
                 'crop' => 'rice',
@@ -85,8 +79,7 @@ class CropsTableSeeder extends Seeder
                 'measurement' => 'lb',
                 'rebate_measurement' => 'bu',
                 'arm_default_price' => 0.135,
-                'arm_default_ins_price' => 0.14,
-                'arm_default_yield' => 5820
+                'arm_default_ins_price' => 0.14
             ],
             [
                 'crop' => 'peanuts',
@@ -96,8 +89,7 @@ class CropsTableSeeder extends Seeder
                 'measurement' => 'bu',
                 'rebate_measurement' => 'bu',
                 'arm_default_price' => 2.3,
-                'arm_default_ins_price' => 2.8,
-                'arm_default_yield' => 3000
+                'arm_default_ins_price' => 2.8
             ],
             [
                 'crop' => 'sugarcane',
@@ -107,8 +99,7 @@ class CropsTableSeeder extends Seeder
                 'measurement' => 'ton',
                 'rebate_measurement' => 'ton',
                 'arm_default_price' => 0.28,
-                'arm_default_ins_price' => 0.16,
-                'arm_default_yield' => 5133
+                'arm_default_ins_price' => 0.16
             ],
             [
                 'crop' => 'sunflowers',
@@ -118,8 +109,7 @@ class CropsTableSeeder extends Seeder
                 'measurement' => 'lb',
                 'rebate_measurement' => 'lb',
                 'arm_default_price' => 217.4,
-                'arm_default_ins_price' => 124.22,
-                'arm_default_yield' => 1600
+                'arm_default_ins_price' => 124.22
             ]
         ];
 

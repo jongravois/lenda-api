@@ -20,6 +20,7 @@ class CreateFarmsTable extends Migration
             $table->string('owner')->nullable();
             $table->double('share_rent')->default(0);
             $table->double('cash_rent')->default(0);
+            $table->double('dist_rent')->default(0);
             $table->double('waived')->default(0);
             $table->string('when_due')->nullable();
             $table->double('IR')->default(0);

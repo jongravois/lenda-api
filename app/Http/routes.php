@@ -24,6 +24,13 @@ Route::get('/', function () {
     //return view('index');
 });
 
+Route::group(['prefix' => 'reports'], function()
+{
+    Route::get('/first', function(){
+        return view('test')->with('user');
+    });
+});
+
 Route::group(['prefix' => 'api'], function()
 {
 	Route::post('authenticate', 'AuthenticateController@authenticate');
@@ -111,5 +118,6 @@ Route::group(['prefix' => 'api'], function()
 	Route::get('loans/{id}/crops/{cid}/acres', 'LoanpracticesController@acresOfCrop');
 	Route::get('loans/{id}/aphdb', 'AphdbsController@byLoan');
 	Route::get('loans/{id}/loancrops', 'LoancropsController@byLoan');
+	Route::get('loans/{id}/prereqs', 'PrerequisitesController@byLoan');
 	Route::get('matrix', 'MatrixController@index');
 });

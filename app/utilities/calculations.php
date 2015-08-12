@@ -43,12 +43,25 @@ function getCropAcres($loanID, $cropID)
 function getCropPerAcreCommit($party, $loanID, $cropID)
 {
     $commit = DB::select(DB::raw("SELECT SUM({$party}_adj) AS Commit FROM cropexpenses WHERE loan_id = {$loanID} AND crop_id = {$cropID}"));
-    return $commit[0]->Commit;
+    if(! $commit[0]->Commit) {
+        return 0;
+    } else {
+        return $commit[0]->Commit;
+    }
+}
+function getCropIDsInLoan($loanID) {
+    $crops = DB::select(DB::raw("SELECT DISTINCT(crop_id) AS crops FROM cropexpenses WHERE loan_id = {$loanID}"));
+    return $crops;
 }
 function getCropsInLoan($loanID)
 {
-    $crops = DB::select(DB::raw("SELECT DISTINCT(crop_id) AS crops FROM cropexpenses WHERE loan_id = {$loanID}"));
-    return $crops;
+    $retro = [];
+    $crops = DB::select(DB::raw("SELECT e.crop_id, c.crop FROM cropexpenses e, crops c WHERE c.id = e.crop_id AND e.loan_id = {$loanID} GROUP BY c.crop ORDER BY c.id"));
+
+    foreach($crops as $crop) {
+        $retro[$crop->crop_id] = $crop->crop;
+    }
+    return $retro;
 }
 function getDistInterest($loan) {
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
@@ -174,6 +187,22 @@ function getLoanAgencies($loanID) {
 
     return $aggies;
 }
+function getPartyCropsCommit($loanID, $party) {
+    $retro = [];
+
+        $retro['corn'] = getCropPerAcreCommit($party, $loanID, 1);
+        $retro['soybeans'] = getCropPerAcreCommit($party, $loanID, 2);
+        $retro['beansFAC'] = getCropPerAcreCommit($party, $loanID, 3);
+        $retro['sorghum'] = getCropPerAcreCommit($party, $loanID, 4);
+        $retro['wheat'] = getCropPerAcreCommit($party, $loanID, 5);
+        $retro['cotton'] = getCropPerAcreCommit($party, $loanID, 6);
+        $retro['rice'] = getCropPerAcreCommit($party, $loanID, 7);
+        $retro['peanuts'] = getCropPerAcreCommit($party, $loanID, 8);
+        $retro['sugarcane'] = getCropPerAcreCommit($party, $loanID, 9);
+        $retro['sunflowers'] = getCropPerAcreCommit($party, $loanID, 10);
+
+    return $retro;
+}
 function getTotalAcres($loanID) {
     return DB::select(DB::raw("SELECT SUM(IR) + SUM(NI) AS Total FROM farmunits WHERE farm_id IN (SELECT id FROM farms WHERE loan_id = {$loanID})"));
 }
@@ -189,9 +218,9 @@ function getArmTotalSpent($loanID) {
     $val = DB::select(DB::raw("SELECT SUM(spent) AS Total FROM disbursements WHERE loan_id = {$loanID}"));
     return $val[0]->Total;
 }
-function getTotalClaims($loanID) {
-    //TODO: Hard Coded
-    return 0;
+function getTotalClaims($loan) {
+    $indy = $loan->indyinc;
+    return $indy['ppclaim'] + $indy['other'];
 }
 function getTotalCropCommit($party, $loanID, $cropID)
 {
@@ -213,7 +242,7 @@ function getTotalPartyCommit($party, $loanID)
         $farmexp = 0;
     }
 
-    $crps = getCropsInLoan($loanID);
+    $crps = getCropIDsInLoan($loanID);
     foreach($crps as $crp) {
         $cropexp += getTotalCropCommit($party, $loanID, $crp->crops);
     }

@@ -31,6 +31,10 @@ class Loanpractice extends Model
     /* CASTS */
 
     /* RELATIONSHIPS */
+    public function farm()
+    {
+        return $this->belongsTo('App\Farm', 'farm_id');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */

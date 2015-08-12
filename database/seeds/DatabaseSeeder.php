@@ -41,6 +41,7 @@ class DatabaseSeeder extends Seeder
             'GlobvarsTableSeeder',
             'GuarantorsTableSeeder',
             'InsoptsTableSeeder',
+            'IndirectcropincomesTableSeeder',
             'InspolsTableSeeder',
             'InstypesTableSeeder',
             'InsunitsTableSeeder',

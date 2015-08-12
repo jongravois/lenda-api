@@ -64,6 +64,9 @@ class Loan extends Model
     public function financials() {
         return $this->hasOne('App\Loanfinancial', 'loan_id', 'id');
     }
+    public function indyinc() {
+        return $this->hasOne('App\Indirectcropincome');
+    }
     public function inspols() {
         return $this->hasMany('App\Inspol', 'loan_id', 'id');
     }

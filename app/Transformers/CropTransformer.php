@@ -16,7 +16,6 @@ class CropTransformer extends TransformerAbstract {
             'tea' => (double)$item->tea,
             'arm_default_price' => (double)$item->arm_default_price,
             'arm_default_ins_price' => (double)$item->arm_default_ins_price,
-            'arm_default_yield' => (double)$item->arm_default_yield,
             'measurement' => $item->measurement,
             'rebate_measurement' => $item->rebate_measurement
         ];

@@ -15,6 +15,7 @@ class FarmTransformer extends TransformerAbstract {
             'county' => $item->county,
             'owner' => $item->owner,
             'cash_rent' => (double)$item->cash_rent,
+            'dist_rent' => (double)$item->dist_rent,
             'share_rent' => (double)$item->share_rent,
             'when_due' => $item->when_due,
             'waived' => (double)$item->waived,
