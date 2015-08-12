@@ -62,7 +62,7 @@ class LoansTableSeeder extends Seeder
         ]);
 
         // Blake Donald(10) @ Rainbow Bridge(6) | Individual--Capital Bridge 2015
-        /*Loan::create([
+        Loan::create([
             'applicant_id' => 6,
             'app_date' => Carbon::now()->subWeek(),
             'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-06-15'),
@@ -114,7 +114,7 @@ class LoansTableSeeder extends Seeder
             'limit_warning_message' => 'Caution: 76% of budget exceeded.',
             'account_classification' => '-',
             'grade' => 'B'
-        ]);*/
+        ]);
 
         // Bruce Wayne(2) @ Secret Cave(3) | Joint Venture (1)--Ag-Pro Fasttrack 2015
         /*Loan::create([
