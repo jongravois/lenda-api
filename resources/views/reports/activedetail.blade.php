@@ -33,8 +33,8 @@
                     <td class="text-left">{!! $loan->applicant_id !!}</td>
                     <td class="text-center">{!! $loan->loan_type_id !!}</td>
                     <td class="text-center">{!! $loan->distributor_id !!}</td>
-                    <td class="text-center">{!! $loan->app_date !!}</td>
-                    <td class="text-center">{!! $loan->due_date !!}</td>
+                    <td class="text-center">{!! date("d-m-Y", strtotime($loan->app_date)) !!}</td>
+                    <td class="text-center">{!! date("d-m-Y", strtotime($loan->due_date)) !!}</td>
                     <td class="text-center"></td>
                     <td class="text-center">{!! $loan->status_id !!}</td>
                     <td class="text-center"></td>
