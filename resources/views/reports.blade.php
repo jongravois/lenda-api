@@ -6,10 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="" />
 
 <!-- stylesheets -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    {{--<link rel="stylesheet" href="/css/bots.css">--}}
+    {!! HTML::style('public/css/bots.css') !!}
 
 <!-- javascript/jQuery -->
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>

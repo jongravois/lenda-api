@@ -11,7 +11,8 @@
         "barryvdh/laravel-cors": "0.7.x",
         "league/fractal": "^0.12.0",
         "league/csv": "^7.1",
-        "mpetrovich/dash": "@dev"
+        "mpetrovich/dash": "@dev",
+        "illuminate/html": "5.0.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
