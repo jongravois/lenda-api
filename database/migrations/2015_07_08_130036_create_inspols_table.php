@@ -24,6 +24,7 @@ class CreateInspolsTable extends Migration
             $table->string('unit')->default('EU');
             $table->string('options')->nullable();
             $table->double('ins_level')->default(0);
+            $table->double('ins_share')->default(0);
             $table->integer('planting_days')->default(0);
             $table->double('ins_price')->default(0);
             $table->double('premium')->default(0);

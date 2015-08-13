@@ -24,6 +24,7 @@ class InspolTransformer extends TransformerAbstract {
             'unit' => $item->unit,
             'options' => $item->options,
             'ins_level' => (double)$item->ins_level,
+            'ins_share' => (double)$item->ins_share,
             'planting_days' => (double)$item->planting_days,
             'ins_price' => (double)$item->ins_price,
             'premium' => (double)$item->premium,

@@ -139,6 +139,7 @@ class LoanTransformer extends TransformerAbstract {
             'controlled_disbursement' => (boolean)$item->controlled_disbursement,
             'corps' => $item->corps,
             'crop_certified' => (integer)$item->crop_certified,
+            'crophail' => $item->crophail,
             'crop_inspection' => (integer)$item->crop_inspection,
             'crop_year' => (integer) $item->crop_year,
             'decision_date' => ($item->decision_date ? Carbon::createFromFormat('Y-m-d', $item->decision_date)->format('m/d/Y') : ''),
