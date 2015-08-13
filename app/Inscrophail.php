@@ -24,7 +24,7 @@ class Inscrophail extends Model
     }
     public function crop()
     {
-        return $this->hasOne('App\Crop');
+        return $this->belongsTo('App\Crop', 'crop_id');
     }
     public function loan()
     {
