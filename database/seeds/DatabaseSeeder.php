@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
             'FarmunitsTableSeeder',
             'GlobvarsTableSeeder',
             'GuarantorsTableSeeder',
+            'InscrophailsTableSeeder',
             'InsoptsTableSeeder',
             'IndirectcropincomesTableSeeder',
             'InspolsTableSeeder',
