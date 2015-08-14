@@ -149,5 +149,12 @@ class RolesTableSeeder extends Seeder
             'description' => "Responsible for the support of Principal Agent, Crop Insurance Agents, and all crop insurance operations including: processing of customer insurance applications, production reports, acreage reports, filing notice of loss claims",
             'matrix' => 1
         ]);
+        Role::create([
+            'id' => 999,
+            'abr'	=>	'OPT',
+            'role'	=>	'Optional',
+            'description' => "Committee member",
+            'matrix' => 0
+        ]);
     }
 }

@@ -17,8 +17,7 @@ class InscrophailsTableSeeder extends Seeder
                 'county_id' => 1317,
                 'inspols_id' => 1,
                 'amount' => 600,
-                'premium' => 5,
-                'ins_share' => 80
+                'premium' => 5
             ],
             [
                 'loan_id' => 1,
@@ -26,8 +25,7 @@ class InscrophailsTableSeeder extends Seeder
                 'county_id' => 1317,
                 'inspols_id' => 2,
                 'amount' => 0,
-                'premium' => 0,
-                'ins_share' => 80
+                'premium' => 0
             ]
         ];
 

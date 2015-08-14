@@ -15,7 +15,7 @@ class CreateCommitteesTable extends Migration
         Schema::create('committees', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('loan_id');
-            $table->integer('user_id');
+            $table->integer('user_id')->default(0);
             $table->integer('role_id');
             $table->string('committee_role');
             $table->string('vote_status')->default('pending');

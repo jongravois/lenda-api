@@ -20,7 +20,7 @@ class CommentsTableSeeder extends Seeder
         Comment::create([
             'loan_id' =>	1,
             'type' =>	'Committee',
-            'user_id' => 4,
+            'user_id' => 3,
             'comment' => 'I will approve provided there is a controlled disbursement.'
         ]);
 

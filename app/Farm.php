@@ -23,6 +23,10 @@ class Farm extends Model
     /* CASTS */
 
     /* RELATIONSHIPS */
+    public function aphdb()
+    {
+        return $this->hasMany('App\Aphdb', 'farm_id', 'id');
+    }
     public function county()
     {
         return $this->belongsTo('App\County', 'county_id');

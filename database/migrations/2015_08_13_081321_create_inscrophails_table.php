@@ -20,7 +20,6 @@ class CreateInscrophailsTable extends Migration
             $table->integer('inspols_id')->unsigned();
             $table->double('amount')->default(0);
             $table->double('premium')->default(0);
-            $table->double('ins_share')->default(100);
             $table->timestamps();
         });
     }

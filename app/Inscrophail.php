@@ -7,13 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Inscrophail extends Model
 {
     protected $table = 'inscrophails';
-    protected $fillable = ['loan_id', 'crop_id', 'county_id', 'inspols_id', 'amount', 'premium', 'ins_share'];
+    protected $fillable = ['loan_id', 'crop_id', 'county_id', 'inspols_id', 'amount', 'premium'];
 
     /* CASTING */
     protected $casts = [
         'amount' => 'double',
-        'premium' => 'double',
-        'share' => 'double'
+        'premium' => 'double'
     ];
     /* CASTING */
 

@@ -103,6 +103,7 @@ class LoanTransformer extends TransformerAbstract {
                 'total_fee_percent' => (double)$item->financials->fee_processing + (double)$item->financials->fee_service,
                 'total_fsa_pay' => (double)$item->financials->total_fsa_payment
             ],
+            'loancrops' => $item->loancrops,
             'inspols' => $item->inspols,
             'id' => $item->id,
             'account_classification' => $item->account_classification,
