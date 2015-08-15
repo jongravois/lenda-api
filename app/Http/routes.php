@@ -31,13 +31,6 @@ Route::group(['prefix' => 'reports'], function()
     });
 });
 
-Route::group(['prefix' => 'rpts'], function(){
-    Route::get('/', 'RptsController@index');
-    Route::get('/activedetail', 'RptsController@activedetail');
-    Route::get('/cropmix', 'RptsController@cropmix');
-    Route::get('/dump', 'RptsController@dump');
-});
-
 Route::group(['prefix' => 'api'], function()
 {
 	Route::post('authenticate', 'AuthenticateController@authenticate');
