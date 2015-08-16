@@ -13,6 +13,12 @@ function committeeVote($loanID) {
     ];
     return $retro;
 }
+function getAreaAcres() {
+    $retro = DB::select(DB::raw("SELECT r.region, s.location, p.crop_year, c.name, SUM(p.acres) AS acres FROM loans l, loanpractices p, crops c, locations s, regions r
+WHERE p.loan_id = l.id AND p.crop_id = c.id AND l.loc_id = s.id AND l.region_id = r.id GROUP BY p.crop_year, p.crop_id, s.id, r.id ORDER BY r.region, s.location, p.crop_year, c.name"));
+
+    return $retro;
+}
 function getAllCropAcres($loanID) {
     $retro = [];
     $crops = Crop::get(['id', 'crop']);
@@ -34,6 +40,12 @@ function getARMInterest($loan) {
 
     $calc = 0.375 * $arm_commit * $total_int_percent;
     return $calc;
+}
+function getCountyCrops($loanID) {
+    $retro = [];
+    $countyCrops = DB::select(DB::raw("SELECT f.county_id, c.county, l.loan_id, l.crop_id, cr.crop, loancrop_id, SUM(l.acres) AS acres, cr.measurement AS UoM, cr.arm_default_price AS prod_price_default, cr.arm_default_ins_price AS ins_price_default, cr.tea AS TEA FROM loanpractices l LEFT JOIN farms AS f ON l.farm_id = f.id LEFT JOIN counties AS c ON f.county_id = c.id LEFT JOIN crops AS cr ON l.crop_id = cr.id WHERE l.loan_id = {$loanID} GROUP BY f.county_id, l.crop_id ORDER BY f.county_id, l.crop_id"));
+
+    return $countyCrops;
 }
 function getCropAcres($loanID, $cropID)
 {
