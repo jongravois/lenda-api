@@ -174,6 +174,7 @@ class LoanTransformer extends TransformerAbstract {
             'is_watched' => (boolean)$item->is_watched,
             'its_list' => (integer)$item->its_list,
             'leases_valid' => (integer)$item->leases_valid,
+            'lien_letter_received' => (integer)$item->lien_letter_received,
             'limit_warning' => (integer)$item->limit_warning,
             'limit_warning_message' => $item->limit_warning_message,
             'loan_closed' => (integer)$item->loan_closed,
