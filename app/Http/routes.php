@@ -14,6 +14,7 @@
 use App\Events\UserWasCreated;
 
 Route::get('/', function () {
+	print_r(getCountyCrops(1));
     return sayHi();
 	//return committeeVote(1);
     /*$test = Dash\Collection\map(
