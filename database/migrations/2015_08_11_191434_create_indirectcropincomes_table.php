@@ -17,6 +17,7 @@ class CreateIndirectcropincomesTable extends Migration
             $table->integer('loan_id')->unsigned();
             $table->double('ppclaim')->default(0);
             $table->double('other')->default(0);
+            $table->boolean('collateral')->default(0);
             $table->timestamps();
         });
     }

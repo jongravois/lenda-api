@@ -13,7 +13,7 @@ class IndirectcropincomesTableSeeder extends Seeder
         $collection = [
             [
                 'loan_id' => 1,
-                'ppclaim' => 0,
+                'ppclaim' => 1500,
                 'other' => '20000'
             ],
             [
@@ -22,8 +22,8 @@ class IndirectcropincomesTableSeeder extends Seeder
                 'other' => '40000'
             ],
             [
-                'loan_id' => 3,
-                'ppclaim' => 1500,
+                'loan_id' => 2,
+                'ppclaim' => 0,
                 'other' => '30000'
             ]
         ];
