@@ -118,7 +118,7 @@ class LoansTableSeeder extends Seeder
         ]);
 
         // Bruce Wayne(2) @ Secret Cave(3) | Joint Venture (1)--Ag-Pro Fasttrack 2015
-        /*Loan::create([
+        Loan::create([
             'applicant_id' => 3,
             'app_date' => Carbon::now()->subDays(2),
             'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
@@ -142,10 +142,10 @@ class LoansTableSeeder extends Seeder
             'reconciliation' => 0,
             'account_classification' => 'B',
             'grade' => 'B'
-        ]);*/
+        ]);
 
         // Steve Rogers(12) @ Shielded Farms(4) | Corporation -- Ag-Vest 2015
-        /*Loan::create([
+        Loan::create([
             'applicant_id' => 4,
             'app_date' => Carbon::now(),
             'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
@@ -166,10 +166,10 @@ class LoansTableSeeder extends Seeder
             'account_classification' => 'A',
             'grade' => 'A'
 
-        ]);*/
+        ]);
 
         // Clint Barton(5) @ Nested Row(2) | Spousal--Ag-Pro 2015
-        /*Loan::create([
+        Loan::create([
             'applicant_id' => 2,
             'app_date' => Carbon::now()->subDays(3),
             'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
@@ -193,10 +193,10 @@ class LoansTableSeeder extends Seeder
             'reconciliation' => 0,
             'account_classification' => 'C',
             'grade' => 'C'
-        ]);*/
+        ]);
 
         // Matt Murdoch(9) @ Dark World(5) | Individual -- All-in 2015
-        /*Loan::create([
+        Loan::create([
             'applicant_id' => 5,
             'app_date' => Carbon::now()->subDays(2),
             'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
@@ -221,10 +221,10 @@ class LoansTableSeeder extends Seeder
             'reconciliation' => 3,
             'account_classification' => '-',
             'grade' => '-'
-        ]);*/
+        ]);
 
         // Diana Prince(7) @ Kingdom Plains(7) | Spousal -- Grain Storage 2015
-        /*Loan::create([
+        Loan::create([
             'applicant_id' => 7,
             'app_date' => Carbon::now()->subDays(4),
             'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-03-15'),
@@ -245,10 +245,10 @@ class LoansTableSeeder extends Seeder
             'reconciliation' => 0,
             'account_classification' => 'A',
             'grade' => 'A'
-        ]);*/
+        ]);
 
         // Tony Stark(1) @ Glass Towers(1) | Partnership | Ag-Input 2014
-        /*Loan::create([
+        Loan::create([
             'app_date' => Carbon::createFromFormat('Y-m-d','2014-01-01'),
             'default_due_date' => Carbon::createFromFormat('Y-m-d','2014-12-15'),
             'due_date' => Carbon::createFromFormat('Y-m-d','2014-12-15'),
@@ -296,10 +296,10 @@ class LoansTableSeeder extends Seeder
             'crop_inspection' => 1,
             'reconciliation' => 0,
             'grade' => 'B'
-        ]);*/
+        ]);
 
         // Matches Excel 2015
-        /*Loan::create([
+        Loan::create([
             'app_date' => Carbon::createFromFormat('Y-m-d','2015-02-18'),
             'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
             'due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
@@ -362,6 +362,6 @@ class LoansTableSeeder extends Seeder
             'conditions_ccl' => 1,
             'conditions_cd' => 1,
             'its_list' => 1
-        ]);*/
+        ]);
     }
 }

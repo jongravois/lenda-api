@@ -181,6 +181,7 @@ class LoanTransformer extends TransformerAbstract {
             'loan_closed_date' => ($item->loan_closed_date ? Carbon::createFromFormat('Y-m-d', $item->loan_closed_date)->format('m/d/Y') : ''),
             'loanconditions' => $item->conditions,
             'loancrops' => $item->loancrops,
+            'loandistributor' => $item->loandistributor,
             'loan_type' => $item->loantypes->loantype,
             'loan_type_id' => (integer)$item->loan_type_id,
             'loantype_abr' => $item->loantypes->abr,

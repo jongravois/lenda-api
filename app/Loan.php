@@ -86,7 +86,7 @@ class Loan extends Model
         return $this->hasMany('App\Disbursement', 'loan_id', 'id');
     }
     public function distributor() {
-        return $this->hasOne('App\Loandistributor', 'distributor_id', 'distributor_id');
+        return $this->hasOne('App\Distributor', 'id', 'distributor_id');
     }
     public function exceptions() {
         return $this->hasMany('App\Loanexception', 'loan_id', 'id');
@@ -117,6 +117,9 @@ class Loan extends Model
     }
     public function loancrops() {
         return $this->hasMany('App\Loancrop', 'loan_id', 'id');
+    }
+    public function loandistributor() {
+        return $this->hasOne('App\Loandistributor', 'distributor_id', 'distributor_id');
     }
     public function loantypes() {
         return $this->hasOne('App\Loantype', 'id', 'loan_type_id');
