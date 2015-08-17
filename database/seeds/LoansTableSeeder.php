@@ -165,7 +165,6 @@ class LoansTableSeeder extends Seeder
             'reconciliation' => 0,
             'account_classification' => 'A',
             'grade' => 'A'
-
         ]);
 
         // Clint Barton(5) @ Nested Row(2) | Spousal--Ag-Pro 2015

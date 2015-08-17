@@ -13,9 +13,9 @@ function committeeVote($loanID) {
     ];
     return $retro;
 }
-function getAreaAcres() {
+function getAreaAcres($loanID) {
     $retro = DB::select(DB::raw("SELECT r.region, s.location, s.loc_abr, p.crop_year, c.name as crop, SUM(p.acres) AS acres FROM loans l, loanpractices p, crops c, locations s, regions r
-WHERE p.loan_id = l.id AND p.crop_id = c.id AND l.loc_id = s.id AND l.region_id = r.id GROUP BY p.crop_year, p.crop_id, s.id, r.id ORDER BY r.region, s.location, p.crop_year, c.name"));
+WHERE p.loan_id = {$loanID} AND p.loan_id = l.id AND p.crop_id = c.id AND l.loc_id = s.id AND l.region_id = r.id GROUP BY p.crop_year, p.crop_id, s.id, r.id ORDER BY r.region, s.location, p.crop_year, c.name"));
 
     return $retro;
 }

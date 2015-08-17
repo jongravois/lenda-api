@@ -117,7 +117,7 @@ class LoanTransformer extends TransformerAbstract {
             'analyst_abr' => $item->analyst->nick,
             'analyst_email' => $item->analyst->email,
             'analyst_id' => $item->analyst->id,
-            'area_acres' => getAreaAcres(),
+            'area_acres' => getAreaAcres($item->id),
             'aoi_received' => (integer)$item->aoi_received,
             'app_date' => ($item->app_date ? Carbon::createFromFormat('Y-m-d', $item->app_date)->format('m/d/Y') : ''),
             'applicant' => $item->applicants,
