@@ -59,7 +59,6 @@ class ReportsTableSeeder extends Seeder
             'is_required' => 0
         ]);
 
-        /* Crop Loan Acre Mix Report */
         Report::create([
             'report' => 'Crop Mix',
             'rptPath' => 'crpmix',
