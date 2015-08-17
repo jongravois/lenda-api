@@ -17,6 +17,8 @@ class CreateReportsTable extends Migration
             $table->string('report')->unique();
             $table->string('rptPath');
             $table->boolean('is_required')->default(0);
+            $table->integer('days_to_warn')->default(3);
+            $table->integer('days_to_alert')->default(7);
             $table->timestamps();
         });
     }

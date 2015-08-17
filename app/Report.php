@@ -6,9 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Report extends Model
 {
-    public $timestamps = false;
     protected $table = 'reports';
-    protected $fillable = ['report', 'rptPath', 'is_required'];
+    protected $fillable = ['report', 'rptPath', 'is_required', 'days_to_warn', 'days_to_alert'];
 
     /* RELATIONSHIPS */
     /* RELATIONSHIPS */

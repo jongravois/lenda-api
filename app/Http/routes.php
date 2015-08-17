@@ -101,6 +101,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('reportfilters', 'ReportfiltersController');
 	Route::resource('reportoptions', 'ReportoptionsController');
 	Route::resource('reports', 'ReportsController');
+	Route::resource('reporttrackers', 'ReporttrackersController');
 	Route::resource('requireddocuments', 'RequireddocumentsController');
 	Route::resource('responsibilities', 'ResponsibilitiesController');
 	Route::resource('responsibilityroles', 'ResponsibilityrolesController');

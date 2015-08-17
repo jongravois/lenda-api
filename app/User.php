@@ -31,6 +31,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasOne('App\Optimizerviewoption');
     }
 
+    public function role()
+    {
+        return $this->belongsTo('App\Role', 'role_id');
+    }
+
     public function viewfilters()
     {
         return $this->hasOne('App\Viewfilter');

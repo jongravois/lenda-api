@@ -75,6 +75,7 @@ class DatabaseSeeder extends Seeder
             'ReportfiltersTableSeeder',
             'ReportoptionsTableSeeder',
             'ReportsTableSeeder',
+            'ReporttrackersTableSeeder',
             'RequireddocumentsTableSeeder',
             'RescatsTableSeeder',
             'ResponsibilitiesTableSeeder',
