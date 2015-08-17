@@ -19,6 +19,7 @@ class DistributorTransformer extends TransformerAbstract {
             'state' => $item->state->state,
             'zip' => $item->zip,
             'locale' => $item->city . ', ' . $item->state->abr,
+            'contact' => $item->contact,
             'phone' => $item->phone,
             'email' => $item->email
         ];

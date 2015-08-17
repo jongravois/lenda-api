@@ -13,11 +13,19 @@ class ReferencesTableSeeder extends Seeder
         $collection = [
             [
                 'loan_id' => 1,
-                'creditor' => 'Galaxy Credit',
+                'creditor' => 'Delhi Credit and Loan',
                 'city_state' => 'Delhi, LA',
                 'contact' => 'Joan London',
                 'phone' => '3183455294',
                 'email' => 'joan@london.com'
+            ],
+            [
+                'loan_id' => 1,
+                'creditor' => 'Rayville Credit and Loan',
+                'city_state' => 'Rayville, LA',
+                'contact' => 'Jack Frost',
+                'phone' => '3189820304',
+                'email' => 'jack@frost.com'
             ]
         ];
 

@@ -17,6 +17,7 @@ class DistributorsTableSeeder extends Seeder
             'city' => 'Delhi',
             'state_id' => '19',
             'zip' => 71232,
+            'contact' => 'Katy Perry',
             'email' => '--',
             'phone' => '3187223490'
         ]);
@@ -28,6 +29,7 @@ class DistributorsTableSeeder extends Seeder
             'city' => 'Marksville',
             'state_id' => 19,
             'zip' => 71351,
+            'contact' => 'Taylor Swift',
             'email' => 'jwg@distributor.org',
             'phone' => '3182908839'
         ]);
@@ -39,6 +41,7 @@ class DistributorsTableSeeder extends Seeder
             'city' => 'Monroe',
             'state_id' => 19,
             'zip' => 71269,
+            'contact' => 'Barbra Streisand',
             'email' => 'cps@distributor.com',
             'phone' => '7775551212'
         ]);
@@ -50,6 +53,7 @@ class DistributorsTableSeeder extends Seeder
             'city' => 'New Orleans',
             'state_id' => 19,
             'zip' => 70123,
+            'contact' => 'Neil Diamond',
             'email' => 'gpa@distributor.com',
             'phone' => '8885551212'
         ]);
@@ -61,6 +65,7 @@ class DistributorsTableSeeder extends Seeder
             'city' => 'Helana',
             'state_id' => 4,
             'zip' => 71269,
+            'contact' => 'James Brown',
             'email' => 'hel@distributor.com',
             'phone' => '9995551212'
         ]);

@@ -10,6 +10,10 @@ class Loandistributor extends Model
     protected $fillable = ['loan_id', 'distributor_id', 'contact', 'phone', 'email'];
 
     /* RELATIONSHIPS */
+    public function distributor()
+    {
+        return $this->belongsTo('App\Distributor', 'distributor_id');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */
