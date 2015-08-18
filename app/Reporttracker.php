@@ -24,6 +24,9 @@ class Reporttracker extends Model
     }
     /* RELATIONSHIPS */
 
+    /* QUERY SCOPES */
+    /* QUERY SCOPES */
+
     /* METHODS */
     /* METHODS */
 }

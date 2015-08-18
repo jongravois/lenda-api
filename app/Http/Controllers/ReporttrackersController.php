@@ -24,7 +24,9 @@ class ReporttrackersController extends ApiController
     public function index(Manager $fractal, ReporttrackerTransformer $reporttrackerTransformer)
     {
         // show all
-        $records = Reporttracker::with('report', 'user.role')->get();
+        $records = Reporttracker::with(['report' => function($query) {
+            $query->where('is_required', '1');
+        }], 'user.role')->get();
         $collection = new Collection($records, $reporttrackerTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);

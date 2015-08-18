@@ -38,6 +38,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         'Illuminate\Html\HtmlServiceProvider',
+        'Clockwork\Support\Laravel\ClockworkServiceProvider',
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         //Barryvdh\Cors\ServiceProvider::class,
     ],
@@ -78,7 +79,7 @@ return [
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         'Form'=> 'Illuminate\Html\FormFacade',
         'HTML'=> 'Illuminate\Html\HtmlFacade',
-
+        'Clockwork' => 'Clockwork\Support\Laravel\Facade',
     ],
 
 ];

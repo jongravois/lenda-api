@@ -10,6 +10,7 @@
         "tymon/jwt-auth": "0.5.*",
         "barryvdh/laravel-cors": "0.7.x",
         "league/fractal": "^0.12.0",
+        "itsgoingd/clockwork": "dev-master",
         "league/csv": "^7.1",
         "mpetrovich/dash": "@dev",
         "illuminate/html": "5.0.*"

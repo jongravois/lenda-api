@@ -11,13 +11,13 @@ class ReporttrackerTransformer extends TransformerAbstract {
         return [
             'id' => $item->id,
             'report_id' => $item->report_id,
+            'report' => $item->report,
             'user_id' => $item->user_id,
+            'user' => $item->user,
             'cnt_warned' => (integer)$item->cnt_warned,
             'cnt_alerted' => (integer)$item->cnt_alerted,
             'made_required' => $item->made_required,
-            'last_acknowledged' => $item->last_acknowledged,
-            'report' => $item->report,
-            'user' => $item->user
+            'last_acknowledged' => $item->last_acknowledged
         ];
     }
 }
