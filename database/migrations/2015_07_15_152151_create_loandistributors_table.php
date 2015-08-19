@@ -19,6 +19,8 @@ class CreateLoandistributorsTable extends Migration
             $table->string('contact');
             $table->string('phone');
             $table->string('email');
+            $table->double('dist_balance')->default(0);
+            $table->double('dist_remaining')->default(0);
             $table->timestamps();
         });
     }
