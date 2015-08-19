@@ -55,6 +55,7 @@ class LoanTransformer extends TransformerAbstract {
         $commitOther = getTotalPartyCommit('other', $item->id);
 
         return [
+            'loandistributor' => $item->loandistributor,
             'fins' => [
                 'discounts' => [
                     'percent_crop' => (double)$item->financials->disc_percent_crop,
@@ -103,8 +104,6 @@ class LoanTransformer extends TransformerAbstract {
                 'total_fee_percent' => (double)$item->financials->fee_processing + (double)$item->financials->fee_service,
                 'total_fsa_pay' => (double)$item->financials->total_fsa_payment
             ],
-            'loancrops' => $item->loancrops,
-            'inspols' => $item->inspols,
             'id' => $item->id,
             'account_classification' => $item->account_classification,
             'added_land' => (boolean)$item->added_land,

@@ -8,12 +8,9 @@ class Distributor extends Model
 {
     public $timestamps = false;
     protected $table = 'distributors';
-    protected $fillable = ['distributor', 'name', 'address', 'city', 'state_id', 'zip', 'contact', 'phone', 'email'];
+    protected $fillable = ['distributor', 'name', 'address', 'city', 'state', 'zip', 'contact', 'phone', 'email'];
 
     /* RELATIONSHIPS */
-    public function state() {
-        return $this->belongsTo('App\State', 'state_id');
-    }
     /* RELATIONSHIPS */
 
     /* METHODS */
