@@ -110,7 +110,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('spendcats', 'SpendcatsController');
 	Route::resource('states', 'StatesController');
 	Route::resource('storages', 'StoragecontractsController');
-	Route::resource('systemics', 'SystemicsController');
+	Route::resource('systemics', 'ActivitiesController');
 	Route::resource('unitpractices', 'UnitpracticesController');
 	Route::resource('uploads', 'UploadsController');
 	Route::resource('users', 'UsersController');

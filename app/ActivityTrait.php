@@ -7,34 +7,41 @@ use ReflectionClass;
 
 trait ActivityTrait
 {
-    protected static function boot()
+    protected static function bootActivityTrait()
     {
-        parent::boot();
-
         foreach(static::getModelEvents() as $event) {
             static::$event(function($model) use ($event) {
-                $model->addActivity($event);
+                $model->recordActivity($event);
             });
         }
     }
 
-    protected function addActivity($event)
+    public function recordActivity($event)
     {
+        if(!Auth::id()) {
+            $user = [
+                'id' => 1,
+                'name' => 'LENDA'
+            ];
+        } else {
+            $user = User::find(Auth::id())->toArray();
+        }
+
         Activity::create([
             'loan_id' => $this->loan_id,
-            'user_id' => (Auth::id() ? Auth::id() : 1),
-            //'user' => (Auth::user()->user ? Auth::user()->user : 'LENDA'),
+            'user_id' => $user['id'],
+            'user' => $user['name'],
             'subject_id' => $this->id,
             'subject_type' => get_class($this),
-            'name' => $this->getActivityName($this, $event)
+            'name' => $this->getActivityName($this, $event, $user)
         ]);
     }
 
-    protected function getActivityName($model, $action)
+    protected function getActivityName($model, $action, $user)
     {
         $name = strtolower((new ReflectionClass($model))->getShortName());
 
-        return "{$action}_{$name}";
+        return "{$user['name']} {$action} {$name}";
     }
 
     protected static function getModelEvents()
