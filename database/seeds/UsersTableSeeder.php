@@ -280,7 +280,7 @@ class UsersTableSeeder extends Seeder {
                 'name' => 'Paul Drew',
                 'nick' => 'PAD',
                 'loc_id' => 1,
-                'email' => 'info@armlend.com',
+                'email' => 'paul.drew@iag.io',
                 'app' => 'staff',
                 'password' => Hash::make('pdrew'),
                 'phone' => '3187285770',
