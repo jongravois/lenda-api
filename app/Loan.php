@@ -146,7 +146,7 @@ class Loan extends Model
         return $this->hasOne('App\Loanstatus', 'id', 'status_id');
     }
     public function systemics() {
-        return $this->hasMany('App\Systemic');
+        return $this->hasMany('App\Activity');
     }
     public function transactions() {
         return $this->hasMany('App\Qbtran');
