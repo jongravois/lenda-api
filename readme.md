@@ -22,7 +22,7 @@ DB_USERNAME=your-mysql-username
 DB_PASSWORD=your-mysql-password
 ```
 
-* Create an empty database named as above
+* Create an empty database named the same as above
 * From the webroot, run ```php artisan key:generate```
 * From the webroot, run ```php artisan migrate```
 * From the webroot, run ```php artisan migrate:refresh --seed```
