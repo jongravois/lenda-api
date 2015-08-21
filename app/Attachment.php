@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attachment extends Model
 {
+    use ActivityTrait;
+
     protected $table = 'attachments';
     protected $fillable = ['loan_id', 'user_id', 'status', 'title', 'filename', 'path', 'filetype', 'original_filename', 'description', 'date_requested', 'date_received'];
 

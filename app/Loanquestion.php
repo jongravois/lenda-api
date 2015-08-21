@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Loanquestion extends Model
 {
+    use ActivityTrait;
+
     protected $table = 'loanquestions';
-    protected $fillable = ['app_date', 'decision_date', 'distributor_approval_date', 'default_due_date', 'due_date', 'loan_type_id', 'status_id', 'crop_year', 'season', 'loc_id', 'region_id', 'user_id', 'farmer_id', 'applicant_id', 'is_cross_collateralized', 'is_fast_tracked', 'grade', 'equipment_collateral', 'realestate_collateral', 'other_collateral', 'analyst_can_approve', 'is_watched', 'disbursement_issue', 'has_rebates', 'has_distributor', 'distributor', 'is_stale', 'has_addendum', 'addendum_type', 'bankruptcy_history', 'required_3party', 'added_land', 'controlled_disbursement', 'its_list', 'fsa_compliant', 'prev_lien_verified', 'leases_valid', 'bankruptcy_order_received', 'received_3party', 'recommended', 'arm_approved', 'dist_approved', 'loan_closed', 'loan_closed_date', 'added_land_verified', 'permission_to_insure_verified', 'arm_ucc_received', 'dist_ucc_received', 'aoi_received', 'ccc_received', 'rebate_assignment', 'limit_warning', 'limit_warning_message', 'crop_inspection', 'reconciliation', 'account_classification', 'conditions_asa', 'conditions_aci', 'conditions_areb', 'conditions_adis', 'conditions_pg', 'conditions_ccl', 'conditions_cd'];
+    protected $fillable = ['loan_id', 'amount_requested', 'plant_own', 'plant_own_details', 'harvest_own', 'harvest_own_details', 'equip_obligations', 'equip_obligations_details', 'other_cash', 'other_cash_details', 'insInPlace', 'insInPlace_details', 'fsa_good', 'fsa_good_details', 'fci_good', 'fci_good_details', 'premiums_past', 'premiums_details', 'legal_defendant', 'defendant_details', 'judgements', 'judgement_details', 'bankruptcy', 'bankruptcy_details', 'bankruptcy_order', 'liens', 'liens_details', 'fsa_direct_pay', 'fsa_direct_pay_details',  'future_liabilities', 'credit_3p_available', 'credit_3p_details', 'income_percent', 'income_distribution_details', 'distributor', 'agency', 'pesticide_number', 'pest_num_expiration', 'credit_score', 'affiliates', 'affiliated_entities', 'farm_supplier_creditors'];
 
     /* RELATIONSHIPS */
     /* RELATIONSHIPS */

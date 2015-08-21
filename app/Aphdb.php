@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Aphdb extends Model
 {
+    use ActivityTrait;
+
     protected $table = 'aphdbs';
     protected $fillable = ['loan_id', 'inspol_id', 'farm_id', 'ins_share', 'aph'];
 

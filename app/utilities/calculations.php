@@ -231,8 +231,11 @@ function getArmTotalSpent($loanID) {
     return $val[0]->Total;
 }
 function getTotalClaims($loan) {
-    $indy = $loan->indyinc;
-    return $indy['ppclaim'] + $indy['other'];
+    $claim = 0;
+    foreach($loan->indyinc as $indy) {
+        $claim += $indy->amount;
+    }
+    return $claim;
 }
 function getTotalCropCommit($party, $loanID, $cropID)
 {

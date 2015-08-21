@@ -15,8 +15,10 @@ class CreateIndirectcropincomesTable extends Migration
         Schema::create('indirectcropincomes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('loan_id')->unsigned();
-            $table->double('ppclaim')->default(0);
-            $table->double('other')->default(0);
+            $table->string('source');
+            $table->string('description')->nullable();
+            $table->double('amount')->default(0);
+            $table->double('disc_percent')->default(100);
             $table->boolean('collateral')->default(0);
             $table->timestamps();
         });

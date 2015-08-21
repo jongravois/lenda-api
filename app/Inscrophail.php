@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inscrophail extends Model
 {
+    use ActivityTrait;
+
     protected $table = 'inscrophails';
     protected $fillable = ['loan_id', 'crop_id', 'county_id', 'inspols_id', 'amount', 'premium'];
 

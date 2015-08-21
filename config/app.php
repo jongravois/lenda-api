@@ -37,6 +37,7 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        'Laracasts\Generators\GeneratorsServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
         'Clockwork\Support\Laravel\ClockworkServiceProvider',
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,

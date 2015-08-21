@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    use ActivityTrait;
+
     protected $table = 'comments';
     protected $fillable = ['loan_id', 'type', 'user_id', 'comment'];
 

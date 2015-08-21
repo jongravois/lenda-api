@@ -80,6 +80,7 @@ class LoanTransformer extends TransformerAbstract {
                 'commit_total' => (double)$commitArm+(double)$commitDist,
                 'crop_acres' => getAllCropAcres($item->id),
                 'crops_in_loan' => getCropsInLoan($item->id),
+                'dist_buyDown' => false, //TODO: Get from database
                 'dist_crop_commit' => getPartyCropsCommit($item->id, 'dist'),
                 'fee_processing' => (double)$item->financials->fee_processing,
                 'fee_service' =>(double)$item->financials->fee_service,
