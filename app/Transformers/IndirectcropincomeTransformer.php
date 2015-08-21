@@ -9,8 +9,12 @@ class IndirectcropincomeTransformer extends TransformerAbstract {
 
         return [
             'id' => $item->id,
-            'ppclaim' => (double)$item->ppclaim,
-            'other' => (double)$item->other
+            'loan_id' => $item->loan_id,
+            'source' => $item->source,
+            'description' => $item->description,
+            'amount' => (double)$item->amount,
+            'disc_percent' => (double)$item->disc_percent,
+            'collateral' => (boolean)$item->collateral
         ];
     }
 }

@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
 
         $seeders = [
             'UsersTableSeeder',
+            'LoansTableSeeder',
             'AddendumfinancialsTableSeeder',
             'AddendumloansTableSeeder',
             'AdmingradersTableSeeder',
@@ -55,7 +56,6 @@ class DatabaseSeeder extends Seeder
             'LoanpracticesTableSeeder',
             'LoanquestionsTableSeeder',
             'LoanstatusTableSeeder',
-            'LoansTableSeeder',
             'LoantypesTableSeeder',
             'LocationsTableSeeder',
             'MatrixTableSeeder',
@@ -64,6 +64,7 @@ class DatabaseSeeder extends Seeder
             'OptimizerviewoptionsTableSeeder',
             'OthercollateralsTableSeeder',
             'PartnersTableSeeder',
+            'OtherincomesourcesTableSeeder',
             'PdfappsTableSeeder',
             'PrerequisitesTableSeeder',
             'PriorliensTableSeeder',

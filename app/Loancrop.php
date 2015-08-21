@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Loancrop extends Model
 {
+    use ActivityTrait;
+
     protected $table = 'loancrops';
     protected $hidden = ['created_at', 'updated_at'];
     protected $fillable = ['loan_id', 'crop_id', 'crop_measure', 'market', 'gin_mill', 'bkqty', 'bkprice', 'var_harvest', 'harvest_measure', 'rebates', 'rebate_measure'];

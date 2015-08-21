@@ -3,16 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Indirectcropincome extends Model
 {
+    use ActivityTrait;
+
     protected $table = 'indirectcropincomes';
-    protected $fillable = ['loan_id', 'ppclaim', 'other'];
+    protected $fillable = ['loan_id', 'source', 'description', 'amount', 'disc_percent', 'collateral'];
 
     /* CASTING */
     protected $casts = [
-        'ppclaim' => 'double',
-        'other' => 'double'
+        'amount' => 'double',
+        'disc_percent' => 'double',
+        'collateral' => 'boolean'
     ];
     /* CASTING */
 

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Othercollateral extends Model
 {
+    use ActivityTrait;
+
     protected $table = 'othercollaterals';
     protected $fillable = ['loan_id', 'type', 'source', 'description', 'amount'];
 

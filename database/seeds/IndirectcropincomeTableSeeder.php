@@ -13,18 +13,35 @@ class IndirectcropincomesTableSeeder extends Seeder
         $collection = [
             [
                 'loan_id' => 1,
-                'ppclaim' => 1500,
-                'other' => '20000'
+                'source' => 'ppclaim',
+                'description' => 'Prevented Planting Claim for Soybeans FAC',
+                'amount' => 8500,
+                'disc_percent' => 100,
+                'collateral' => 0,
+            ],
+            [
+                'loan_id' => 1,
+                'source' => 'other',
+                'description' => 'Personal sale of farm equipment',
+                'amount' => 11500,
+                'disc_percent' => 100,
+                'collateral' => 0,
             ],
             [
                 'loan_id' => 2,
-                'ppclaim' => 0,
-                'other' => '40000'
+                'source' => 'other',
+                'description' => 'Lorem ipsum est con vivique',
+                'amount' => 40000,
+                'disc_percent' => 100,
+                'collateral' => 0,
             ],
             [
-                'loan_id' => 2,
-                'ppclaim' => 0,
-                'other' => '30000'
+                'loan_id' => 3,
+                'source' => 'other',
+                'description' => 'Cogito ergo sum',
+                'amount' => 30000,
+                'disc_percent' => 100,
+                'collateral' => 0,
             ]
         ];
 
