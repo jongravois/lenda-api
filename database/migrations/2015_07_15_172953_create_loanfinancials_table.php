@@ -15,17 +15,6 @@ class CreateLoanfinancialsTable extends Migration
         Schema::create('loanfinancials', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('loan_id');
-            $table->double('disc_percent_crop')->default(50);
-            $table->double('disc_percent_fsa')->default(20);
-            $table->double('disc_percent_ins')->default(20);
-            $table->double('disc_percent_insoyield')->default(20);
-            $table->double('disc_percent_nonrp')->default(20);
-            $table->double('disc_percent_rphpe')->default(10);
-            $table->double('disc_percent_suppins')->default(20);
-            $table->double('disc_percent_prod')->default(50);
-            $table->double('disc_percent_equipment')->default(20);
-            $table->double('disc_percent_realestate')->default(40);
-            $table->double('disc_percent_other')->default(100);
             $table->double('amount_requested')->default(0);
             $table->double('collateral_equipment')->default(0);
             $table->double('collateral_realestate')->default(0);

@@ -9,22 +9,11 @@ class Loanfinancial extends Model
     use ActivityTrait;
 
     protected $table = 'loanfinancials';
-    protected $fillable = ['loan_id', 'amount_requested', 'disc_percent_crop', 'disc_percent_fsa', 'disc_percent_ins', 'disc_percent_insoyield', 'disc_percent_nonrp', 'disc_percent_rphpe', 'disc_percent_suppins', 'disc_percent_prod', 'disc_percent_equipment', 'disc_percent_realestate', 'disc_percent_other', 'collateral_equipment', 'collateral_realestate', 'fee_onTotal', 'int_percent_arm', 'int_percent_dist', 'int_percent_other'];
+    protected $fillable = ['loan_id', 'amount_requested', 'collateral_equipment', 'collateral_realestate', 'fee_onTotal', 'int_percent_arm', 'int_percent_dist', 'int_percent_other'];
     protected $hidden = ['created_at', 'updated_at'];
 
     /* CASTING */
     protected $casts = [
-        'disc_percent_crop' => 'double',
-        'disc_percent_fsa' => 'double',
-        'disc_percent_ins' => 'double',
-        'disc_percent_insoyield' => 'double',
-        'disc_percent_nonrp' => 'double',
-        'disc_percent_rphpe' => 'double',
-        'disc_percent_suppins' => 'double',
-        'disc_percent_prod' => 'double',
-        'disc_percent_equipment' => 'double',
-        'disc_percent_realestate' => 'double',
-        'disc_percent_other' => 'double',
         'amount_requested' => 'double',
         'collateral_equipment' => 'double',
         'collateral_realestate' => 'double',

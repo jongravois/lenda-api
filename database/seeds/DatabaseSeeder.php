@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
             'JointventuresTableSeeder',
             'LoanconditionsTableSeeder',
             'LoancropsTableSeeder',
+            'LoandiscsTableSeeder',
             'LoandistributorsTableSeeder',
             'LoanexceptionsTableSeeder',
             'LoanfinancialsTableSeeder',
