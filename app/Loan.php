@@ -85,6 +85,9 @@ class Loan extends Model
     public function disbursements() {
         return $this->hasMany('App\Disbursement', 'loan_id', 'id');
     }
+    public function discounts() {
+        return $this->hasOne('App\Loandisc');
+    }
     public function distributor() {
         return $this->hasOne('App\Distributor', 'id', 'distributor_id');
     }
