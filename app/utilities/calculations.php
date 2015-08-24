@@ -3,6 +3,18 @@
 use App\Crop;
 use Illuminate\Support\Facades\DB;
 
+function addAcres($lc) {
+    foreach($lc as $crop) {
+        $acres = 0;
+        foreach($crop->practices as $practice) {
+            $acres += (double)$practice->acres;
+        }
+        $crop['acres'] = $acres;
+        $crop['crop_crop'] = $crop->crop['crop'];
+        $crop['crop_name'] = $crop->crop['name'];
+    }
+    return $lc;
+}
 function committeeVote($loanID) {
     $commie = DB::select(DB::raw("SELECT SUM(CASE WHEN vote = 1 THEN 1 ELSE 0 END ) AS Approved, SUM(CASE WHEN vote_status = 'voted' THEN 1 ELSE 0 END) AS Voted , SUM(CASE WHEN vote_status = 'pending' THEN 1 ELSE 0 END) AS Pending FROM committees WHERE loan_id = {$loanID}"));
 
@@ -49,7 +61,7 @@ function getCountyCrops($loanID) {
 }
 function getCropAcres($loanID, $cropID)
 {
-    $acres = DB::select(DB::raw("SELECT SUM(acres) AS Total FROM farmpractices WHERE loan_id = {$loanID} AND crop_id = {$cropID}"));
+    $acres = DB::select(DB::raw("SELECT SUM(acres) AS Total FROM loanpractices WHERE loan_id = {$loanID} AND crop_id = {$cropID}"));
     return $acres[0]->Total;
 }
 function getCropPerAcreCommit($party, $loanID, $cropID)
@@ -242,6 +254,14 @@ function getTotalCropCommit($party, $loanID, $cropID)
     $PACommit = getCropPerAcreCommit($party, $loanID, $cropID);
     $getCA = getCropAcres($loanID, $cropID);
     return (double)$PACommit * (double)$getCA;
+}
+function getTotalFSA($loan)
+{
+    $fsa = 0;
+    foreach($loan->farms as $farm) {
+        $fsa += $farm->fsa_paid;
+    }
+    return $fsa;
 }
 function getTotalLoanFarmExpenses($loanID)
 {

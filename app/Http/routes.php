@@ -59,6 +59,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('defaultcountycrops', 'DefaultcountycropsController');
 	Route::resource('defaultexpenses', 'DefaultexpensesController');
 	Route::resource('disbursements', 'DisbursementsController');
+	Route::resource('discounts', 'LoandiscsController');
 	Route::resource('distributors', 'DistributorsController');
 	Route::resource('entitytypes', 'EntitytypesController');
 	Route::resource('farmers', 'FarmersController');
