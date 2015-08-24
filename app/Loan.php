@@ -107,6 +107,9 @@ class Loan extends Model
     public function farms() {
         return $this->hasMany('App\Farm', 'loan_id', 'id');
     }
+    public function farmunits() {
+        return $this->hasMany('App\Farmunit');
+    }
     public function financials() {
         return $this->hasOne('App\Loanfinancial', 'loan_id', 'id');
     }

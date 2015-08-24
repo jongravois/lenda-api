@@ -228,7 +228,7 @@ function getPartyCropsCommit($loanID, $party) {
     return $retro;
 }
 function getTotalAcres($loanID) {
-    return DB::select(DB::raw("SELECT SUM(IR) + SUM(NI) AS Total FROM farmunits WHERE farm_id IN (SELECT id FROM farms WHERE loan_id = {$loanID})"));
+    return DB::select(DB::raw("SELECT SUM(acres) AS Total FROM loanpractices WHERE loan_id = {$loanID}"));
 }
 function getArmTotalBudget($loanID) {
     $val = DB::select(DB::raw("SELECT SUM(arm_budget) AS Total FROM disbursements WHERE loan_id = {$loanID}"));

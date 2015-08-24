@@ -12,50 +12,34 @@ class FarmunitsTableSeeder extends Seeder
 
         $collection = [
             [
+                'loan_id' => 1,
                 'farm_id' => 1,
-                'county_id' => 1317,
-                'owner' => 'John Doe',
-                'share_rent' => 20,
-                'perm_to_insure' => 0,
-                'IR' => 0,
-                'NI' => 2350
+                'practice' => 'IR',
+                'acres' => 1000
             ],
             [
+                'loan_id' => 1,
                 'farm_id' => 1,
-                'county_id' => 1317,
-                'owner' => 'John Doe',
-                'share_rent' => 20,
-                'perm_to_insure' => 0,
-                'IR' => 1000,
-                'NI' => 0
+                'practice' => 'NI',
+                'acres' => 2350
             ],
             [
+                'loan_id' => 1,
                 'farm_id' => 2,
-                'county_id' => 1310,
-                'owner' => 'Jim Smith',
-                'share_rent' => 0,
-                'perm_to_insure' => 0,
-                'IR' => 0,
-                'NI' => 50
+                'practice' => 'NI',
+                'acres' => 50
             ],
             [
-                'unit_type' => 'BU',
+                'loan_id' => 1,
                 'farm_id' => 3,
-                'county_id' => 1310,
-                'owner' => 'Elroy Tate',
-                'share_rent' => 20,
-                'perm_to_insure' => 1,
-                'IR' => 200,
-                'NI' => 0
+                'practice' => 'IR',
+                'acres' => 200
             ],
             [
+                'loan_id' => 1,
                 'farm_id' => 4,
-                'county_id' => 1310,
-                'owner' => 'Elroy Tate',
-                'share_rent' => 0,
-                'perm_to_insure' => 0,
-                'IR' => 400,
-                'NI' => 0
+                'practice' => 'IR',
+                'acres' => 400
             ]
         ];
 

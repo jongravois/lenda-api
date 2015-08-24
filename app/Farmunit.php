@@ -7,31 +7,29 @@ use Illuminate\Database\Eloquent\Model;
 class Farmunit extends Model
 {
     protected $table = 'farmunits';
-    protected $fillable = ['unit_type', 'farm_id', 'county_id', 'owner', 'share_rent', 'perm_to_insure', 'IR', 'NI'];
+    protected $fillable = ['loan_id', 'farm_id', 'unit_type', 'practice', 'acres'];
     protected $hidden = ['created_at', 'updated_at'];
 
     /* CASTING */
     protected $casts = [
-        'perm_to_insure' => 'boolean',
-        'share_rent' => 'double',
-        'IR' => 'double',
-        'NI' => 'double'
+        'acres' => 'double'
     ];
     /* CASTING */
 
     /* RELATIONSHIPS */
-    public function county()
+    public function database()
     {
-        return $this->belongsTo('App\County', 'county_id');
+        return $this->hasMany('App\Aphdb', 'farm_id', 'farm_id');
     }
-    public function farms()
+    public function farm()
     {
         return $this->belongsTo('App\Farm', 'farm_id');
     }
     public function practices()
     {
-        return $this->hasMany('App\Unitpractice', 'unit_id', 'id');
+        return $this->hasMany('App\Loanpractice', 'farm_id', 'farm_id');
     }
+
     /* RELATIONSHIPS */
 
     /* METHODS */

@@ -24,7 +24,7 @@ class FarmunitsController extends ApiController
     public function index(Manager $fractal, FarmunitTransformer $farmunitTransformer)
     {
         // show all
-        $records = Farmunit::all();
+        $records = Farmunit::with('database.inspols', 'farm', 'practices')->get();
         $collection = new Collection($records, $farmunitTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);

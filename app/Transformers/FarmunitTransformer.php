@@ -11,13 +11,13 @@ class FarmunitTransformer extends TransformerAbstract {
         return [
             'id' => $item->id,
             'unit_type' => $item->unit_type,
+            'loan_id' => $item->loan_id,
             'farm_id' => $item->farm_id,
-            'county_id' => $item->county_id,
-            'owner' => $item->owner,
-            'share_rent' => (double)$item->share_rent,
-            'perm_to_insure' => (boolean)$item->perm_to_insure,
-            'IR' => (double)$item->IR,
-            'NI' => (double)$item->NI
+            'practice' => $item->practice,
+            'acres' => (double)$item->acres,
+            'farm' => $item->farm,
+            'database' => $item->database,
+            'practices' => $item->practices
         ];
     }
 }
