@@ -29,9 +29,10 @@ class CreateLoansTable extends Migration
             $table->integer('farmer_id')->nullable();
             $table->integer('applicant_id')->nullable();
             $table->boolean('is_active')->default(1);
-            $table->boolean('is_cross_collateralized')->default(0);
+            $table->boolean('is_xcolled')->default(0);
             $table->boolean('is_fast_tracked')->default(0);
             $table->boolean('analyst_can_approve')->default(0);
+            $table->boolean('analyst_can_submit')->default(0);
             $table->boolean('is_watched')->default(0);
             $table->boolean('is_stale')->default(1);
             $table->boolean('disbursement_issue')->default(0);
