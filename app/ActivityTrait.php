@@ -24,7 +24,7 @@ trait ActivityTrait
                 'name' => 'LENDA'
             ];
         } else {
-            $user = User::find(Auth::id())->toArray();
+            $user = User::find(Auth::id());
         }
 
         Activity::create([
