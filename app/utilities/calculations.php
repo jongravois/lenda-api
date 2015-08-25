@@ -354,6 +354,7 @@ function processFarmunitPractices($unit, $loan) {
                 $retro[$crop]['ins_price'] = (double)$policy[0]->ins_price;
                 $retro[$crop]['ins_level'] = (double)$policy[0]->ins_level;
                 $retro[$crop]['ins_premium'] = (double)$policy[0]->premium;
+                $retro[$crop]['exp_yield'] = (double)$policy[0]->exp_yield;
                 $retro[$crop]['ins_share'] = (double)$policy[0]->ins_share;
                 $retro[$crop]['loss_trigger'] = (double)$policy[0]->stax_loss_trigger;
                 $retro[$crop]['cov_range'] = (double)$policy[0]->stax_desired_range;
@@ -370,6 +371,7 @@ function processFarmunitPractices($unit, $loan) {
                 $retro[$crop]['ins_price'] = 0;
                 $retro[$crop]['ins_level'] = 0;
                 $retro[$crop]['ins_premium'] = 0;
+                $retro[$crop]['exp_yield'] = 0;
                 $retro[$crop]['ins_share'] = 0;
                 $retro[$crop]['loss_trigger'] = 0;
                 $retro[$crop]['cov_range'] = 0;
