@@ -10,7 +10,7 @@ class Loanpractice extends Model
 
     protected $table = 'loanpractices';
     protected $hidden = ['created_at', 'updated_at'];
-    protected $fillable = ['crop_year', 'loan_id', 'crop_id', 'loancrop_id', 'practice', 'is_active', 'farm_id', 'ins_option', 'ins_level', 'ins_price', 'ins_type', 'ins_unit', 'aph', 'ins_premium', 'acres', 'prod_price', 'prod_share', 'prod_yield'];
+    protected $fillable = ['crop_year', 'loan_id', 'crop_id', 'loancrop_id', 'practice', 'is_active', 'farm_id', 'farmunit_id', 'ins_option', 'ins_level', 'ins_price', 'ins_type', 'ins_unit', 'aph', 'ins_premium', 'acres', 'prod_price', 'prod_share', 'prod_yield'];
 
     /* CASTS */
     protected $cast = [

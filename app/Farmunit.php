@@ -27,7 +27,7 @@ class Farmunit extends Model
     }
     public function practices()
     {
-        return $this->hasMany('App\Loanpractice', 'farm_id', 'farm_id');
+        return $this->hasMany('App\Loanpractice');
     }
 
     /* RELATIONSHIPS */

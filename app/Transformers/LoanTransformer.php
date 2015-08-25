@@ -55,7 +55,7 @@ class LoanTransformer extends TransformerAbstract {
         $commitOther = getTotalPartyCommit('other', $item->id);
 
         return [
-            'farmunits' => $item->farmunits,
+            'farmunits' => processFarmUnits($item),
             'loancrops' => addAcres($item->loancrops),
             'loandistributor' => $item->loandistributor,
             'fins' => [
@@ -161,7 +161,7 @@ class LoanTransformer extends TransformerAbstract {
             'farmer' => $item->farmers,
             'farmexpenses' => $item->farmexpenses,
             'farms' => $item->farms,
-            'farmunits' => $item->farmunits,
+            'farmunits' => processFarmUnits($item),
             'financials' => $item->financials,
             'fsa_compliant' => (integer)$item->fsa_compliant,
             'full_season' => ($item->season == 'F' ? 'Fall' : 'Spring'),
