@@ -14,14 +14,11 @@ class CreateFarmunitsTable extends Migration
     {
         Schema::create('farmunits', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('unit_type')->default('EU');
+            $table->integer('loan_id')->unsigned();
             $table->integer('farm_id')->unsigned();
-            $table->integer('county_id')->unsigned();
-            $table->string('owner')->nullable();
-            $table->double('share_rent')->default(0);
-            $table->boolean('perm_to_insure')->default(0);
-            $table->double('IR')->default(0);
-            $table->double('NI')->default(0);
+            $table->string('unit_type')->default('EU');
+            $table->string('practice')->default('IR');
+            $table->double('acres')->default(0);
             $table->timestamps();
         });
     }

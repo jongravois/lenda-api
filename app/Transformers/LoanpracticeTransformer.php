@@ -13,6 +13,7 @@ class LoanpracticeTransformer extends TransformerAbstract {
             'crop_year' => (integer)$item->crop_year,
             'loan_id' => (integer)$item->loan_id,
             'farm_id' => (integer)$item->farm_id,
+            'farmunit_id' => (integer)$item->farmunit_id,
             'crop_id' => (integer)$item->crop_id,
             'loancrop_id' => (integer)$item->loancrop_id,
             'practice' => $item->practice,

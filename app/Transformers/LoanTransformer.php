@@ -55,6 +55,8 @@ class LoanTransformer extends TransformerAbstract {
         $commitOther = getTotalPartyCommit('other', $item->id);
 
         return [
+            'farmunits' => processFarmUnits($item),
+            'loancrops' => addAcres($item->loancrops),
             'loandistributor' => $item->loandistributor,
             'fins' => [
                 'discounts' => [
@@ -74,13 +76,13 @@ class LoanTransformer extends TransformerAbstract {
                 'balance_spent' => (double)getArmTotalSpent($item->id),
                 'balance_total' => (double)getArmTotalBudget($item->id),
                 'balance_remaining' => (double)getArmTotalRemaining($item->id),
-                'commit_arm' => $commitArm,
+                'commit_arm' => ($commitArm > 0 ? $commitArm : $item->financials->amount_requested),
                 'commit_dist' => $commitDist,
                 'commit_other' => $commitOther,
                 'commit_total' => (double)$commitArm+(double)$commitDist,
                 'crop_acres' => getAllCropAcres($item->id),
                 'crops_in_loan' => getCropsInLoan($item->id),
-                'dist_buyDown' => false, //TODO: Get from database
+                'dist_buyDown' => (boolean)$item->financials->dist_buyDown,
                 'dist_crop_commit' => getPartyCropsCommit($item->id, 'dist'),
                 'fee_processing' => (double)$item->financials->fee_processing,
                 'fee_service' =>(double)$item->financials->fee_service,
@@ -103,7 +105,7 @@ class LoanTransformer extends TransformerAbstract {
                 'total_claims' => (double)getTotalClaims($item),
                 'total_farm_expenses' => (double)getTotalLoanFarmExpenses($item->id),
                 'total_fee_percent' => (double)$item->financials->fee_processing + (double)$item->financials->fee_service,
-                'total_fsa_pay' => (double)$item->financials->total_fsa_payment
+                'total_fsa_pay' => (double)getTotalFSA($item)
             ],
             'id' => $item->id,
             'account_classification' => $item->account_classification,
@@ -114,6 +116,7 @@ class LoanTransformer extends TransformerAbstract {
             'agent' => $item->agents,
             'analyst' => $item->analyst->name,
             'analyst_can_approve' => (boolean)$item->analyst_can_approve,
+            'analyst_can_submit' => (boolean)$item->analyst_can_submit,
             'analyst_abr' => $item->analyst->nick,
             'analyst_email' => $item->analyst->email,
             'analyst_id' => $item->analyst->id,
@@ -158,6 +161,7 @@ class LoanTransformer extends TransformerAbstract {
             'farmer' => $item->farmers,
             'farmexpenses' => $item->farmexpenses,
             'farms' => $item->farms,
+            'farmunits' => processFarmUnits($item),
             'financials' => $item->financials,
             'fsa_compliant' => (integer)$item->fsa_compliant,
             'full_season' => ($item->season == 'F' ? 'Fall' : 'Spring'),
@@ -168,7 +172,7 @@ class LoanTransformer extends TransformerAbstract {
             'indyinc' =>$item->indyinc,
             'inspols' => $item->inspols,
             'is_active' => (boolean)$item->is_active,
-            'is_cross_collateralized' => (boolean)$item->is_cross_collateralized,
+            'is_xcolled' => (boolean)$item->is_isxcolled,
             'is_fast_tracked' => (boolean)$item->is_fast_tracked,
             'is_stale' => (boolean)$isStale,
             'is_watched' => (boolean)$item->is_watched,
@@ -180,7 +184,7 @@ class LoanTransformer extends TransformerAbstract {
             'loan_closed' => (integer)$item->loan_closed,
             'loan_closed_date' => ($item->loan_closed_date ? Carbon::createFromFormat('Y-m-d', $item->loan_closed_date)->format('m/d/Y') : ''),
             'loanconditions' => $item->conditions,
-            'loancrops' => $item->loancrops,
+            'loancrops' => addAcres($item->loancrops),
             'loandistributor' => $item->loandistributor,
             'loan_type' => $item->loantypes->loantype,
             'loan_type_id' => (integer)$item->loan_type_id,

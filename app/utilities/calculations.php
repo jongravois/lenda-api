@@ -1,8 +1,24 @@
 <?php
 
+use App\Aphdb;
 use App\Crop;
+use App\Inspol;
 use Illuminate\Support\Facades\DB;
+use Underscore\Types\Arrays;
+use Underscore\Types\Number;
 
+function addAcres($lc) {
+    foreach($lc as $crop) {
+        $acres = 0;
+        foreach($crop->practices as $practice) {
+            $acres += (double)$practice->acres;
+        }
+        $crop['acres'] = $acres;
+        $crop['crop_crop'] = $crop->crop['crop'];
+        $crop['crop_name'] = $crop->crop['name'];
+    }
+    return $lc;
+}
 function committeeVote($loanID) {
     $commie = DB::select(DB::raw("SELECT SUM(CASE WHEN vote = 1 THEN 1 ELSE 0 END ) AS Approved, SUM(CASE WHEN vote_status = 'voted' THEN 1 ELSE 0 END) AS Voted , SUM(CASE WHEN vote_status = 'pending' THEN 1 ELSE 0 END) AS Pending FROM committees WHERE loan_id = {$loanID}"));
 
@@ -49,7 +65,7 @@ function getCountyCrops($loanID) {
 }
 function getCropAcres($loanID, $cropID)
 {
-    $acres = DB::select(DB::raw("SELECT SUM(acres) AS Total FROM farmpractices WHERE loan_id = {$loanID} AND crop_id = {$cropID}"));
+    $acres = DB::select(DB::raw("SELECT SUM(acres) AS Total FROM loanpractices WHERE loan_id = {$loanID} AND crop_id = {$cropID}"));
     return $acres[0]->Total;
 }
 function getCropPerAcreCommit($party, $loanID, $cropID)
@@ -216,7 +232,7 @@ function getPartyCropsCommit($loanID, $party) {
     return $retro;
 }
 function getTotalAcres($loanID) {
-    return DB::select(DB::raw("SELECT SUM(IR) + SUM(NI) AS Total FROM farmunits WHERE farm_id IN (SELECT id FROM farms WHERE loan_id = {$loanID})"));
+    return DB::select(DB::raw("SELECT SUM(acres) AS Total FROM loanpractices WHERE loan_id = {$loanID}"));
 }
 function getArmTotalBudget($loanID) {
     $val = DB::select(DB::raw("SELECT SUM(arm_budget) AS Total FROM disbursements WHERE loan_id = {$loanID}"));
@@ -243,6 +259,14 @@ function getTotalCropCommit($party, $loanID, $cropID)
     $getCA = getCropAcres($loanID, $cropID);
     return (double)$PACommit * (double)$getCA;
 }
+function getTotalFSA($loan)
+{
+    $fsa = 0;
+    foreach($loan->farms as $farm) {
+        $fsa += $farm->fsa_paid;
+    }
+    return $fsa;
+}
 function getTotalLoanFarmExpenses($loanID)
 {
     $exp = DB::select(DB::raw("SELECT SUM(cost) AS Total FROM farmexpenses WHERE loan_id = {$loanID}"));
@@ -263,4 +287,99 @@ function getTotalPartyCommit($party, $loanID)
     }
 
     return $cropexp + $farmexp;
+}
+function processFarmUnits($loan) {
+    $retro = [];
+    $units = $loan->farmunits;
+    foreach($units as $unit) {
+        $cash_rent = (double)$unit->farm->cash_rent;
+        $dist_rent = (double)$unit->farm->dist_rent;
+        $total_acres = (double)$unit->acres;
+        $farm_acres = (double)($unit->farm->IR + $unit->farm->NI);
+        $acres_percent = (double)$total_acres/$farm_acres;
+        $fsa_pay = (double)$unit->farm->fsa_paid * $acres_percent;
+        $newb = [
+            'id' => $unit->id,
+            'state' => $unit->farm->county->state->abr,
+            'county' => $unit->farm->county->county,
+            'fsn' => $unit->farm->fsn,
+            'owner' => $unit->farm->owner,
+            'practice' => $unit->practice,
+            "total_acres" => $total_acres,
+            "farm_acres" => $farm_acres,
+            "acres_percent" => $acres_percent,
+            "share_rent" => (double)$unit->farm->share_rent,
+            "perm2ins" => ($unit->farm->perm_to_insure ? 'Y' : 'N'),
+            "cash_rent" => $cash_rent,
+            "dist_rent" => $dist_rent,
+            "waived" => (double)$unit->farm->waived,
+            "when_due" => $unit->farm->when_due,
+            "fsa_paid" => $fsa_pay,
+            "cash_rent_acre_ARM" => $cash_rent/$total_acres,
+            "cash_rent_acre_dist" => $dist_rent/$total_acres,
+            "cash_rent_acre_other" => 0,
+            "fsa_acre" => $fsa_pay/$total_acres,
+            "crops" => processFarmunitPractices($unit, $loan)
+        ];
+        array_push($retro, $newb);
+    }
+
+    return $retro;
+}
+function processFarmunitPractices($unit, $loan) {
+    $loancrops = $loan->loancrops;
+    $retro = [];
+
+    foreach($loancrops as $lc) {
+        $cropID = $lc->crop->id;
+        $crop = $lc->crop->crop;
+        $retro[$crop] = [
+            "id" => $cropID,
+            "crop" => $crop,
+            "var_harvst" => $lc->var_harvest,
+            "rebate" => $lc->rebates
+        ];
+        foreach($unit->practices as $upc) {
+            $policy = Inspol::with('databases')
+                ->where('county_id', $unit->farm->county_id)
+                ->where('crop_id', $cropID)
+                ->where('practice', $upc->practice)
+                ->get();
+            if($upc->crop_id == $cropID) {
+                $retro[$crop]['acres'] = (double)$upc->acres;
+                $retro[$crop]['override'] = (double)$policy[0]->databases[0]->ins_share;
+                $retro[$crop]['aph'] = (double)$policy[0]->databases[0]->aph;
+                $retro[$crop]['ins_type'] = $policy[0]->type;
+                $retro[$crop]['ins_opts'] = $policy[0]->options;
+                $retro[$crop]['ins_price'] = (double)$policy[0]->ins_price;
+                $retro[$crop]['ins_level'] = (double)$policy[0]->ins_level;
+                $retro[$crop]['ins_premium'] = (double)$policy[0]->premium;
+                $retro[$crop]['ins_share'] = (double)$policy[0]->ins_share;
+                $retro[$crop]['loss_trigger'] = (double)$policy[0]->stax_loss_trigger;
+                $retro[$crop]['cov_range'] = (double)$policy[0]->stax_desired_range;
+                $retro[$crop]['prot_factor'] = (double)$policy[0]->stax_protection_factor;
+                $retro[$crop]['prod_yield'] = (double)$upc->prod_yield;
+                $retro[$crop]['prod_share'] = (double)$upc->prod_share;
+                $retro[$crop]['prod_price'] = (double)$upc->prod_price;
+            } else {
+                $retro[$crop]['acres'] = 0;
+                $retro[$crop]['override'] = 0;
+                $retro[$crop]['aph'] = 0;
+                $retro[$crop]['ins_type'] = '';
+                $retro[$crop]['ins_opts'] = '';
+                $retro[$crop]['ins_price'] = 0;
+                $retro[$crop]['ins_level'] = 0;
+                $retro[$crop]['ins_premium'] = 0;
+                $retro[$crop]['ins_share'] = 0;
+                $retro[$crop]['loss_trigger'] = 0;
+                $retro[$crop]['cov_range'] = 0;
+                $retro[$crop]['prot_factor'] = 0;
+                $retro[$crop]['prod_yield'] = 0;
+                $retro[$crop]['prod_share'] = 0;
+                $retro[$crop]['prod_price'] = 0;
+            }
+        }
+    }
+    //return $loan;
+    return $retro;
 }

@@ -12,17 +12,19 @@
 */
 
 use App\Events\UserWasCreated;
+use App\Loan;
 
 Route::get('/', function () {
-	print_r(getCountyCrops(1));
-    return sayHi();
+    return view('index');
+    //return sayHi();
+	//print_r(getCountyCrops(1));
 	//return committeeVote(1);
-    /*$test = Dash\Collection\map(
-        array(1, 2, 3),
-        function($n) { return $n * 2; }
-    );
-    return $test;*/
-    //return view('index');
+});
+
+Route::get('/units', function() {
+    $loan = Loan::with('farmunits.database.inspols', 'farmunits.farm.county.state', 'farmunits.practices', 'loancrops.crop')->where('id', '1')->get();
+    $unit = processFarmUnits($loan);
+    return $unit;
 });
 
 Route::group(['prefix' => 'reports'], function()

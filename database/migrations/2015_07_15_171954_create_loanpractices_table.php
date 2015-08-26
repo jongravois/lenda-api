@@ -17,6 +17,7 @@ class CreateLoanpracticesTable extends Migration
             $table->integer('crop_year')->default(2015);
             $table->integer('loan_id')->unsigned();
             $table->integer('farm_id')->unsigned();
+            $table->integer('farmunit_id')->unsigned();
             $table->integer('crop_id')->unsigned();
             $table->integer('loancrop_id')->unsigned();
             $table->string('practice')->default('IR');
