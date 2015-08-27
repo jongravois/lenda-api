@@ -28,6 +28,7 @@ class InspolTransformer extends TransformerAbstract {
             'planting_days' => (double)$item->planting_days,
             'ins_price' => (double)$item->ins_price,
             'premium' => (double)$item->premium,
+            'exp_yield' => (double)$item->exp_yield,
             'stax_loss_trigger' => (double)$item->stax_loss_trigger,
             'stax_desired_range' => (double)$item->stax_desired_range,
             'stax_protection_factor' => (double)$item->stax_protection_factor

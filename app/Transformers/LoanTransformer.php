@@ -20,6 +20,12 @@ class LoanTransformer extends TransformerAbstract {
         $pastDueDiff = $dueDate->diffInDays($dtToday);
         //dd($staleDiff);
 
+        if($item->loan_type_id == 1 || $item->loan_type_id == 2 || $item->loan_type_id == 3) {
+            $cropLoan = true;
+        } else {
+            $cropLoan = false;
+        }
+
         //is_stale
         if (!$item->decision_date) {
             $decision = null;
@@ -146,6 +152,7 @@ class LoanTransformer extends TransformerAbstract {
             'crop_certified' => (integer)$item->crop_certified,
             'crophail' => $item->crophail,
             'crop_inspection' => (integer)$item->crop_inspection,
+            'crop_loan' => (boolean)$cropLoan,
             'crop_year' => (integer) $item->crop_year,
             'decision_date' => ($item->decision_date ? Carbon::createFromFormat('Y-m-d', $item->decision_date)->format('m/d/Y') : ''),
             'default_due_date' => ($item->default_due_date ? Carbon::createFromFormat('Y-m-d', $item->default_due_date)->format('m/d/Y') : ''),
@@ -161,7 +168,7 @@ class LoanTransformer extends TransformerAbstract {
             'farmer' => $item->farmers,
             'farmexpenses' => $item->farmexpenses,
             'farms' => $item->farms,
-            'farmunits' => processFarmUnits($item),
+            //'farmunits' => processFarmUnits($item),
             'financials' => $item->financials,
             'fsa_compliant' => (integer)$item->fsa_compliant,
             'full_season' => ($item->season == 'F' ? 'Fall' : 'Spring'),

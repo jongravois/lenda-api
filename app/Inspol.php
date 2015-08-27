@@ -9,7 +9,7 @@ class Inspol extends Model
     use ActivityTrait;
 
     protected $table = 'inspols';
-    protected $fillable = ['loan_id', 'agent_id', 'county_id', 'crop_id', 'practice', 'plc', 'type', 'unit', 'options', 'ins_level', 'planting_days', 'ins_price', 'ins_share', 'premium', 'stax_loss_trigger', 'stax_desired_range', 'stax_protection_factor'];
+    protected $fillable = ['loan_id', 'agent_id', 'county_id', 'crop_id', 'practice', 'plc', 'type', 'unit', 'options', 'ins_level', 'planting_days', 'ins_price', 'ins_share', 'premium', 'exp_yield', 'stax_loss_trigger', 'stax_desired_range', 'stax_protection_factor'];
 
     /* CASTS */
     protected $casts = [
@@ -19,6 +19,7 @@ class Inspol extends Model
         'ins_share' => 'double',
         'ins_price' => 'double',
         'premium' => 'double',
+        'exp_yield' => 'double',
         'stax_loss_trigger' => 'double',
         'stax_desired_range' => 'double',
         'stax_protection_factor' => 'double'

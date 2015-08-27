@@ -15,15 +15,17 @@ use App\Events\UserWasCreated;
 use App\Loan;
 
 Route::get('/', function () {
-    return view('index');
-    //return sayHi();
+    return sayHi();
+    //return view('index');
 	//print_r(getCountyCrops(1));
 	//return committeeVote(1);
 });
 
 Route::get('/units', function() {
     $loan = Loan::with('farmunits.database.inspols', 'farmunits.farm.county.state', 'farmunits.practices', 'loancrops.crop')->where('id', '1')->get();
-    $unit = processFarmUnits($loan);
+    $unit = processFarmUnits($loan[0]);
+
+    //return $loan[0];
     return $unit;
 });
 

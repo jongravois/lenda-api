@@ -28,6 +28,7 @@ class CreateInspolsTable extends Migration
             $table->integer('planting_days')->default(0);
             $table->double('ins_price')->default(0);
             $table->double('premium')->default(0);
+            $table->double('exp_yield')->default(0);
             $table->double('stax_loss_trigger')->default(0);
             $table->double('stax_desired_range')->default(0);
             $table->double('stax_protection_factor')->default(0);

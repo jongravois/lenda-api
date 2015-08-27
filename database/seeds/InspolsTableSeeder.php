@@ -11,6 +11,7 @@ class InspolsTableSeeder extends Seeder
         DB::table('inspols')->delete();
 
         $policies = [
+            //1317 NI Corn
             [
                 'loan_id' => 1,
                 'agent_id' => 1,
@@ -30,6 +31,7 @@ class InspolsTableSeeder extends Seeder
                 'stax_desired_range' => 0,
                 'stax_protection_factor' => 0
             ],
+            //1317 NI Beans
             [
                 'loan_id' => 1,
                 'agent_id' => 1,
@@ -49,6 +51,7 @@ class InspolsTableSeeder extends Seeder
                 'stax_desired_range' => 15,
                 'stax_protection_factor' => 120
             ],
+            //1317 NI Cotton
             [
                 'loan_id' => 1,
                 'agent_id' => 1,
@@ -64,11 +67,12 @@ class InspolsTableSeeder extends Seeder
                 'planting_days' => 0,
                 'ins_price' => 0.6300,
                 'premium' => 19.82,
+                'exp_yield' => 858,
                 'stax_loss_trigger' => 90,
                 'stax_desired_range' => 15,
                 'stax_protection_factor' => 120
             ],
-
+            //1317 IR Corn
             [
                 'loan_id' => 1,
                 'agent_id' => 1,
@@ -88,6 +92,7 @@ class InspolsTableSeeder extends Seeder
                 'stax_desired_range' => 0,
                 'stax_protection_factor' => 0
             ],
+            //1317 IR Cotton
             [
                 'loan_id' => 1,
                 'agent_id' => 1,
@@ -97,17 +102,19 @@ class InspolsTableSeeder extends Seeder
                 'plc' => false,
                 'type' => 'RPHPE',
                 'unit' => 'EU',
-                'options' => 'HPE SE',
+                'options' => 'SCO',
                 'ins_level' => 70,
                 'ins_share' => 80,
                 'planting_days' => 0,
                 'ins_price' => 0.6300,
                 'premium' => 19.82,
+                'exp_yield' => 858,
                 'stax_loss_trigger' => 90,
-                'stax_desired_range' => 15,
+                'stax_desired_range' => 35,
                 'stax_protection_factor' => 120
             ],
 
+            //1310 NI Corn
             [
                 'loan_id' => 1,
                 'agent_id' => 2,
@@ -127,6 +134,7 @@ class InspolsTableSeeder extends Seeder
                 'stax_desired_range' => 0,
                 'stax_protection_factor' => 0
             ],
+            //1310 NI Beans
             [
                 'loan_id' => 1,
                 'agent_id' => 2,
@@ -146,6 +154,7 @@ class InspolsTableSeeder extends Seeder
                 'stax_desired_range' => 15,
                 'stax_protection_factor' => 120
             ],
+            //1310 NI Cotton
             [
                 'loan_id' => 1,
                 'agent_id' => 2,
@@ -155,17 +164,18 @@ class InspolsTableSeeder extends Seeder
                 'plc' => true,
                 'type' => 'RPHPE',
                 'unit' => 'EU',
-                'options' => 'STAX',
+                'options' => 'SCO',
                 'ins_level' => 70,
                 'ins_share' => 80,
                 'planting_days' => 0,
                 'ins_price' => 0.6300,
                 'premium' => 19.82,
+                'exp_yield' => 1142,
                 'stax_loss_trigger' => 90,
                 'stax_desired_range' => 15,
                 'stax_protection_factor' => 120
             ],
-
+            //1310 IR Corn
             [
                 'loan_id' => 1,
                 'agent_id' => 2,
@@ -185,6 +195,7 @@ class InspolsTableSeeder extends Seeder
                 'stax_desired_range' => 0,
                 'stax_protection_factor' => 0
             ],
+            //1310 IR Beans
             [
                 'loan_id' => 1,
                 'agent_id' => 2,
@@ -204,6 +215,7 @@ class InspolsTableSeeder extends Seeder
                 'stax_desired_range' => 15,
                 'stax_protection_factor' => 120
             ],
+            //1310 IR Cotton
             [
                 'loan_id' => 1,
                 'agent_id' => 2,
@@ -213,11 +225,12 @@ class InspolsTableSeeder extends Seeder
                 'plc' => true,
                 'type' => 'RP',
                 'unit' => 'EU',
-                'options' => 'STAX',
+                'options' => 'SCO',
                 'ins_level' => 70,
                 'ins_share' => 80,
                 'planting_days' => 0,
                 'ins_price' => 0.6300,
+                'exp_yield' => 1142,
                 'premium' => 19.82,
                 'stax_loss_trigger' => 90,
                 'stax_desired_range' => 15,

@@ -87,7 +87,7 @@ function getCropsInLoan($loanID)
     $crops = DB::select(DB::raw("SELECT e.crop_id, c.crop FROM cropexpenses e, crops c WHERE c.id = e.crop_id AND e.loan_id = {$loanID} GROUP BY c.crop ORDER BY c.id"));
 
     foreach($crops as $crop) {
-        $retro[$crop->crop_id] = $crop->crop;
+        array_push($retro, $crop->crop);
     }
     return $retro;
 }
@@ -288,98 +288,91 @@ function getTotalPartyCommit($party, $loanID)
 
     return $cropexp + $farmexp;
 }
-function processFarmUnits($loan) {
-    $retro = [];
-    $units = $loan->farmunits;
-    foreach($units as $unit) {
-        $cash_rent = (double)$unit->farm->cash_rent;
-        $dist_rent = (double)$unit->farm->dist_rent;
-        $total_acres = (double)$unit->acres;
-        $farm_acres = (double)($unit->farm->IR + $unit->farm->NI);
-        $acres_percent = (double)$total_acres/$farm_acres;
-        $fsa_pay = (double)$unit->farm->fsa_paid * $acres_percent;
-        $newb = [
-            'id' => $unit->id,
-            'state' => $unit->farm->county->state->abr,
-            'county' => $unit->farm->county->county,
-            'fsn' => $unit->farm->fsn,
-            'owner' => $unit->farm->owner,
-            'practice' => $unit->practice,
-            "total_acres" => $total_acres,
-            "farm_acres" => $farm_acres,
-            "acres_percent" => $acres_percent,
-            "share_rent" => (double)$unit->farm->share_rent,
-            "perm2ins" => ($unit->farm->perm_to_insure ? 'Y' : 'N'),
-            "cash_rent" => $cash_rent,
-            "dist_rent" => $dist_rent,
-            "waived" => (double)$unit->farm->waived,
-            "when_due" => $unit->farm->when_due,
-            "fsa_paid" => $fsa_pay,
-            "cash_rent_acre_ARM" => $cash_rent/$total_acres,
-            "cash_rent_acre_dist" => $dist_rent/$total_acres,
-            "cash_rent_acre_other" => 0,
-            "fsa_acre" => $fsa_pay/$total_acres,
-            "crops" => processFarmunitPractices($unit, $loan)
-        ];
-        array_push($retro, $newb);
-    }
+function processFarmUnit($unit, $loan) {
+    $cash_rent = (double)$unit->farm->cash_rent;
+    $dist_rent = (double)$unit->farm->dist_rent;
+    $total_acres = (double)$unit->acres;
+    $farm_acres = (double)($unit->farm->IR + $unit->farm->NI);
+    $acres_percent = (double)$total_acres/$farm_acres;
+    $fsa_pay = (double)$unit->farm->fsa_paid * $acres_percent;
 
-    return $retro;
-}
-function processFarmunitPractices($unit, $loan) {
-    $loancrops = $loan->loancrops;
-    $retro = [];
+    $retro = [
+       'id' => $unit->id,
+       'state' => $unit->farm->county->state->abr,
+       'county' => $unit->farm->county->county,
+        'fsn' => $unit->farm->fsn,
+        'owner' => $unit->farm->owner,
+        'practice' => $unit->practice,
+        'total_acres' => $total_acres,
+        'farm_acres' => $farm_acres,
+        'acres_percent' => $acres_percent,
+        'share_rent' => (double)$unit->farm->share_rent,
+        'perm2ins' => ($unit->farm->perm_to_insure ? 'Y' : 'N'),
+        'cash_rent' => $cash_rent,
+        'dist_rent' => $dist_rent,
+        'waived' => (double)$unit->farm->waived,
+        'when_due' => $unit->farm->when_due,
+        'fsa_paid' => $fsa_pay,
+        'cash_rent_acre_ARM' => $cash_rent/$total_acres,
+        'cash_rent_acre_dist' => $dist_rent/$total_acres,
+        'cash_rent_acre_other' => 0,
+        'fsa_acre' => $fsa_pay/$total_acres,
+        'crops' => []
+    ];
 
-    foreach($loancrops as $lc) {
-        $cropID = $lc->crop->id;
-        $crop = $lc->crop->crop;
-        $retro[$crop] = [
-            "id" => $cropID,
-            "crop" => $crop,
-            "var_harvst" => $lc->var_harvest,
-            "rebate" => $lc->rebates
-        ];
-        foreach($unit->practices as $upc) {
+    foreach($unit->practices as $upc) {
+        foreach($loan->loancrops as $lc) {
+            $cropID = $lc->crop->id;
+            $crop = $lc->crop->crop;
+
+            $lp = App\Loanpractice::where('farmunit_id', $unit->id)
+                ->where('crop_id', $cropID)
+                ->first();
+
             $policy = Inspol::with('databases')
                 ->where('county_id', $unit->farm->county_id)
                 ->where('crop_id', $cropID)
                 ->where('practice', $upc->practice)
-                ->get();
-            if($upc->crop_id == $cropID) {
-                $retro[$crop]['acres'] = (double)$upc->acres;
-                $retro[$crop]['override'] = (double)$policy[0]->databases[0]->ins_share;
-                $retro[$crop]['aph'] = (double)$policy[0]->databases[0]->aph;
-                $retro[$crop]['ins_type'] = $policy[0]->type;
-                $retro[$crop]['ins_opts'] = $policy[0]->options;
-                $retro[$crop]['ins_price'] = (double)$policy[0]->ins_price;
-                $retro[$crop]['ins_level'] = (double)$policy[0]->ins_level;
-                $retro[$crop]['ins_premium'] = (double)$policy[0]->premium;
-                $retro[$crop]['ins_share'] = (double)$policy[0]->ins_share;
-                $retro[$crop]['loss_trigger'] = (double)$policy[0]->stax_loss_trigger;
-                $retro[$crop]['cov_range'] = (double)$policy[0]->stax_desired_range;
-                $retro[$crop]['prot_factor'] = (double)$policy[0]->stax_protection_factor;
-                $retro[$crop]['prod_yield'] = (double)$upc->prod_yield;
-                $retro[$crop]['prod_share'] = (double)$upc->prod_share;
-                $retro[$crop]['prod_price'] = (double)$upc->prod_price;
-            } else {
-                $retro[$crop]['acres'] = 0;
-                $retro[$crop]['override'] = 0;
-                $retro[$crop]['aph'] = 0;
-                $retro[$crop]['ins_type'] = '';
-                $retro[$crop]['ins_opts'] = '';
-                $retro[$crop]['ins_price'] = 0;
-                $retro[$crop]['ins_level'] = 0;
-                $retro[$crop]['ins_premium'] = 0;
-                $retro[$crop]['ins_share'] = 0;
-                $retro[$crop]['loss_trigger'] = 0;
-                $retro[$crop]['cov_range'] = 0;
-                $retro[$crop]['prot_factor'] = 0;
-                $retro[$crop]['prod_yield'] = 0;
-                $retro[$crop]['prod_share'] = 0;
-                $retro[$crop]['prod_price'] = 0;
-            }
+                ->first();
+
+            $newb[$crop] = [
+                'id' => $cropID,
+                'crop' => $crop,
+                'practice' => $upc->practice,
+                'acres' => (double)$lp['acres'],
+                'var_harvst' => (double)$lc->var_harvest,
+                'rebate' => (double)$lc->rebates,
+                'prod_yield' => (double)$lp['prod_yield'],
+                'prod_share' => (double)$lp['prod_share'],
+                'prod_price' => (double)$lp['prod_price'],
+                'aph' => (double)(count($policy['databases']) > 0 ? $policy['databases'][0]['aph'] : 0),
+                'override' => (double)$policy['ins_share'],
+                'ins_share' => (double)(count($policy['databases']) > 0 ? $policy['databases'][0]['ins_share'] : 0),
+                'ins_type' => $policy['type'],
+                'ins_opts' => $policy['options'],
+                'ins_level' => (double)$policy['ins_level'],
+                'ins_price' => (double)$policy['ins_price'],
+                'ins_premium' => (double)$policy['premium'],
+                'PLC' => (boolean)$policy['plc'],
+                'loss_trigger' => (double)$policy['stax_loss_trigger'],
+                'cov_range' => (double)$policy['stax_desired_range'],
+                'prot_factor' => (double)$policy['stax_protection_factor'],
+                'cov_err_check' => (double)$policy['ins_level'] + (double)$policy['stax_desired_range'],
+                'exp_yield' => (double)$policy['exp_yield'],
+                'planting_days' => (integer)$policy['planting_days']
+            ];
         }
     }
-    //return $loan;
+    array_push($retro['crops'], $newb);
+
+    return $retro;
+}
+function processFarmUnits($loan) {
+    $retro = [];
+    $units = $loan->farmunits;
+    //dd($units);
+    foreach( $units as $unit) {
+        array_push($retro, processFarmUnit($unit, $loan));
+    }
     return $retro;
 }
