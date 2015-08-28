@@ -14,7 +14,8 @@ class OthercollateralTransformer extends TransformerAbstract {
             'type' => $item->type,
             'source' => $item->source,
             'description' => $item->description,
-            'amount' => (double) $item->amount
+            'amount' => (double) $item->amount,
+            'discount' => (double) $item->discount
         ];
     }
 }
