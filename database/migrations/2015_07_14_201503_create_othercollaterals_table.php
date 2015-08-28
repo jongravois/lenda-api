@@ -21,6 +21,7 @@ class CreateOthercollateralsTable extends Migration
             $table->double('mkt_value')->default(0);
             $table->double('prior_lien')->default(0);
             $table->double('amount')->default(0);
+            $table->double('insurance')->default(0);
             $table->double('discount')->default(0);
             $table->timestamps();
         });

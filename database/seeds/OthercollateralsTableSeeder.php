@@ -12,23 +12,12 @@ class OthercollateralsTableSeeder extends Seeder
 
         Othercollateral::create([
             'loan_id' =>  1,
-            'type' => 'crop',
-            'source' =>  'Mason Dixon Loans',
-            'description' =>  "2013 loan to cover daughter's braces and son's heart and lungs transplant",
-            'amount' =>  12000,
-            'mkt_value' => 8000,
-            'prior_lien' => 8000,
-            'discount' => 50
-        ]);
-
-        Othercollateral::create([
-            'loan_id' =>  1,
             'type' => 'other',
             'source' =>  'Louisiana Institute of Technology',
             'description' =>  'This is an unsusual source of funding for a farmer but the money spends all the same.',
             'amount' =>  12500,
             'mkt_value' => 10000,
-            'prior_lien' => 2500,
+            'prior_lien' => 0,
             'discount' => 90
         ]);
 
@@ -39,7 +28,7 @@ class OthercollateralsTableSeeder extends Seeder
             'description' =>  'Crop and fertilizer study allowance.',
             'amount' =>  7500,
             'mkt_value' => 5000,
-            'prior_lien' => 2500,
+            'prior_lien' => 0,
             'discount' => 90
         ]);
 
@@ -60,7 +49,7 @@ class OthercollateralsTableSeeder extends Seeder
             'source' =>  'Pepper Potts',
             'description' =>  'summer condominium',
             'amount' =>  200000,
-            'mkt_value' => 10000,
+            'mkt_value' => 100000,
             'prior_lien' => 100000,
             'discount' => 40
         ]);
@@ -95,7 +84,7 @@ class OthercollateralsTableSeeder extends Seeder
             'amount' =>  200000,
             'mkt_value' => 150000,
             'prior_lien' => 5000,
-            'discount' => 20
+            'discount' => 50
         ]);
     }
 }
