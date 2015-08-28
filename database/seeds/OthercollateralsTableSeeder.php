@@ -39,7 +39,7 @@ class OthercollateralsTableSeeder extends Seeder
             'description' =>  'home',
             'amount' =>  300000,
             'mkt_value' => 300000,
-            'prior_lien' => 0,
+            'prior_lien' => 140000,
             'discount' => 40
         ]);
 
@@ -49,8 +49,8 @@ class OthercollateralsTableSeeder extends Seeder
             'source' =>  'Pepper Potts',
             'description' =>  'summer condominium',
             'amount' =>  200000,
-            'mkt_value' => 100000,
-            'prior_lien' => 100000,
+            'mkt_value' => 500000,
+            'prior_lien' => 450000,
             'discount' => 40
         ]);
 
