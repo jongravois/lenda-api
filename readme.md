@@ -14,7 +14,7 @@ This is an Laravel 5.1 application
 ```
 APP_ENV=local
 APP_DEBUG=true
-APP_KEY=secret-key
+APP_KEY=SomeRandomStringWith32Characters
     
 DB_HOST=localhost
 DB_DATABASE=your-database-name
