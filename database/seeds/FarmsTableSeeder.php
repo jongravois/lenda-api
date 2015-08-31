@@ -62,7 +62,7 @@ class FarmsTableSeeder extends Seeder
 
         ////NEW LOAN #2
         Farm::create([
-            'loan_id' => 1,
+            'loan_id' => 2,
             'fsn' => '321',
             'county_id' => 1317,
             'owner' => 'John Doe',

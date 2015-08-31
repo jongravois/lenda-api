@@ -30,6 +30,10 @@ class Loancrop extends Model
     {
         return $this->hasMany('App\Loanpractice', 'loancrop_id', 'id');
     }
+    public function yields()
+    {
+        return $this->hasMany('App\Loancropyield');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */
