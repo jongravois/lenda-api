@@ -9,12 +9,13 @@ class Aphdb extends Model
     use ActivityTrait;
 
     protected $table = 'aphdbs';
-    protected $fillable = ['loan_id', 'inspol_id', 'farm_id', 'ins_share', 'aph'];
+    protected $fillable = ['loan_id', 'inspol_id', 'farm_id', 'acres', 'ins_share', 'aph'];
 
     /* CASTING */
     protected $casts = [
         'ins_share' => 'double',
-        'aph' => 'double'
+        'aph' => 'double',
+        'acres' => 'double'
     ];
     /* CASTING */
 

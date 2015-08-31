@@ -16,6 +16,7 @@ class ActivityTransformer extends TransformerAbstract {
             'subject_id' => $item->subject_id,
             'subject_type' => $item->subject_type,
             'name' => $item->name,
+            'created_at' => $item->created_at->format('m/d/Y g:i:s a')
         ];
     }
 }

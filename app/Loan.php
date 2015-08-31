@@ -83,6 +83,9 @@ class Loan extends Model
     public function crophail() {
         return $this->hasMany('App\Inscrophail');
     }
+    public function databases() {
+        return $this->hasMany('App\Aphdb');
+    }
     public function disbursements() {
         return $this->hasMany('App\Disbursement', 'loan_id', 'id');
     }

@@ -16,6 +16,7 @@ class AphdbTransformer extends TransformerAbstract {
             'inspols' => $item->inspols,
             'farm_id' => $item->farm_id,
             'farms' => $item->farms,
+            'acres' => (double)$item->acres,
             'ins_share' => (double)$item->ins_share,
             'aph' => (double)$item->aph
         ];

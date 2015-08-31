@@ -67,6 +67,53 @@ class LoanconditionsTableSeeder extends Seeder
 
         Loancondition::create([
             'crop_year'	=>	2015,
+            'loan_id'	=>	2,
+            'category'	=>	'loan',
+            'condition'	=>	'Agricultural Security Agreement on Crops and Equipment',
+            'status' => 'verified',
+            'action_date' => '2015-02-01'
+        ]);
+        Loancondition::create([
+            'crop_year'	=>	'2015',
+            'loan_id'	=>	'2',
+            'category'	=>	'loan',
+            'condition'	=>	'Assignment of Crop Insurance',
+            'status' => 'verified',
+            'action_date' => '2015-02-03'
+        ]);
+        Loancondition::create([
+            'crop_year'	=>	2015,
+            'loan_id'	=>	2,
+            'category'	=>	'loan',
+            'condition'	=>	'Approval by Participating Distributor - JSI',
+            'status' => 'verified',
+            'action_date' => '2015-02-05'
+        ]);
+        Loancondition::create([
+            'crop_year'	=>	2015,
+            'loan_id'	=>	2,
+            'category'	=>	'guar',
+            'condition'	=>	'Personal Guarantee by Matthew Murdock'
+        ]);
+        Loancondition::create([
+            'crop_year'	=>	2015,
+            'loan_id'	=>	2,
+            'category'	=>	'guar',
+            'condition'	=>	'Personal Guarantee by Elektra Natchios',
+            'status' => 'verified',
+            'action_date' => '2015-02-01'
+        ]);
+        Loancondition::create([
+            'crop_year'	=>	2015,
+            'loan_id'	=>	2,
+            'category'	=>	'loan',
+            'condition'	=>	'Assignment of FSA Direct and LDP Payment',
+            'status' => 'verified',
+            'action_date' => '2015-02-03'
+        ]);
+
+        Loancondition::create([
+            'crop_year'	=>	2015,
             'loan_id'	=>	7,
             'category'	=>	'loan',
             'condition'	=>	'Agricultural Security Agreement on Crops and Equipment',

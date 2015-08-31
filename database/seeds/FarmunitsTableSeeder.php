@@ -40,6 +40,12 @@ class FarmunitsTableSeeder extends Seeder
                 'farm_id' => 4,
                 'practice' => 'IR',
                 'acres' => 400
+            ],
+            [
+                'loan_id' => 2,
+                'farm_id' => 5,
+                'practice' => 'NI',
+                'acres' => 4347.4
             ]
         ];
 

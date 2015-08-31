@@ -19,5 +19,15 @@ class GuarantorsTableSeeder extends Seeder
             'loan_id' => 1,
             'guarantor' => 'Sharon Gwin'
         ]);
+
+        Guarantor::create([
+            'loan_id' => 2,
+            'guarantor' => 'Matthew Murdock'
+        ]);
+
+        Guarantor::create([
+            'loan_id' => 2,
+            'guarantor' => 'Elektra Natchios'
+        ]);
     }
 }

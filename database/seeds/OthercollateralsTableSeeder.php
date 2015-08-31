@@ -15,7 +15,7 @@ class OthercollateralsTableSeeder extends Seeder
             'type' => 'other',
             'source' =>  'Louisiana Institute of Technology',
             'description' =>  'This is an unsusual source of funding for a farmer but the money spends all the same.',
-            'amount' =>  12500,
+            'amount' =>  10000,
             'mkt_value' => 10000,
             'prior_lien' => 0,
             'discount' => 90
@@ -27,7 +27,7 @@ class OthercollateralsTableSeeder extends Seeder
             'source' =>  'Louisiana State University',
             'description' =>  'Crop and fertilizer study allowance.',
             'amount' =>  7500,
-            'mkt_value' => 5000,
+            'mkt_value' => 7500,
             'prior_lien' => 0,
             'discount' => 90
         ]);
@@ -48,7 +48,7 @@ class OthercollateralsTableSeeder extends Seeder
             'type' => 'realestate',
             'source' =>  'Pepper Potts',
             'description' =>  'summer condominium',
-            'amount' =>  200000,
+            'amount' =>  500000,
             'mkt_value' => 500000,
             'prior_lien' => 450000,
             'discount' => 40
@@ -59,7 +59,7 @@ class OthercollateralsTableSeeder extends Seeder
             'type' => 'equipment',
             'source' =>  'Tony Stark',
             'description' =>  'Combine',
-            'amount' =>  50000,
+            'amount' =>  40000,
             'mkt_value' => 40000,
             'prior_lien' => 10000,
             'discount' => 20
@@ -82,9 +82,20 @@ class OthercollateralsTableSeeder extends Seeder
             'source' =>  'Pepper Potts',
             'description' =>  'Cotton Gin',
             'amount' =>  200000,
-            'mkt_value' => 150000,
+            'mkt_value' => 200000,
             'prior_lien' => 5000,
             'discount' => 50
+        ]);
+
+        Othercollateral::create([
+            'loan_id' =>  2,
+            'type' => 'other',
+            'source' =>  'FeedHorsesWell, Inc',
+            'description' =>  'Sold excess hay and grass.',
+            'amount' =>  45000,
+            'mkt_value' => 45000,
+            'prior_lien' => 0,
+            'discount' => 20
         ]);
     }
 }

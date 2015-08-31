@@ -17,6 +17,7 @@ class CreateAphdbsTable extends Migration
             $table->integer('loan_id')->unsigned();
             $table->integer('inspol_id')->unsigned();
             $table->integer('farm_id')->unsigned();
+            $table->double('acres')->nullable();
             $table->double('ins_share')->nullable();
             $table->double('aph')->default(0);
             $table->timestamps();

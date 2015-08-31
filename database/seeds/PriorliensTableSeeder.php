@@ -32,6 +32,17 @@ class PriorliensTableSeeder extends Seeder
                 'email' => 'mscott@lafitteloans.com',
                 'description' => "2014 loan to cover wife's new car",
                 'lien_amount' => 45000
+            ],
+            [
+                'loan_id' => 2,
+                'type' => 'crop',
+                'lien_holder' => 'Vieux Carre Mortgage',
+                'city_state' => 'New Orleans, LA',
+                'contact' => 'Pavel Chekov',
+                'phone' => '5048709080',
+                'email' => 'chekov@vcm.com',
+                'description' => "2014 loan to cover repair of roof",
+                'lien_amount' => 20000
             ]
         ];
 

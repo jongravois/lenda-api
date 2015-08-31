@@ -518,7 +518,7 @@ class CropexpensesTableSeeder extends Seeder
 
         //LOAN #9
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 1,
             'loancrop_id' => 1,
             'cat_id' => 1,
@@ -532,7 +532,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 1,
             'loancrop_id' => 1,
             'cat_id' => 2,
@@ -546,7 +546,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 1,
             'loancrop_id' => 1,
             'cat_id' => 3,
@@ -560,7 +560,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 1,
             'loancrop_id' => 1,
             'cat_id' => 4,
@@ -574,7 +574,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 1,
             'loancrop_id' => 1,
             'cat_id' => 5,
@@ -588,7 +588,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 1,
             'loancrop_id' => 1,
             'cat_id' => 6,
@@ -602,7 +602,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 1,
             'loancrop_id' => 1,
             'cat_id' => 7,
@@ -616,7 +616,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 1,
             'loancrop_id' => 1,
             'cat_id' => 8,
@@ -630,7 +630,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 1,
             'loancrop_id' => 1,
             'cat_id' => 9,
@@ -644,7 +644,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 1,
             'loancrop_id' => 1,
             'cat_id' => 10,
@@ -658,7 +658,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 1,
             'loancrop_id' => 1,
             'cat_id' => 11,
@@ -672,7 +672,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 1,
             'loancrop_id' => 1,
             'cat_id' => 12,
@@ -686,7 +686,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 2,
             'loancrop_id' => 2,
             'cat_id' => 1,
@@ -700,7 +700,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 2,
             'loancrop_id' => 2,
             'cat_id' => 2,
@@ -714,7 +714,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 2,
             'loancrop_id' => 2,
             'cat_id' => 3,
@@ -728,7 +728,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 2,
             'loancrop_id' => 2,
             'cat_id' => 4,
@@ -742,7 +742,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 2,
             'loancrop_id' => 2,
             'cat_id' => 5,
@@ -756,7 +756,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 2,
             'loancrop_id' => 2,
             'cat_id' => 6,
@@ -770,7 +770,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 2,
             'loancrop_id' => 2,
             'cat_id' => 7,
@@ -784,7 +784,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 2,
             'loancrop_id' => 2,
             'cat_id' => 8,
@@ -798,7 +798,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 2,
             'loancrop_id' => 2,
             'cat_id' => 9,
@@ -812,7 +812,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 2,
             'loancrop_id' => 2,
             'cat_id' => 10,
@@ -826,7 +826,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 2,
             'loancrop_id' => 2,
             'cat_id' => 11,
@@ -840,7 +840,7 @@ class CropexpensesTableSeeder extends Seeder
         ]);
 
         Cropexpense::create([
-            'loan_id' => 9,
+            'loan_id' => 2,
             'crop_id' => 2,
             'loancrop_id' => 2,
             'cat_id' => 12,

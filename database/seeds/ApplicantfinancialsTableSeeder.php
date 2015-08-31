@@ -10,6 +10,40 @@ class ApplicantfinancialsTableSeeder extends Seeder
     {
         DB::table('applicantfinancials')->delete();
 
+        //8 - Ag-Input
+        Applicantfinancial::create([
+            'loan_id' => 1,
+            'applicant_id' => 8,
+            'cpa_financials' => 1,
+            'credit_score' => 780,
+            'experience' => 36,
+            'grade' => 'A',
+            'amount_requested' => 2000000,
+            'year_1_revenue' => 2130576,
+            'year_1_expenses' => 1000000,
+            'year_2_revenue' => 1937418,
+            'year_2_expenses' => 900000,
+            'year_3_revenue' => 2950500,
+            'year_3_expenses' => 1000000,
+            'current_assets' => 3255079,
+            'current_assets_factor' => 15,
+            'current_assets_liability' => 710285,
+            'intermediate_assets' => 2831750,
+            'intermediate_assets_factor' => 40,
+            'intermediate_assets_liability' => 776456,
+            'fixed_assets' => 3590675,
+            'fixed_assets_factor' => 25,
+            'fixed_assets_liability' => 1246794,
+            'debt2asset_ratio' => 21,
+            'debt2asset_ratio_adj' => 33,
+            'ratio_current' => 409,
+            'ratio_current_adj' => 362,
+            'capWork' => 114,
+            'capWork_adj' => 91,
+            'capBorrow' => 69,
+            'capBorrow_adj' => 57
+        ]);
+
         //2 - Ag-Input
         Applicantfinancial::create([
             'loan_id' => 1,
@@ -46,7 +80,7 @@ class ApplicantfinancialsTableSeeder extends Seeder
 
         //5 - Capital Bridge
         Applicantfinancial::create([
-            'loan_id' => 2,
+            'loan_id' => 3,
             'applicant_id' => 6,
             'cpa_financials' => 1,
             'credit_score' => 730,
@@ -72,7 +106,7 @@ class ApplicantfinancialsTableSeeder extends Seeder
 
         //4 - Ag-Pro Fasttrack
         Applicantfinancial::create([
-            'loan_id' => 3,
+            'loan_id' => 4,
             'applicant_id' => 3,
             'cpa_financials' => 1,
             'credit_score' => 730,
@@ -98,7 +132,7 @@ class ApplicantfinancialsTableSeeder extends Seeder
 
         //6 - Ag-Vest
         Applicantfinancial::create([
-            'loan_id' => 4,
+            'loan_id' => 5,
             'applicant_id' => 4,
             'cpa_financials' => 1,
             'credit_score' => 730,
@@ -124,7 +158,7 @@ class ApplicantfinancialsTableSeeder extends Seeder
 
         //3 - Ag-Pro
         Applicantfinancial::create([
-            'loan_id' => 5,
+            'loan_id' => 6,
             'applicant_id' => 2,
             'cpa_financials' => 1,
             'credit_score' => 770,
@@ -150,7 +184,7 @@ class ApplicantfinancialsTableSeeder extends Seeder
 
         //1 - All-In
         Applicantfinancial::create([
-            'loan_id' => 6,
+            'loan_id' => 7,
             'applicant_id' => 5,
             'cpa_financials' => 1,
             'credit_score' => 730,
@@ -176,14 +210,14 @@ class ApplicantfinancialsTableSeeder extends Seeder
 
         //7 - Grain-Storage
         Applicantfinancial::create([
-            'loan_id' => 7,
+            'loan_id' => 8,
             'applicant_id' => 7,
             'amount_requested' => 200000
         ]);
 
         //2 - Ag-Input
         Applicantfinancial::create([
-            'loan_id' => 8,
+            'loan_id' => 9,
             'applicant_id' => 1,
             'cpa_financials' => 1,
             'credit_score' => 730,

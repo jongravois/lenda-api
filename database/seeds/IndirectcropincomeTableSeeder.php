@@ -42,6 +42,14 @@ class IndirectcropincomesTableSeeder extends Seeder
                 'amount' => 30000,
                 'disc_percent' => 100,
                 'collateral' => 0,
+            ],
+            [
+                'loan_id' => 2,
+                'source' => 'other',
+                'description' => 'Speaking Honorarium',
+                'amount' => 100000,
+                'disc_percent' => 100,
+                'collateral' => 0,
             ]
         ];
 

@@ -28,6 +28,35 @@ class LoancropsTableSeeder extends Seeder
                 'gin_mill' => 'Millers Gin',
                 'var_harvest' => 0.0900,
                 'rebates' => 0.1000
+            ],
+
+            [
+                'loan_id' => 2,
+                'crop_id' => 1,
+                'market' => 'Lansing Louisiana'
+            ],
+            [
+                'loan_id' => 2,
+                'crop_id' => 2,
+                'market' => 'Lansing Louisiana'
+            ],
+            [
+                'loan_id' => 2,
+                'crop_id' => 6,
+                'market' => 'Lansing Louisiana',
+                'gin_mill' => 'Millers Gin',
+                'var_harvest' => 0.0900,
+                'rebates' => 1.2000
+            ],
+            [
+                'loan_id' => 2,
+                'crop_id' => 4,
+                'market' => 'Lansing Louisiana'
+            ],
+            [
+                'loan_id' => 2,
+                'crop_id' => 7,
+                'market' => 'Lansing Louisiana'
             ]
         ];
 

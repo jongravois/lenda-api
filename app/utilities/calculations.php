@@ -2,6 +2,7 @@
 
 use App\Aphdb;
 use App\Crop;
+use App\Crosscollateral;
 use App\Inspol;
 use Illuminate\Support\Facades\DB;
 use Underscore\Types\Arrays;
@@ -18,6 +19,92 @@ function addAcres($lc) {
         $crop['crop_name'] = $crop->crop['name'];
     }
     return $lc;
+}
+function calcAllCropValue($loan) {
+    if($loan[0]) {
+        $loan = $loan[0];
+    } else {
+        $loan = $loan;
+    }
+    $cropIncome = 0;
+    $value = DB::select(DB::raw("SELECT sum(lp.acres * lp.prod_yield * lp.prod_price * (lp.prod_share/100)) AS val, lp.acres, lp.prod_yield, lp.prod_price, lc.bkqty, lc.bkprice, lc.var_harvest, lc.rebates FROM loanpractices lp JOIN loancrops lc ON lc.crop_id = lp.crop_id WHERE lp.loan_id = {$loan->id} GROUP BY lp.crop_id"));
+    foreach($value as $val) {
+        $cropIncome += $val->val + (((double)$val->bkprice - (double)$val->prod_price) * (double)$val->bkqty) + ((double)$val->acres * (double)$val->prod_yield * ((double)$val->var_harvest * -1));
+    }
+    return $cropIncome;
+}
+function calcCashFlow($loan) {
+    if($loan[0]) {
+        $loan = $loan[0];
+    } else {
+        $loan = $loan;
+    }
+    $cropIncome = calcAllCropValue($loan);
+    $fsa = $loan->fins['total_fsa_pay'];
+    $other = $loan->fins['total_claims'];
+
+    $totalProjectedIncome = (double)$cropIncome + (double)$fsa + (double)$other;
+    $totalCommittment = ((double)getTotalPartyCommit('arm', $loan->id) + (double)getFeeTotal($loan) + (double)getARMInterest($loan)) + ((double)getTotalPartyCommit('dist', $loan->id) + (double)getDistInterest($loan)) + (double)getTotalPartyCommit('other', $loan->id);
+
+
+    return $totalProjectedIncome - $totalCommittment;
+}
+function calcCropTotal($cropID, $loan) {
+    //(acres * prod_yield * price * prod_share/100)
+    // + ((bkprice - prod_price) * bkqty)
+    // + (acres * prod_yield * (harvest * -1))
+    $loanID = $loan->id;
+    $cropVal = DB::select(DB::raw("SELECT acres * prod_yield * prod_price * (prod_share/100) AS val FROM loanpractices WHERE loan_id = {$loanID} AND crop_id = {$cropID}"));
+    $booked = 0;
+    $hvst = 0;
+
+    $total = (double)$cropVal[0]->val + (double)$booked + (double)$hvst;
+    return $total;
+}
+function calcInsOverYield($cropID, $loan) {
+    $policies = $loan->databases;
+    $insValue = 0;
+    foreach($policies as $p) {
+        if($p->crop_id == $cropID) {
+            $insValue += (double)$p->value;
+        }
+    }
+
+    $cropValue = DB::select(DB::raw("SELECT sum(lp.acres * lp.prod_yield * lp.prod_price * (lp.prod_share/100)) AS val, lp.acres, lp.prod_yield, lp.prod_price, lc.bkqty, lc.bkprice, lc.var_harvest, lc.rebates FROM loanpractices lp JOIN loancrops lc ON lc.crop_id = lp.crop_id WHERE lp.loan_id = {$loan->id} AND lp.crop_id = {$cropID}"));;
+
+    $total = $insValue - ((double)$cropValue[0]->val * ((100 - $loan->fins['discounts']['percent_crop'])/100));
+    return $total;
+}
+function calcLoanExposure($loan) {
+    if($loan[0]) {
+        $loan = $loan[0];
+    } else {
+        $loan = $loan;
+    }
+    // Total Collateral = DiscCrops + DiscFSA + DiscInsOverCrops + YP_Coverage + SupCoverage + Equipment + RealEstate + Other
+    $discCrops = (double)calcAllCropValue($loan) * $loan->fins['discounts']['percent_crop'];
+    $discFSA = (double)getTotalFSA($loan) * $loan->fins['discounts']['percent_fsa'];
+    $discInsOverYield = (double)calcTotalInsOverYield($loan);
+    //TODO
+    $discYPCoverage = 0; //any yp coverage's valye * disc ((ins_level * ins_price * aph) - premium))
+    $discSupCoverage = 0; //???
+    // /TODO
+    $discEquipment = getDiscCollateralTotal('equipment', $loan);
+    $discRealEstate = getDiscCollateralTotal('realestate', $loan);
+    $discOther = getDiscCollateralTotal('other', $loan);
+
+    $totalCollateral = (double)$discCrops + (double)$discFSA + (double)$discInsOverYield + (double)$discYPCoverage + (double)$discSupCoverage + (double)$discEquipment + (double)$discRealEstate + (double)$discOther;
+    $totalCommitment = ((double)getTotalPartyCommit('arm', $loan->id) + (double)getFeeTotal($loan) + (double)getARMInterest($loan)) + ((double)getTotalPartyCommit('dist', $loan->id) + (double)getDistInterest($loan));
+    $exposure = (double)$totalCollateral - (double)$totalCommitment;
+    return $exposure;
+}
+function calcTotalInsOverYield($loan) {
+    $total = 0;
+    $crps = getCropIDsInLoan($loan->id);
+    foreach($crps as $crp) {
+        $total += calcInsOverYield($crp->crops, $loan);
+    }
+    return $total;
 }
 function committeeVote($loanID) {
     $commie = DB::select(DB::raw("SELECT SUM(CASE WHEN vote = 1 THEN 1 ELSE 0 END ) AS Approved, SUM(CASE WHEN vote_status = 'voted' THEN 1 ELSE 0 END) AS Voted , SUM(CASE WHEN vote_status = 'pending' THEN 1 ELSE 0 END) AS Pending FROM committees WHERE loan_id = {$loanID}"));
@@ -91,6 +178,31 @@ function getCropsInLoan($loanID)
     }
     return $retro;
 }
+function getDiscCollateralTotal($type, $loan) {
+    if($loan[0]) {
+        $loan = $loan[0];
+    } else {
+        $loan = $loan;
+    }
+
+    $collateral = [];
+    if(is_array($loan->other_collateral)) {
+        foreach($loan['other_collateral'] as $oc) {
+            if($oc['type'] == $type) {
+                array_push($collateral, $c);
+            }
+        }
+    }
+
+    $total = 0;
+    if(is_array($collateral)) {
+        foreach($collateral as $col) {
+            $total += (double)$col->amount * (double)((100 - $col->discount)/100);
+        }
+    }
+
+    return $total;
+}
 function getDistInterest($loan) {
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
     $total_int_percent = $loan->financials->int_percent_dist/100;
@@ -127,7 +239,6 @@ function getFeeProc_armAndDist($loan)
 function getFeeProc_armOnly($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
-    $dist_commit = getTotalPartyCommit('dist', $loan->id);
     $total_fee_percent = $loan->financials->fee_processing/100;
 
     $calc = $arm_commit * $total_fee_percent;
@@ -162,7 +273,6 @@ function getFeeService_armAndDist($loan)
 function getFeeService_armOnly($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
-    $dist_commit = getTotalPartyCommit('dist', $loan->id);
     $total_fee_percent = $loan->financials->fee_service/100;
 
     return $arm_commit * $total_fee_percent;
@@ -190,7 +300,6 @@ function getFeeTotal_armAndDist($loan)
 function getFeeTotal_armOnly($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
-    $dist_commit = getTotalPartyCommit('dist', $loan->id);
     $total_fee_percent = ($loan->financials->fee_processing + $loan->financials->fee_service)/100;
 
     return $arm_commit * $total_fee_percent;
@@ -287,6 +396,42 @@ function getTotalPartyCommit($party, $loanID)
     }
 
     return $cropexp + $farmexp;
+}
+function getXCols($loanID) {
+    $xc = DB::select(DB::raw("SELECT l.id, l.app_date, l.farmer_id, f.farmer, f.email, f.ssn, l.applicant_id, a.applicant, a.ssn, l.distributor_id, distributor, l.status_id FROM loans AS l JOIN farmers AS f ON f.id = l.farmer_id  JOIN applicants AS a ON a.id = l.applicant_id  LEFT JOIN distributors AS d  ON d.id = l.distributor_id WHERE l.id IN (SELECT collateral_id FROM crosscollaterals WHERE loan_id = {$loanID})"));
+    return $xc;
+}
+function processAPHDBS($loan) {
+    $processed = [];
+    $dbs = $loan->databases;
+    foreach($dbs as $d) {
+        $processor = [
+            'id' => $d->id,
+            'inspol_id' => $d->inspol_id,
+            'county_id' => $d->inspols->county_id,
+            'crop_id' => $d->inspols->crop_id,
+            'practice' => $d->inspols->practice,
+            'type' => $d->inspols->type,
+            'unit' => $d->inspols->unit,
+            'options' => $d->inspols->options,
+            'ins_share' => (double)$d->ins_share,
+            'acres' => (double)$d->acres,
+            'aph' => (double)$d->aph,
+            'ins_level' => (double)$d->inspols->ins_level,
+            'ins_price' => (double)$d->inspols->ins_price,
+            'premium' => (double)$d->inspols->premium,
+            'planting_days' => (integer)$d->planting_days,
+            'exp_yield' => (double)$d->exp_yield,
+            'stax_loss_trigger' => (double)$d->stax_loss_trigger,
+            'stax_desired_range' => (double)$d->stax_desired_range,
+            'stax_protection_factor' => (double)$d->stax_protection_factor,
+            'mcpi' => (double)$d->inspols->ins_level * (double)$d->inspols->ins_price * (double)$d->aph,
+            'value' => ((((double)$d->inspols->ins_level * (double)$d->inspols->ins_price * (double)$d->aph) - (double)$d->inspols->premium) * (double)$d->ins_share/100 * (double)$d->acres)
+        ];
+        array_push($processed, $processor);
+    }
+    //return $dbs;
+    return $processed;
 }
 function processFarmUnit($unit, $loan) {
     $cash_rent = (double)$unit->farm->cash_rent;

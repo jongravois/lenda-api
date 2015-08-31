@@ -59,5 +59,18 @@ class FarmsTableSeeder extends Seeder
             'IR' => 400,
             'NI' => 0
         ]);
+
+        ////NEW LOAN #2
+        Farm::create([
+            'loan_id' => 1,
+            'fsn' => '321',
+            'county_id' => 1317,
+            'owner' => 'John Doe',
+            'perm_to_insure' => 0,
+            'share_rent' => 20,
+            'fsa_paid' => 50000,
+            'IR' => 0,
+            'NI' => 4347.4
+        ]);
     }
 }

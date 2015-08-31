@@ -67,4 +67,13 @@ class SystemicsController extends ApiController
         $record->fill(Input::all())->save();
         return $this->respond($record);
     }
+
+    public function byLoan($id, Manager $fractal, SystemicTransformer $systemicTransformer)
+    {
+        // show all
+        $records = Systemic::where('loan_id', $id)->get();
+        $collection = new Collection($records, $systemicTransformer);
+        $data = $fractal->createData($collection)->toArray();
+        return $this->respond($data);
+    }
 }

@@ -77,14 +77,14 @@ class CommentsTableSeeder extends Seeder
             'loan_id' =>	2,
             'type' =>	'Committee',
             'user_id' => 4,
-            'comment' => 'Did Donald not want to include the two new farms he purchased into the loan?'
+            'comment' => 'Did Matthew not want to include the two new farms he purchased into the loan?'
         ]);
 
         Comment::create([
             'loan_id'	=>	2,
             'type'		=>	'Loan',
             'user_id' => 3,
-            'comment'	=>	'The requested loan is the same as last year and Donald use the funds last year as indicated and repaid the loan on time.'
+            'comment'	=>	'The requested loan is the same as last year and Matthew used the funds last year as indicated and repaid the loan on time.'
         ]);
     }
 }

@@ -26,6 +26,14 @@ class ReferencesTableSeeder extends Seeder
                 'contact' => 'Jack Frost',
                 'phone' => '3189820304',
                 'email' => 'jack@frost.com'
+            ],
+            [
+                'loan_id' => 2,
+                'creditor' => 'Rayville Credit and Loan',
+                'city_state' => 'Rayville, LA',
+                'contact' => 'Jack Frost',
+                'phone' => '3189820304',
+                'email' => 'jack@frost.com'
             ]
         ];
 

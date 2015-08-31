@@ -67,4 +67,13 @@ class ActivitiesController extends ApiController
         $record->fill(Input::all())->save();
         return $this->respond($record);
     }
+
+    public function byLoan($id, Manager $fractal, ActivityTransformer $activityTransformer)
+    {
+        // show all
+        $records = Activity::where('loan_id', $id)->get();
+        $collection = new Collection($records, $activityTransformer);
+        $data = $fractal->createData($collection)->toArray();
+        return $this->respond($data);
+    }
 }

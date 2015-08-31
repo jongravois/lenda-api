@@ -17,5 +17,13 @@ class LoandistributorsTableSeeder extends Seeder
             'phone' => '3189991212',
             'email' => 'marie@jsi.local'
         ]);
+
+        Loandistributor::create([
+            'loan_id' => 2,
+            'distributor_id' => 6,
+            'contact' => 'Donnie Trump',
+            'phone' => '3189991232',
+            'email' => 'donnie@jsi.local'
+        ]);
     }
 }

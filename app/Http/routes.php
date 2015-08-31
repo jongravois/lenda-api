@@ -21,14 +21,6 @@ Route::get('/', function () {
 	//return committeeVote(1);
 });
 
-Route::get('/units', function() {
-    $loan = Loan::with('farmunits.database.inspols', 'farmunits.farm.county.state', 'farmunits.practices', 'loancrops.crop')->where('id', '1')->get();
-    $unit = processFarmUnits($loan[0]);
-
-    //return $loan[0];
-    return $unit;
-});
-
 Route::group(['prefix' => 'reports'], function()
 {
     Route::get('/first', function(){
@@ -127,5 +119,6 @@ Route::group(['prefix' => 'api'], function()
 	Route::get('loans/{id}/aphdb', 'AphdbsController@byLoan');
 	Route::get('loans/{id}/loancrops', 'LoancropsController@byLoan');
 	Route::get('loans/{id}/prereqs', 'PrerequisitesController@byLoan');
+	Route::get('loans/{id}/audit', 'ActivitiesController@byLoan');
 	Route::get('matrix', 'MatrixController@index');
 });

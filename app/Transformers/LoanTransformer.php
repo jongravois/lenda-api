@@ -61,9 +61,8 @@ class LoanTransformer extends TransformerAbstract {
         $commitOther = getTotalPartyCommit('other', $item->id);
 
         return [
-            'farmunits' => processFarmUnits($item),
-            'loancrops' => addAcres($item->loancrops),
-            'loandistributor' => $item->loandistributor,
+            'databases' => processAPHDBS($item),
+            'xcols' => getXCols($item->id),
             'fins' => [
                 'discounts' => [
                     'percent_crop' => (double)$item->discounts->disc_percent_crop,
@@ -82,6 +81,7 @@ class LoanTransformer extends TransformerAbstract {
                 'balance_spent' => (double)getArmTotalSpent($item->id),
                 'balance_total' => (double)getArmTotalBudget($item->id),
                 'balance_remaining' => (double)getArmTotalRemaining($item->id),
+                'cash_flow' => calcCashFlow($item),
                 'commit_arm' => ($commitArm > 0 ? $commitArm : $item->financials->amount_requested),
                 'commit_dist' => $commitDist,
                 'commit_other' => $commitOther,
@@ -90,6 +90,7 @@ class LoanTransformer extends TransformerAbstract {
                 'crops_in_loan' => getCropsInLoan($item->id),
                 'dist_buyDown' => (boolean)$item->financials->dist_buyDown,
                 'dist_crop_commit' => getPartyCropsCommit($item->id, 'dist'),
+                'exposure' => calcLoanExposure($item),
                 'fee_processing' => (double)$item->financials->fee_processing,
                 'fee_service' =>(double)$item->financials->fee_service,
                 'fee_total' => getFeeTotal($item),
@@ -154,6 +155,7 @@ class LoanTransformer extends TransformerAbstract {
             'crop_inspection' => (integer)$item->crop_inspection,
             'crop_loan' => (boolean)$cropLoan,
             'crop_year' => (integer) $item->crop_year,
+            'databases' => processAPHDBS($item),
             'decision_date' => ($item->decision_date ? Carbon::createFromFormat('Y-m-d', $item->decision_date)->format('m/d/Y') : ''),
             'default_due_date' => ($item->default_due_date ? Carbon::createFromFormat('Y-m-d', $item->default_due_date)->format('m/d/Y') : ''),
             'dist_approved' => (integer)$item->dist_approved,
@@ -168,7 +170,7 @@ class LoanTransformer extends TransformerAbstract {
             'farmer' => $item->farmers,
             'farmexpenses' => $item->farmexpenses,
             'farms' => $item->farms,
-            //'farmunits' => processFarmUnits($item),
+            'farmunits' => processFarmUnits($item),
             'financials' => $item->financials,
             'fsa_compliant' => (integer)$item->fsa_compliant,
             'full_season' => ($item->season == 'F' ? 'Fall' : 'Spring'),
@@ -179,7 +181,7 @@ class LoanTransformer extends TransformerAbstract {
             'indyinc' =>$item->indyinc,
             'inspols' => $item->inspols,
             'is_active' => (boolean)$item->is_active,
-            'is_xcolled' => (boolean)$item->is_isxcolled,
+            'is_xcolled' => (boolean)$item->is_xcolled,
             'is_fast_tracked' => (boolean)$item->is_fast_tracked,
             'is_stale' => (boolean)$isStale,
             'is_watched' => (boolean)$item->is_watched,
@@ -258,8 +260,9 @@ class LoanTransformer extends TransformerAbstract {
             'required_3party' => (boolean)$item->required_3party,
             'season' => $item->season,
             'status' => $item->status,
-            'systemics' => $item->systemics,
-            'transactions' => $item->transactions
+            //'systemics' => $item->systemics,
+            'transactions' => $item->transactions,
+            'xcols' => getXCols($item->id)
         ];
     }
 }
