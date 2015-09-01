@@ -18,7 +18,7 @@ class CreateOptimizerviewoptionsTable extends Migration
             $table->boolean('rent_per_acre_ARM')->default(1);
             $table->boolean('rent_per_acre_dist')->default(1);
             $table->boolean('rent_per_acre_other')->default(1);
-            $table->boolean('fsa_per_acre_other')->default(1);
+            $table->boolean('fsa_per_acre')->default(1);
             $table->boolean('ins_share')->default(1);
             $table->boolean('ins_price')->default(1);
             $table->boolean('ins_level')->default(1);

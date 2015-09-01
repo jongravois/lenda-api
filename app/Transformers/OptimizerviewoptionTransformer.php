@@ -14,7 +14,7 @@ class OptimizerviewoptionTransformer extends TransformerAbstract {
             'rent_per_acre_ARM' => (boolean)$item->rent_per_acre_ARM,
             'rent_per_acre_dist' => (boolean)$item->rent_per_acre_dist,
             'rent_per_acre_other' => (boolean)$item->rent_per_acre_other,
-            'fsa_per_acre_other' => (boolean)$item->fsa_per_acre_other,
+            'fsa_per_acre' => (boolean)$item->fsa_per_acre,
             'ins_share' => (boolean)$item->ins_share,
             'ins_price' => (boolean)$item->ins_price,
             'ins_level' => (boolean)$item->ins_level,
