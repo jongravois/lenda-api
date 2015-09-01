@@ -86,6 +86,13 @@ class CreateViewfiltersTable extends Migration
             $table->boolean('vfStatusRecommended')->default(1);
             $table->boolean('vfStatusWithdrawn')->default(0);
             $table->boolean('vfThirdParty')->default(0);
+            $table->string('vfIconCross')->default('none');
+            $table->string('vfIconAddendum')->default('none');
+            $table->string('vfIconBankruptcy')->default('none');
+            $table->string('vfIcon3PCredit')->default('none');
+            $table->string('vfIconAddedLand')->default('none');
+            $table->string('vfIconControlDisbursements')->default('none');
+            $table->string('vfIconAttachments')->default('none');
             $table->timestamps();
         });
     }

@@ -79,7 +79,14 @@ class ViewfilterTransformer extends TransformerAbstract {
             'vfStatusPaid' => (boolean)$item->vfStatusPaid,
             'vfStatusRecommended' => (boolean)$item->vfStatusRecommended,
             'vfStatusWithdrawn' => (boolean)$item->vfStatusWithdrawn,
-            'vfThirdParty' => (boolean)$item->vfThirdParty
+            'vfThirdParty' => (boolean)$item->vfThirdParty,
+            'vfIconCross' => $item->vfIconCross,
+            'vfIconAddendum' => $item->vfIconAddendum,
+            'vfIconBankruptcy' => $item->vfIconBankruptcy,
+            'vfIcon3PCredit' => $item->vfIcon3PCredit,
+            'vfIconAddedLand' => $item->vfIconAddedLand,
+            'vfIconControlDisbursements' => $item->vfIconControlDisbursements,
+            'vfIconAttachments' => $item->vfIconAttachments
         ];
     }
 }
