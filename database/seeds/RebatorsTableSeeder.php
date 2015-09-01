@@ -22,12 +22,6 @@ class RebatorsTableSeeder extends Seeder
                 'loancrop_id' => 5,
                 'rebator' => 'Millers Gin',
                 'rebator_email' => 'miller@gin.com'
-            ],
-            [
-                'loan_id' => 1,
-                'loancrop_id' => 3,
-                'rebator' => 'CropsRUs',
-                'rebator_email' => 'rayville@cropsrus.com'
             ]
         ];
 
