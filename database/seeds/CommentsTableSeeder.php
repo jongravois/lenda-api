@@ -14,14 +14,16 @@ class CommentsTableSeeder extends Seeder
             "loan_id" =>	1,
             "type" =>	"Committee",
             'user_id' => 6,
-            "comment" =>	"There are concerns about the ability to manage the reception of a large cash sum as evidenced by last year's performance of this applicant."
+            "comment" => "There are concerns about the ability to manage the reception of a large cash sum as evidenced by last year's performance of this applicant.",
+            'created_at' => '2015-07-15 20:50:14'
         ]);
 
         Comment::create([
             'loan_id' =>	1,
             'type' =>	'Committee',
             'user_id' => 3,
-            'comment' => 'I will approve provided there is a controlled disbursement.'
+            'comment' => 'I will approve provided there is a controlled disbursement.',
+            'created_at' => '2015-08-30 10:50:14'
         ]);
 
         Comment::create([
@@ -32,24 +34,19 @@ class CommentsTableSeeder extends Seeder
         ]);
 
         Comment::create([
-            'loan_id' => 1,
-            'type' => 'LENDA',
-            'user_id' => 1,
-            'comment' => 'Warning: Bankruptcy History Indication requires a Court Order to Incur Debt.'
-        ]);
-
-        Comment::create([
             'loan_id'	=>	1,
             'type'		=>	'Analyst',
             'user_id' => 3,
-            'comment'	=>	'Applicant would prefer not to tie up his third-party credit and would like to see if the loan will be approved without it. If not, he is willing to commit third-party credits.'
+            'comment'	=>	'Applicant would prefer not to tie up his third-party credit and would like to see if the loan will be approved without it. If not, he is willing to commit third-party credits.',
+            'created_at' => '2015-07-13 12:01:02'
         ]);
 
         Comment::create([
             'loan_id'	=>	1,
             'type'		=>	'Account',
             'user_id' => 7,
-            'comment'	=>	'Transferred $30,000 from Misc to Equipment.'
+            'comment'	=>	'Transferred $30,000 from Misc to Equipment.',
+            'created_at' => '2015-09-01 09:01:00'
         ]);
 
         Comment::create([
