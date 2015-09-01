@@ -42,6 +42,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('applicantfins', 'ApplicantfinancialsController');
 	Route::resource('applicants', 'ApplicantsController');
 	Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+	Route::resource('buyers', 'BuyersController');
 	Route::resource('comments', 'CommentsController');
 	Route::resource('commentstatuses', 'CommentstatusesController');
 	Route::resource('commentusers', 'CommentusersController');
@@ -93,6 +94,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('priorliens', 'PriorliensController');
 	Route::resource('qbtrans', 'QbtransController');
 	Route::resource('ratioconstraints', 'RatioconstraintsController');
+	Route::resource('rebators', 'RebatorsController');
 	Route::resource('recomments', 'RecommentsController');
 	Route::resource('references', 'ReferencesController');
 	Route::resource('regions', 'RegionsController');

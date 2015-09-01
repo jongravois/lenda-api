@@ -17,8 +17,6 @@ class CreateLoancropsTable extends Migration
             $table->integer('loan_id')->unsigned();
             $table->integer('crop_id')->unsigned();
             $table->string('crop_measure')->default('bu');
-            $table->string('market')->nullable();
-            $table->string('gin_mill')->default('n/a');
             $table->double('bkqty')->default(0);
             $table->double('bkprice')->default(0);
             $table->double('var_harvest')->default(0);
