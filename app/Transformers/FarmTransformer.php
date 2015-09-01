@@ -22,7 +22,8 @@ class FarmTransformer extends TransformerAbstract {
             'fsa_paid' => (double)$item->fsa_paid,
             'IR' => (double)$item->IR,
             'NI' => (double)$item->NI,
-            'perm_to_insure' => (double)$item->perm_to_insure,
+            'perm_to_insure' => (boolean)$item->perm_to_insure,
+            'gov_pgm' => $item->gov_pgm,
             'units' => $item->units
         ];
     }

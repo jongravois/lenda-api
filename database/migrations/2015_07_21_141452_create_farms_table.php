@@ -26,6 +26,7 @@ class CreateFarmsTable extends Migration
             $table->double('IR')->default(0);
             $table->double('NI')->default(0);
             $table->boolean('perm_to_insure')->default(0);
+            $table->string('gov_pgm')->nullable();
             $table->double('fsa_paid')->default(0);
             $table->timestamps();
         });

@@ -9,7 +9,7 @@ class Farm extends Model
     use ActivityTrait;
 
     protected $table = 'farms';
-    protected $fillable = ['loan_id', 'fsn', 'county_id', 'owner', 'share_rent', 'cash_rent', 'dist_rent', 'waived', 'when_due', 'IR', 'NI', 'perm_to_insure', 'fsa_paid'];
+    protected $fillable = ['loan_id', 'fsn', 'county_id', 'owner', 'share_rent', 'cash_rent', 'dist_rent', 'waived', 'when_due', 'IR', 'NI', 'perm_to_insure', 'gov_pgm', 'fsa_paid'];
 
     /* CASTS */
     protected $casts = [
