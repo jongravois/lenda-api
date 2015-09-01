@@ -11,6 +11,12 @@ class Farmexpense extends Model
     protected $table = 'farmexpenses';
     protected $fillable = ['crop_year','loan_id','expense','cost'];
 
+    /* CASTING */
+    protected $casts = [
+        'cost' => 'double'
+    ];
+    /* CASTING */
+
     /* RELATIONSHIPS */
     /* RELATIONSHIPS */
 
