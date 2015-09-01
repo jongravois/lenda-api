@@ -30,7 +30,8 @@ class CommentsTableSeeder extends Seeder
             'loan_id'	=>	1,
             'type'		=>	'Loan',
             'user_id' => 3,
-            'comment'	=>	'The requested loan will pay off the 2014 loan and provide resources for the 2015 Crop Year. Tony has been a valued customer for 3 years and has moved his crop insurance to our subsidiary.'
+            'comment'	=>	'The requested loan will pay off the 2014 loan and provide resources for the 2015 Crop Year. Tony has been a valued customer for 3 years and has moved his crop insurance to our subsidiary.',
+            'created_at' => '2015-07-12 14:51:12'
         ]);
 
         Comment::create([
@@ -60,14 +61,16 @@ class CommentsTableSeeder extends Seeder
             'loan_id'	=>	1,
             'type'		=>	'Addendum',
             'user_id' => 3,
-            'comment'	=>	'The additional funds requested are needed to offset unanticipated medical expenses but are easily covered by the 32% increase in yield expectation. The crop collateral is 100% insured and the request is less than the max amount of available value.'
+            'comment'	=>	'The additional funds requested are needed to offset unanticipated medical expenses but are easily covered by the 32% increase in yield expectation. The crop collateral is 100% insured and the request is less than the max amount of available value.',
+            'created_at' => '2015-08-28 14:41:22'
         ]);
 
         Comment::create([
             'loan_id' => 1,
             'type' => 'Watch',
             'user_id' => 3,
-            'comment' => 'Just like Santa Claus, ARM has its own version of "the naughty list." But this one does not record boys and girls who fibbed or acted mean to schoolmates on the playground. Instead, the Watch List keeps track of loans who are suspected or projected to become problematic during the life of the loan.'
+            'comment' => 'Just like Santa Claus, ARM has its own version of "the naughty list." But this one does not record boys and girls who fibbed or acted mean to schoolmates on the playground. Instead, the Watch List keeps track of loans who are suspected or projected to become problematic during the life of the loan.',
+            'created_at' => '2015-08-03 17:21:16'
         ]);
 
         Comment::create([
