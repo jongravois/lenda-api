@@ -72,6 +72,10 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('insunits', 'InsunitsController');
 	Route::resource('instypes', 'InstypesController');
 	Route::resource('joints', 'JointventuresController');
+	Route::resource('libraries', 'LibrariesController');
+	Route::resource('librarydoctypes', 'LibrarydoctypesController');
+	Route::resource('libraryfileclasses', 'LibraryfileclassesController');
+	Route::resource('libraryfiletypes', 'LibraryfiletypesController');
 	Route::resource('loanconditions', 'LoanconditionsController');
 	Route::resource('loancrops', 'LoancropsController');
 	Route::resource('loandistributors', 'LoandistributorsController');
