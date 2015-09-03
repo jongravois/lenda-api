@@ -139,7 +139,7 @@ function getAllCropAcres($loanID) {
 }
 function getARMInterest($loan) {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
-    $total_int_percent = $loan->financials->int_percent_arm/100;
+    $total_int_percent = $loan->financials['int_percent_arm']/100;
 
     $calc = 0.375 * $arm_commit * $total_int_percent;
     return $calc;
@@ -205,7 +205,7 @@ function getDiscCollateralTotal($type, $loan) {
 }
 function getDistInterest($loan) {
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
-    $total_int_percent = $loan->financials->int_percent_dist/100;
+    $total_int_percent = $loan->financials['int_percent_dist']/100;
 
     $calc = 0.375 * $dist_commit * $total_int_percent;
     return $calc;
@@ -226,7 +226,7 @@ function getFeeProc_armAndDist($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
-    $total_fee_percent = $loan->financials->fee_processing/100;
+    $total_fee_percent = $loan->financials['fee_processing']/100;
 
     $calc = ($arm_commit + $dist_commit) * $total_fee_percent;
     //TODO: get from globals
@@ -239,7 +239,7 @@ function getFeeProc_armAndDist($loan)
 function getFeeProc_armOnly($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
-    $total_fee_percent = $loan->financials->fee_processing/100;
+    $total_fee_percent = $loan->financials['fee_processing']/100;
 
     $calc = $arm_commit * $total_fee_percent;
     //TODO: get from globals
@@ -266,14 +266,14 @@ function getFeeService_armAndDist($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
-    $total_fee_percent = $loan->financials->fee_service/100;
+    $total_fee_percent = $loan->financials['fee_service']/100;
 
     return ($arm_commit + $dist_commit) * $total_fee_percent;
 }
 function getFeeService_armOnly($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
-    $total_fee_percent = $loan->financials->fee_service/100;
+    $total_fee_percent = $loan->financials['fee_service']/100;
 
     return $arm_commit * $total_fee_percent;
 }
@@ -281,9 +281,9 @@ function getFeeTotal($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
-    $total_fee_percent = ($loan->financials->fee_processing + $loan->financials->fee_service)/100;
+    $total_fee_percent = ($loan->financials['fee_processing'] + $loan->financials['fee_service'])/100;
 
-    if($loan->financials->fee_onTotal) {
+    if($loan->financials['fee_onTotal']) {
         return ($arm_commit + $dist_commit) * $total_fee_percent;
     } else {
         return $arm_commit * $total_fee_percent;
@@ -293,14 +293,14 @@ function getFeeTotal_armAndDist($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
-    $total_fee_percent = ($loan->financials->fee_processing + $loan->financials->fee_service)/100;
+    $total_fee_percent = ($loan->financials['fee_processing'] + $loan->financials['fee_service'])/100;
 
     return ($arm_commit + $dist_commit) * $total_fee_percent;
 }
 function getFeeTotal_armOnly($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
-    $total_fee_percent = ($loan->financials->fee_processing + $loan->financials->fee_service)/100;
+    $total_fee_percent = ($loan->financials['fee_processing'] + $loan->financials['fee_service'])/100;
 
     return $arm_commit * $total_fee_percent;
 }
@@ -339,6 +339,9 @@ function getPartyCropsCommit($loanID, $party) {
         $retro['sunflowers'] = getCropPerAcreCommit($party, $loanID, 10);
 
     return $retro;
+}
+function getPlannedCrops($loan) {
+
 }
 function getTotalAcres($loanID) {
     return DB::select(DB::raw("SELECT SUM(acres) AS Total FROM loanpractices WHERE loan_id = {$loanID}"));

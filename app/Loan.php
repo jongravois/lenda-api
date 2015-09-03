@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Loan extends Model
 {
     protected $table = 'loans';
+    //protected $dates = ['app_date', 'decision_date', 'distributor_approval_date', 'default_due_date', 'due_date'];
+    //protected $dateFormat = 'm/d/Y';
     protected $fillable = ['app_date', 'decision_date', 'distributor_approval_date', 'default_due_date', 'due_date', 'loan_type_id', 'status_id', 'crop_year', 'season', 'loc_id', 'region_id', 'user_id', 'farmer_id', 'applicant_id', 'is_xcolled', 'is_fast_tracked', 'grade', 'equipment_collateral', 'realestate_collateral', 'other_collateral', 'analyst_can_approve', 'analyst_can_submit', 'is_watched', 'disbursement_issue', 'has_rebates', 'has_distributor', 'distributor_id', 'is_stale', 'has_addendum', 'addendum_type', 'bankruptcy_history', 'required_3party', 'added_land', 'controlled_disbursement', 'its_list', 'fsa_compliant', 'prev_lien_verified', 'leases_valid', 'bankruptcy_order_received', 'received_3party', 'recommended', 'arm_approved', 'dist_approved', 'loan_closed', 'loan_closed_date', 'added_land_verified', 'permission_to_insure_verified', 'lien_letter_received', 'arm_ucc_received', 'dist_ucc_received', 'aoi_received', 'ccc_received', 'crop_certified', 'rebate_assignment', 'limit_warning', 'limit_warning_message', 'crop_inspection', 'reconciliation', 'account_classification', 'conditions_asa', 'conditions_aci', 'conditions_areb', 'conditions_adis', 'conditions_pg', 'conditions_ccl', 'conditions_cd'];
 
     /* CASTING */
@@ -53,6 +55,31 @@ class Loan extends Model
         'reconciliation' => 'integer'
     ];
     /* CASTING */
+    /*public function setAppDateAttribute($value)
+    {
+        $this->attributes['app_date'] = Carbon::createFromFormat('m/d/Y', $value);
+    }
+    public function getAppDateAttribute($value)
+    {
+        $this->attributes['app_date'] = Carbon::createFromFormat('m/d/Y', $value);
+    }
+
+    public function setDecisionDateAttribute($value)
+    {
+        $this->attributes['decision_date'] = Carbon::createFromFormat('m/d/Y', $value);
+    }
+    public function setDistributorApprovalDateAttribute($value)
+    {
+        $this->attributes['distributor_approval_date'] = Carbon::createFromFormat('m/d/Y', $value);
+    }
+    public function setDefaultDueDateAttribute($value)
+    {
+        $this->attributes['default_due_date'] = Carbon::createFromFormat('m/d/Y', $value);
+    }
+    public function setDueDateAttribute($value)
+    {
+        $this->attributes['due_date'] = Carbon::createFromFormat('m/d/Y', $value);
+    }*/
 
     /* RELATIONSHIPS */
     public function agents()

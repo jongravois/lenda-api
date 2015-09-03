@@ -24,7 +24,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 1,
@@ -38,7 +37,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 1,
@@ -52,7 +50,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 1,
@@ -66,7 +63,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 1,
@@ -80,7 +76,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 1,
@@ -94,7 +89,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 1,
@@ -108,7 +102,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 1,
@@ -122,7 +115,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 1,
@@ -136,7 +128,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 1,
@@ -150,7 +141,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 20,
             'other_adj' => 20
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 1,
@@ -164,7 +154,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 1,
@@ -178,7 +167,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         //beans
         Defaultexpense::create([
             'location_id' => 1,
@@ -193,7 +181,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 2,
@@ -207,7 +194,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 2,
@@ -221,7 +207,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 2,
@@ -235,7 +220,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 2,
@@ -249,7 +233,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 2,
@@ -263,7 +246,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 2,
@@ -277,7 +259,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 2,
@@ -291,7 +272,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 2,
@@ -305,7 +285,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 2,
@@ -319,7 +298,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 20,
             'other_adj' => 20
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 2,
@@ -333,7 +311,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 2,
@@ -347,7 +324,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         //beansFAC
         Defaultexpense::create([
             'location_id' => 1,
@@ -362,7 +338,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 3,
@@ -376,7 +351,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 3,
@@ -390,7 +364,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 3,
@@ -404,7 +377,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 3,
@@ -418,7 +390,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 3,
@@ -432,7 +403,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 3,
@@ -446,7 +416,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 3,
@@ -460,7 +429,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 3,
@@ -474,7 +442,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 3,
@@ -488,7 +455,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 20,
             'other_adj' => 20
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 3,
@@ -502,7 +468,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 3,
@@ -516,7 +481,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         //Sorghum
         Defaultexpense::create([
             'location_id' => 1,
@@ -531,7 +495,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 4,
@@ -545,7 +508,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 4,
@@ -559,7 +521,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 4,
@@ -573,7 +534,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 4,
@@ -587,7 +547,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 4,
@@ -601,7 +560,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 4,
@@ -615,7 +573,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 4,
@@ -629,7 +586,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 4,
@@ -643,7 +599,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 4,
@@ -657,7 +612,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 20,
             'other_adj' => 20
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 4,
@@ -671,7 +625,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 4,
@@ -685,7 +638,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         //Wheat
         Defaultexpense::create([
             'location_id' => 1,
@@ -700,7 +652,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 5,
@@ -714,7 +665,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 5,
@@ -728,7 +678,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 5,
@@ -742,7 +691,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 5,
@@ -756,7 +704,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 5,
@@ -770,7 +717,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 5,
@@ -784,7 +730,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 5,
@@ -798,7 +743,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 5,
@@ -812,7 +756,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 5,
@@ -826,7 +769,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 20,
             'other_adj' => 20
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 5,
@@ -840,7 +782,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 5,
@@ -854,7 +795,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         //Cotton
         Defaultexpense::create([
             'location_id' => 1,
@@ -869,7 +809,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 6,
@@ -883,7 +822,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 6,
@@ -897,7 +835,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 6,
@@ -911,7 +848,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 6,
@@ -925,7 +861,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 6,
@@ -939,7 +874,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 6,
@@ -953,7 +887,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 6,
@@ -967,7 +900,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 6,
@@ -981,7 +913,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 6,
@@ -995,7 +926,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 20,
             'other_adj' => 20
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 6,
@@ -1009,7 +939,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 6,
@@ -1023,7 +952,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         //Rice
         Defaultexpense::create([
             'location_id' => 1,
@@ -1531,7 +1459,7 @@ class DefaultexpensesTableSeeder extends Seeder
             'other_adj' => 0
         ]);
 
-        //OTHER
+        //SUNFLOWERS
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 10,
@@ -1545,7 +1473,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 10,
@@ -1559,7 +1486,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 10,
@@ -1573,7 +1499,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 10,
@@ -1587,7 +1512,6 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 10,
@@ -1601,63 +1525,58 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 10,
             'loancrop_id' => 10,
             'cat_id' => 6,
             'expense' => 'Custom',
-            'arm' => 0,
-            'arm_adj' => 0,
+            'arm' => 300,
+            'arm_adj' => 300,
             'dist' => 0,
             'dist_adj' => 0,
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 10,
             'loancrop_id' => 10,
             'cat_id' => 7,
             'expense' => 'Fuel',
-            'arm' => 0,
-            'arm_adj' => 0,
+            'arm' => 150,
+            'arm_adj' => 150,
             'dist' => 0,
             'dist_adj' => 0,
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 10,
             'loancrop_id' => 10,
             'cat_id' => 8,
             'expense' => 'Labor',
-            'arm' => 0,
-            'arm_adj' => 0,
+            'arm' => 200,
+            'arm_adj' => 200,
             'dist' => 0,
             'dist_adj' => 0,
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 10,
             'loancrop_id' => 10,
             'cat_id' => 9,
             'expense' => 'Repairs',
-            'arm' => 0,
-            'arm_adj' => 0,
+            'arm' => 50,
+            'arm_adj' => 50,
             'dist' => 0,
             'dist_adj' => 0,
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 10,
@@ -1668,10 +1587,9 @@ class DefaultexpensesTableSeeder extends Seeder
             'arm_adj' => 0,
             'dist' => 0,
             'dist_adj' => 0,
-            'other' => 0,
-            'other_adj' => 0
+            'other' => 200,
+            'other_adj' => 200
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 10,
@@ -1685,15 +1603,14 @@ class DefaultexpensesTableSeeder extends Seeder
             'other' => 0,
             'other_adj' => 0
         ]);
-
         Defaultexpense::create([
             'location_id' => 1,
             'crop_id' => 10,
             'loancrop_id' => 10,
             'cat_id' => 12,
             'expense' => 'Misc_acre',
-            'arm' => 0,
-            'arm_adj' => 0,
+            'arm' => 340,
+            'arm_adj' => 340,
             'dist' => 0,
             'dist_adj' => 0,
             'other' => 0,
