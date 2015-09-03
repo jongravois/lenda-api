@@ -346,13 +346,14 @@ function getPlannedCropTea($cropID) {
 }
 function getPlannedCrops($loan) {
     $retro = [];
-    $crops = Crop::get(['id', 'crop']);
+    $crops = Crop::get(['id', 'crop', 'name']);
 
     // loop and get acres
     foreach($crops as $crop) {
         $newbie = [
             'id' => $crop->id,
             'crop' => $crop->crop,
+            'name' => $crop->name,
             'acres' => (double)getCropAcres($loan->id, $crop->id),
             'tea' => (double)getPlannedCropTea($crop->id)
         ];
