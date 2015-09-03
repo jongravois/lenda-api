@@ -340,8 +340,25 @@ function getPartyCropsCommit($loanID, $party) {
 
     return $retro;
 }
+function getPlannedCropTea($cropID) {
+    $tea = DB::select(DB::raw("SELECT SUM(arm_adj) AS Total FROM defaultexpenses WHERE crop_id = {$cropID}"));
+    return $tea[0]->Total;
+}
 function getPlannedCrops($loan) {
+    $retro = [];
+    $crops = Crop::get(['id', 'crop']);
 
+    // loop and get acres
+    foreach($crops as $crop) {
+        $newbie = [
+            'id' => $crop->id,
+            'crop' => $crop->crop,
+            'acres' => (double)getCropAcres($loan->id, $crop->id),
+            'tea' => (double)getPlannedCropTea($crop->id)
+        ];
+        array_push($retro, $newbie);
+    }
+    return $retro;
 }
 function getTotalAcres($loanID) {
     return DB::select(DB::raw("SELECT SUM(acres) AS Total FROM loanpractices WHERE loan_id = {$loanID}"));
