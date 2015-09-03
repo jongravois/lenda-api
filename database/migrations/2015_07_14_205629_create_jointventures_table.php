@@ -16,15 +16,15 @@ class CreateJointventuresTable extends Migration
             $table->increments('id');
             $table->integer('loan_id');
             $table->string('partner');
-            $table->double('percent_owned');
+            $table->double('percent_owned')->nullable();
             $table->string('ssn');
-            $table->string('address');
-            $table->string('city');
-            $table->string('state_id');
-            $table->string('zip');
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state_id')->nullable();
+            $table->string('zip')->nullable();
             $table->string('email');
             $table->string('phone');
-            $table->integer('age');
+            $table->integer('age')->nullable();
             $table->timestamps();
         });
     }
