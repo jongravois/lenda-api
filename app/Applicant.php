@@ -16,6 +16,9 @@ class Applicant extends Model
     public function fins() {
         return $this->hasOne('App\Applicantfinancial');
     }
+    public function state() {
+        return $this->belongsTo('App\State', 'state_id');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */

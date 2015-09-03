@@ -41,13 +41,13 @@ class LoantypesTableSeeder extends Seeder
                 'loantype' => 'Ag-Vest',
                 'default_due_date' => '-3-15',
                 'abr' => 'VST',
-                'sort_order' => 7
+                'sort_order' => 6
             ],
             [
                 'loantype' => 'Grain Storage',
                 'default_due_date' => '-3-15',
                 'abr' => 'STO',
-                'sort_order' => 6
+                'sort_order' => 7
             ]
         ];
 

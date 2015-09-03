@@ -61,6 +61,7 @@ class LoanTransformer extends TransformerAbstract {
         $commitOther = getTotalPartyCommit('other', $item->id);
 
         return [
+            'loancrops' => addAcres($item->loancrops),
             'databases' => processAPHDBS($item),
             'xcols' => getXCols($item->id),
             'fins' => [

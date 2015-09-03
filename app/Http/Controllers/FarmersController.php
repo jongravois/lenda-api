@@ -24,7 +24,7 @@ class FarmersController extends ApiController
     public function index(Manager $fractal, FarmerTransformer $farmerTransformer)
     {
         // show all
-        $records = Farmer::all();
+        $records = Farmer::with('applicants.entity', 'applicants.state')->get();
         $collection = new Collection($records, $farmerTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);

@@ -51,6 +51,7 @@ class UserTransformer extends TransformerAbstract {
             'is_approver' => (boolean)$user->is_approver,
             'loc_id' => (integer) $user->loc_id,
             'loc_abr' => $user->locations->loc_abr,
+            'location' => $user->locations,
             'manager_id' => (integer) $user->manager_id,
             'closer_id' => (integer) $user->closer_id,
             'role_id' => (integer) $user->role_id,

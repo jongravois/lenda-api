@@ -36,7 +36,8 @@ class FarmerTransformer extends TransformerAbstract {
             'age' => $age_of_farmer,
             'first_year_farmer' => $item->first_year_farmer,
             'farm_exp' => (integer)$item->farm_exp,
-            'new_client' => (boolean) $item->new_client
+            'new_client' => (boolean) $item->new_client,
+            'applicants' => $item->applicants
         ];
     }
 }
