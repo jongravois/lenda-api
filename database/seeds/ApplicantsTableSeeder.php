@@ -1,6 +1,7 @@
 <?php
 
 use App\Applicant;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +19,7 @@ class ApplicantsTableSeeder extends Seeder
             'grade' => 'B',
             'ssn' => '222222222',
             'email' => 'tony@farm.org',
-            'dob' => '07/10/1987',
+            'dob' => Carbon::createFromFormat('Y-m-d','1987-10-07'),
             'address' => '321 Farmers Dell',
             'phone' => '7777777777',
             'city' => 'Monroe',
@@ -34,7 +35,7 @@ class ApplicantsTableSeeder extends Seeder
             'grade' => 'A',
             'ssn' => '444444444',
             'email' => 'hawkeye@farm.org',
-            'dob' => '07/01/1987',
+            'dob' => Carbon::createFromFormat('Y-m-d','1987-07-01'),
             'address' => '321 Farmers Dell',
             'phone' => '7777777777',
             'city' => 'Monroe',
@@ -54,7 +55,7 @@ class ApplicantsTableSeeder extends Seeder
             'grade' => 'B',
             'ssn' => '111111111',
             'email' => 'farmer@farm.org',
-            'dob' => '03/01/2014',
+            'dob' => Carbon::createFromFormat('Y-m-d','1996-03-01'),
             'address' => '123 Farmers Market',
             'phone' => '9999999999',
             'city' => 'Jonesboro',
@@ -72,7 +73,7 @@ class ApplicantsTableSeeder extends Seeder
             'grade' => 'C',
             'ssn' => '333333333',
             'email' => 'steve@farm.org',
-            'dob' => '01/01/2012',
+            'dob' => Carbon::createFromFormat('Y-m-d','1960-07-15'),
             'address' => '1 Produce Cave',
             'phone' => '7777777777',
             'city' => 'Jackson',
@@ -90,7 +91,7 @@ class ApplicantsTableSeeder extends Seeder
             'grade' => 'A',
             'ssn' => '555555555',
             'email' => 'devil@farm.org',
-            'dob' => '01/01/2012',
+            'dob' => Carbon::createFromFormat('Y-m-d','1987-10-07'),
             'address' => '1 Law School',
             'phone' => '7777777777',
             'city' => 'Jackson',
@@ -108,7 +109,7 @@ class ApplicantsTableSeeder extends Seeder
             'grade' => 'A',
             'ssn' => '666666666',
             'email' => 'thor@asgard.org',
-            'dob' => '12/25/2012',
+            'dob' => Carbon::createFromFormat('Y-m-d','1978-12-25'),
             'address' => '1 Kingdom Way',
             'phone' => '3187777777',
             'city' => 'Jackson',
@@ -126,7 +127,7 @@ class ApplicantsTableSeeder extends Seeder
             'grade' => 'C',
             'ssn' => '777777777',
             'email' => 'wonder@woman.org',
-            'dob' => '02/14/2012',
+            'dob' => Carbon::createFromFormat('Y-m-d','1971-02-14'),
             'address' => '777 Amazon Place',
             'phone' => '5017777777',
             'city' => 'Jonesboro',
@@ -144,7 +145,7 @@ class ApplicantsTableSeeder extends Seeder
             'grade' => 'A',
             'ssn' => '555555555',
             'email' => 'devil@farm.org',
-            'dob' => '01/01/2012',
+            'dob' => Carbon::createFromFormat('Y-m-d','1964-12-31'),
             'address' => '1 Law School',
             'phone' => '7777777777',
             'city' => 'Jackson',
