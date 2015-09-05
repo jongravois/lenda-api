@@ -19,7 +19,7 @@ class CreateInspolsTable extends Migration
             $table->integer('county_id')->unsigned();
             $table->integer('crop_id')->unsigned();
             $table->string('practice')->default('NI');
-            $table->boolean('plc')->default(0);
+            $table->boolean('harvest_exclusion')->default(false);
             $table->string('type')->default('RP');
             $table->string('unit')->default('EU');
             $table->string('options')->nullable();

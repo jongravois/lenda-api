@@ -19,7 +19,7 @@ class InspolTransformer extends TransformerAbstract {
             'crop_id' => $item->crop_id,
             'crop' => $item->crop,
             'practice' => $item->practice,
-            'plc' => (boolean)$item->plc,
+            'harvest_exclusion' => (boolean)$item->harvest_exclusion,
             'type' => $item->type,
             'unit' => $item->unit,
             'options' => $item->options,
