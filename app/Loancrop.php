@@ -22,10 +22,6 @@ class Loancrop extends Model
     /* CASTING */
 
     /* RELATIONSHIPS */
-    public function buyers()
-    {
-        return $this->hasMany('App\Buyer');
-    }
     public function crop()
     {
         return $this->hasOne('App\Crop', 'id', 'crop_id');
@@ -33,10 +29,6 @@ class Loancrop extends Model
     public function practices()
     {
         return $this->hasMany('App\Loanpractice', 'loancrop_id', 'id');
-    }
-    public function rebators()
-    {
-        return $this->hasMany('App\Rebator');
     }
     public function yields()
     {

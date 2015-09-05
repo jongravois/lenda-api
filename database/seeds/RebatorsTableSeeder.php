@@ -13,13 +13,11 @@ class RebatorsTableSeeder extends Seeder
         $collection = [
             [
                 'loan_id' => 1,
-                'loancrop_id' => 3,
                 'rebator' => 'Millers Gin',
                 'rebator_email' => 'miller@gin.com'
             ],
             [
                 'loan_id' => 2,
-                'loancrop_id' => 5,
                 'rebator' => 'Millers Gin',
                 'rebator_email' => 'miller@gin.com'
             ]

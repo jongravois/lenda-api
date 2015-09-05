@@ -15,7 +15,6 @@ class CreateBuyersTable extends Migration
         Schema::create('buyers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('loan_id')->unsigned();
-            $table->integer('loancrop_id')->unsigned();
             $table->string('buyer')->nullable();
             $table->string('buyer_email')->nullable();
             $table->timestamps();

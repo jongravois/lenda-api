@@ -95,6 +95,9 @@ class Loan extends Model
     public function attachments() {
         return $this->hasMany('App\Attachment', 'loan_id', 'id');
     }
+    public function buyers() {
+        return $this->hasMany('App\Buyer', 'loan_id', 'id');
+    }
     public function committee() {
         return $this->hasMany('App\Committee', 'loan_id', 'id');
     }
@@ -170,11 +173,17 @@ class Loan extends Model
     public function partners() {
         return $this->hasMany('App\Partner', 'loan_id', 'id');
     }
+    public function practices() {
+        return $this->hasMany('App\Loanpractice');
+    }
     public function priorliens() {
         return $this->hasMany('App\Priorlien', 'loan_id', 'id');
     }
     public function quests() {
         return $this->hasOne('App\Loanquestion', 'loan_id', 'id');
+    }
+    public function rebators() {
+        return $this->hasMany('App\Rebator', 'loan_id', 'id');
     }
     public function references() {
         return $this->hasMany('App\Reference', 'loan_id', 'id');
