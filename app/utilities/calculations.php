@@ -379,7 +379,7 @@ function getArmTotalSpent($loanID) {
     $val = DB::select(DB::raw("SELECT SUM(spent) AS Total FROM disbursements WHERE loan_id = {$loanID}"));
     return $val[0]->Total;
 }
-function getTotalClaims($loan) {
+function getTotalIndirectIncome($loan) {
     $claim = 0;
     foreach($loan->indyinc as $indy) {
         $claim += $indy->amount;

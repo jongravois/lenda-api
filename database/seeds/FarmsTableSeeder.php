@@ -21,7 +21,7 @@ class FarmsTableSeeder extends Seeder
             'fsa_paid' => 50000,
             'IR' => 1000,
             'NI' => 2350,
-            'gov_pgm' => 'N/A'
+            'gov_pgm' => 'PLC'
         ]);
 
         Farm::create([
@@ -33,7 +33,7 @@ class FarmsTableSeeder extends Seeder
             'perm_to_insure' => 0,
             'IR' => 0,
             'NI' => 50,
-            'gov_pgm' => 'N/A'
+            'gov_pgm' => 'PLC'
         ]);
 
         Farm::create([
@@ -45,7 +45,7 @@ class FarmsTableSeeder extends Seeder
             'fsa_paid' => 30000,
             'IR' => 200,
             'NI' => 0,
-            'gov_pgm' => 'N/A'
+            'gov_pgm' => 'PLC'
         ]);
 
         Farm::create([
@@ -61,7 +61,7 @@ class FarmsTableSeeder extends Seeder
             'fsa_paid' => 30000,
             'IR' => 400,
             'NI' => 0,
-            'gov_pgm' => 'N/A'
+            'gov_pgm' => 'PLC'
         ]);
 
         ////NEW LOAN #2
@@ -75,7 +75,7 @@ class FarmsTableSeeder extends Seeder
             'fsa_paid' => 50000,
             'IR' => 0,
             'NI' => 4347.4,
-            'gov_pgm' => 'N/A'
+            'gov_pgm' => 'PLC'
         ]);
     }
 }

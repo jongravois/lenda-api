@@ -105,7 +105,6 @@ class LoanTransformer extends TransformerAbstract {
                 'int_percent_arm' => (double)$item->financials['int_percent_arm'],
                 'int_percent_dist' => (double)$item->financials['int_percent_dist'],
                 'other_crop_commit' => getPartyCropsCommit($item->id, 'other'),
-                'planned_crops' => getPlannedCrops($item),
                 'principal_arm' => $commitArm + getFeeTotal($item),
                 'principal_dist' => $commitDist,
                 'principal_other' => $commitOther,
@@ -114,10 +113,10 @@ class LoanTransformer extends TransformerAbstract {
                 'srvc_fee' => getFeeService_armAndDist($item),
                 'srvc_fee_arm_only' => getFeeService_armOnly($item),
                 'total_acres' => (double)$total_acres[0]->Total,
-                'total_claims' => (double)getTotalClaims($item),
                 'total_farm_expenses' => (double)getTotalLoanFarmExpenses($item->id),
                 'total_fee_percent' => (double)$item->financials['fee_processing'] + (double)$item->financials['fee_service'],
-                'total_fsa_pay' => (double)getTotalFSA($item)
+                'total_fsa_pay' => (double)getTotalFSA($item),
+                'total_indirect' => (double)getTotalIndirectIncome($item)
             ],
             'id' => $item->id,
             'account_classification' => $item->account_classification,
@@ -213,6 +212,7 @@ class LoanTransformer extends TransformerAbstract {
             'partners' => $item->partners,
             'past_due' => $pastDue,
             'permission_to_insure_verified' => (integer)$item->permission_to_insure_verified,
+            'planned_crops' => getPlannedCrops($item),
             'prev_lien_verified' => (integer)$item->prev_lien_verified,
             'prior_liens' => $item->priorliens,
             'quests' => [
