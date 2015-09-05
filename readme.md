@@ -26,6 +26,7 @@ DB_PASSWORD=your-mysql-password
 * From the webroot, run ```php artisan key:generate```
 * From the webroot, run ```php artisan migrate```
 * From the webroot, run ```php artisan migrate:refresh --seed```
+* Using your favorite mySQL editor, import and execute ```./database/seeds/csvs/CountiesTable.sql```
 
 ## Please Note: Unusual Configuration
 
