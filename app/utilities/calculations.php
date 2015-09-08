@@ -327,6 +327,9 @@ function getLoanAgencies($loanID) {
 
     return $aggies;
 }
+function getOtherCollateralValueAndDiscount($loan) {
+    return DB::select(DB::raw("SELECT type, SUM(mkt_value) AS marketval, SUM(mkt_value * ((100 - discount)/100)) AS discounted FROM othercollaterals WHERE loan_id = 1 GROUP BY type;"));
+}
 function getPartyCropsCommit($loanID, $party) {
     $retro = [];
 
@@ -363,6 +366,10 @@ function getPlannedCrops($loan) {
         array_push($retro, $newbie);
     }
     return $retro;
+}
+function getPriorLienTotal($loanID) {
+    $val = DB::select(DB::raw("SELECT SUM(lien_amount) AS Total FROM priorliens WHERE loan_id = {$loanID}"));
+    return $val[0]->Total;
 }
 function getTotalAcres($loanID) {
     return DB::select(DB::raw("SELECT SUM(acres) AS Total FROM loanpractices WHERE loan_id = {$loanID}"));
