@@ -3,16 +3,19 @@
 namespace App\Events;
 
 use App\Events\Event;
+use App\Loan;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class UserWasCreated extends Event
+class LoanWasCreated extends Event
 {
     use SerializesModels;
 
-    public function __construct()
+    public $loan;
+
+    public function __construct(Loan $loan)
     {
-        //
+        $this->loan = $loan;
     }
 
     public function broadcastOn()

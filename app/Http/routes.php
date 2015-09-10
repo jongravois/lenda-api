@@ -11,10 +11,27 @@
 |
 */
 
+use App\Events\LoanWasCreated;
 use App\Events\UserWasCreated;
 use App\Loan;
+use Carbon\Carbon;
 
 Route::get('/', function () {
+	$record = Loan::create([
+		'applicant_id' => 4,
+		'farmer_id' => 12,
+		'app_date' => Carbon::now(),
+		'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
+		'due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
+		'loan_type_id' => 2,
+		'status_id' => 1,
+		'crop_year' => '2015',
+		'season' => 'S',
+		'loc_id' => 5,
+		'region_id' => 3,
+		'user_id' => 3
+	]);
+	event(new LoanWasCreated($record));
     return sayHi();
     //return view('index');
 	//print_r(getCountyCrops(1));

@@ -16,7 +16,6 @@ class CreateRequireddocumentsTable extends Migration
             $table->increments('id');
             $table->integer('loantype_id');
             $table->string('document');
-            $table->timestamps();
         });
     }
 

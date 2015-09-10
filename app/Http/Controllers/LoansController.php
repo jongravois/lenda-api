@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Events\LoanWasCreated;
 use App\Loan;
 use App\Transformers\LoanTransformer;
 use Illuminate\Http\Request;
@@ -50,6 +51,7 @@ class LoansController extends ApiController
         // insert new
         $record = Loan::create(Input::all());
 
+        event(new LoanWasCreated($record->id));
 
         return $this->respond($record->id);
     }
