@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             'CommentstatusesTableSeeder',
             'CommitteesTableSeeder',
             'CommitteespecsTableSeeder',
+            'ConditionsTableSeeder',
             'CorporationsTableSeeder',
             'CropexpensesTableSeeder',
             'CropsTableSeeder',

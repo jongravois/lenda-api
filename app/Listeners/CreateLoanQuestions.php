@@ -19,6 +19,5 @@ class CreateLoanQuestions
         $q = Loanquestion::create([
             'loan_id' => $event->loan->id
         ]);
-        var_dump('Created Loan Questions Record #' . $q->id);
     }
 }

@@ -13,6 +13,7 @@ class GlobvarTransformer extends TransformerAbstract {
             'id' => $item->id,
             'crop_year' => (integer) $item->crop_year,
             'season' => $item->season,
+            //move to global terms
             'int_percent_arm' => (double) $item->int_percent_arm,
             'int_percent_dist' => (double) $item->int_percent_dist,
             'min_proc_fee' => (double) $item->min_proc_fee,

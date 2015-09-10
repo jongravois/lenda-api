@@ -18,21 +18,21 @@ class CreateLoanDiscounts
     public function handle(LoanWasCreated $event)
     {
         $globs = Globvar::all();
+        $g = $globs[0];
 
         $q = Loandisc::create([
             'loan_id' => $event->loan->id,
-            'disc_percent_crop' => (double)$globs->projected_crops_discount_rate,
-            'disc_percent_fsa' => (double)$globs->fsa_assignment_discount_rate,
-            'disc_percent_ins' => (double)$globs->ins_discount_rate,
-            'disc_percent_insoyield' => (double)$globs->ins_discount_insoyield,
-            'disc_percent_nonrp' => (double)$globs->nonrp_discount_rate,
-            'disc_percent_rphpe' => (double)$globs->rphpe_discount_rate,
-            'disc_percent_suppins' => (double)$globs->supins_discount_rate,
-            'disc_percent_prod' => (double)$globs->prod_discount_rate,
-            'disc_percent_equipment' => (double)$globs->equipment_discount_rate,
-            'disc_percent_realestate' => (double)$globs->realestate_discount_rate,
-            'disc_percent_other' => (double)$globs->claims_discount_rate
+            'disc_percent_crop' => (double)$g->projected_crops_discount_rate,
+            'disc_percent_fsa' => (double)$g->fsa_assignment_discount_rate,
+            'disc_percent_ins' => (double)$g->ins_discount_rate,
+            'disc_percent_insoyield' => (double)$g->ins_discount_insoyield,
+            'disc_percent_nonrp' => (double)$g->yp_discount_rate,
+            'disc_percent_rphpe' => (double)$g->rphpe_discount_rate,
+            'disc_percent_suppins' => (double)$g->supins_discount_rate,
+            'disc_percent_prod' => (double)$g->prod_discount_rate,
+            'disc_percent_equipment' => (double)$g->equipment_discount_rate,
+            'disc_percent_realestate' => (double)$g->realestate_discount_rate,
+            'disc_percent_other' => (double)$g->claims_discount_rate
         ]);
-        var_dump('Created Loan Discounts Record #' . $q->id);
     }
 }
