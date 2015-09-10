@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             'CropexpensesTableSeeder',
             'CropsTableSeeder',
             'CrosscollateralsTableSeeder',
+            'DefaultcommitteesTableSeeder',
             'DefaultcountycropsTableSeeder',
             'DefaultexpensesTableSeeder',
             'DisbursementsTableSeeder',

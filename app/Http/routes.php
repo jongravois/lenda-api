@@ -17,7 +17,9 @@ use App\Loan;
 use Carbon\Carbon;
 
 Route::get('/', function () {
-	$record = Loan::create([
+	return sayHi();
+
+	/*	$record = Loan::create([
 		'applicant_id' => 4,
 		'farmer_id' => 12,
 		'app_date' => Carbon::now(),
@@ -31,8 +33,7 @@ Route::get('/', function () {
 		'region_id' => 3,
 		'user_id' => 3
 	]);
-	event(new LoanWasCreated($record));
-    return sayHi();
+	event(new LoanWasCreated($record));*/
     //return view('index');
 	//print_r(getCountyCrops(1));
 	//return committeeVote(1);

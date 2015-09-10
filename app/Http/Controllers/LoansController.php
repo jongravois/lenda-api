@@ -51,7 +51,7 @@ class LoansController extends ApiController
         // insert new
         $record = Loan::create(Input::all());
 
-        event(new LoanWasCreated($record->id));
+        event(new LoanWasCreated($record));
 
         return $this->respond($record->id);
     }
