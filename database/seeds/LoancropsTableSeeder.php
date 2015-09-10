@@ -23,7 +23,7 @@ class LoancropsTableSeeder extends Seeder
                 'loan_id' => 1,
                 'crop_id' => 6,
                 'var_harvest' => 0.0900,
-                'rebates' => 0.1000
+                'rebates' => 5
             ],
 
             [
@@ -38,7 +38,7 @@ class LoancropsTableSeeder extends Seeder
                 'loan_id' => 2,
                 'crop_id' => 6,
                 'var_harvest' => 0.0900,
-                'rebates' => 1.2000
+                'rebates' => 5
             ],
             [
                 'loan_id' => 2,

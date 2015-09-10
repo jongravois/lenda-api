@@ -51,10 +51,10 @@ class CreateDefaultcountycropsTable extends Migration
             $table->double('ins_price_sugarcane')->default(0.16);
             $table->double('yield_sugarcane_irr')->default(5133.00);
             $table->double('yield_sugarcane_ni')->default(5133.00);
-            $table->double('price_sunflowers')->default(285);
-            $table->double('ins_price_sunflowers')->default(271);
-            $table->double('yield_sunflowers_irr')->default(1750);
-            $table->double('yield_sunflowers_ni')->default(1660);
+            $table->double('price_sunflowers')->default(0.80);
+            $table->double('ins_price_sunflowers')->default(0.80);
+            $table->double('yield_sunflowers_irr')->default(2000);
+            $table->double('yield_sunflowers_ni')->default(2000);
             $table->timestamps();
         });
     }

@@ -108,8 +108,8 @@ class CropsTableSeeder extends Seeder
                 'tea' => 0,
                 'measurement' => 'lb',
                 'rebate_measurement' => 'lb',
-                'arm_default_price' => 217.4,
-                'arm_default_ins_price' => 124.22
+                'arm_default_price' => 0.80,
+                'arm_default_ins_price' => 0.80
             ]
         ];
 
