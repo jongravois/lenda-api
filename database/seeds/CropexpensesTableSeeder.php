@@ -32,10 +32,10 @@ class CropexpensesTableSeeder extends Seeder
             'expense' => 'Seed',
             'arm' => 0,
             'arm_adj' => 0,
-            'dist' => 0,
-            'dist_adj' => 0,
-            'other' => 126,
-            'other_adj' => 126
+            'dist' => 126,
+            'dist_adj' => 126,
+            'other' => 0,
+            'other_adj' => 0
         ]);
 
         Cropexpense::create([
