@@ -117,7 +117,7 @@ class InspolsTableSeeder extends Seeder
             //1310 NI Corn
             [
                 'loan_id' => 1,
-                'agent_id' => 2,
+                'agent_id' => 1,
                 'county_id' => 1310,
                 'crop_id' => 1,
                 'practice' => 'NI',
@@ -137,7 +137,7 @@ class InspolsTableSeeder extends Seeder
             //1310 NI Beans
             [
                 'loan_id' => 1,
-                'agent_id' => 2,
+                'agent_id' => 1,
                 'county_id' => 1310,
                 'crop_id' => 2,
                 'practice' => 'NI',
@@ -157,7 +157,7 @@ class InspolsTableSeeder extends Seeder
             //1310 NI Cotton
             [
                 'loan_id' => 1,
-                'agent_id' => 2,
+                'agent_id' => 1,
                 'county_id' => 1310,
                 'crop_id' => 6,
                 'practice' => 'NI',
@@ -178,7 +178,7 @@ class InspolsTableSeeder extends Seeder
             //1310 IR Corn
             [
                 'loan_id' => 1,
-                'agent_id' => 2,
+                'agent_id' => 1,
                 'county_id' => 1310,
                 'crop_id' => 1,
                 'practice' => 'IR',
@@ -198,7 +198,7 @@ class InspolsTableSeeder extends Seeder
             //1310 IR Beans
             [
                 'loan_id' => 1,
-                'agent_id' => 2,
+                'agent_id' => 1,
                 'county_id' => 1310,
                 'crop_id' => 2,
                 'practice' => 'IR',
@@ -218,7 +218,7 @@ class InspolsTableSeeder extends Seeder
             //1310 IR Cotton
             [
                 'loan_id' => 1,
-                'agent_id' => 2,
+                'agent_id' => 1,
                 'county_id' => 1310,
                 'crop_id' => 6,
                 'practice' => 'IR',

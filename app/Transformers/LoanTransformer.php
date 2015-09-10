@@ -114,6 +114,7 @@ class LoanTransformer extends TransformerAbstract {
                 'proc_fee_arm_only' => getFeeProc_armOnly($item),
                 'srvc_fee' => getFeeService_armAndDist($item),
                 'srvc_fee_arm_only' => getFeeService_armOnly($item),
+                'sup_ins' => getSupIns($item->id),
                 'total_acres' => (double)$total_acres[0]->Total,
                 'total_farm_expenses' => (double)getTotalLoanFarmExpenses($item->id),
                 'total_fee_percent' => (double)$item->financials['fee_processing'] + (double)$item->financials['fee_service'],

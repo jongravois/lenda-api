@@ -50,6 +50,7 @@ class LoansController extends ApiController
         // insert new
         $record = Loan::create(Input::all());
 
+
         return $this->respond($record->id);
     }
 

@@ -24,6 +24,7 @@ class LoanquestionsTableSeeder extends Seeder
             'judgements'		=>	0,
             'bankruptcy'	=>	0,
             'liens'			=>	1,
+            'liens_details' => '$70,000 for 2 outstanding liens.',
             'fsa_direct_pay'	=>	1,
             'fsa_direct_pay_details' => 'Received $50,000 for field upgrade',
             'future_liabilities'	=>	1,

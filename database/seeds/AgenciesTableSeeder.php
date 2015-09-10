@@ -12,6 +12,15 @@ class AgenciesTableSeeder extends Seeder
 
         $collection = [
             [
+                'agency' => 'ARM',
+                'address' => '2222 South Louisa St.',
+                'city' => 'Rayville',
+                'state_id' => 19,
+                'zip' => 71269,
+                'phone' => '3187285770',
+                'email' => 'jmajure@armlend.com'
+            ],
+            [
                 'agency' => 'Rayville State Farm',
                 'address' => '1 Good Neighbor',
                 'city' => 'Rayville',

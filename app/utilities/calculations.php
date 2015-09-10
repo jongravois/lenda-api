@@ -178,6 +178,15 @@ function getCropsInLoan($loanID)
     }
     return $retro;
 }
+function getCropSupIns($loanID) {
+    $stax = DB::select(DB::raw("SELECT SUM((stax_desired_range/100) * (stax_protection_factor/100) * ins_price * exp_yield) AS StaxVal  FROM inspols WHERE loan_id = {$loanID} AND OPTIONS = 'STAX'"));
+    $staxVal = (double)$stax[0]->StaxVal;
+
+    $sco = DB::select(DB::raw("SELECT SUM((stax_desired_range/100) * ins_price * exp_yield) AS ScoVal  FROM inspols WHERE loan_id = {$loanID} AND OPTIONS = 'SCO'"));
+    $scoVal = (double)$sco[0]->ScoVal;
+
+    return $staxVal + $scoVal;
+}
 function getDiscCollateralTotal($type, $loan) {
     if($loan[0]) {
         $loan = $loan[0];
@@ -305,8 +314,10 @@ function getFeeTotal_armOnly($loan)
     return $arm_commit * $total_fee_percent;
 }
 function getInsuranceCropSummaryByLoan($loanID) {
-    return DB::select(DB::raw("SELECT i.id, i.crop_id, c.name, TYPE, unit, OPTIONS,  AVG(ins_level) AS ins_level, AVG(ins_share) AS ins_share, AVG(planting_days) AS planting_days, AVG(ins_price) AS ins_price, AVG(premium) AS premium, AVG(exp_yield) AS exp_yield, AVG(stax_loss_trigger) AS stax_loss_trigger, AVG(stax_desired_range) AS stax_desired_range, AVG(stax_protection_factor) AS stax_protection_factor FROM inspols AS i JOIN crops AS c ON i.crop_id = c.id WHERE i.id IN (SELECT DISTINCT(inspol_id) FROM aphdbs WHERE loan_id = {$loanID}) GROUP BY i.crop_id"));
+    return DB::select(DB::raw("SELECT i.id, i.crop_id, c.name, type as ins_type, unit, options as ins_opts, AVG(ins_level) AS ins_level, AVG(ins_share) AS ins_share, AVG(planting_days) AS planting_days, AVG(ins_price) AS ins_price, AVG(premium) AS premium, AVG(exp_yield) AS exp_yield, AVG(stax_loss_trigger) AS stax_loss_trigger, AVG(stax_desired_range) AS stax_desired_range, AVG(stax_protection_factor) AS stax_protection_factor FROM inspols AS i JOIN crops AS c ON i.crop_id = c.id WHERE i.id IN (SELECT DISTINCT(inspol_id) FROM aphdbs WHERE loan_id = {$loanID}) GROUP BY i.crop_id"));
+
 }
+
 function getLoanAgencies($loanID) {
     $agencies = DB::select(DB::raw("SELECT y.agency FROM agencies y LEFT JOIN agents t ON t.agency_id = y.id WHERE t.id IN (SELECT DISTINCT(i.agent_id) FROM inspols i WHERE loan_id = {$loanID})"));
     $cnt = count($agencies);
@@ -370,6 +381,15 @@ function getPlannedCrops($loan) {
 function getPriorLienTotal($loanID) {
     $val = DB::select(DB::raw("SELECT SUM(lien_amount) AS Total FROM priorliens WHERE loan_id = {$loanID}"));
     return $val[0]->Total;
+}
+function getSupIns($loanID) {
+    $stax = DB::select(DB::raw("SELECT SUM((stax_desired_range/100) * (stax_protection_factor/100) * ins_price * exp_yield) AS StaxVal  FROM inspols WHERE loan_id = {$loanID} AND OPTIONS = 'STAX'"));
+    $staxVal = (double)$stax[0]->StaxVal;
+
+    $sco = DB::select(DB::raw("SELECT SUM((stax_desired_range/100) * ins_price * exp_yield) AS ScoVal  FROM inspols WHERE loan_id = {$loanID} AND OPTIONS = 'SCO'"));
+    $scoVal = (double)$sco[0]->ScoVal;
+
+    return $staxVal + $scoVal;
 }
 function getTotalAcres($loanID) {
     return DB::select(DB::raw("SELECT SUM(acres) AS Total FROM loanpractices WHERE loan_id = {$loanID}"));
