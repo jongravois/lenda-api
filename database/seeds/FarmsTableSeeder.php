@@ -18,7 +18,6 @@ class FarmsTableSeeder extends Seeder
             'owner' => 'John Doe',
             'perm_to_insure' => 0,
             'share_rent' => 20,
-            'fsa_paid' => 50000,
             'IR' => 1000,
             'NI' => 2350,
             'gov_pgm' => 'PLC'
@@ -29,7 +28,6 @@ class FarmsTableSeeder extends Seeder
             'fsn' => '456',
             'county_id' => 1310,
             'owner' => 'Jim Smith',
-            'fsa_paid' => 0,
             'perm_to_insure' => 0,
             'IR' => 0,
             'NI' => 50,
@@ -42,7 +40,6 @@ class FarmsTableSeeder extends Seeder
             'county_id' => 1310,
             'owner' => 'Elroy Tate',
             'perm_to_insure' => 1,
-            'fsa_paid' => 30000,
             'IR' => 200,
             'NI' => 0,
             'gov_pgm' => 'PLC'
@@ -58,7 +55,6 @@ class FarmsTableSeeder extends Seeder
             'cash_rent' => 60000,
             'waived' => 40000,
             'when_due' => '33% 4/1/15',
-            'fsa_paid' => 30000,
             'IR' => 400,
             'NI' => 0,
             'gov_pgm' => 'PLC'
@@ -72,7 +68,6 @@ class FarmsTableSeeder extends Seeder
             'owner' => 'John Doe',
             'perm_to_insure' => 0,
             'share_rent' => 20,
-            'fsa_paid' => 50000,
             'IR' => 0,
             'NI' => 4347.4,
             'gov_pgm' => 'PLC'
