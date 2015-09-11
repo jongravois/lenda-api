@@ -214,31 +214,5 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'applicant_id' => 7,
             'amount_requested' => 200000
         ]);
-
-        //2 - Ag-Input
-        Applicantfinancial::create([
-            'loan_id' => 9,
-            'applicant_id' => 1,
-            'cpa_financials' => 1,
-            'credit_score' => 730,
-            'experience' => 9,
-            'grade' => 'D',
-            'amount_requested' 	=> 25000000,
-            'year_1_revenue' => 1842701,
-            'year_1_expenses' => 1000000,
-            'year_2_revenue' => 1937418,
-            'year_2_expenses' => 900000,
-            'year_3_revenue' => 2845790,
-            'year_3_expenses' => 800000,
-            'current_assets' => 1555079,
-            'current_assets_factor' => 15,
-            'current_assets_liability' => 410285,
-            'intermediate_assets' => 2831750,
-            'intermediate_assets_factor' => 40,
-            'intermediate_assets_liability' => 776456,
-            'fixed_assets' => 3590675,
-            'fixed_assets_factor' => 25,
-            'fixed_assets_liability' => 1246794
-        ]);
     }
 }

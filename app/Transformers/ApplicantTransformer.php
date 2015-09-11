@@ -31,7 +31,10 @@ class ApplicantTransformer extends TransformerAbstract {
             'spouse_ssn' =>	$item->spouse_ssn,
             'spouse_phone' => $item->spouse_phone,
             'spouse_email' => $item->spouse_email,
-            'fins' => $item->financials
+            'corps' => $item->corps,
+            'joints' => $item->joints,
+            'partners' => $item->partners,
+            'fins' => $item->fins
         ];
     }
 }

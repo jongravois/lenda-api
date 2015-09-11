@@ -11,7 +11,7 @@ class CorporationsTableSeeder extends Seeder
         DB::table('corporations')->delete();
 
         Corporation::create([
-            'loan_id' => 4,
+            'applicant_id' => 4,
             'corporation' => 'SHIELD',
             'ssn' => '929293393',
             'address' => 'Communications Department',

@@ -23,7 +23,7 @@ class LoansController extends ApiController
     public function index(Manager $fractal, LoanTransformer $loanTransformer)
     {
         // show all records
-        $records = Loan::with('agents.agency', 'analyst', 'applicants.entity', 'applicants.fins', 'applicants.state', 'attachments.user', 'buyers', 'comments.responses.user', 'comments.status', 'comments.user', 'committee.role', 'committee.user', 'conditions', 'corps', 'crophail.crop', 'crophail.county', 'databases.inspols', 'disbursements', 'discounts', 'distributor', 'exceptions', 'expenses.crop', 'farmers.applicants.entity', 'farmers.applicants.state', 'farms.aphdb.inspols', 'farms.county.state', 'farms.units', 'farmunits.database.inspols', 'farmunits.farm.county.state', 'farmunits.practices', 'financials', 'indyinc', 'inspols.agent.agency', 'inspols.county', 'inspols.crop', 'inspols.databases.farms',  'joints', 'loancrops.crop', 'loancrops.practices.farm.aphdb.inspols', 'loancrops.practices.farm.county.state', 'loancrops.yields', 'loandistributor.distributor', 'loantypes', 'location.regions', 'othercollateral', 'partners', 'practices', 'priorliens', 'quests', 'rebators', 'references', 'status','systemics', 'transactions')->get();
+        $records = Loan::with('agents.agency', 'analyst', 'applicants.corps', 'applicants.entity', 'applicants.fins', 'applicants.joints', 'applicants.partners', 'applicants.state', 'attachments.user', 'buyers', 'comments.responses.user', 'comments.status', 'comments.user', 'committee.role', 'committee.user', 'conditions', 'crophail.crop', 'crophail.county', 'databases.inspols', 'disbursements', 'discounts', 'distributor', 'exceptions', 'expenses.crop', 'farmers.applicants.entity', 'farmers.applicants.state', 'farms.aphdb.inspols', 'farms.county.state', 'farms.units', 'farmunits.database.inspols', 'farmunits.farm.county.state', 'farmunits.practices', 'financials', 'indyinc', 'inspols.agent.agency', 'inspols.county', 'inspols.crop', 'inspols.databases.farms', 'loancrops.crop', 'loancrops.practices.farm.aphdb.inspols', 'loancrops.practices.farm.county.state', 'loancrops.yields', 'loandistributor.distributor', 'loantypes', 'location.regions', 'othercollateral', 'practices', 'priorliens', 'quests', 'rebators', 'references', 'status','systemics', 'transactions')->get();
         $collection = new Collection($records, $loanTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);
@@ -40,9 +40,9 @@ class LoansController extends ApiController
     public function show($id, Manager $fractal, LoanTransformer $loanTransformer)
     {
         //show single
-        $record = Loan::with('agents.agency', 'analyst', 'applicants.entity', 'applicants.fins', 'applicants.state', 'attachments.user', 'buyers', 'comments.responses.user', 'comments.status', 'comments.user', 'committee.role', 'committee.user', 'conditions', 'corps', 'crophail.crop', 'crophail.county', 'databases.inspols', 'disbursements', 'discounts', 'distributor', 'exceptions', 'expenses.crop', 'farmers', 'farms.aphdb.inspols', 'farms.county.state', 'farms.units', 'farmunits.database.inspols','farmunits.farm.county.state', 'farmunits.practices', 'financials', 'indyinc', 'inspols.agent.agency', 'inspols.county', 'inspols.crop', 'inspols.databases.farms', 'joints', 'loancrops.crop', 'loancrops.practices.farm.aphdb.inspols', 'loancrops.practices.farm.county.state', 'loancrops.yields', 'loandistributor.distributor', 'loantypes', 'location.regions', 'othercollateral', 'partners', 'practices', 'priorliens', 'quests', 'rebators', 'references', 'status', 'systemics', 'transactions')->where('id', $id)->get();
-        $collection = new Collection($record, $loanTransformer);
-        $data = $fractal->createData($collection)->toArray();
+        $record = $this->records->findOrFail($id);
+        $item = new Item($record, $loanTransformer);
+        $data = $fractal->createData($item)->toArray();
         return $this->respond($data);
     }
 

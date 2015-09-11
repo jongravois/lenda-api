@@ -108,9 +108,6 @@ class Loan extends Model
     public function conditions() {
         return $this->hasMany('App\Loancondition', 'loan_id', 'id');
     }
-    public function corps() {
-        return $this->hasMany('App\Corporation', 'loan_id', 'id');
-    }
     public function crophail() {
         return $this->hasMany('App\Inscrophail');
     }
@@ -153,9 +150,6 @@ class Loan extends Model
     public function inspols() {
         return $this->hasMany('App\Inspol', 'loan_id', 'id');
     }
-    public function joints() {
-        return $this->hasMany('App\Jointventure', 'loan_id', 'id');
-    }
     public function loancrops() {
         return $this->hasMany('App\Loancrop', 'loan_id', 'id');
     }
@@ -170,9 +164,6 @@ class Loan extends Model
     }
     public function othercollateral() {
         return $this->hasMany('App\Othercollateral', 'loan_id', 'id');
-    }
-    public function partners() {
-        return $this->hasMany('App\Partner', 'loan_id', 'id');
     }
     public function practices() {
         return $this->hasMany('App\Loanpractice');

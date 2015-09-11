@@ -11,7 +11,7 @@ class JointventuresTableSeeder extends Seeder
         DB::table('jointventures')->delete();
 
         Jointventure::create([
-            'loan_id' => 2,
+            'applicant_id' => 2,
             'partner' => 'Elektra Natchios',
             'ssn' => '432003930',
             'address' => '2107A Deviled Suites',
@@ -23,7 +23,7 @@ class JointventuresTableSeeder extends Seeder
         ]);
 
         Jointventure::create([
-            'loan_id' => 3,
+            'applicant_id' => 3,
             'partner' => 'Dick Grayson',
             'ssn' => '432123456',
             'address' => '1 Wayne Manor',

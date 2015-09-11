@@ -11,7 +11,7 @@ class PartnersTableSeeder extends Seeder
         DB::table('partners')->delete();
 
         Partner::create([
-            'loan_id' => 1,
+            'applicant_id' => 1,
             'partner' => 'Pepper Potts',
             'title' => 'CFO',
             'percent_owned' => 28,
@@ -26,7 +26,7 @@ class PartnersTableSeeder extends Seeder
         ]);
 
         Partner::create([
-            'loan_id' => 1,
+            'applicant_id' => 1,
             'partner' => 'James Rhodes',
             'title' => 'Colonel',
             'percent_owned' => 20,

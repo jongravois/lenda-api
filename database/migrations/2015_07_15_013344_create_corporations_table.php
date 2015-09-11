@@ -14,7 +14,7 @@ class CreateCorporationsTable extends Migration
     {
         Schema::create('corporations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('loan_id');
+            $table->integer('applicant_id')->unsigned();
             $table->string('corporation');
             $table->string('ssn');
             $table->string('address');

@@ -24,7 +24,7 @@ class ApplicantsController extends ApiController
     public function index(Manager $fractal, ApplicantTransformer $applicantTransformer)
     {
         // show all
-        $records = Applicant::with('fins')->get();
+        $records = Applicant::with('corps', 'fins', 'joints', 'partners')->get();
         $collection = new Collection($records, $applicantTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);

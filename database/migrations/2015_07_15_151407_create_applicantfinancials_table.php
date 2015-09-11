@@ -14,7 +14,7 @@ class CreateApplicantfinancialsTable extends Migration
     {
         Schema::create('applicantfinancials', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('applicant_id')->unsigned();
+            $table->integer('applicant_id')->unsigned()->unique();
             $table->double('amount_requested')->default(0);
             $table->integer('loan_id')->unsigned();
             $table->boolean('cpa_financials')->default(0);

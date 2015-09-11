@@ -9,7 +9,7 @@ class Corporation extends Model
     use ActivityTrait;
 
     protected $table = 'corporations';
-    protected $fillable = ['loan_id', 'corporation', 'ssn', 'address', 'city', 'state_id', 'zip', 'email', 'phone', 'president', 'vicepresident', 'secretary', 'treasurer'];
+    protected $fillable = ['applicant_id', 'corporation', 'ssn', 'address', 'city', 'state_id', 'zip', 'email', 'phone', 'president', 'vicepresident', 'secretary', 'treasurer'];
 
     /* RELATIONSHIPS */
     /* RELATIONSHIPS */

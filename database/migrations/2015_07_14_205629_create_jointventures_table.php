@@ -14,7 +14,7 @@ class CreateJointventuresTable extends Migration
     {
         Schema::create('jointventures', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('loan_id');
+            $table->integer('applicant_id')->unsigned();
             $table->string('partner');
             $table->double('percent_owned')->nullable();
             $table->string('ssn');

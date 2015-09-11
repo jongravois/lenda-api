@@ -14,7 +14,7 @@ class CreatePartnersTable extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('loan_id');
+            $table->integer('applicant_id')->unsigned();
             $table->string('partner');
             $table->string('title')->nullable();
             $table->double('percent_owned')->nullable();
