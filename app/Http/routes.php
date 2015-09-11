@@ -17,7 +17,7 @@ use App\Loan;
 use Carbon\Carbon;
 
 Route::get('/', function () {
-	return sayHi();
+		return sayHi();
 
 	/*	$record = Loan::create([
 		'applicant_id' => 4,

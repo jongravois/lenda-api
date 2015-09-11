@@ -30,5 +30,6 @@ class CreateLoanConditions
                 'category'	=>	'loan',
                 'condition'	=>	$con->condition
             ]);
-        }    }
+        }
+    }
 }

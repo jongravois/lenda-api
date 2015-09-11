@@ -16,7 +16,7 @@ class CreateCommitteesTable extends Migration
             $table->increments('id');
             $table->integer('loan_id');
             $table->integer('user_id')->default(0);
-            $table->integer('role_id');
+            $table->integer('role_id')->default(999);
             $table->string('committee_role');
             $table->string('vote_status')->default('pending');
             $table->integer('vote')->nullable();

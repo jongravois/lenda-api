@@ -14,11 +14,11 @@ class LoansTableSeeder extends Seeder
         //[1] Tony Stark(1) @ Glass Towers(1) | Partnership(4)--Ag-Input 2015
         Loan::create([
             'applicant_id' => 1,
-            'app_date' => Carbon::now()->subWeek(3)->subDay(2),
-            'distributor_approval_date' => Carbon::now()->subWeek(2)->subDay(4),
-            'decision_date' => Carbon::now()->subWeek(2)->subDay(1),
-            'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
-            'due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
+            'app_date' => '02/14/2015',
+            'distributor_approval_date' => '03/01/2015',
+            'decision_date' => '03/05/2015',
+            'default_due_date' => '12/15/2015',
+            'due_date' => '12/15/2015',
             'loan_type_id' => 2,
             'status_id' => 1,
             'crop_year' => '2015',
@@ -63,11 +63,11 @@ class LoansTableSeeder extends Seeder
         // Matches Excel 2015
         Loan::create([
             'applicant_id' => 8,
-            'app_date' => Carbon::now()->subWeek(3)->subDay(2),
-            'distributor_approval_date' => Carbon::now()->subWeek(2)->subDay(4),
-            'decision_date' => Carbon::now()->subWeek(2)->subDay(1),
-            'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
-            'due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
+            'app_date' => '02/14/2015',
+            'distributor_approval_date' => '03/01/2015',
+            'decision_date' => '03/05/2015',
+            'default_due_date' => '12/15/2015',
+            'due_date' => '12/15/2015',
             'loan_type_id' => 2,
             'status_id' => 1,
             'crop_year' => '2015',
@@ -130,9 +130,9 @@ class LoansTableSeeder extends Seeder
         // Blake Donald(10) @ Rainbow Bridge(6) | Individual--Capital Bridge 2015
         Loan::create([
             'applicant_id' => 6,
-            'app_date' => Carbon::now()->subWeek(),
-            'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-06-15'),
-            'due_date' => Carbon::createFromFormat('Y-m-d','2015-06-15'),
+            'app_date' => '09/10/2015',
+            'default_due_date' => '03/15/2016',
+            'due_date' => '06/15/2016',
             'loc_id' => 5,
             'user_id' => 3,
             'region_id' => 3,
@@ -187,9 +187,11 @@ class LoansTableSeeder extends Seeder
         // Bruce Wayne(2) @ Secret Cave(3) | Joint Venture (1)--Ag-Pro Fasttrack 2015
         Loan::create([
             'applicant_id' => 3,
-            'app_date' => Carbon::now()->subDays(2),
-            'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
-            'due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
+            'app_date' => '02/14/2015',
+            'distributor_approval_date' => '03/01/2015',
+            'decision_date' => '03/05/2015',
+            'default_due_date' => '12/15/2015',
+            'due_date' => '12/15/2015',
             'loc_id' => 5,
             'user_id' => 3,
             'region_id' => 3,
@@ -214,9 +216,9 @@ class LoansTableSeeder extends Seeder
         // Steve Rogers(12) @ Shielded Farms(4) | Corporation -- Ag-Vest 2015
         Loan::create([
             'applicant_id' => 4,
-            'app_date' => Carbon::now(),
-            'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
-            'due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
+            'app_date' => '09/10/2015',
+            'default_due_date' => '03/15/2016',
+            'due_date' => '03/15/2016',
             'loc_id' => 5,
             'user_id' => 3,
             'region_id' => 3,
@@ -237,10 +239,11 @@ class LoansTableSeeder extends Seeder
         // Clint Barton(5) @ Nested Row(2) | Spousal--Ag-Pro 2015
         Loan::create([
             'applicant_id' => 2,
-            'app_date' => Carbon::now()->subDays(3),
-            'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
-            'due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
-            'decision_date' => Carbon::now(),
+            'app_date' => '02/14/2015',
+            'distributor_approval_date' => '03/01/2015',
+            'decision_date' => '03/05/2015',
+            'default_due_date' => '12/15/2015',
+            'due_date' => '12/15/2015',
             'loc_id' => 5,
             'user_id' => 3,
             'region_id' => 3,
@@ -264,9 +267,11 @@ class LoansTableSeeder extends Seeder
         // Matt Murdoch(9) @ Dark World(5) | Individual -- All-in 2015
         Loan::create([
             'applicant_id' => 5,
-            'app_date' => Carbon::now()->subDays(2),
-            'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
-            'due_date' => Carbon::createFromFormat('Y-m-d','2015-12-15'),
+            'app_date' => '02/14/2015',
+            'distributor_approval_date' => '03/01/2015',
+            'decision_date' => '03/05/2015',
+            'default_due_date' => '12/15/2015',
+            'due_date' => '12/15/2015',
             'loc_id' => 5,
             'user_id' => 3,
             'region_id' => 6,
@@ -292,9 +297,9 @@ class LoansTableSeeder extends Seeder
         // Diana Prince(7) @ Kingdom Plains(7) | Spousal -- Grain Storage 2015
         Loan::create([
             'applicant_id' => 7,
-            'app_date' => Carbon::now()->subDays(4),
-            'default_due_date' => Carbon::createFromFormat('Y-m-d','2015-03-15'),
-            'due_date' => Carbon::createFromFormat('Y-m-d','2015-04-30'),
+            'app_date' => '08/14/2015',
+            'default_due_date' => '12/15/2015',
+            'due_date' => '12/15/2015',
             'loc_id' => 2,
             'user_id' => 3,
             'region_id' => 2,
@@ -315,9 +320,11 @@ class LoansTableSeeder extends Seeder
 
         // Tony Stark(1) @ Glass Towers(1) | Partnership | Ag-Input 2014
         Loan::create([
-            'app_date' => Carbon::createFromFormat('Y-m-d','2014-01-01'),
-            'default_due_date' => Carbon::createFromFormat('Y-m-d','2014-12-15'),
-            'due_date' => Carbon::createFromFormat('Y-m-d','2014-12-15'),
+            'app_date' => '02/14/2014',
+            'distributor_approval_date' => '03/01/2014',
+            'decision_date' => '03/05/2014',
+            'default_due_date' => '12/15/2014',
+            'due_date' => '12/15/2014',
             'loan_type_id' => 2,
             'status_id' => 2,
             'crop_year' => '2014',

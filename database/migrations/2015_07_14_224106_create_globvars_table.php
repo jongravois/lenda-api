@@ -16,8 +16,8 @@ class CreateGlobvarsTable extends Migration
             $table->increments('id');
             $table->integer('crop_year')->default(2015);
             $table->string('season')->default('S');
-            $table->double('int_percent_arm')->default(9);
-            $table->double('int_percent_dist')->default(7.5);
+            $table->double('int_percent_arm')->default(12);
+            $table->double('int_percent_dist')->default(12);
             $table->double('min_proc_fee')->default(330);
             $table->double('proc_fee_rate')->default(1);
             $table->double('svc_fee_rate')->default(1.5);

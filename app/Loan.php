@@ -55,15 +55,11 @@ class Loan extends Model
         'reconciliation' => 'integer'
     ];
     /* CASTING */
-    /*public function setAppDateAttribute($value)
-    {
-        $this->attributes['app_date'] = Carbon::createFromFormat('m/d/Y', $value);
-    }
-    public function getAppDateAttribute($value)
-    {
-        $this->attributes['app_date'] = Carbon::createFromFormat('m/d/Y', $value);
-    }
 
+    public function setAppDateAttribute($value)
+    {
+        $this->attributes['app_date'] = Carbon::createFromFormat('m/d/Y', $value);
+    }
     public function setDecisionDateAttribute($value)
     {
         $this->attributes['decision_date'] = Carbon::createFromFormat('m/d/Y', $value);
@@ -79,6 +75,11 @@ class Loan extends Model
     public function setDueDateAttribute($value)
     {
         $this->attributes['due_date'] = Carbon::createFromFormat('m/d/Y', $value);
+    }
+
+    /*public function getAppDateAttribute($value)
+    {
+        $this->attributes['app_date'] = Carbon::createFromFormat('Y-m-d', $value);
     }*/
 
     /* RELATIONSHIPS */
