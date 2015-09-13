@@ -39,5 +39,20 @@ class PartnersTableSeeder extends Seeder
             'phone' => '5125559999',
             'age' => 44
         ]);
+
+        Partner::create([
+            'applicant_id' => 4,
+            'partner' => 'Sam Wilson',
+            'title' => 'Falcon',
+            'percent_owned' => 20,
+            'ssn' => '991872364',
+            'address' => '1 Patriot Blvd',
+            'city' => 'Washington',
+            'state_id' => 9,
+            'zip' => '38111',
+            'email' => 'falcon@marvel.com',
+            'phone' => '5125995599',
+            'age' => 44
+        ]);
     }
 }

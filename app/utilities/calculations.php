@@ -452,6 +452,10 @@ function getXCols($loanID) {
     $xc = DB::select(DB::raw("SELECT l.id, l.app_date, l.farmer_id, f.farmer, f.email, f.ssn, l.applicant_id, a.applicant, a.ssn, l.distributor_id, distributor, l.status_id FROM loans AS l JOIN farmers AS f ON f.id = l.farmer_id  JOIN applicants AS a ON a.id = l.applicant_id  LEFT JOIN distributors AS d  ON d.id = l.distributor_id WHERE l.id IN (SELECT collateral_id FROM crosscollaterals WHERE loan_id = {$loanID})"));
     return $xc;
 }
+function processAddendum($loanID) {
+    $adds = DB::select(DB::raw("SELECT al.id, al.addendum_type, al.loan_type_id , al.app_date, lt.abr, al.status_id, s.status, al.farmer_id, f.farmer, al.applicant_id , a.applicant, af.principal_arm, af.principal_dist, af.fee_total, af.arm_and_dist, af.principal FROM addendumloans AS al JOIN addendumfinancials AS af ON al.id = af.addendumloan_id JOIN loantypes AS lt ON al.loan_type_id = lt.id JOIN loanstatus AS s ON al. status_id = s.id JOIN farmers AS f ON al.farmer_id = f.id JOIN applicants AS a ON al.applicant_id = a.id WHERE al.original_id = {$loanID}"));
+    return $adds;
+}
 function processAPHDBS($loan) {
     $processed = [];
     $dbs = $loan->databases;

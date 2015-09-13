@@ -10,7 +10,7 @@ class AddendumfinancialTransformer extends TransformerAbstract {
 
         return [
             'id' => $item->id,
-            'loan_id' => (integer) $item->loan_id,
+            'addendumloan_id' => (integer) $item->addendumloan_id,
             'cpa_financials' => (boolean) $item->cpa_financials,
             'bankruptcy' => (boolean) $item->bankruptcy,
             'judgements' => (boolean) $item->judgements,

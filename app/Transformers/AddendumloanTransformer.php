@@ -108,7 +108,7 @@ class AddendumloanTransformer extends TransformerAbstract {
             'reconciliation' => (integer) $item->reconciliation,
             'account_classification' => (integer) $item->account_classification,
             'last_activity' => $item->updated_at,
-            'fins' => $item->addfins
+            'fins' => $item->fins
         );
     }
 }

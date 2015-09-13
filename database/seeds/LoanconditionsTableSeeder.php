@@ -60,7 +60,7 @@ class LoanconditionsTableSeeder extends Seeder
             'crop_year'	=>	2015,
             'loan_id'	=>	1,
             'category'	=>	'free',
-            'condition'	=>	'PHI Credit Limit of 82K',
+            'condition'	=>	'JSI Credit Limit of 82K',
             'status' => 'verified',
             'action_date' => '2015-02-06'
         ]);

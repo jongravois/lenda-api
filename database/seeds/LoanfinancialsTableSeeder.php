@@ -43,7 +43,7 @@ class LoanfinancialsTableSeeder extends Seeder
         //5 - Capital Bridge
         Loanfinancial::create([
             'loan_id' => 2,
-            'amount_requested' 	=> 25000000,
+            'amount_requested' 	=> 570000,
             'fee_processing' => 1,
             'fee_service' => 1.5,
             'int_percent_arm'	=> 9,
@@ -57,7 +57,7 @@ class LoanfinancialsTableSeeder extends Seeder
         //4 - Ag-Pro Fasttrack
         Loanfinancial::create([
             'loan_id' => 3,
-            'amount_requested' 	=> 25000000,
+            'amount_requested' 	=> 1000000,
             'fee_processing' => 1,
             'fee_service' => 1.5,
             'int_percent_arm'	=> 9,
@@ -71,6 +71,7 @@ class LoanfinancialsTableSeeder extends Seeder
         //6 - Ag-Vest
         Loanfinancial::create([
             'loan_id' => 4,
+            'amount_requested' 	=> 750000,
             'fee_service' => 4,
             'int_percent_arm' => 6,
             'int_percent_arm_default' => 6,
@@ -80,7 +81,7 @@ class LoanfinancialsTableSeeder extends Seeder
         //3 - Ag-Pro
         Loanfinancial::create([
             'loan_id' => 5,
-            'amount_requested' 	=> 25000000,
+            'amount_requested' 	=> 1300575,
             'fee_processing' => 1,
             'fee_service' => 1.5,
             'int_percent_arm'	=> 9,
@@ -94,6 +95,7 @@ class LoanfinancialsTableSeeder extends Seeder
         //1 - All-In
         Loanfinancial::create([
             'loan_id' => 6,
+            'amount_requested' 	=> 1500000,
             'fee_processing' => 1,
             'fee_service' => 1.5,
             'int_percent_arm'	=> 9,
@@ -115,6 +117,7 @@ class LoanfinancialsTableSeeder extends Seeder
         //2 - Ag-Input
         Loanfinancial::create([
             'loan_id' => 8,
+            'amount_requested' 	=> 675500,
             'fee_processing' => 1,
             'fee_service' => 1.5,
             'int_percent_arm'	=> 9,

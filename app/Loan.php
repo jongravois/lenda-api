@@ -83,6 +83,10 @@ class Loan extends Model
     }*/
 
     /* RELATIONSHIPS */
+    public function addendums()
+    {
+        return $this->hasMany('App\Addendumloan', 'original_id', 'id');
+    }
     public function agents()
     {
         return $this->hasMany('App\Agent', 'id');

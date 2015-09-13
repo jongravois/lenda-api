@@ -14,7 +14,7 @@ class CreateAddendumfinancialsTable extends Migration
     {
         Schema::create('addendumfinancials', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('loan_id');
+            $table->integer('addendumloan_id');
             $table->boolean('cpa_financials')->default(0);
             $table->boolean('bankruptcy')->default(0);
             $table->boolean('judgements')->default(0);

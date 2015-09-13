@@ -67,7 +67,7 @@ class ApplicantsTableSeeder extends Seeder
 
         Applicant::create([
             'loc_id' => 2,
-            'entity_id' => 1,
+            'entity_id' => 4,
             'farmer_id' => 12,
             'applicant' => 'Shielded Farms',
             'grade' => 'C',
