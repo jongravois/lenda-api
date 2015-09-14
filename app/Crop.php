@@ -15,6 +15,7 @@ class Crop extends Model
         'id' => 'integer',
         'sort_order' => 'integer',
         'tea' => 'double',
+        'est_days' => 'double',
         'arm_default_price' => 'double',
         'arm_default_ins_price' => 'double',
         'arm_default_yield' => 'double'

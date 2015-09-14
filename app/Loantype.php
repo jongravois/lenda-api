@@ -8,7 +8,7 @@ class Loantype extends Model
 {
     public $timestamps = false;
     protected $table = 'loantypes';
-    protected $fillable = ['loantype', 'abr', 'sort_order', 'default_due_date'];
+    protected $fillable = ['loantype', 'abr', 'sort_order', 'default_due_date', 'est_days'];
 
     /* RELATIONSHIPS */
     /* RELATIONSHIPS */

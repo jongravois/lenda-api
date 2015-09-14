@@ -13,7 +13,8 @@ class LoantypeTransformer extends TransformerAbstract {
             'loantype' => $item->loantype,
             'abr' => $item->abr,
             'sort_order' => (integer)$item->sort_order,
-            'default_due_date' => $item->default_due_date
+            'default_due_date' => $item->default_due_date,
+            'est_days' => (double)$item->est_days
         ];
     }
 }

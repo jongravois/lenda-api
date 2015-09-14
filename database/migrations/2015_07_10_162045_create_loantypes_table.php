@@ -18,6 +18,7 @@ class CreateLoantypesTable extends Migration
             $table->string('abr');
             $table->integer('sort_order');
             $table->string('default_due_date')->default('-12-15');
+            $table->double('est_days')->default(215);
         });
     }
 

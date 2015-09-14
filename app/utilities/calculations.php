@@ -506,6 +506,7 @@ function processFarmUnit($unit, $loan) {
         'total_acres' => $total_acres,
         'farm_acres' => $farm_acres,
         'acres_percent' => $acres_percent,
+        'rent_ovr' => (double)$unit->farm->share_rent,
         'share_rent' => (double)$unit->farm->share_rent,
         'perm2ins' => ($unit->farm->perm_to_insure ? 'Y' : 'N'),
         'cash_rent' => $cash_rent,
@@ -517,6 +518,7 @@ function processFarmUnit($unit, $loan) {
         'cash_rent_acre_dist' => $dist_rent/$total_acres,
         'cash_rent_acre_other' => 0,
         'fsa_acre' => $fsa_pay/$total_acres,
+        'waived_acre' => (double)$unit->farm->waived/$total_acres,
         'crops' => []
     ];
 
