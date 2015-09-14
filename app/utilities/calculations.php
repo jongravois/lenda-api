@@ -140,8 +140,9 @@ function getAllCropAcres($loanID) {
 function getARMInterest($loan) {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $total_int_percent = $loan->financials['int_percent_arm']/100;
+    $est_days = (double)$loan->loantypes->est_days;
 
-    $calc = 0.375 * $arm_commit * $total_int_percent;
+    $calc = $total_int_percent * ($est_days/365) * $arm_commit;
     return $calc;
 }
 function getCountyCrops($loanID) {
@@ -215,8 +216,9 @@ function getDiscCollateralTotal($type, $loan) {
 function getDistInterest($loan) {
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
     $total_int_percent = $loan->financials['int_percent_dist']/100;
+    $est_days = (double)$loan->loantypes->est_days;
 
-    $calc = 0.375 * $dist_commit * $total_int_percent;
+    $calc = $total_int_percent * ($est_days/365) * $dist_commit;
     return $calc;
 }
 function getFeeProc($loan)

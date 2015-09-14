@@ -167,6 +167,7 @@ class LoanTransformer extends TransformerAbstract {
             'dist_ucc_received' => (integer)$item->dist_ucc_received,
             'due_date' => $item->due_date,
             'equipment_collateral' => (boolean)$item->equipment_collateral,
+            'est_days' => (double)$item->loantypes->est_days,
             'exceptions' => $item->exceptions,
             'expenses' => $item->expenses,
             'farmer' => $item->farmers,
