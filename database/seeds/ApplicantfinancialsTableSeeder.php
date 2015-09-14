@@ -51,7 +51,7 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'cpa_financials' => 1,
             'credit_score' => 730,
             'experience' => 36,
-            'grade' => 'B',
+            'grade' => 'A',
             'amount_requested' => 1000000,
             'year_1_revenue' => 1842701,
             'year_1_expenses' => 1000000,

@@ -79,6 +79,8 @@ class CreateViewfiltersTable extends Migration
             $table->string('vfRateOther')->default('all');
             $table->string('vfRegions')->default('all');
             $table->string('vfSeasons')->default('all');
+            $table->boolean('vfThirdParty')->default(0);
+
             $table->string('vfStatusApproved')->default('none');
             $table->string('vfStatusDenied')->default('none');
             $table->string('vfStatusInProgress')->default('none');
@@ -87,7 +89,6 @@ class CreateViewfiltersTable extends Migration
             $table->string('vfStatusWithdrawn')->default('none');
             $table->string('vfStatusLimitClose')->default('none');
             $table->string('vfStatusLimitExceeded')->default('none');
-            $table->boolean('vfThirdParty')->default(0);
             $table->string('vfIconCross')->default('none');
             $table->string('vfIconAddendum')->default('none');
             $table->string('vfIconBankruptcy')->default('none');

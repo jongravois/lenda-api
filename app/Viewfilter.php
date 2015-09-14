@@ -24,12 +24,6 @@ class Viewfilter extends Model
         'vfDisbursements' => 'boolean',
         'vfLimitClose' => 'boolean',
         'vfLimitExceeded' => 'boolean',
-        'vfStatusApproved' => 'boolean',
-        'vfStatusDenied' => 'boolean',
-        'vfStatusInProgress' => 'boolean',
-        'vfStatusPaid' => 'boolean',
-        'vfStatusRecommended' => 'boolean',
-        'vfStatusWithdrawn' => 'boolean',
         'vfThirdParty' => 'boolean'
     ];
     /* CASTING */
