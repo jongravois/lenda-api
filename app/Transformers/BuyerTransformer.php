@@ -12,6 +12,7 @@ class BuyerTransformer extends TransformerAbstract {
             'id' => $item->id,
             'loan_id' => $item->loan_id,
             'buyer' => $item->buyer,
+            'contact' => $item->contact,
             'location' => $item->location,
             'phone' => $item->phone,
             'email' => $item->email

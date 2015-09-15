@@ -16,6 +16,7 @@ class CreateJointventuresTable extends Migration
             $table->increments('id');
             $table->integer('applicant_id')->unsigned();
             $table->string('partner');
+            $table->string('title')->nullable();
             $table->string('location')->nullable();
             $table->string('email');
             $table->string('phone');

@@ -15,7 +15,8 @@ class CreateRebatorsTable extends Migration
         Schema::create('rebators', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('loan_id')->unsigned();
-            $table->string('rebator')->nullable();
+            $table->string('rebator');
+            $table->string('contact')->nullable();
             $table->string('location')->nullable();
             $table->string('email');
             $table->string('phone');

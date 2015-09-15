@@ -8,7 +8,7 @@ class Buyer extends Model
 {
     protected $table = 'buyers';
     protected $hidden = ['created_at', 'updated_at'];
-    protected $fillable = ['loan_id', 'buyer', 'location', 'phone', 'email'];
+    protected $fillable = ['loan_id', 'buyer', 'contact', 'location', 'phone', 'email'];
 
     /* CASTING */
     protected $casts = [];

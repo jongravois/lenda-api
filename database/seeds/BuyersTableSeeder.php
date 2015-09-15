@@ -14,6 +14,7 @@ class BuyersTableSeeder extends Seeder
             [
                 'loan_id' => 1,
                 'buyer' => 'Lansing Louisiana',
+                'contact' => 'Jason Bourne',
                 'location' => 'Delhi, LA',
                 'phone' => '3189991029',
                 'email' => 'lanla@lansing.com'
@@ -21,6 +22,7 @@ class BuyersTableSeeder extends Seeder
             [
                 'loan_id' => 1,
                 'buyer' => 'CropsRUs',
+                'contact' => 'Drew Brees',
                 'location' => 'New Orleans, LA',
                 'phone' => '5043881243',
                 'email' => 'nola@cropsrus.com'
@@ -29,6 +31,7 @@ class BuyersTableSeeder extends Seeder
             [
                 'loan_id' => 2,
                 'buyer' => 'Lansing Louisiana',
+                'contact' => 'Jason Bourne',
                 'location' => 'Delhi, LA',
                 'phone' => '3189991029',
                 'email' => 'lanla@lansing.com'

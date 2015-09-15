@@ -14,6 +14,7 @@ class RebatorsTableSeeder extends Seeder
             [
                 'loan_id' => 1,
                 'rebator' => 'Millers Gin',
+                'contact' => 'Eli Whitney',
                 'location' => 'Baton Rouge, LA',
                 'phone' => '2253189263',
                 'email' => 'miller@gin.com'
@@ -21,6 +22,7 @@ class RebatorsTableSeeder extends Seeder
             [
                 'loan_id' => 2,
                 'rebator' => 'Millers Gin',
+                'contact' => 'Eli Whitney',
                 'location' => 'Baton Rouge, LA',
                 'phone' => '2253189263',
                 'email' => 'miller@gin.com'
