@@ -24,22 +24,6 @@ class LoanfinancialsTableSeeder extends Seeder
             'int_percent_other' => 9
         ]);
 
-        //Like Excel
-        Loanfinancial::create([
-            'loan_id' => 9,
-            'fee_processing' => 1,
-            'fee_service' => 1.5,
-            'int_percent_arm'	=> 12,
-            'int_percent_arm_default'	=> 12,
-            'int_percent_arm_orig'	=> 12,
-            'int_percent_dist' => 9,
-            'int_percent_dist_default' => 9,
-            'int_percent_dist_orig' => 9,
-            'int_percent_other' => 11,
-            'int_percent_other_default' => 11,
-            'int_percent_other_orig' => 11
-        ]);
-
         //5 - Capital Bridge
         Loanfinancial::create([
             'loan_id' => 2,
@@ -129,6 +113,22 @@ class LoanfinancialsTableSeeder extends Seeder
             'int_percent_other' => 9,
             'int_percent_other_default' => 9,
             'int_percent_other_orig' => 9
+        ]);
+
+        //Like Excel
+        Loanfinancial::create([
+            'loan_id' => 9,
+            'fee_processing' => 1,
+            'fee_service' => 1.5,
+            'int_percent_arm'	=> 12,
+            'int_percent_arm_default'	=> 12,
+            'int_percent_arm_orig'	=> 12,
+            'int_percent_dist' => 9,
+            'int_percent_dist_default' => 9,
+            'int_percent_dist_orig' => 9,
+            'int_percent_other' => 11,
+            'int_percent_other_default' => 11,
+            'int_percent_other_orig' => 11
         ]);
     }
 }

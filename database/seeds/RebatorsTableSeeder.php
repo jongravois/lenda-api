@@ -14,12 +14,16 @@ class RebatorsTableSeeder extends Seeder
             [
                 'loan_id' => 1,
                 'rebator' => 'Millers Gin',
-                'rebator_email' => 'miller@gin.com'
+                'location' => 'Baton Rouge, LA',
+                'phone' => '2253189263',
+                'email' => 'miller@gin.com'
             ],
             [
                 'loan_id' => 2,
                 'rebator' => 'Millers Gin',
-                'rebator_email' => 'miller@gin.com'
+                'location' => 'Baton Rouge, LA',
+                'phone' => '2253189263',
+                'email' => 'miller@gin.com'
             ]
         ];
 

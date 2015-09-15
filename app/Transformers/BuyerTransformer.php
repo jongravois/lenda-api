@@ -11,9 +11,10 @@ class BuyerTransformer extends TransformerAbstract {
         return [
             'id' => $item->id,
             'loan_id' => $item->loan_id,
-            'loancrop_id' => $item->loancrop_id,
             'buyer' => $item->buyer,
-            'buyer_email' => $item->buyer_email
+            'location' => $item->location,
+            'phone' => $item->phone,
+            'email' => $item->email
         ];
     }
 }

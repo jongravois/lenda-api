@@ -13,11 +13,7 @@ class JointventuresTableSeeder extends Seeder
         Jointventure::create([
             'applicant_id' => 2,
             'partner' => 'Elektra Natchios',
-            'ssn' => '432003930',
-            'address' => '2107A Deviled Suites',
-            'city' => 'Hells Kitchen',
-            'state_id' => 4,
-            'zip' => '77631',
+            'location' => 'Hells Kitchen, NJ',
             'email' => 'elektra@marvel.com',
             'phone' => '5129119999'
         ]);
@@ -25,11 +21,8 @@ class JointventuresTableSeeder extends Seeder
         Jointventure::create([
             'applicant_id' => 3,
             'partner' => 'Dick Grayson',
-            'ssn' => '432123456',
-            'address' => '1 Wayne Manor',
-            'city' => 'Jonesboro',
-            'state_id' => 4,
-            'zip' => '77631',
+            'title' => 'Sidekick',
+            'location' => 'Jonesboro, AR',
             'email' => 'robin@marvel.com',
             'phone' => '5125551212'
         ]);

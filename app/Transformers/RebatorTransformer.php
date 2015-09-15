@@ -11,9 +11,10 @@ class RebatorTransformer extends TransformerAbstract {
         return [
             'id' => $item->id,
             'loan_id' => $item->loan_id,
-            'loancrop_id' => $item->loancrop_id,
             'rebator' => $item->rebator,
-            'rebator_email' => $item->rebator_email
+            'location' => $item->location,
+            'phone' => $item->phone,
+            'email' => $item->email
         ];
     }
 }

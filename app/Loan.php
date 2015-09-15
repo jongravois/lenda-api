@@ -188,6 +188,9 @@ class Loan extends Model
     public function systemics() {
         return $this->hasMany('App\Activity');
     }
+    public function termmods() {
+        return $this->hasMany('App\Termsmodification');
+    }
     public function transactions() {
         return $this->hasMany('App\Qbtran');
     }

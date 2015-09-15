@@ -13,9 +13,11 @@ class CreateGuarantorsTable extends Migration
     public function up()
     {
         Schema::create('guarantors', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('loan_id');
+            $table->integer('loan_id')->unsigned();
             $table->string('guarantor');
+            $table->string('location')->nullable();
+            $table->string('email');
+            $table->string('phone');
             $table->timestamps();
         });
     }

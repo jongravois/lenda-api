@@ -60,7 +60,14 @@ class LoanTransformer extends TransformerAbstract {
         $commitDist = getTotalPartyCommit('dist', $item->id);
         $commitOther = getTotalPartyCommit('other', $item->id);
 
+        $feeProc = $item->termmods[0]->fee_processing_arm;
+        $feeSvc = $item->termmods[0]->fee_service_arm;
+        $intPercentArm = $item->termmods[0]->int_percent_arm;
+        $intPercentDist = $item->termmods[0]->int_percent_dist;
+        $estDays = $item->termmods[0]->est_days;
+
         return [
+            'terms' => $item->termmods,
             'fins' => [
                 'discounts' => [
                     'percent_crop' => (double)$item->discounts['disc_percent_crop'],
@@ -89,29 +96,29 @@ class LoanTransformer extends TransformerAbstract {
                 'dist_buyDown' => (boolean)$item->financials['dist_buyDown'],
                 'dist_crop_commit' => getPartyCropsCommit($item->id, 'dist'),
                 'exposure' => calcLoanExposure($item),
-                'fee_processing' => (double)$item->financials['fee_processing'],
-                'fee_service' =>(double)$item->financials['fee_service'],
-                'fee_total' => getFeeTotal($item),
+                'fee_processing' => (double)$feeProc,
+                'fee_service' =>(double)$feeSvc,
+                'fee_total' => getFeeTotal($item, (double)$feeProc+(double)$feeSvc),
                 'fee_onTotal' => (boolean)$item->financials['fee_onTotal'],
-                'int_arm' => getARMInterest($item),
-                'int_dist' => getDistInterest($item),
-                'int_total' => getARMInterest($item) + getDistInterest($item),
-                'int_percent_arm' => (double)$item->financials['int_percent_arm'],
-                'int_percent_dist' => (double)$item->financials['int_percent_dist'],
+                'int_arm' => getARMInterestAlt($commitArm, $estDays, $intPercentArm/100),
+                'int_dist' => getDistInterestAlt($commitDist, $estDays, $intPercentDist/100),
+                'int_total' => getARMInterestAlt($commitArm, $estDays, $intPercentArm/100) + getDistInterestAlt($commitDist, $estDays, $intPercentDist/100),
+                'int_percent_arm' => (double)$intPercentArm,
+                'int_percent_dist' => (double)$intPercentDist,
                 'other_collateral' => getOtherCollateralValueAndDiscount($item),
                 'other_crop_commit' => getPartyCropsCommit($item->id, 'other'),
-                'principal_arm' => $commitArm + getFeeTotal($item),
+                'principal_arm' => $commitArm + getFeeTotal($item, (double)$feeProc+(double)$feeSvc),
                 'principal_dist' => $commitDist,
                 'principal_other' => $commitOther,
                 'prior_lien_total' => (double)getPriorLienTotal($item->id),
-                'proc_fee' => getFeeProc_armAndDist($item),
-                'proc_fee_arm_only' => getFeeProc_armOnly($item),
-                'srvc_fee' => getFeeService_armAndDist($item),
-                'srvc_fee_arm_only' => getFeeService_armOnly($item),
+                'proc_fee' => getFeeProc_armAndDist($item, $feeProc),
+                'proc_fee_arm_only' => getFeeProc_armOnly($item, $feeProc),
+                'srvc_fee' => getFeeService_armAndDist($item, $feeSvc),
+                'srvc_fee_arm_only' => getFeeService_armOnly($item, $feeSvc),
                 'sup_ins' => getSupIns($item->id),
                 'total_acres' => (double)$total_acres[0]->Total,
                 'total_farm_expenses' => (double)getTotalLoanFarmExpenses($item->id),
-                'total_fee_percent' => (double)$item->financials['fee_processing'] + (double)$item->financials['fee_service'],
+                'total_fee_percent' => (double)$feeProc + (double)$feeSvc,
                 'total_fsa_pay' => (double)getTotalFSA($item),
                 'total_indirect' => (double)getTotalIndirectIncome($item)
             ],
@@ -167,7 +174,7 @@ class LoanTransformer extends TransformerAbstract {
             'dist_ucc_received' => (integer)$item->dist_ucc_received,
             'due_date' => $item->due_date,
             'equipment_collateral' => (boolean)$item->equipment_collateral,
-            'est_days' => (double)$item->loantypes->est_days,
+            'est_days' => (double)$estDays,
             'exceptions' => $item->exceptions,
             'expenses' => $item->expenses,
             'farmer' => $item->farmers,

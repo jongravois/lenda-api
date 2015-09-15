@@ -9,7 +9,7 @@ class Guarantor extends Model
     use ActivityTrait;
 
     protected $table = 'guarantors';
-    protected $fillable = ['loan_id', 'guarantor'];
+    protected $fillable = ['loan_id', 'guarantor', 'location', 'email', 'phone'];
 
     /* RELATIONSHIPS */
     /* RELATIONSHIPS */

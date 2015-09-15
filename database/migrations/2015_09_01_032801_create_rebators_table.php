@@ -16,7 +16,9 @@ class CreateRebatorsTable extends Migration
             $table->increments('id');
             $table->integer('loan_id')->unsigned();
             $table->string('rebator')->nullable();
-            $table->string('rebator_email')->nullable();
+            $table->string('location')->nullable();
+            $table->string('email');
+            $table->string('phone');
             $table->timestamps();
         });
     }

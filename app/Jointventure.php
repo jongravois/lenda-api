@@ -9,7 +9,7 @@ class Jointventure extends Model
     use ActivityTrait;
 
     protected $table = 'jointventures';
-    protected $fillable = ['applicant_id', 'partner', 'percent_owned', 'ssn', 'address', 'city', 'state_id', 'zip', 'email', 'phone', 'age'];
+    protected $fillable = ['applicant_id', 'partner', 'title', 'location', 'email', 'phone'];
 
     /* RELATIONSHIPS */
     /* RELATIONSHIPS */

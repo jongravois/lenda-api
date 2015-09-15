@@ -11,7 +11,10 @@ class GuarantorTransformer extends TransformerAbstract {
         return [
             'id' => $item->id,
             'loan_id' => $item->loan_id,
-            'guarantor' => $item->guarantor
+            'guarantor' => $item->guarantor,
+            'location' => $item->location,
+            'phone' => $item->phone,
+            'email' => $item->email
         ];
     }
 }

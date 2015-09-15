@@ -9,7 +9,7 @@ class Partner extends Model
     use ActivityTrait;
 
     protected $table = 'partners';
-    protected $fillable = ['applicant_id', 'partner', 'title', 'percent_owned', 'age', 'ssn', 'address', 'city', 'state_id', 'zip', 'email', 'phone'];
+    protected $fillable = ['applicant_id', 'partner', 'title', 'location', 'email', 'phone'];
 
     /* RELATIONSHIPS */
     /* RELATIONSHIPS */

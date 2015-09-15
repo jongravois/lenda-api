@@ -11,17 +11,10 @@ class JointventureTransformer extends TransformerAbstract {
         return [
             'id' => $item->id,
             'partner' => $item->partner,
-            'percent_owned' => (double) $item->percent_owned,
-            'ssn' => $item->ssn,
-            'address' => $item->address,
-            'city' => $item->city,
-            'state_id' => $item->state_id,
-            //'state' => $item->states']['state']',
-            //'state_abr' => $item->states']['abr']',
-            'zip' => $item->zip,
+            'title' => $item->title,
+            'location' => $item->location,
             'email' => $item->email,
-            'phone' => $item->phone,
-            'age' => $item->age
+            'phone' => $item->phone
         ];
     }
 }

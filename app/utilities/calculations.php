@@ -42,9 +42,12 @@ function calcCashFlow($loan) {
     $cropIncome = calcAllCropValue($loan);
     $fsa = $loan->fins['total_fsa_pay'];
     $other = $loan->fins['total_claims'];
+    $feeRateTotal = (double)$loan->fins['fee_processing'] + (double)$loan->fins['fee_service'];
+    $armRate = (double)$loan->fins['int_percent_arm'];
+    $distRate = (double)$loan->fins['int_percent_dist'];
 
     $totalProjectedIncome = (double)$cropIncome + (double)$fsa + (double)$other;
-    $totalCommittment = ((double)getTotalPartyCommit('arm', $loan->id) + (double)getFeeTotal($loan) + (double)getARMInterest($loan)) + ((double)getTotalPartyCommit('dist', $loan->id) + (double)getDistInterest($loan)) + (double)getTotalPartyCommit('other', $loan->id);
+    $totalCommittment = ((double)getTotalPartyCommit('arm', $loan->id) + (double)getFeeTotal($loan, $feeRateTotal) + (double)getARMInterest($loan, $armRate)) + ((double)getTotalPartyCommit('dist', $loan->id) + (double)getDistInterest($loan, $distRate)) + (double)getTotalPartyCommit('other', $loan->id);
 
 
     return $totalProjectedIncome - $totalCommittment;
@@ -93,8 +96,12 @@ function calcLoanExposure($loan) {
     $discRealEstate = getDiscCollateralTotal('realestate', $loan);
     $discOther = getDiscCollateralTotal('other', $loan);
 
+    $feeRateTotal = (double)$loan->fins['fee_processing'] + (double)$loan->fins['fee_service'];
+    $armRate = (double)$loan->fins['int_percent_arm'];
+    $distRate = (double)$loan->fins['int_percent_dist'];
+
     $totalCollateral = (double)$discCrops + (double)$discFSA + (double)$discInsOverYield + (double)$discYPCoverage + (double)$discSupCoverage + (double)$discEquipment + (double)$discRealEstate + (double)$discOther;
-    $totalCommitment = ((double)getTotalPartyCommit('arm', $loan->id) + (double)getFeeTotal($loan) + (double)getARMInterest($loan)) + ((double)getTotalPartyCommit('dist', $loan->id) + (double)getDistInterest($loan));
+    $totalCommitment = ((double)getTotalPartyCommit('arm', $loan->id) + (double)getFeeTotal($loan, $feeRateTotal) + (double)getARMInterest($loan, $armRate)) + ((double)getTotalPartyCommit('dist', $loan->id) + (double)getDistInterest($loan, $distRate));
     $exposure = (double)$totalCollateral - (double)$totalCommitment;
     return $exposure;
 }
@@ -137,12 +144,17 @@ function getAllCropAcres($loanID) {
     }
     return $retro;
 }
-function getARMInterest($loan) {
+function getARMInterest($loan, $rate) {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
-    $total_int_percent = $loan->financials['int_percent_arm']/100;
-    $est_days = (double)$loan->loantypes->est_days;
+    $est_days = (double)$loan->est_days;
 
-    $calc = $total_int_percent * ($est_days/365) * $arm_commit;
+    $calc = (double)$rate/100 * ($est_days/365) * $arm_commit;
+
+    return $calc;
+}
+function getARMInterestAlt($commit, $days, $rate) {
+    $calc = (double)$rate/100 * ((double)$days/365) * (double)$commit;
+
     return $calc;
 }
 function getCountyCrops($loanID) {
@@ -213,12 +225,16 @@ function getDiscCollateralTotal($type, $loan) {
 
     return $total;
 }
-function getDistInterest($loan) {
+function getDistInterest($loan, $distRate) {
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
-    $total_int_percent = $loan->financials['int_percent_dist']/100;
     $est_days = (double)$loan->loantypes->est_days;
 
-    $calc = $total_int_percent * ($est_days/365) * $dist_commit;
+    $calc = $distRate/100 * ($est_days/365) * $dist_commit;
+    return $calc;
+}
+function getDistInterestAlt($commit, $days, $rate) {
+    $calc = (double)$rate/100 * ((double)$days/365) * (double)$commit;
+
     return $calc;
 }
 function getFeeProc($loan)
@@ -233,13 +249,12 @@ function getFeeProc($loan)
         return $arm_commit * $total_fee_percent;
     }
 }
-function getFeeProc_armAndDist($loan)
+function getFeeProc_armAndDist($loan, $rate)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
-    $total_fee_percent = $loan->financials['fee_processing']/100;
 
-    $calc = ($arm_commit + $dist_commit) * $total_fee_percent;
+    $calc = ($arm_commit + $dist_commit) * $rate/100;
     //TODO: get from globals
     if($calc < 350) {
         return 350;
@@ -247,12 +262,11 @@ function getFeeProc_armAndDist($loan)
         return $calc;
     }
 }
-function getFeeProc_armOnly($loan)
+function getFeeProc_armOnly($loan, $rate)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
-    $total_fee_percent = $loan->financials['fee_processing']/100;
 
-    $calc = $arm_commit * $total_fee_percent;
+    $calc = $arm_commit * $rate/100;
     //TODO: get from globals
     if($calc < 350) {
         return 350;
@@ -273,31 +287,28 @@ function getFeeService($loan)
         return $arm_commit * $total_fee_percent;
     }
 }
-function getFeeService_armAndDist($loan)
+function getFeeService_armAndDist($loan, $rate)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
-    $total_fee_percent = $loan->financials['fee_service']/100;
 
-    return ($arm_commit + $dist_commit) * $total_fee_percent;
+    return ($arm_commit + $dist_commit) * $rate/100;
 }
-function getFeeService_armOnly($loan)
+function getFeeService_armOnly($loan, $rate)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
-    $total_fee_percent = $loan->financials['fee_service']/100;
 
-    return $arm_commit * $total_fee_percent;
+    return $arm_commit * $rate/100;
 }
-function getFeeTotal($loan)
+function getFeeTotal($loan, $total_fee_percent)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
-    $total_fee_percent = ($loan->financials['fee_processing'] + $loan->financials['fee_service'])/100;
 
     if($loan->financials['fee_onTotal']) {
-        return ($arm_commit + $dist_commit) * $total_fee_percent;
+        return ($arm_commit + $dist_commit) * $total_fee_percent/100;
     } else {
-        return $arm_commit * $total_fee_percent;
+        return $arm_commit * $total_fee_percent/100;
     }
 }
 function getFeeTotal_armAndDist($loan)

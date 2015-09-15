@@ -16,7 +16,9 @@ class CreateBuyersTable extends Migration
             $table->increments('id');
             $table->integer('loan_id')->unsigned();
             $table->string('buyer')->nullable();
-            $table->string('buyer_email')->nullable();
+            $table->string('location')->nullable();
+            $table->string('email');
+            $table->string('phone');
             $table->timestamps();
         });
     }
