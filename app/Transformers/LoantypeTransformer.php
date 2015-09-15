@@ -14,7 +14,8 @@ class LoantypeTransformer extends TransformerAbstract {
             'abr' => $item->abr,
             'sort_order' => (integer)$item->sort_order,
             'default_due_date' => $item->default_due_date,
-            'est_days' => (double)$item->est_days,
+            'default_est_days' => (double)$item->default_est_days,
+            'est_days' => (double)$item->default_est_days,
             'default_int_rate' => (double) $item->default_int_rate,
             'default_origination_fee_rate' => (double) $item->default_origination_fee_rate,
             'default_service_fee_rate' => (double) $item->default_service_fee_rate
