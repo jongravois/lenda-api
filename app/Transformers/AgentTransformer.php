@@ -10,11 +10,12 @@ class AgentTransformer extends TransformerAbstract {
 
         return [
             'id' => $item->id,
-            'agency_id' => $item->agency_id,
+            'loan_id' => $item->loan_id,
+            'agency' => $item->agency,
             'agent' => $item->agent,
-            'agent_phone' => $item->agent_phone,
-            'agent_email' => $item->agent_email,
-            'agency' => $item->agency
+            'city_state' => $item->city_state,
+            'phone' => $item->phone,
+            'email' => $item->email
         ];
     }
 }

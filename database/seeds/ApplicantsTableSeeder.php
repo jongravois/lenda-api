@@ -24,7 +24,10 @@ class ApplicantsTableSeeder extends Seeder
             'phone' => '7777777777',
             'city' => 'Monroe',
             'state_id' => 19,
-            'zip' => '99999'
+            'zip' => '99999',
+            'rup' => true,
+            'rup_num' => '2T23765',
+            'rup_exp' => '02/14/2018'
         ]);
 
         Applicant::create([

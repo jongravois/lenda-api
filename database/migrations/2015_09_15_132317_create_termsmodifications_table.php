@@ -19,8 +19,11 @@ class CreateTermsmodificationsTable extends Migration
             $table->date('modification_date')->default(Carbon::now());
             $table->date('due_date');
             $table->double('est_days');
+            $table->boolean('fee_onTotal')->default(true);
+            $table->boolean('dist_buyDown')->default(false);
             $table->double('int_percent_arm');
             $table->double('int_percent_dist');
+            $table->double('int_percent_borrower')->default(0);
             $table->double('fee_processing_arm');
             $table->double('fee_service_arm');
             $table->double('fee_processing_dist');

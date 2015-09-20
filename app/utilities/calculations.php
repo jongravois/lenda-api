@@ -242,8 +242,9 @@ function getFeeProc($loan)
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
     $total_fee_percent = ($loan->financials->fee_processing + $loan->financials->fee_service)/100;
+    $cTerms = count($loan->terms);
 
-    if($loan->financials->fee_onTotal) {
+    if($loan->terms[$cTerms]->fee_onTotal) {
         return ($arm_commit + $dist_commit) * $total_fee_percent;
     } else {
         return $arm_commit * $total_fee_percent;
@@ -280,8 +281,9 @@ function getFeeService($loan)
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
     $total_fee_percent = $loan->financials->fee_service/100;
+    $cTerms = count($loan->terms);
 
-    if($loan->financials->fee_onTotal) {
+    if($loan->terms[$cTerms]->fee_onTotal) {
         return ($arm_commit + $dist_commit) * $total_fee_percent;
     } else {
         return $arm_commit * $total_fee_percent;
@@ -304,8 +306,9 @@ function getFeeTotal($loan, $total_fee_percent)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
+    $cTerms = count($loan->terms);
 
-    if($loan->financials['fee_onTotal']) {
+    if($loan->terms[$cTerms]['fee_onTotal']) {
         return ($arm_commit + $dist_commit) * $total_fee_percent/100;
     } else {
         return $arm_commit * $total_fee_percent/100;

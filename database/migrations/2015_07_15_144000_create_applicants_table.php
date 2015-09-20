@@ -27,6 +27,9 @@ class CreateApplicantsTable extends Migration
             $table->string('city')->nullable();
             $table->string('state_id')->nullable();
             $table->string('zip')->nullable();
+            $table->boolean('rup')->default(false);
+            $table->string('rup_num')->nullable();
+            $table->date('rup_exp')->nullable();
             $table->string('spouse')->nullable();
             $table->string('spouse_ssn')->nullable();
             $table->string('spouse_phone')->nullable();

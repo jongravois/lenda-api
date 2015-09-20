@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Agent extends Model
 {
     protected $table = 'agents';
-    protected $fillable = ['agency_id', 'agent', 'agent_phone', 'agent_email'];
+    protected $fillable = ['loan_id', 'agency', 'agent', 'city_state', 'phone', 'email'];
 
     /* RELATIONSHIPS */
-    public function agency()
+    public function loan()
     {
-        return $this->belongsTo('App\Agency');
+        return $this->belongsTo('App\Loan', 'loan_id');
     }
     /* RELATIONSHIPS */
 

@@ -87,7 +87,7 @@ class Loan extends Model
     }
     public function agents()
     {
-        return $this->hasMany('App\Agent', 'id');
+        return $this->hasMany('App\Agent');
     }
     public function analyst() {
         return $this->belongsTo('App\User', 'user_id');

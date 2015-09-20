@@ -30,7 +30,7 @@ class Loanquestion extends Model
         'fsa_direct_pay' => 'double',
         'future_liabilities' => 'double',
         'credit_3p_available' => 'double',
-        'income_percent' => 'double',
+        'income_percent' => 'boolean',
         'credit_score' => 'double',
         'affiliates' => 'double'
     ];
