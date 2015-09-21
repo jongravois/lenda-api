@@ -54,6 +54,12 @@ class LoanTransformer extends TransformerAbstract {
             $pastDue = 0;
         }
 
+        if($item->season == 'F') {
+            $fullSeason = 'Fall';
+        } else {
+            $fullSeason = 'Spring';
+        }
+
         // Calculations for fins object
         $total_acres = getTotalAcres($item->id);
         $commitArm = getTotalPartyCommit('arm', $item->id);
@@ -123,6 +129,7 @@ class LoanTransformer extends TransformerAbstract {
                 'total_indirect' => (double)getTotalIndirectIncome($item)
             ],
             'id' => $item->id,
+            'slug' => makeSlug($item),
             'account_classification' => $item->account_classification,
             'added_land' => (boolean)$item->added_land,
             'added_land_verified' => (integer)$item->added_land_verified,
@@ -183,7 +190,7 @@ class LoanTransformer extends TransformerAbstract {
             'farmunits' => processFarmUnits($item),
             'financials' => $item->financials,
             'fsa_compliant' => (integer)$item->fsa_compliant,
-            'full_season' => ($item->season == 'F' ? 'Fall' : 'Spring'),
+            'full_season' => $fullSeason,
             'grade' => $item->grade,
             'has_addendum' => (boolean)$item->has_addendum,
             'has_attachments' => $hasAttachments,

@@ -82,6 +82,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('farmexpenses', 'FarmexpensesController');
 	Route::resource('farms', 'FarmsController');
 	Route::resource('farmunits', 'FarmunitsController');
+	Route::resource('fsapayments', 'FsapaymentsController');
 	Route::resource('globals', 'GlobvarsController');
 	Route::resource('guarantors', 'GuarantorsController');
 	Route::resource('indirectcropincomes', 'IndirectcropincomesController');
