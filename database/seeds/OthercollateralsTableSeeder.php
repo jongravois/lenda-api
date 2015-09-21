@@ -88,6 +88,29 @@ class OthercollateralsTableSeeder extends Seeder
         ]);
 
         Othercollateral::create([
+            'loan_id' =>  1,
+            'type' => 'fsa',
+            'source' =>  'Ag Loan Lenders',
+            'description' =>  '2014 FSA Payment',
+            'amount' =>  25000,
+            'mkt_value' => 25000,
+            'prior_lien' => 5000,
+            'discount' => 20
+        ]);
+
+        Othercollateral::create([
+            'loan_id' =>  1,
+            'type' => 'fsa',
+            'source' =>  'ARM',
+            'description' =>  '2015 FSA Payment',
+            'amount' =>  40000,
+            'mkt_value' => 40000,
+            'prior_lien' => 40000,
+            'discount' => 20
+        ]);
+
+        // LOAN #2
+        Othercollateral::create([
             'loan_id' =>  2,
             'type' => 'other',
             'source' =>  'FeedHorsesWell, Inc',
