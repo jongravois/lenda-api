@@ -24,7 +24,7 @@ class FsapaymentsController extends ApiController
     public function index(Manager $fractal, FsapaymentTransformer $fsapaymentTransformer)
     {
         // show all
-        $records = Fsapayment::all();
+        $records = Fsapayment::with('farms.county.state')->get();
         $collection = new Collection($records, $fsapaymentTransformer);
         $data = $fractal->createData($collection)->toArray();
         return $this->respond($data);

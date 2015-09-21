@@ -15,7 +15,7 @@ class CreateFsapaymentsTable extends Migration
         Schema::create('fsapayments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('loan_id')->unsigned();
-            $table->string('farm_id')->unsigned();
+            $table->integer('farm_id')->unsigned();
             $table->string('pgm')->nullable();
             $table->double('base_acres')->default(0);
             $table->double('fsa_yield')->default(0);

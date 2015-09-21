@@ -14,11 +14,15 @@ class FsapaymentTransformer extends TransformerAbstract {
             'farm_id' => $item->farm_id,
             'fsn' => $item->farms->fsn,
             'county_id' => $item->farms->county_id,
+            'county' => $item->farms->county->county,
+            'state' => $item->farms->county->state->abr,
+            'locale' => $item->farms->county->label,
             'owner' => $item->farms->owner,
             'pgm' => $item->pgm,
             'base_acres' => (double)$item->base_acres,
             'fsa_yield' => (double)$item->fsa_yield,
-            'amount' => (double)$item->amount
+            'amount' => (double)$item->amount,
+            'farms' => $item->farms
         ];
     }
 }

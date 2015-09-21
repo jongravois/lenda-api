@@ -33,6 +33,10 @@ class Farm extends Model
     {
         return $this->belongsTo('App\County', 'county_id');
     }
+    public function fsapayments()
+    {
+        return $this->hasMany('App\Fsapayment', 'farm_id', 'id');
+    }
     public function loans()
     {
         return $this->belongsTo('App\Loan', 'loan_id');
