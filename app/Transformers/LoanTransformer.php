@@ -129,7 +129,7 @@ class LoanTransformer extends TransformerAbstract {
             'addendum_type' => (integer)$item->addendum_type,
             'addendums' => ($item->has_addendum ? processAddendum($item->id) : []),
             'agencies' => getLoanAgencies($item->id),
-            'agent' => $item->agents,
+            'agents' => $item->agents,
             'analyst' => $item->analyst->name,
             'analyst_can_approve' => (boolean)$item->analyst_can_approve,
             'analyst_can_submit' => (boolean)$item->analyst_can_submit,

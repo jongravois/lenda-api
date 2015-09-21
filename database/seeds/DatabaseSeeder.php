@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
             'AddendumfinancialsTableSeeder',
             'AddendumloansTableSeeder',
             'AdmingradersTableSeeder',
-            'AgenciesTableSeeder',
             'AphdbsTableSeeder',
             'AgentsTableSeeder',
             'ApplicantfinancialsTableSeeder',

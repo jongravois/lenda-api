@@ -334,7 +334,7 @@ function getInsuranceCropSummaryByLoan($loanID) {
 
 }
 function getLoanAgencies($loanID) {
-    $agencies = DB::select(DB::raw("SELECT y.agency FROM agencies y LEFT JOIN agents t ON t.agency_id = y.id WHERE t.id IN (SELECT DISTINCT(i.agent_id) FROM inspols i WHERE loan_id = {$loanID})"));
+    $agencies = DB::table('agents')->select(DB::raw('distinct(agency)'))->where('loan_id', $loanID)->get();
     $cnt = count($agencies);
 
     switch($cnt) {
