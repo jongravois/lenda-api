@@ -16,7 +16,8 @@ class CreateTermsmodificationsTable extends Migration
         Schema::create('termsmodifications', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('loan_id')->unsigned();
-            $table->date('modification_date')->default(Carbon::now());
+            $table->date('mod_date')->default(Carbon::now());
+            $table->string('mod_type')->default('orig');
             $table->date('due_date');
             $table->double('est_days');
             $table->boolean('fee_onTotal')->default(true);

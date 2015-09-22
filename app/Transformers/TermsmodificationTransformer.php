@@ -11,7 +11,8 @@ class TermsmodificationTransformer extends TransformerAbstract {
         return [
             'id' => $item->id,
             'loan_id' => $item->loan_id,
-            'modification_date' => $item->modification_date,
+            'mod_date' => $item->mod_date,
+            'mod_type' => $item->mod_type,
             'due_date' => $item->due_date,
             'est_days' => $item->est_days,
             'fee_onTotal' => $item->fee_onTotal,

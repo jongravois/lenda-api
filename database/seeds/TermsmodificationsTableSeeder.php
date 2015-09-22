@@ -14,7 +14,7 @@ class TermsmodificationsTableSeeder extends Seeder
         $collection = [
             [
                 'loan_id' => 1,
-                'modification_date' => '02/14/2015',
+                'mod_date' => '02/14/2015',
                 'due_date' => '12/15/2015',
                 'est_days' => 225,
                 'int_percent_arm' => 9,
@@ -30,7 +30,7 @@ class TermsmodificationsTableSeeder extends Seeder
             ],
             [
                 'loan_id' => 2,
-                'modification_date' => '02/14/2015',
+                'mod_date' => '02/14/2015',
                 'due_date' => '12/15/2015',
                 'est_days' => 225,
                 'int_percent_arm' => 9,
@@ -44,7 +44,7 @@ class TermsmodificationsTableSeeder extends Seeder
             ],
             [
                 'loan_id' => 3,
-                'modification_date' => '09/10/2015',
+                'mod_date' => '09/10/2015',
                 'due_date' => '03/15/2016',
                 'est_days' => 150,
                 'int_percent_arm' => 9,
@@ -58,7 +58,7 @@ class TermsmodificationsTableSeeder extends Seeder
             ],
             [
                 'loan_id' => 4,
-                'modification_date' => '02/14/2015',
+                'mod_date' => '02/14/2015',
                 'due_date' => '12/15/2015',
                 'est_days' => 225,
                 'int_percent_arm' => 6,
@@ -72,7 +72,7 @@ class TermsmodificationsTableSeeder extends Seeder
             ],
             [
                 'loan_id' => 5,
-                'modification_date' => '09/10/2015',
+                'mod_date' => '09/10/2015',
                 'due_date' => '03/15/2016',
                 'est_days' => 150,
                 'int_percent_arm' => 9,
@@ -86,7 +86,7 @@ class TermsmodificationsTableSeeder extends Seeder
             ],
             [
                 'loan_id' => 6,
-                'modification_date' => '02/14/2015',
+                'mod_date' => '02/14/2015',
                 'due_date' => '12/15/2015',
                 'est_days' => 225,
                 'int_percent_arm' => 9,
@@ -100,7 +100,7 @@ class TermsmodificationsTableSeeder extends Seeder
             ],
             [
                 'loan_id' => 7,
-                'modification_date' => '02/14/2015',
+                'mod_date' => '02/14/2015',
                 'due_date' => '12/15/2015',
                 'est_days' => 225,
                 'int_percent_arm' => 9,
@@ -114,7 +114,7 @@ class TermsmodificationsTableSeeder extends Seeder
             ],
             [
                 'loan_id' => 8,
-                'modification_date' => '08/14/2015',
+                'mod_date' => '08/14/2015',
                 'due_date' => '12/15/2015',
                 'est_days' => 150,
                 'int_percent_arm' => 9,
@@ -128,7 +128,7 @@ class TermsmodificationsTableSeeder extends Seeder
             ],
             [
                 'loan_id' => 9,
-                'modification_date' => '02/14/2014',
+                'mod_date' => '02/14/2014',
                 'due_date' => '12/15/2014',
                 'est_days' => 225,
                 'int_percent_arm' => 12,
@@ -142,6 +142,8 @@ class TermsmodificationsTableSeeder extends Seeder
             ],
             [
                 'loan_id' => 1,
+                'mod_date' => '08/11/2015',
+                'mod_type' => 'prog',
                 'due_date' => '12/15/2015',
                 'est_days' => 215,
                 'int_percent_arm' => 11,
@@ -154,6 +156,24 @@ class TermsmodificationsTableSeeder extends Seeder
                 'fee_service_borrower' => 0,
                 'created_at' => Carbon::now()->subDays(2),
                 'updated_at' => Carbon::now()->subDays(2)
+            ],
+            [
+                'loan_id' => 1,
+                'mod_date' => '09/21/2015',
+                'mod_type' => 'add',
+                'due_date' => '12/15/2015',
+                'fee_onTotal' => false,
+                'est_days' => 225,
+                'int_percent_arm' => 11,
+                'int_percent_dist' => 9,
+                'fee_processing_arm' => 2,
+                'fee_service_arm' => 1.5,
+                'fee_processing_dist' => 0,
+                'fee_service_dist' => 0,
+                'fee_processing_borrower' => 0,
+                'fee_service_borrower' => 0,
+                'created_at' => Carbon::now()->subDays(1),
+                'updated_at' => Carbon::now()->subDays(1)
             ]
         ];
 
