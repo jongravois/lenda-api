@@ -356,6 +356,27 @@ function getLoanAgencies($loanID) {
 function getOtherCollateralValueAndDiscount($loan) {
     return DB::select(DB::raw("SELECT type, SUM(mkt_value) AS marketval, SUM(mkt_value * ((100 - discount)/100)) AS discounted FROM othercollaterals WHERE loan_id = 1 GROUP BY type;"));
 }
+function getPartyCatExpenses($loanID, $party) {
+    $retro = [
+        'fertilizer' => getPerAcreCommit($party, $loanID, 1),
+        'seed' => getPerAcreCommit($party, $loanID, 2),
+        'fungicide' => getPerAcreCommit($party, $loanID, 3),
+        'herbicide' => getPerAcreCommit($party, $loanID, 4),
+        'insecticide' => getPerAcreCommit($party, $loanID, 5),
+        'custom' => getPerAcreCommit($party, $loanID, 6),
+        'fuel' => getPerAcreCommit($party, $loanID, 7),
+        'labor' => getPerAcreCommit($party, $loanID, 8),
+        'repairs' => getPerAcreCommit($party, $loanID, 9),
+        'insurance' => getPerAcreCommit($party, $loanID, 10),
+        'harvesting' => getPerAcreCommit($party, $loanID, 11),
+        'misc_acres' => getPerAcreCommit($party, $loanID, 12),
+    ];
+
+    return $retro;
+}
+function getPartyCatTotalExpenses($loanID, $party) {
+    return DB::select(DB::raw("SELECT e.cat_id, e.expense, e.{$party}_adj AS perAcre, p.acres, e.{$party}_adj * p.acres AS exp FROM cropexpenses e JOIN loancrops l ON e.loancrop_id = l.id JOIN loanpractices p ON p.loancrop_id = l.id WHERE e.loan_id = {$loanID} GROUP BY e.cat_id"));
+}
 function getPartyCropsCommit($loanID, $party) {
     $retro = [];
 
@@ -371,6 +392,15 @@ function getPartyCropsCommit($loanID, $party) {
         $retro['sunflowers'] = getCropPerAcreCommit($party, $loanID, 10);
 
     return $retro;
+}
+function getPerAcreCommit($party, $loanID, $catID)
+{
+    $commit = DB::select(DB::raw("SELECT SUM({$party}_adj) AS Commit FROM cropexpenses WHERE loan_id = {$loanID} AND cat_id = {$catID}"));
+    if(! $commit[0]->Commit) {
+        return 0;
+    } else {
+        return (double)$commit[0]->Commit;
+    }
 }
 function getPlannedCropTea($cropID) {
     $tea = DB::select(DB::raw("SELECT SUM(arm_adj) AS Total FROM defaultexpenses WHERE crop_id = {$cropID}"));

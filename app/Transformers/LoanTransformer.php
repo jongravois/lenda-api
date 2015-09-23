@@ -90,6 +90,7 @@ class LoanTransformer extends TransformerAbstract {
                     'percent_other' => (double)$item->discounts['disc_percent_other']
                 ],
                 'arm_crop_commit' => getPartyCropsCommit($item->id, 'arm'),
+                'arm_cat_expense' => getPartyCatTotalExpenses($item->id, 'arm'),
                 'balance_spent' => (double)getArmTotalSpent($item->id),
                 'balance_total' => (double)getArmTotalBudget($item->id),
                 'balance_remaining' => (double)getArmTotalRemaining($item->id),
@@ -100,6 +101,7 @@ class LoanTransformer extends TransformerAbstract {
                 'commit_total' => (double)$commitArm+(double)$commitDist,
                 'crop_acres' => getAllCropAcres($item->id),
                 'crops_in_loan' => getCropsInLoan($item->id),
+                'dist_cat_expense' => getPartyCatTotalExpenses($item->id, 'dist'),
                 'dist_buyDown' => (boolean)$item->financials['dist_buyDown'],
                 'dist_crop_commit' => getPartyCropsCommit($item->id, 'dist'),
                 'exposure' => calcLoanExposure($item),
@@ -112,6 +114,7 @@ class LoanTransformer extends TransformerAbstract {
                 'int_total' => getARMInterestAlt($commitArm, $estDays, $intPercentArm/100) + getDistInterestAlt($commitDist, $estDays, $intPercentDist/100),
                 'int_percent_arm' => (double)$intPercentArm,
                 'int_percent_dist' => (double)$intPercentDist,
+                'other_cat_expense' => getPartyCatTotalExpenses($item->id, 'other'),
                 'other_collateral' => getOtherCollateralValueAndDiscount($item),
                 'other_crop_commit' => getPartyCropsCommit($item->id, 'other'),
                 'principal_arm' => $commitArm + getFeeTotal($item, (double)$feeProc+(double)$feeSvc),
