@@ -11,6 +11,10 @@ class Distributor extends Model
     protected $fillable = ['distributor', 'name', 'address', 'city', 'state', 'zip', 'contact', 'phone', 'email'];
 
     /* RELATIONSHIPS */
+    public function states()
+    {
+        return $this->belongsTo('App\State', 'state', 'id');
+    }
     /* RELATIONSHIPS */
 
     /* METHODS */

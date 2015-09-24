@@ -18,7 +18,7 @@ class CreateDistributorsTable extends Migration
             $table->string('name')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('state')->nullable();
+            $table->integer('state')->unsigned();
             $table->string('zip')->nullable();
             $table->string('contact')->nullable();
             $table->string('phone')->nullable();
