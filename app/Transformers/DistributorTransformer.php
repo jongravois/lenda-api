@@ -7,7 +7,6 @@ class DistributorTransformer extends TransformerAbstract {
     public function transform(Distributor $item)
     {
         //return $item;
-
         return [
             'id' => $item->id,
             'distributor' => $item->distributor,
