@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Comment;
 use App\Events\LoanWasCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;

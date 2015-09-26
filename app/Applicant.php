@@ -8,18 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Applicant extends Model
 {
     protected $table = 'applicants';
-    protected $fillable = ['grade', 'loc_id', 'entity_id', 'farmer_id', 'ssn', 'email', 'dob', 'address', 'phone', 'city', 'state_id', 'zip', 'rup', 'rup_num', 'rup_exp', 'spouse', 'spouse_ssn'];
+    protected $fillable = ['applicant', 'grade', 'loc_id', 'entity_id', 'farmer_id', 'ssn', 'email', 'dob', 'address', 'phone', 'city', 'state_id', 'zip', 'rup', 'rup_num', 'rup_exp', 'spouse', 'spouse_ssn'];
 
     /* CASTING */
     protected $casts = [
         'rup' => 'boolean'
     ];
     /* CASTING */
-
-    public function setRupExpAttribute($value)
-    {
-        $this->attributes['rup_exp'] = Carbon::createFromFormat('m/d/Y', $value);
-    }
 
     /* RELATIONSHIPS */
     public function corps() {

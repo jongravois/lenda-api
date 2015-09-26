@@ -27,10 +27,10 @@ class CreateTermsmodificationsTable extends Migration
             $table->double('int_percent_borrower')->default(0);
             $table->double('fee_processing_arm');
             $table->double('fee_service_arm');
-            $table->double('fee_processing_dist');
-            $table->double('fee_service_dist');
-            $table->double('fee_processing_borrower');
-            $table->double('fee_service_borrower');
+            $table->double('fee_processing_dist')->default(0);
+            $table->double('fee_service_dist')->default(0);
+            $table->double('fee_processing_borrower')->default(0);
+            $table->double('fee_service_borrower')->default(0);
             $table->timestamps();
         });
     }

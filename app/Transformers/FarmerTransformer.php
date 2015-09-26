@@ -10,15 +10,14 @@ class FarmerTransformer extends TransformerAbstract {
         //return $item;
 
         $dtToday = Carbon::now();
-        $dtDOB = Carbon::createFromFormat('Y-m-d', $item->dob);
-        if(!$dtDOB){
+        if(!$item->dob){
             $dob = null;
             $age_of_farmer = 0;
         } else {
-            $dob = $dtDOB->format('m/d/Y');
+            $dtDOB = Carbon::createFromFormat('Y-m-d', $item->dob);
             $age_of_farmer = $dtToday->diffInYears($dtDOB);
+            $dob = $dtDOB->format('m/d/yy');
         }
-
 
         return [
             'id' => $item->id,

@@ -20,7 +20,8 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\CreateRequiredDocuments',
             'App\Listeners\CreateLoanConditions',
             'App\Listeners\CreateEmptyCommittee',
-            'App\Listeners\CreateEmptyLoanComment'
+            'App\Listeners\CreateEmptyLoanComment',
+            'App\Listeners\CreateTermMod'
         ],
     ];
 
