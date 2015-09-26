@@ -44,7 +44,7 @@ class CreateLoanquestionsTable extends Migration
             $table->string('liens_details')->nullable();
             $table->boolean('fsa_direct_pay')->default(false);
             $table->string('fsa_direct_pay_details')->nullable();
-            $table->boolean('future_liabilities')->default(false);
+            $table->boolean('future_liabilities')->default(true);
             $table->boolean('credit_3p_available')->default(false);
             $table->string('credit_3p_details')->nullable();
             $table->boolean('income_percent')->default(true);
