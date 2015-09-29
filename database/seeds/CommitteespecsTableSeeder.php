@@ -15,6 +15,11 @@ class CommitteespecsTableSeeder extends Seeder
                 'loantype_id' => 1,
                 'min_amount' => 500,
                 'max_amount' => 50000,
+                'min_debt_asset' => 20,
+                'max_debt_asset' => 40,
+                'min_loan_asset' => 10,
+                'max_loan_asset' => 30,
+                'applicant_grade' => 'A',
                 'member_count' => 5
             ]
         ];

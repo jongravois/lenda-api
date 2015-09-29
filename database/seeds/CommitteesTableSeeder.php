@@ -23,8 +23,8 @@ class CommitteesTableSeeder extends Seeder
             'user_id'	=>	5,
             'vote_status' => 'voted',
             'vote' => 1,
-            'vote_request_date' => '2014-09-11',
-            'vote_received_date' => '2014-09-13',
+            'vote_request_date' => '2015-09-11',
+            'vote_received_date' => '2015-09-13',
             'committee_role' => 'CFO'
         ]);
         Committee::create([
@@ -33,8 +33,8 @@ class CommitteesTableSeeder extends Seeder
             'user_id' => 6,
             'vote_status' => 'voted',
             'vote' => 1,
-            'vote_request_date' => '2014-09-11',
-            'vote_received_date' => '2014-09-12',
+            'vote_request_date' => '2015-09-11',
+            'vote_received_date' => '2015-09-12',
             'committee_role' => 'Branch Manager'
 
         ]);
@@ -43,7 +43,7 @@ class CommitteesTableSeeder extends Seeder
             'role_id' => 999,
             'user_id' => 3,
             'vote_status' => 'pending',
-            'vote_request_date' => '2014-09-11',
+            'vote_request_date' => '2015-09-11',
             'committee_role' => 'Tester'
         ]);
         Committee::create([
@@ -65,8 +65,8 @@ class CommitteesTableSeeder extends Seeder
             'user_id'	=>	5,
             'vote_status' => 'voted',
             'vote' => 1,
-            'vote_request_date' => '2014-09-11',
-            'vote_received_date' => '2014-09-13',
+            'vote_request_date' => '2015-09-11',
+            'vote_received_date' => '2015-09-13',
             'committee_role' => 'CFO'
         ]);
         Committee::create([
@@ -75,8 +75,8 @@ class CommitteesTableSeeder extends Seeder
             'user_id' => 6,
             'vote_status' => 'voted',
             'vote' => 1,
-            'vote_request_date' => '2014-09-11',
-            'vote_received_date' => '2014-09-12',
+            'vote_request_date' => '2015-09-11',
+            'vote_received_date' => '2015-09-12',
             'committee_role' => 'Branch Manager'
 
         ]);
@@ -85,7 +85,7 @@ class CommitteesTableSeeder extends Seeder
             'role_id' => 999,
             'user_id' => 3,
             'vote_status' => 'pending',
-            'vote_request_date' => '2014-09-11',
+            'vote_request_date' => '2015-09-11',
             'committee_role' => 'Tester'
         ]);
     }

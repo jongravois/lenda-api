@@ -66,11 +66,11 @@ class LoanTransformer extends TransformerAbstract {
         $commitDist = getTotalPartyCommit('dist', $item->id);
         $commitOther = getTotalPartyCommit('other', $item->id);
 
-        $feeProc = $item->termmods[0]->fee_processing_arm;
-        $feeSvc = $item->termmods[0]->fee_service_arm;
-        $intPercentArm = $item->termmods[0]->int_percent_arm;
-        $intPercentDist = $item->termmods[0]->int_percent_dist;
-        $estDays = $item->termmods[0]->est_days;
+        $feeProc = $item->termmods->last()->fee_processing_arm;
+        $feeSvc = $item->termmods->last()->fee_service_arm;
+        $intPercentArm = $item->termmods->last()->int_percent_arm;
+        $intPercentDist = $item->termmods->last()->int_percent_dist;
+        $estDays = $item->termmods->last()->est_days;
 
         return [
             'fsapayments' => $item->fsapayments,
@@ -102,6 +102,7 @@ class LoanTransformer extends TransformerAbstract {
                 'crop_acres' => getAllCropAcres($item->id),
                 'crops_in_loan' => getCropsInLoan($item->id),
                 'dist_cat_expense' => getPartyCatTotalExpenses($item->id, 'dist'),
+
                 'dist_buyDown' => (boolean)$item->financials['dist_buyDown'],
                 'dist_crop_commit' => getPartyCropsCommit($item->id, 'dist'),
                 'exposure' => calcLoanExposure($item),
@@ -109,9 +110,9 @@ class LoanTransformer extends TransformerAbstract {
                 'fee_service' =>(double)$feeSvc,
                 'fee_total' => getFeeTotal($item, (double)$feeProc+(double)$feeSvc),
                 'fee_onTotal' => (boolean)$item->financials['fee_onTotal'],
-                'int_arm' => getARMInterestAlt($commitArm, $estDays, $intPercentArm/100),
-                'int_dist' => getDistInterestAlt($commitDist, $estDays, $intPercentDist/100),
-                'int_total' => getARMInterestAlt($commitArm, $estDays, $intPercentArm/100) + getDistInterestAlt($commitDist, $estDays, $intPercentDist/100),
+                'int_arm' => getARMInterestAlt($commitArm, $estDays, $intPercentArm),
+                'int_dist' => getDistInterestAlt($commitDist, $estDays, $intPercentDist),
+                'int_total' => getARMInterestAlt($commitArm, $estDays, $intPercentArm) + getDistInterestAlt($commitDist, $estDays, $intPercentDist),
                 'int_percent_arm' => (double)$intPercentArm,
                 'int_percent_dist' => (double)$intPercentDist,
                 'other_cat_expense' => getPartyCatTotalExpenses($item->id, 'other'),

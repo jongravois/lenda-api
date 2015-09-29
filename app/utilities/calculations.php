@@ -242,7 +242,7 @@ function getFeeProc($loan)
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
     $total_fee_percent = ($loan->financials->fee_processing + $loan->financials->fee_service)/100;
-    $cTerms = count($loan->terms);
+    $cTerms = count($loan->terms) - 1;
 
     if($loan->terms[$cTerms]->fee_onTotal) {
         return ($arm_commit + $dist_commit) * $total_fee_percent;
@@ -281,7 +281,7 @@ function getFeeService($loan)
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
     $total_fee_percent = $loan->financials->fee_service/100;
-    $cTerms = count($loan->terms);
+    $cTerms = count($loan->terms) - 1;
 
     if($loan->terms[$cTerms]->fee_onTotal) {
         return ($arm_commit + $dist_commit) * $total_fee_percent;
@@ -306,7 +306,7 @@ function getFeeTotal($loan, $total_fee_percent)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
-    $cTerms = count($loan->terms);
+    $cTerms = count($loan->terms) - 1;
 
     if($loan->terms[$cTerms]['fee_onTotal']) {
         return ($arm_commit + $dist_commit) * $total_fee_percent/100;
@@ -318,14 +318,16 @@ function getFeeTotal_armAndDist($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
     $dist_commit = getTotalPartyCommit('dist', $loan->id);
-    $total_fee_percent = ($loan->financials['fee_processing'] + $loan->financials['fee_service'])/100;
+    $cTerms = count($loan->terms) - 1;
+    $total_fee_percent = ($loan->terms[$cTerms]['fee_processing'] + $loan->terms[$cTerms]['fee_service'])/100;
 
     return ($arm_commit + $dist_commit) * $total_fee_percent;
 }
 function getFeeTotal_armOnly($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);
-    $total_fee_percent = ($loan->financials['fee_processing'] + $loan->financials['fee_service'])/100;
+    $cTerms = count($loan->terms) - 1;
+    $total_fee_percent = ($loan->terms[$cTerms]['fee_processing'] + $loan->terms[$cTerms]['fee_service'])/100;
 
     return $arm_commit * $total_fee_percent;
 }
@@ -640,7 +642,9 @@ function processFarmUnit($unit, $loan) {
                 'prot_factor' => (double)$policy['stax_protection_factor'],
                 'cov_err_check' => (double)$policy['ins_level'] + (double)$policy['stax_desired_range'],
                 'exp_yield' => (double)$policy['exp_yield'],
-                'planting_days' => (integer)$policy['planting_days']
+                'planting_days' => (integer)$policy['planting_days'],
+                'CF' => 255,
+                'EX' => -10
             ];
         }
     }

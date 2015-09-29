@@ -17,6 +17,11 @@ class CreateCommitteespecsTable extends Migration
             $table->integer('loantype_id');
             $table->double('min_amount')->default(0);
             $table->double('max_amount')->default(0);
+            $table->double('min_debt_asset')->default(0);
+            $table->double('max_debt_asset')->default(0);
+            $table->double('min_loan_asset')->default(0);
+            $table->double('max_loan_asset')->default(0);
+            $table->string('applicant_grade')->default(0);
             $table->integer('member_count')->default(0);
             $table->timestamps();
         });
