@@ -62,20 +62,20 @@ class LoansTableSeeder extends Seeder
 
         // Matches Excel 2015
         Loan::create([
-            'applicant_id' => 8,
+            'applicant_id' => 9,
             'app_date' => '02/14/2015',
             'distributor_approval_date' => '03/01/2015',
             'decision_date' => '03/05/2015',
             'default_due_date' => '12/15/2015',
             'due_date' => '12/15/2015',
-            'loan_type_id' => 2,
+            'loan_type_id' => 6,
             'status_id' => 1,
             'crop_year' => '2015',
             'season' => 'S',
             'loc_id' => 5,
             'region_id' => 3,
             'user_id' => 3,
-            'farmer_id' => 9,
+            'farmer_id' => 1,
             'is_xcolled' => 1,
             'is_fast_tracked' => 0,
             'grade' => 'B',

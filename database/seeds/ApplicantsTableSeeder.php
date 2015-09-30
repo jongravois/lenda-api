@@ -157,5 +157,24 @@ class ApplicantsTableSeeder extends Seeder
             'spouse' => '',
             'spouse_ssn' => ''
         ]);
+
+        Applicant::create([
+            'loc_id' => 1,
+            'entity_id' => 4,
+            'farmer_id' => 1,
+            'applicant' => 'Stark Towers',
+            'grade' => 'A',
+            'ssn' => '22187361',
+            'email' => 'tstark@farm.org',
+            'dob' => Carbon::createFromFormat('Y-m-d','1987-10-07'),
+            'address' => '321 Farmers Dell',
+            'phone' => '7777777777',
+            'city' => 'Monroe',
+            'state_id' => 19,
+            'zip' => '99999',
+            'rup' => true,
+            'rup_num' => '2T23765',
+            'rup_exp' => '02/14/2018'
+        ]);
     }
 }

@@ -73,7 +73,7 @@ class LoanTransformer extends TransformerAbstract {
         $estDays = $item->termmods->last()->est_days;
 
         return [
-            'fsapayments' => $item->fsapayments,
+            'tabstats' => $item->tabstats,
             'terms' => $item->termmods,
             'fins' => [
                 'discounts' => [
@@ -195,7 +195,7 @@ class LoanTransformer extends TransformerAbstract {
             'farmunits' => processFarmUnits($item),
             'financials' => $item->financials,
             'fsa_compliant' => (integer)$item->fsa_compliant,
-            //'fsapayments' => $item->fsapayments,
+            'fsapayments' => $item->fsapayments,
             'full_season' => $fullSeason,
             'grade' => $item->grade,
             'has_addendum' => (boolean)$item->has_addendum,

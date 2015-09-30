@@ -96,6 +96,7 @@ class DatabaseSeeder extends Seeder
             'StatesTableSeeder',
             'StoragecontractsTableSeeder',
             'SystemicsTableSeeder',
+            'TabstatusesTableSeeder',
             'TermsmodificationsTableSeeder',
 //            'UnitpracticesTableSeeder',
             'UploadsTableSeeder',
