@@ -97,6 +97,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('libraryfiletypes', 'LibraryfiletypesController');
 	Route::resource('loanconditions', 'LoanconditionsController');
 	Route::resource('loancrops', 'LoancropsController');
+	Route::resource('loancropyields', 'LoancropsController');
 	Route::resource('loandistributors', 'LoandistributorsController');
 	Route::resource('loanexceptions', 'LoanexceptionsController');
 	Route::resource('loanfins', 'LoanfinancialsController');

@@ -73,8 +73,6 @@ class LoanTransformer extends TransformerAbstract {
         $estDays = $item->termmods->last()->est_days;
 
         return [
-            'tabstats' => $item->tabstats,
-            'terms' => $item->termmods,
             'fins' => [
                 'discounts' => [
                     'percent_crop' => (double)$item->discounts['disc_percent_crop'],
@@ -100,6 +98,7 @@ class LoanTransformer extends TransformerAbstract {
                 'commit_other' => $commitOther,
                 'commit_total' => (double)$commitArm+(double)$commitDist,
                 'crop_acres' => getAllCropAcres($item->id),
+                'cropids_in_loan' => getCropIDsInLoan($item->id),
                 'crops_in_loan' => getCropsInLoan($item->id),
                 'dist_cat_expense' => getPartyCatTotalExpenses($item->id, 'dist'),
 
@@ -285,7 +284,7 @@ class LoanTransformer extends TransformerAbstract {
             'required_3party' => (boolean)$item->required_3party,
             'season' => $item->season,
             'status' => $item->status,
-            //'systemics' => $item->systemics,
+            'tabstats' => $item->tabstats,
             'terms' => $item->termmods,
             'transactions' => $item->transactions,
             'xcols' => getXCols($item->id)
