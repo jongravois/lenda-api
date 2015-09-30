@@ -21,7 +21,8 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\CreateLoanConditions',
             'App\Listeners\CreateEmptyCommittee',
             'App\Listeners\CreateEmptyLoanComment',
-            'App\Listeners\CreateTermMod'
+            'App\Listeners\CreateTermMod',
+            'App\Listeners\CreatePlannedCrops'
         ],
     ];
 

@@ -227,7 +227,7 @@ class LoanTransformer extends TransformerAbstract {
             'other_collateral' => $item->othercollateral,
             'past_due' => $pastDue,
             'permission_to_insure_verified' => (integer)$item->permission_to_insure_verified,
-            'planned_crops' => getPlannedCrops($item),
+            'planned_crops' => $item->plannedcrops,
             'prev_lien_verified' => (integer)$item->prev_lien_verified,
             'prior_liens' => $item->priorliens,
             'quests' => [

@@ -11,13 +11,17 @@
 |
 */
 
+use App\Crop;
 use App\Events\LoanWasCreated;
 use App\Events\UserWasCreated;
 use App\Loan;
 use Carbon\Carbon;
 
 Route::get('/', function () {
-		return sayHi();
+    return sayHi();
+//    $allCrops = Crop::all();
+//    dd($allCrops);
+
 
 	/*	$record = Loan::create([
 		'applicant_id' => 4,
@@ -114,6 +118,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('otherincomesources', 'OtherincomesourcesController');
 	Route::resource('partners', 'PartnersController');
 	Route::resource('pdfapps', 'PdfappsController');
+	Route::resource('plannedcrops', 'PlannedcropsController');
 	Route::resource('prerequisites', 'PrerequisitesController');
 	Route::resource('priorliens', 'PriorliensController');
 	Route::resource('qbtrans', 'QbtransController');

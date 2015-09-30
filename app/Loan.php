@@ -173,6 +173,9 @@ class Loan extends Model
     public function practices() {
         return $this->hasMany('App\Loanpractice');
     }
+    public function plannedcrops() {
+        return $this->hasMany('App\Plannedcrop', 'loan_id', 'id');
+    }
     public function priorliens() {
         return $this->hasMany('App\Priorlien', 'loan_id', 'id');
     }

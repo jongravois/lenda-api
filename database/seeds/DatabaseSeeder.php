@@ -75,6 +75,7 @@ class DatabaseSeeder extends Seeder
             'OtherincomesourcesTableSeeder',
             'PartnersTableSeeder',
             'PdfappsTableSeeder',
+            'PlannedcropsTableSeeder',
             'PrerequisitesTableSeeder',
             'PriorliensTableSeeder',
             'QbtransTableSeeder',
