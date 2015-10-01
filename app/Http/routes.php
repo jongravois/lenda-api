@@ -65,6 +65,7 @@ Route::group(['prefix' => 'api'], function()
 	Route::resource('applicants', 'ApplicantsController');
 	Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
 	Route::resource('buyers', 'BuyersController');
+	Route::resource('closingdocs', 'ClosingdocsController');
 	Route::resource('comments', 'CommentsController');
 	Route::resource('commentstatuses', 'CommentstatusesController');
 	Route::resource('commentusers', 'CommentusersController');

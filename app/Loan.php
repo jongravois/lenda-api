@@ -101,6 +101,9 @@ class Loan extends Model
     public function buyers() {
         return $this->hasMany('App\Buyer', 'loan_id', 'id');
     }
+    public function closingdocs() {
+        return $this->hasMany('App\Closingdoc', 'loan_id', 'id');
+    }
     public function committee() {
         return $this->hasMany('App\Committee', 'loan_id', 'id');
     }

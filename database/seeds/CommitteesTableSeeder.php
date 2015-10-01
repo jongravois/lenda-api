@@ -50,6 +50,7 @@ class CommitteesTableSeeder extends Seeder
             'loan_id' => 1,
             'role_id' => 9,
             'user_id' => 8,
+            'vote_request_date' => '2015-09-11',
             'vote_status' => 'pending',
             'committee_role' => 'Manager'
         ]);

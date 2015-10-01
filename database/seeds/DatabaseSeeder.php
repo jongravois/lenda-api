@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             'ApplicantsTableSeeder',
             'AttachmentsTableSeeder',
             'BuyersTableSeeder',
+            'ClosingdocsTableSeeder',
             'CommentsTableSeeder',
             'CommentstatusesTableSeeder',
             'CommitteesTableSeeder',

@@ -158,6 +158,7 @@ class LoanTransformer extends TransformerAbstract {
             'bankruptcy_order_received' => (integer)$item->bankruptcy_order_received,
             'buyers' => $item->buyers,
             'ccc_received' => (integer)$item->ccc_received,
+            'closingdocs' => $item->closingdocs,
             'committee' => $item->committee,
             'committee_vote' => committeeVote($item->id),
             'comments' => $item->comments,
