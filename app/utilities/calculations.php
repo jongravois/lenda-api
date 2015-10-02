@@ -184,7 +184,7 @@ function getCropIDsInLoan($loanID) {
 function getCropsInLoan($loanID)
 {
     $retro = [];
-    $crops = DB::select(DB::raw("SELECT lc.crop_id, c.crop FROM loancrops lc, crops c WHERE c.id = lc.crop_id AND lc.loan_id = {{$loanID}} GROUP BY c.crop ORDER BY c.id"));
+    $crops = DB::select(DB::raw("SELECT lc.crop_id, c.crop FROM loancrops lc, crops c WHERE c.id = lc.crop_id AND lc.loan_id = {$loanID} GROUP BY c.crop ORDER BY c.id"));
 
     foreach($crops as $crop) {
         array_push($retro, $crop->crop);
