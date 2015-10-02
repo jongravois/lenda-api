@@ -16,6 +16,7 @@ class CreateAttachmentsTable extends Migration
             $table->increments('id');
             $table->integer('loan_id')->unsigned();
             $table->integer('user_id')->unsigned()->nullable();
+            $table->boolean('is_required')->default(true);
             $table->string('status')->default('pending');
             $table->string('title');
             $table->string('filename')->nullable();

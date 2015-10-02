@@ -27,7 +27,7 @@ class ApplicantsTableSeeder extends Seeder
             'zip' => '99999',
             'rup' => true,
             'rup_num' => '2T23765',
-            'rup_exp' => '02/14/2018'
+            'rup_exp' => Carbon::createFromFormat('Y-m-d','2018-02-14')
         ]);
 
         Applicant::create([
@@ -174,7 +174,7 @@ class ApplicantsTableSeeder extends Seeder
             'zip' => '99999',
             'rup' => true,
             'rup_num' => '2T23765',
-            'rup_exp' => '02/14/2018'
+            'rup_exp' => Carbon::createFromFormat('Y-m-d','2018-02-14')
         ]);
     }
 }

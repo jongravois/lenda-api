@@ -12,6 +12,7 @@ class AttachmentTransformer extends TransformerAbstract {
             'id' => $item->id,
             'loan_id' => (integer) $item->loan_id,
             'user_id' => $item->user_id,
+            'is_required' => (boolean)$item->is_required,
             'status' => $item->status,
             'title' => $item->title,
             'filename' => $item->filename,

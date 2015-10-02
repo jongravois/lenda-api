@@ -12,6 +12,7 @@ class PrerequisiteTransformer extends TransformerAbstract {
         return [
             'id' => $item->id,
             'loan_id' => $item->loan_id,
+            'is_required' => (boolean)$item->is_required,
             'document' => $item->document,
             'title' => $item->title,
             'received' => (boolean)$item->received,

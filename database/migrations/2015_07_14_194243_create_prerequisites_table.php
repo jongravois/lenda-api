@@ -16,6 +16,7 @@ class CreatePrerequisitesTable extends Migration
             $table->increments('id');
             $table->integer('loan_id');
             $table->string('document');
+            $table->boolean('is_required')->default(true);
             $table->string('title');
             $table->boolean('received')->default(0);
             $table->date('date_requested')->nullable();
