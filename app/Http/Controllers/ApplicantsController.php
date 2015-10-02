@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Applicant;
 use App\Transformers\ApplicantTransformer;
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use League\Fractal\Manager;
@@ -50,7 +50,7 @@ class ApplicantsController extends ApiController
     public function store()
     {
         // insert new
-        $record = Applicant::create(Input::all());
+        $record = Applicant::firstOrCreate(Input::all());
         return $this->respond($record->id);
     }
 
