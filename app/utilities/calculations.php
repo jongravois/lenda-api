@@ -237,6 +237,11 @@ function getDistInterestAlt($commit, $days, $rate) {
 
     return $calc;
 }
+function getExistingCropsInLoan($loanID) {
+    $crops = DB::select(DB::raw("SELECT lc.crop_id, c.crop FROM loancrops lc, crops c WHERE c.id = lc.crop_id AND lc.loan_id = {$loanID} GROUP BY c.crop ORDER BY c.id"));
+
+    return $crops;
+}
 function getFeeProc($loan)
 {
     $arm_commit = getTotalPartyCommit('arm', $loan->id);

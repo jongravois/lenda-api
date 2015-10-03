@@ -104,6 +104,7 @@ class LoanTransformer extends TransformerAbstract {
 
                 'dist_buyDown' => (boolean)$item->financials['dist_buyDown'],
                 'dist_crop_commit' => getPartyCropsCommit($item->id, 'dist'),
+                'existing_crops' => getExistingCropsInLoan($item->id),
                 'exposure' => calcLoanExposure($item),
                 'fee_processing' => (double)$feeProc,
                 'fee_service' =>(double)$feeSvc,
