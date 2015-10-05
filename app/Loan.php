@@ -194,6 +194,9 @@ class Loan extends Model
     public function status() {
         return $this->hasOne('App\Loanstatus', 'id', 'status_id');
     }
+    public function storage() {
+        return $this->hasMany('App\Storagecontract');
+    }
     public function systemics() {
         return $this->hasMany('App\Activity');
     }
