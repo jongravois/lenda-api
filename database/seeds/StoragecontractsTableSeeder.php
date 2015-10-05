@@ -11,7 +11,7 @@ class StoragecontractsTableSeeder extends Seeder
         DB::table('storagecontracts')->delete();
 
         Storagecontract::create([
-            'loan_id' => 7,
+            'loan_id' => 8,
             'contract_number' => '2431',
             'contract_date' => '2015-07-31',
             'delivery_date' => '2015-12-31',
@@ -26,7 +26,7 @@ class StoragecontractsTableSeeder extends Seeder
         ]);
 
         Storagecontract::create([
-            'loan_id' => 7,
+            'loan_id' => 8,
             'contract_number' => '2131',
             'contract_date' => '2015-06-01',
             'delivery_date' => '2015-12-31',
@@ -41,7 +41,7 @@ class StoragecontractsTableSeeder extends Seeder
         ]);
 
         Storagecontract::create([
-            'loan_id' => 7,
+            'loan_id' => 8,
             'contract_number' => '2697',
             'contract_date' => '2015-11-25',
             'delivery_date' => '2015-02-28',
@@ -56,7 +56,7 @@ class StoragecontractsTableSeeder extends Seeder
         ]);
 
         Storagecontract::create([
-            'loan_id' => 7,
+            'loan_id' => 8,
             'contract_number' => '2698',
             'contract_date' => '2015-11-25',
             'delivery_date' => '2016-01-31',
