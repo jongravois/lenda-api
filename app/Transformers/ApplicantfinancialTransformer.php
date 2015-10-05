@@ -16,6 +16,7 @@ class ApplicantfinancialTransformer extends TransformerAbstract {
             'bankruptcy' => (boolean) $item->bankruptcy,
             'judgements' => (boolean) $item->judgements,
             'credit_score' => (double) $item->credit_score,
+            'credit_points' => (double) $item->credit_points,
             'experience' => (double) $item->experience,
             'grade' => $item->grade,
             'amount_requested' => (double) $item->amount_requested,

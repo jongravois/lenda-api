@@ -22,6 +22,7 @@ class CreateApplicantfinancialsTable extends Migration
             $table->boolean('judgements')->default(0);
             $table->double('experience')->default(0);
             $table->double('credit_score')->default(0);
+            $table->double('credit_points')->default(0);
             $table->string('grade')->default('F');
             $table->double('year_1_revenue')->default(0);
             $table->double('year_1_expenses')->default(0);

@@ -86,5 +86,54 @@ class CommentsTableSeeder extends Seeder
             'user_id' => 3,
             'comment'	=>	'The requested loan is the same as last year and Matthew used the funds last year as indicated and repaid the loan on time.'
         ]);
+
+        Comment::create([
+            'loan_id'	=>	3,
+            'type'		=>	'Loan',
+            'user_id' => 3,
+            'comment'	=>	'All loans must have a loan comment and this comment fulfills that requirement. Since this is a loan of test data and is only applicable for the build stage, there really isn\'t information contained within but it does serves as a placeholder.'
+        ]);
+
+        Comment::create([
+            'loan_id'	=>	4,
+            'type'		=>	'Loan',
+            'user_id' => 3,
+            'comment'	=>	'All loans must have a loan comment and this comment fulfills that requirement. Since this is a loan of test data and is only applicable for the build stage, there really isn\'t information contained within but it does serves as a placeholder.'
+        ]);
+
+        Comment::create([
+            'loan_id'	=>	5,
+            'type'		=>	'Loan',
+            'user_id' => 3,
+            'comment'	=>	'All loans must have a loan comment and this comment fulfills that requirement. Since this is a loan of test data and is only applicable for the build stage, there really isn\'t information contained within but it does serves as a placeholder.'
+        ]);
+
+        Comment::create([
+            'loan_id'	=>	6,
+            'type'		=>	'Loan',
+            'user_id' => 3,
+            'comment'	=>	'All loans must have a loan comment and this comment fulfills that requirement. Since this is a loan of test data and is only applicable for the build stage, there really isn\'t information contained within but it does serves as a placeholder.'
+        ]);
+
+        Comment::create([
+            'loan_id'	=>	7,
+            'type'		=>	'Loan',
+            'user_id' => 3,
+            'comment'	=>	'All loans must have a loan comment and this comment fulfills that requirement. Since this is a loan of test data and is only applicable for the build stage, there really isn\'t information contained within but it does serves as a placeholder.'
+        ]);
+
+        Comment::create([
+            'loan_id'	=>	8,
+            'type'		=>	'Loan',
+            'user_id' => 3,
+            'comment'	=>	'All loans must have a loan comment and this comment fulfills that requirement. Since this is a loan of test data and is only applicable for the build stage, there really isn\'t information contained within but it does serves as a placeholder.'
+        ]);
+
+        Comment::create([
+            'loan_id'	=>	9,
+            'type'		=>	'Loan',
+            'user_id' => 3,
+            'comment'	=>	'All loans must have a loan comment and this comment fulfills that requirement. Since this is a loan of test data and is only applicable for the build stage, there really isn\'t information contained within but it does serves as a placeholder.'
+        ]);
     }
 }

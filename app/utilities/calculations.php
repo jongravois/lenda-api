@@ -163,6 +163,18 @@ function getCountyCrops($loanID) {
 
     return $countyCrops;
 }
+function getCountiesInLoan($loanID) {
+    $counties = DB::select(DB::raw("SELECT DISTINCT(county_id) FROM farms WHERE loan_id = {$loanID}"));
+    $retro = [];
+    foreach($counties as $c){
+        $newb = [
+            'id' => $c->county_id
+        ];
+        array_push($retro, $newb);
+    }
+
+    return $retro;
+}
 function getCropAcres($loanID, $cropID)
 {
     $acres = DB::select(DB::raw("SELECT SUM(acres) AS Total FROM loanpractices WHERE loan_id = {$loanID} AND crop_id = {$cropID}"));
@@ -199,6 +211,10 @@ function getCropSupIns($loanID) {
     $scoVal = (double)$sco[0]->ScoVal;
 
     return $staxVal + $scoVal;
+}
+function getDefaultAPHforCounty($countyID, $crop, $prac) {
+    $aph = DB::select(DB::raw("SELECT yield_{$crop}_{$prac} as crop FROM defaultcountycrops WHERE county_id = {$countyID}"));
+    return (double)$aph[0]->crop;
 }
 function getDiscCollateralTotal($type, $loan) {
     if($loan[0]) {
@@ -573,6 +589,42 @@ function processAPHDBS($loan) {
     }
     //return $dbs;
     return $processed;
+}
+function processDefaultAPH($loan) {
+    $retro = [];
+    $counties = DB::select(DB::raw("SELECT DISTINCT(county_id), c.county FROM farms f JOIN counties c ON f.county_id = c.id WHERE loan_id = {$loan->id}"));
+    foreach($counties as $county) {
+        $newb = [
+            $county->county_id => [
+                'IR' => [
+                    'corn' => getDefaultAPHforCounty($county->county_id, 'corn', 'irr'),
+                    'soybeans' => getDefaultAPHforCounty($county->county_id, 'soybeans', 'irr'),
+                    'beansFAC' => getDefaultAPHforCounty($county->county_id, 'soybeansfac', 'irr'),
+                    'sorghum' => getDefaultAPHforCounty($county->county_id, 'sorghum', 'irr'),
+                    'wheat' => getDefaultAPHforCounty($county->county_id, 'wheat', 'irr'),
+                    'cotton' => getDefaultAPHforCounty($county->county_id, 'cotton', 'irr'),
+                    'rice' => getDefaultAPHforCounty($county->county_id, 'rice', 'irr'),
+                    'peanuts' => getDefaultAPHforCounty($county->county_id, 'peanuts', 'irr'),
+                    'sugarcane' => getDefaultAPHforCounty($county->county_id, 'sugarcane', 'irr'),
+                    'sunflowers' => getDefaultAPHforCounty($county->county_id, 'sunflowers', 'irr')
+                ],
+                'NI' => [
+                    'corn' => getDefaultAPHforCounty($county->county_id, 'corn', 'ni'),
+                    'soybeans' => getDefaultAPHforCounty($county->county_id, 'soybeans', 'ni'),
+                    'beansFAC' => getDefaultAPHforCounty($county->county_id, 'soybeansfac', 'ni'),
+                    'sorghum' => getDefaultAPHforCounty($county->county_id, 'sorghum', 'ni'),
+                    'wheat' => getDefaultAPHforCounty($county->county_id, 'wheat', 'ni'),
+                    'cotton' => getDefaultAPHforCounty($county->county_id, 'cotton', 'ni'),
+                    'rice' => getDefaultAPHforCounty($county->county_id, 'rice', 'ni'),
+                    'peanuts' => getDefaultAPHforCounty($county->county_id, 'peanuts', 'ni'),
+                    'sugarcane' => getDefaultAPHforCounty($county->county_id, 'sugarcane', 'ni'),
+                    'sunflowers' => getDefaultAPHforCounty($county->county_id, 'sunflowers', 'ni')
+                ],
+            ]
+        ];
+        array_push($retro, $newb);
+    }
+    return $retro;
 }
 function processFarmUnit($unit, $loan) {
     $cash_rent = (double)$unit->farm->cash_rent;

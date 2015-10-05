@@ -87,6 +87,7 @@ class LoanTransformer extends TransformerAbstract {
                     'percent_realestate' => (double)$item->discounts['disc_percent_realestate'],
                     'percent_other' => (double)$item->discounts['disc_percent_other']
                 ],
+                'amount_requested' => ($item->applicants->fins['amount_requested'] ? $item->applicants->fins['amount_requested'] : $commitArm),
                 'arm_crop_commit' => getPartyCropsCommit($item->id, 'arm'),
                 'arm_cat_expense' => getPartyCatTotalExpenses($item->id, 'arm'),
                 'balance_spent' => (double)getArmTotalSpent($item->id),
@@ -97,11 +98,12 @@ class LoanTransformer extends TransformerAbstract {
                 'commit_dist' => $commitDist,
                 'commit_other' => $commitOther,
                 'commit_total' => (double)$commitArm+(double)$commitDist,
+                'counties_in_loan' => getCountiesInLoan($item->id),
                 'crop_acres' => getAllCropAcres($item->id),
                 'cropids_in_loan' => getCropIDsInLoan($item->id),
                 'crops_in_loan' => getCropsInLoan($item->id),
+                'default_aph' => processDefaultAPH($item),
                 'dist_cat_expense' => getPartyCatTotalExpenses($item->id, 'dist'),
-
                 'dist_buyDown' => (boolean)$item->financials['dist_buyDown'],
                 'dist_crop_commit' => getPartyCropsCommit($item->id, 'dist'),
                 'existing_crops' => getExistingCropsInLoan($item->id),

@@ -10,7 +10,7 @@ class ApplicantfinancialsTableSeeder extends Seeder
     {
         DB::table('applicantfinancials')->delete();
 
-        //8 - Ag-Input
+        //8 - Blind Justice [-]
         Applicantfinancial::create([
             'loan_id' => 1,
             'applicant_id' => 8,
@@ -44,12 +44,13 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'capBorrow_adj' => 57
         ]);
 
-        //2 - Ag-Input
+        //1 - All Glass Towers [1]√
         Applicantfinancial::create([
             'loan_id' => 1,
             'applicant_id' => 1,
             'cpa_financials' => 1,
             'credit_score' => 730,
+            'credit_points' => 45,
             'experience' => 36,
             'grade' => 'A',
             'amount_requested' => 1000000,
@@ -68,22 +69,23 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'fixed_assets' => 3590675,
             'fixed_assets_factor' => 25,
             'fixed_assets_liability' => 1246794,
-            'debt2asset_ratio' => 31,
+            'debt2asset_ratio' => 43,
             'debt2asset_ratio_adj' => 43,
-            'ratio_current' => 379,
-            'ratio_current_adj' => 322,
+            'ratio_current' => 30,
+            'ratio_current_adj' => 30,
             'capWork' => 114,
             'capWork_adj' => 91,
             'capBorrow' => 69,
             'capBorrow_adj' => 57
         ]);
 
-        //5 - Capital Bridge
+        //6 - Capital Bridge [3]√
         Applicantfinancial::create([
             'loan_id' => 3,
             'applicant_id' => 6,
             'cpa_financials' => 1,
             'credit_score' => 730,
+            'credit_points' => 44,
             'experience' => 2,
             'grade' => 'D',
             'amount_requested' 	=> 500000,
@@ -93,6 +95,10 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'year_2_expenses' => 900000,
             'year_3_revenue' => 2845790,
             'year_3_expenses' => 800000,
+            'debt2asset_ratio' => 43,
+            'debt2asset_ratio_adj' => 43,
+            'ratio_current' => 15,
+            'ratio_current_adj' => 15,
             'current_assets' => 1555079,
             'current_assets_factor' => 15,
             'current_assets_liability' => 410285,
@@ -104,12 +110,13 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'fixed_assets_liability' => 1246794
         ]);
 
-        //4 - Ag-Pro Fasttrack
+        //4 - Ag-Pro Fasttrack [4]√
         Applicantfinancial::create([
             'loan_id' => 4,
             'applicant_id' => 3,
             'cpa_financials' => 1,
             'credit_score' => 730,
+            'credit_points' => 45,
             'experience' => 3,
             'grade' => 'C',
             'amount_requested' 	=> 750000,
@@ -119,6 +126,10 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'year_2_expenses' => 900000,
             'year_3_revenue' => 2845790,
             'year_3_expenses' => 800000,
+            'debt2asset_ratio' => 43,
+            'debt2asset_ratio_adj' => 43,
+            'ratio_current' => 23,
+            'ratio_current_adj' => 23,
             'current_assets' => 1555079,
             'current_assets_factor' => 15,
             'current_assets_liability' => 410285,
@@ -130,12 +141,13 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'fixed_assets_liability' => 1246794
         ]);
 
-        //6 - Ag-Vest
+        //6 - Ag-Vest [5]√
         Applicantfinancial::create([
             'loan_id' => 5,
             'applicant_id' => 4,
             'cpa_financials' => 1,
             'credit_score' => 730,
+            'credit_points' => 44,
             'experience' => 36,
             'grade' => 'B',
             'amount_requested' 	=> 1400500,
@@ -145,6 +157,10 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'year_2_expenses' => 900000,
             'year_3_revenue' => 2845790,
             'year_3_expenses' => 800000,
+            'debt2asset_ratio' => 43,
+            'debt2asset_ratio_adj' => 43,
+            'ratio_current' => 43,
+            'ratio_current_adj' => 43,
             'current_assets' => 1555079,
             'current_assets_factor' => 15,
             'current_assets_liability' => 410285,
@@ -156,12 +172,13 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'fixed_assets_liability' => 1246794
         ]);
 
-        //3 - Ag-Pro
+        //3 - Ag-Pro [6]√
         Applicantfinancial::create([
             'loan_id' => 6,
             'applicant_id' => 2,
             'cpa_financials' => 1,
             'credit_score' => 770,
+            'credit_points' => 47,
             'experience' => 25,
             'grade' => 'A',
             'amount_requested' 	=> 865000,
@@ -171,6 +188,10 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'year_2_expenses' => 900000,
             'year_3_revenue' => 2845790,
             'year_3_expenses' => 800000,
+            'debt2asset_ratio' => 43,
+            'debt2asset_ratio_adj' => 43,
+            'ratio_current' => 26,
+            'ratio_current_adj' => 26,
             'current_assets' => 1555079,
             'current_assets_factor' => 15,
             'current_assets_liability' => 410285,
@@ -182,12 +203,13 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'fixed_assets_liability' => 1246794
         ]);
 
-        //1 - All-In
+        //1 - All-In [7]√
         Applicantfinancial::create([
             'loan_id' => 7,
             'applicant_id' => 5,
             'cpa_financials' => 1,
             'credit_score' => 730,
+            'credit_points' => 44,
             'experience' => 36,
             'grade' => 'B',
             'amount_requested' 	=> 2500000,
@@ -197,6 +219,10 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'year_2_expenses' => 900000,
             'year_3_revenue' => 2845790,
             'year_3_expenses' => 800000,
+            'debt2asset_ratio' => 43,
+            'debt2asset_ratio_adj' => 43,
+            'ratio_current' => 76,
+            'ratio_current_adj' => 76,
             'current_assets' => 1555079,
             'current_assets_factor' => 15,
             'current_assets_liability' => 410285,
@@ -208,19 +234,44 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'fixed_assets_liability' => 1246794
         ]);
 
-        //7 - Grain-Storage
+        //7 - Grain-Storage [8]
         Applicantfinancial::create([
             'loan_id' => 8,
             'applicant_id' => 7,
-            'amount_requested' => 200000
+            'cpa_financials' => 1,
+            'credit_score' => 730,
+            'credit_points' => 44,
+            'experience' => 36,
+            'grade' => 'B',
+            'amount_requested' 	=> 2500000,
+            'year_1_revenue' => 1842701,
+            'year_1_expenses' => 1000000,
+            'year_2_revenue' => 1937418,
+            'year_2_expenses' => 900000,
+            'year_3_revenue' => 2845790,
+            'year_3_expenses' => 800000,
+            'debt2asset_ratio' => 43,
+            'debt2asset_ratio_adj' => 43,
+            'ratio_current' => 76,
+            'ratio_current_adj' => 76,
+            'current_assets' => 1555079,
+            'current_assets_factor' => 15,
+            'current_assets_liability' => 410285,
+            'intermediate_assets' => 2831750,
+            'intermediate_assets_factor' => 40,
+            'intermediate_assets_liability' => 776456,
+            'fixed_assets' => 3590675,
+            'fixed_assets_factor' => 25,
+            'fixed_assets_liability' => 1246794
         ]);
 
-        //6 - Ag-Vest
+        //6 - Ag-Vest [2]√
         Applicantfinancial::create([
             'loan_id' => 2,
             'applicant_id' => 9,
             'cpa_financials' => 1,
             'credit_score' => 730,
+            'credit_points' => 45,
             'experience' => 36,
             'grade' => 'A',
             'amount_requested' => 1000000,
@@ -230,6 +281,10 @@ class ApplicantfinancialsTableSeeder extends Seeder
             'year_2_expenses' => 900000,
             'year_3_revenue' => 2845790,
             'year_3_expenses' => 800000,
+            'debt2asset_ratio' => 43,
+            'debt2asset_ratio_adj' => 43,
+            'ratio_current' => 30,
+            'ratio_current_adj' => 30,
             'current_assets' => 1555079,
             'current_assets_factor' => 15,
             'current_assets_liability' => 410285,

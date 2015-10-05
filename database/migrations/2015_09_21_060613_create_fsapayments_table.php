@@ -16,6 +16,7 @@ class CreateFsapaymentsTable extends Migration
             $table->increments('id');
             $table->integer('loan_id')->unsigned();
             $table->integer('farm_id')->unsigned();
+            $table->integer('crop_id')->unsigned();
             $table->string('pgm')->nullable();
             $table->double('base_acres')->default(0);
             $table->double('fsa_yield')->default(0);
