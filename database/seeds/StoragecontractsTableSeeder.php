@@ -12,6 +12,7 @@ class StoragecontractsTableSeeder extends Seeder
 
         Storagecontract::create([
             'loan_id' => 8,
+            'commodity' => 'cotton',
             'contract_number' => '2431',
             'contract_date' => '2015-07-31',
             'delivery_date' => '2015-12-31',
@@ -20,6 +21,7 @@ class StoragecontractsTableSeeder extends Seeder
             'contract_amount' => 50000,
             'contract_price' => 7.0000,
             'owner_share' => 21.3,
+            'mkt_set' => true,
             'revenue' => 275625,
             'eligible_proceeds' => 206719,
             'advance_percent' => 75
@@ -27,6 +29,7 @@ class StoragecontractsTableSeeder extends Seeder
 
         Storagecontract::create([
             'loan_id' => 8,
+            'commodity' => 'soybeans',
             'contract_number' => '2131',
             'contract_date' => '2015-06-01',
             'delivery_date' => '2015-12-31',
@@ -37,11 +40,13 @@ class StoragecontractsTableSeeder extends Seeder
             'owner_share' => 21.3,
             'revenue' => 265781,
             'eligible_proceeds' => 199336,
-            'advance_percent' => 75
+            'mkt_set' => false,
+            'advance_percent' => 90
         ]);
 
         Storagecontract::create([
             'loan_id' => 8,
+            'commodity' => 'corn',
             'contract_number' => '2697',
             'contract_date' => '2015-11-25',
             'delivery_date' => '2015-02-28',
@@ -52,11 +57,13 @@ class StoragecontractsTableSeeder extends Seeder
             'owner_share' => 24.6,
             'revenue' => 401505,
             'eligible_proceeds' => 301129,
-            'advance_percent' => 75
+            'mkt_set' => false,
+            'advance_percent' => 90
         ]);
 
         Storagecontract::create([
             'loan_id' => 8,
+            'commodity' => 'sorghum',
             'contract_number' => '2698',
             'contract_date' => '2015-11-25',
             'delivery_date' => '2016-01-31',
@@ -67,6 +74,7 @@ class StoragecontractsTableSeeder extends Seeder
             'owner_share' => 21.3,
             'revenue' => 94322,
             'eligible_proceeds' => 70741,
+            'mkt_set' => true,
             'advance_percent' => 75
         ]);
     }

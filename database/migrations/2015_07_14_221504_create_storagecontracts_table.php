@@ -22,6 +22,7 @@ class CreateStoragecontractsTable extends Migration
             $table->date('contract_date')->nullable();
             $table->date('delivery_date')->nullable();
             $table->double('contract_amount')->default(0);
+            $table->boolean('mkt_set')->default(false);
             $table->double('contract_price')->default(0);
             $table->double('owner_share')->default(0);
             $table->double('amount_requested')->default(0);

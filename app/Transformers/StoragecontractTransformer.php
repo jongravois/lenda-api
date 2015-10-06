@@ -20,6 +20,7 @@ class StoragecontractTransformer extends TransformerAbstract {
             'advance_percent' => (double) $item->advance_percent,
             'contract_amount' => (double) $item->contract_amount,
             'contract_price' => (double) $item->contract_price,
+            'mkt_set' => (boolean) $item->mkt_set,
             'owner_share' => (double) $item->owner_share,
             'amount_requested' => (double) $item->amount_requested,
             'revenue' => (double) $item->revenue,

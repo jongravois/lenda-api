@@ -534,7 +534,7 @@ function makeSlug($loan) {
     if($loan->distributor) {
         $distributor = ' (' . $loan->distributor->distributor . ') - ' ;
     } else {
-        $distributor = '';
+        $distributor = ' ';
     }
 
     $applicant = $loan->applicants->applicant;
@@ -542,8 +542,11 @@ function makeSlug($loan) {
     $loanType = $loan->loantypes->loantype;
     $cropYear = $loan->crop_year;
 
-
-    return $applicant . ' (' . $farmer . ') - ' . $loanType . $distributor  . $cropYear . ' (' . $fullSeason  . ')';
+    if($loan->loan_type_id == 7) {
+        return $applicant . ' (' . $farmer . ') - ' . $loanType . $distributor  . $cropYear;
+    } else {
+        return $applicant . ' (' . $farmer . ') - ' . $loanType . $distributor  . $cropYear . ' (' . $fullSeason  . ')';
+    }
 }
 function makeSlugWithParts($applicant, $farmer, $loanType, $cropYear, $season, $dist) {
     if($dist) {
